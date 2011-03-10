@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/346/trunk/tests
+END
+api.vim
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/346/trunk/tests/api.vim
+END
+test.vim
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/342/trunk/tests/test.vim
+END

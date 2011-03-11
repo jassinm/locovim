@@ -28,3 +28,15 @@
 [submodule "bundle/vim-objj"]
 	path = bundle/vim-objj
 	url = git://github.com/nanki/vim-objj
+[submodule "bundle/searchcomplete"]
+	path = bundle/searchcomplete
+	url = https://github.com/vim-scripts/SearchComplete.git
+[submodule "bundle/timestamp"]
+	path = bundle/timestamp
+	url = https://github.com/vim-scripts/timestamp.vim.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = http://github.com/ervandew/supertab

@@ -5,7 +5,7 @@ filetype indent on
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-set runtimepath+=~/vim-objj
+set runtimepath+=~/.vim/bundle/vim-objj
 
 
 if has('gui_running')

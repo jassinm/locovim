@@ -44,16 +44,16 @@ ino jj <esc>
 cno jj <esc>
 
 " Move the cursor to the window left of the current one
-noremap <silent> ,h :wincmd h<cr>
+"noremap <silent> ,h :wincmd h<cr>
 "
 " " Move the cursor to the window below the current one
-noremap <silent> ,j :wincmd j<cr>
+"noremap <silent> ,j :wincmd j<cr>
 "
 " " Move the cursor to the window above the current one
-noremap <silent> ,k :wincmd k<cr>
+"noremap <silent> ,k :wincmd k<cr>
 "
 " " Move the cursor to the window right of the current one
-noremap <silent> ,l :wincmd l<cr>
+"noremap <silent> ,l :wincmd l<cr>
 
 
 set wildignore=*.swp,*.bak,*.pyc,*.class

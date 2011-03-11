@@ -74,6 +74,9 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
+
+map <buffer> K :execute "!pydoc " . expand("<cword>")<CR>
+
 " Enable the python indent script
 :syntax on
 ":set tabstop=4 shiftwidth=4 softtabstop=4 

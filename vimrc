@@ -23,6 +23,9 @@ set autochdir
 
 let mapleader=","
 
+
+nmap <Leader>t :CommandT<CR>
+
 """""""""""VIMRC Loading"""""""""""""""""""""""""""""""
 nmap <Leader>b :source $MYVIMRC
 " opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
@@ -60,10 +63,11 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 
-
+"Allows to change buffer w/o saving current buffer
 set hidden 
 
 ":com Devall cd /Users/locojay/Documents/workspace 
+
 "SnipMate
 let g:snips_author = 'Jassin MEKNASSI'
 "pyflakes
@@ -114,7 +118,9 @@ nmap <silent> <D-k> :TlistToggle<CR>
 nmap <silent> <D-i> :ConqueTermVSplit ipython<CR>
 let g:ConqueTerm_SendVisKey = '<C-i>'
 
-
+"""""""""""""""""""
+"OmniFocus
+"""""""""""""""""""
 
 " omnifocus as constrol space
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
@@ -125,8 +131,11 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
-let OmniCpp_SelectFirstItem = 0
+"let OmniCpp_SelectFirstItem = 0
 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Preview window for python
 fu! DoRunPyBuffer2()
 pclose! " force preview window closed
@@ -142,14 +151,5 @@ winc p
 endfu
 command! RunPyBuffer call DoRunPyBuffer2()
 map <Leader>p :RunPyBuffer<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"no arrow keys
-
-"noremap  <Up> ""
-"noremap! <Up> <Esc>
-"noremap  <Down> ""
-"noremap! <Down> <Esc>
-"noremap  <Left> ""
-"noremap! <Left> <Esc>
-"noremap  <Right> ""
-"noremap! <Right> <Esc>

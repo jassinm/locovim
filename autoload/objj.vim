@@ -106,14 +106,14 @@ syn keyword objjDeprecated	escape unescape
 syn keyword objjReserved	abstract boolean byte char class const debugger double enum export extends final float goto implements import int interface long native package private protected public short static super synchronized throws transient volatile 
 
 if exists("objj_fold")
-    syn match	objjFunction      "\<function\>"
-    syn region	objjFunctionFold	start="\<function\>.*[^};]$" end="^\z1}.*$" transparent fold keepend
+	syn match	objjFunction      "\<function\>"
+	syn region	objjFunctionFold	start="\<function\>.*[^};]$" end="^\z1}.*$" transparent fold keepend
 
-    syn sync match objjSync	grouphere objjFunctionFold "\<function\>"
-    syn sync match objjSync	grouphere NONE "^}"
+	syn sync match objjSync	grouphere objjFunctionFold "\<function\>"
+	syn sync match objjSync	grouphere NONE "^}"
 
-    setlocal foldmethod=syntax
-    setlocal foldtext=getline(v:foldstart)
+	setlocal foldmethod=syntax
+	setlocal foldtext=getline(v:foldstart)
 else
     syn keyword	objjFunction      function
     syn match	objjBraces	   "[{}\[\]]"

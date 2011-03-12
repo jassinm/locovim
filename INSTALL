@@ -6,5 +6,9 @@ cd ~/.vim
 git submodule init
 git submodule update
 
-
+"ack
+curl http://betterthangrep.com/ack-standalone > ~/bin/ack && chmod 0755 !#:3
 #easy_install -U pysmell
+cd ~/.vim/bundle/command-t/ruby/command-t
+ruby extconf.rb
+make

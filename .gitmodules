@@ -43,3 +43,12 @@
 [submodule "bundle/vim-pyref"]
 	path = bundle/vim-pyref
 	url = https://github.com/vim-scripts/pyref.vim
+[submodule "bundle/jslint"]
+	path = bundle/jslint
+	url = http://github.com/hallettj/jslint.vim
+[submodule "bundle/ack"]
+	path = bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/cocoa.vim"]
+	path = bundle/cocoa.vim
+	url = http://github.com/msanders/cocoa.vim

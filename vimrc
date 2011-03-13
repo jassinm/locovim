@@ -7,7 +7,6 @@ call pathogen#helptags()
 
 set runtimepath+=~/.vim/bundle/vim-objj
 
-
 if has('gui_running')
     " GUI colors
     set background=dark 
@@ -122,6 +121,7 @@ let g:ConqueTerm_SendVisKey = '<C-i>'
 """""""""""""""""""
 "OmniFocus
 """""""""""""""""""
+set completeopt=menu,preview
 
 " omnifocus as constrol space
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 

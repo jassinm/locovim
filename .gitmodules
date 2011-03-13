@@ -55,3 +55,9 @@
 [submodule "bundle/vim-align"]
 	path = bundle/vim-align
 	url = https://github.com/tsaleh/vim-align.git
+[submodule "bundle/AutoComplPop"]
+	path = bundle/AutoComplPop
+	url = https://github.com/vim-scripts/AutoComplPop.git
+[submodule "bundle/neocomplecache"]
+	path = bundle/neocomplecache
+	url = https://github.com/Shougo/neocomplcache.git

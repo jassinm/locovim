@@ -23,6 +23,7 @@ set autochdir
 
 let mapleader=","
 
+"let g:objj_fold=1
 
 nmap <Leader>t :CommandT<CR>
 

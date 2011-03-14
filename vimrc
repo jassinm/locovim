@@ -105,7 +105,9 @@ autocmd FileType python set hlsearch
 
 "java
 autocmd FileType java set foldmethod=syntax
-"NERDTree
+"-------------------------------------------------------------
+"NerdTree Plugin Settings
+"-------------------------------------------------------------
 let NERDTreeIgnore=['\.pyc$', '\.xls$']
 nmap <silent> <D-d> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "left"
@@ -114,15 +116,17 @@ let g:NERDTreeWinPos = "left"
 let Tlist_Use_Right_Window   = 1
 nmap <silent> <D-k> :TlistToggle<CR>
 
-"conque
+"-------------------------------------------------------------
+"Conque Plugin Settings
+"-------------------------------------------------------------
 nmap <silent> <D-i> :ConqueTermVSplit ipython<CR>
 let g:ConqueTerm_SendVisKey = '<C-i>'
 
-"""""""""""""""""""
-"OmniFocus
-"""""""""""""""""""
-set completeopt=menu,preview
+"-------------------------------------------------------------
+"Omnifocus
+"-------------------------------------------------------------
 
+set completeopt=menu,preview
 " omnifocus as constrol space
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -133,8 +137,6 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
 "let OmniCpp_SelectFirstItem = 0
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Preview window for python
@@ -154,3 +156,20 @@ command! RunPyBuffer call DoRunPyBuffer2()
 map <Leader>p :RunPyBuffer<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"-------------------------------------------------------------
+"MinibufExplorer Plugin Settings
+"-------------------------------------------------------------
+let g:miniBufExplTabWrap=1
+let g:miniBufExplMaxSize=1
+let g:miniBufExplorerMoreThanOne=0
+let g:miniBufExplMapCTabSwitchBufs = 1
+"turnoff minibufexpl
+let loaded_minibufexplorer=1
+
+
+"-------------------------------------------------------------
+"Buftabs Plugin Settings
+"-------------------------------------------------------------
+let g:buftabs_in_statusline=1
+":noremap <C-left> :bprev<CR>
+:noremap <C-TAB> :bnext<CR>

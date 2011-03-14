@@ -61,3 +61,12 @@
 [submodule "bundle/neocomplecache"]
 	path = bundle/neocomplecache
 	url = https://github.com/Shougo/neocomplcache.git
+[submodule "bundle/Vim-R-plugin"]
+	path = bundle/Vim-R-plugin
+	url = https://github.com/vim-scripts/Vim-R-plugin.git
+[submodule "bundle/runscript.vim"]
+	path = bundle/runscript.vim
+	url = https://github.com/vim-scripts/runscript.vim.git
+[submodule "bundle/buftabs"]
+	path = bundle/buftabs
+	url = https://github.com/vim-scripts/buftabs.git

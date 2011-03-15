@@ -90,7 +90,7 @@ autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
 autocmd FileType python setlocal autoindent
 
 "Objective-J
-au BufNewFile,BufRead *.j,Jakefile setf objj
+au BufNewFile,BufRead *.j  setfiletype objc
 au BufNewFile,BufRead *.j  setlocal ts=8 sts=4 sw=4 expandtab
 "Preview
 :let g:Tex_ViewRule_pdf = 'Preview'

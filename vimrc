@@ -204,3 +204,9 @@ map <Leader>acd :AcpDisable<CR>
 "-------------------------------------------------------------
 
 let tlist_objc_settings='objc;P:protocols;i:interfaces;I:implementations;M:instance methods;C:implementation methods;Z:protocol methods'
+
+
+"-------------------------------------------------------------
+"make green plugin
+"-------------------------------------------------------------
+map nose <Plug>MakeGreen

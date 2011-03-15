@@ -198,3 +198,9 @@ au BufNewFile,BufRead *.j setlocal foldmethod=expr
 "-------------------------------------------------------------
 map <Leader>ace :AcpEnable<CR>
 map <Leader>acd :AcpDisable<CR>
+
+"-------------------------------------------------------------
+"taglist Settings
+"-------------------------------------------------------------
+
+let tlist_objc_settings='objc;P:protocols;i:interfaces;I:implementations;M:instance methods;C:implementation methods;Z:protocol methods'

@@ -12,3 +12,16 @@ curl http://betterthangrep.com/ack-standalone > ~/bin/ack && chmod 0755 !#:3
 cd ~/.vim/bundle/command-t/ruby/command-t
 ruby extconf.rb
 make
+
+#ctags with Objc support
+
+git clone git://git.aeruder.net/ctags-objc.git
+cd ctags-objc
+autoheader
+autoconf
+./configure
+make
+sudo make install
+
+"symlink ctags to bin incase port ctags is installed
+ln -s /usr/local/bin/ctags ~/bin/ctags

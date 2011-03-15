@@ -193,3 +193,8 @@ endfunction
 au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
 au BufNewFile,BufRead *.j setlocal foldmethod=expr
 
+"-------------------------------------------------------------
+"AutoComplete Popup Plugin Settings
+"-------------------------------------------------------------
+map <Leader>ace :AcpEnable<CR>
+map <Leader>acd :AcpDisable<CR>

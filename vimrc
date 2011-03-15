@@ -173,3 +173,23 @@ let loaded_minibufexplorer=1
 let g:buftabs_in_statusline=1
 ":noremap <C-left> :bprev<CR>
 :noremap <C-TAB> :bnext<CR>
+
+" Javadoc comments (/** and */ pairs) and code sections (marked by {} pairs) mark the start and end of folds. All other
+" lines simply take the fold level that is going so far.
+function! MyFoldLevel( lineNumber )
+  let thisLine = getline( a:lineNumber )
+  " If the entire Javadoc comment or the {} pair is on one line, then don't create a fold for it.
+  if ( thisLine =~ '\%(\%(/\*\*\).*\%(\*/\)\)\|\%({.*}\)' )
+    return '='
+  elseif ( thisLine =~ '\%(^\s*/\*\*\s*$\)\|{' )
+    return "a1"
+  elseif ( thisLine =~ '\%(^\s*\*/\s*$\)\|}' )
+    return "s1"
+  endif
+  return '='
+endfunction
+
+"setlocal foldexpr=MyFoldLevel(v:lnum)
+au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
+au BufNewFile,BufRead *.j setlocal foldmethod=expr
+

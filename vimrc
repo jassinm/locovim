@@ -209,4 +209,4 @@ let tlist_objc_settings='objc;P:protocols;i:interfaces;I:implementations;M:insta
 "-------------------------------------------------------------
 "make green plugin
 "-------------------------------------------------------------
-map nose <Plug>MakeGreen
+map nose :call MakeGreen()<CR> 

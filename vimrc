@@ -29,7 +29,7 @@ nmap <Leader>b :source $MYVIMRC
 nmap <Leader>v :e $MYVIMRC
 
 
-set autochdir "auto change directories
+"set autochdir "auto change directories
 set cpoptions+=$
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell           " don't beep
@@ -98,7 +98,7 @@ map <Leader>p :RunPyBuffer<CR>
 "-------------------------------------------------------------
 "NerdTree Plugin Settings
 "-------------------------------------------------------------
-let NERDTreeIgnore=['\.pyc$', '\.xls$']
+let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$']
 nmap <silent> <D-d> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "left"
 :hi Title guifg=red guibg=#202020
@@ -196,3 +196,10 @@ map <Leader>nose :call MakeGreen()<CR>
 "CommanT plugin
 "-------------------------------------------------------------
 nmap <Leader>t :CommandT<CR>
+
+"-------------------------------------------------------------
+"Ack plugin
+"-------------------------------------------------------------
+
+nnoremap <Leader>a :Ack --follow <C-r><C-w>
+

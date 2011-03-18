@@ -7,10 +7,12 @@ filetype indent on
 "-------------------------------------------------------------
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-
+"-----------------------------------------------------------------------------
+" Set up the window colors and size
+"-----------------------------------------------------------------------------
 if has('gui_running')
     " GUI colors
-    set background=dark 
+    "set background=dark 
     "colorscheme mac_classic 
     colorscheme xoria256 
     set guifont=Monaco:h14
@@ -24,9 +26,11 @@ let mapleader=","
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------
-nmap <Leader>b :source $MYVIMRC
-" opens $MYVIMRC for editing, or use :tabedit $MYVIMRC
-nmap <Leader>v :e $MYVIMRC
+" Buffer commands
+noremap <silent> ,bd :bd<CR>
+" Edit the vimrc file
+nmap <silent> ,ev :e $MYVIMRC<CR>
+nmap <silent> ,sv :so $MYVIMRC<CR>
 
 
 "set autochdir "auto change directories
@@ -102,6 +106,9 @@ map <Leader>p :RunPyBuffer<CR>
 "-------------------------------------------------------------
 "NerdTree Plugin Settings
 "-------------------------------------------------------------
+" Show the bookmarks table on startup
+let NERDTreeShowBookmarks=1
+"down't display the following files
 let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$']
 nmap <silent> <D-d> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "left"

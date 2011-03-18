@@ -56,6 +56,10 @@ cno jj <esc>
 "noremap <silent> ,k :wincmd k<cr>
 " " Move the cursor to the window right of the current one
 "noremap <silent> ,l :wincmd l<cr>
+noremap <silent> ,cj :wincmd j<CR>:close<CR>
+noremap <silent> ,ck :wincmd k<CR>:close<CR>
+noremap <silent> ,ch :wincmd h<CR>:close<CR>
+noremap <silent> ,cl :wincmd l<CR>:close<CR>
 
 "-------------------------------------------------------------
 "Coding Settings

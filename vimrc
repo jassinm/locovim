@@ -13,7 +13,7 @@ if has('gui_running')
     set background=dark 
     "colorscheme mac_classic 
     colorscheme xoria256 
-    set guifont=Monaco:h14
+    set guifont=Monaco:h12
 else
     " Non-GUI (terminal) colors
 endif

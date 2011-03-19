@@ -26,13 +26,18 @@ let mapleader=","
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------
+set wildmode=longest:full
+set wildmenu
 " Buffer commands
-noremap <silent> ,bd :bd<CR>
+noremap <silent> <Leader>bd :bd<CR>
 " Edit the vimrc file
-nmap <silent> ,ev :e $MYVIMRC<CR>
-nmap <silent> ,sv :so $MYVIMRC<CR>
+nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+nmap <silent> <Leader>sv :so $MYVIMRC<CR>
+"quick save
+noremap <silent> <Leader>w :w<CR>
 
-
+" When pressing <leader>cd switch to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>
 "set autochdir "auto change directories
 set cpoptions+=$
 set wildignore=*.swp,*.bak,*.pyc,*.class
@@ -60,10 +65,10 @@ cno jj <esc>
 "noremap <silent> ,k :wincmd k<cr>
 " " Move the cursor to the window right of the current one
 "noremap <silent> ,l :wincmd l<cr>
-noremap <silent> ,cj :wincmd j<CR>:close<CR>
-noremap <silent> ,ck :wincmd k<CR>:close<CR>
-noremap <silent> ,ch :wincmd h<CR>:close<CR>
-noremap <silent> ,cl :wincmd l<CR>:close<CR>
+noremap <silent> <Leader>cj :wincmd j<CR>:close<CR>
+noremap <silent> <Leader>ck :wincmd k<CR>:close<CR>
+noremap <silent> <Leader>ch :wincmd h<CR>:close<CR>
+noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
 "-------------------------------------------------------------
 "Coding Settings
@@ -97,8 +102,7 @@ setlocal previewwindow ro nomodifiable nomodified
 winc p
 endfu
 command! RunPyBuffer call DoRunPyBuffer2()
-map <Leader>p :RunPyBuffer<CR>
-
+map <Leader>r :RunPyBuffer<CR>
 "-------------------------------------------------------------
 "Latex Plugin Settings
 "-------------------------------------------------------------
@@ -106,13 +110,15 @@ map <Leader>p :RunPyBuffer<CR>
 "-------------------------------------------------------------
 "NerdTree Plugin Settings
 "-------------------------------------------------------------
-" Show the bookmarks table on startup
-let NERDTreeShowBookmarks=1
 "down't display the following files
 let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$']
 nmap <silent> <D-d> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "left"
-:hi Title guifg=red guibg=#202020
+" Show the bookmarks table on startup
+let NERDTreeShowBookmarks=1
+let NERDTreeQuitOnOpen=1
+"let NERDTreeShowHidden=1
+hi Title guifg=red guibg=#202020
 "-------------------------------------------------------------
 "Tlist Plugin Settings
 "-------------------------------------------------------------
@@ -158,14 +164,12 @@ let g:miniBufExplorerMoreThanOne=0
 let g:miniBufExplMapCTabSwitchBufs = 1
 "turnoff minibufexpl
 let loaded_minibufexplorer=1
-
 "-------------------------------------------------------------
 "Buftabs Plugin Settings
 "-------------------------------------------------------------
 let g:buftabs_in_statusline=1
 ":noremap <C-left> :bprev<CR>
-:noremap <C-TAB> :bnext<CR>
-
+noremap <C-TAB> :bnext<CR>
 "-------------------------------------------------------------
 "Objective-J Settings
 "-------------------------------------------------------------
@@ -207,10 +211,10 @@ map <Leader>nose :call MakeGreen()<CR>
 "CommanT plugin
 "-------------------------------------------------------------
 nmap <Leader>t :CommandT<CR>
-
+let g:CommandTMaxHeight = 15
+set wildignore+=.git,*.pyc
 "-------------------------------------------------------------
 "Ack plugin
 "-------------------------------------------------------------
-
 nnoremap <Leader>a :Ack --follow <C-r><C-w>
 

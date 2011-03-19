@@ -82,7 +82,7 @@ set hlsearch
 "start pydoc
 map <buffer> <Leader>doc :execute "!pydoc " . expand("<cword>")<CR>
 "python pep8 settings
-autocmd FileType python setlocal textwidth=79
+"autocmd FileType python setlocal textwidth=79
 autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
 autocmd FileType python setlocal autoindent
 "nose for unittest

@@ -26,6 +26,11 @@ let mapleader=","
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------
+" Set the status line the way i like it
+set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+" tell VIM to always put a status line in, even if there is only one window
+"set laststatus=2
+
 set wildmode=longest:full
 set wildmenu
 " Buffer commands
@@ -37,7 +42,8 @@ nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 noremap <silent> <Leader>w :w<CR>
 
 " When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>
+map <silent><Leader>cd :cd %:p:h<CR>
+
 "set autochdir "auto change directories
 set cpoptions+=$
 set wildignore=*.swp,*.bak,*.pyc,*.class

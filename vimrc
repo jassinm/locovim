@@ -95,6 +95,8 @@ autocmd FileType python setlocal autoindent
 autocmd FileType python compiler nose
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType python set formatprg = PythonTidy
+autocmd! bufwritepost *.py %!PythonTidy 
+
 """""""""" Preview window for python
 map pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
 fu! DoRunPyBuffer2()
@@ -152,6 +154,7 @@ imap <C-@> <C-Space>
 "Snipmate Settings
 "-------------------------------------------------------------
 let g:snips_author = 'Jassin MEKNASSI'
+let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
 "-------------------------------------------------------------
 "PyFlakes Settings
 "-------------------------------------------------------------

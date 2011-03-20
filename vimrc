@@ -89,8 +89,8 @@ autocmd FileType python setlocal autoindent
 autocmd FileType python compiler nose
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType python set formatprg = PythonTidy
-
 """""""""" Preview window for python
+map pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
 fu! DoRunPyBuffer2()
 pclose! " force preview window closed
 setlocal ft=python
@@ -162,13 +162,15 @@ let g:miniBufExplTabWrap=1
 let g:miniBufExplMaxSize=1
 let g:miniBufExplorerMoreThanOne=0
 let g:miniBufExplMapCTabSwitchBufs = 1
-"turnoff minibufexpl
+"tur
+"noff minibufexpl
 let loaded_minibufexplorer=1
 "-------------------------------------------------------------
 "Buftabs Plugin Settings
 "-------------------------------------------------------------
-let g:buftabs_in_statusline=1
+"let g:buftabs_in_statusline=1
 ":noremap <C-left> :bprev<CR>
+let g:buftabs_only_basename=1
 noremap <C-TAB> :bnext<CR>
 "-------------------------------------------------------------
 "Objective-J Settings
@@ -217,4 +219,9 @@ set wildignore+=.git,*.pyc
 "Ack plugin
 "-------------------------------------------------------------
 nnoremap <Leader>a :Ack --follow <C-r><C-w>
+"-------------------------------------------------------------
+"CTAGS plugin
+"-------------------------------------------------------------
+" Set the tags files to be the following
+set tags=./tags,tags,pytags
 

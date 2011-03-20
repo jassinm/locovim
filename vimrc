@@ -1,7 +1,6 @@
 syntax on
 filetype plugin on
 filetype indent on
-
 "-------------------------------------------------------------
 "Pathogen plugin plugin
 "-------------------------------------------------------------
@@ -50,6 +49,8 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 set hidden "Allows to change buffer w/o saving current buffer 
+
+
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
@@ -209,6 +210,10 @@ au BufNewFile,BufRead *.j setlocal foldmethod=expr
 "-------------------------------------------------------------
 map <Leader>ace :AcpEnable<CR>
 map <Leader>acd :AcpDisable<CR>
+"-------------------------------------------------------------
+"Supertab  Plugin Settings
+"-------------------------------------------------------------
+let loaded_supertab=1
 "-------------------------------------------------------------
 "taglist Settings
 "-------------------------------------------------------------

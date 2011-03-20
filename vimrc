@@ -1,7 +1,6 @@
 syntax on
 filetype plugin on
 filetype indent on
-
 "-------------------------------------------------------------
 "Pathogen plugin plugin
 "-------------------------------------------------------------
@@ -26,6 +25,11 @@ let mapleader=","
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------
+" Set the status line the way i like it
+set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+" tell VIM to always put a status line in, even if there is only one window
+"set laststatus=2
+
 set wildmode=longest:full
 set wildmenu
 " Buffer commands
@@ -37,13 +41,16 @@ nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 noremap <silent> <Leader>w :w<CR>
 
 " When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>
+map <silent><Leader>cd :cd %:p:h<CR>
+
 "set autochdir "auto change directories
 set cpoptions+=$
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 set hidden "Allows to change buffer w/o saving current buffer 
+
+
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
@@ -82,15 +89,17 @@ set hlsearch
 "start pydoc
 map <buffer> <Leader>doc :execute "!pydoc " . expand("<cword>")<CR>
 "python pep8 settings
-autocmd FileType python setlocal textwidth=79
+"autocmd FileType python setlocal textwidth=79
 autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
 autocmd FileType python setlocal autoindent
 "nose for unittest
 autocmd FileType python compiler nose
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType python set formatprg = PythonTidy
+autocmd! bufwritepost *.py %!PythonTidy 
 
 """""""""" Preview window for python
+map pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
 fu! DoRunPyBuffer2()
 pclose! " force preview window closed
 setlocal ft=python
@@ -146,6 +155,7 @@ imap <C-@> <C-Space>
 "Snipmate Settings
 "-------------------------------------------------------------
 let g:snips_author = 'Jassin MEKNASSI'
+let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
 "-------------------------------------------------------------
 "PyFlakes Settings
 "-------------------------------------------------------------
@@ -162,13 +172,15 @@ let g:miniBufExplTabWrap=1
 let g:miniBufExplMaxSize=1
 let g:miniBufExplorerMoreThanOne=0
 let g:miniBufExplMapCTabSwitchBufs = 1
-"turnoff minibufexpl
+"tur
+"noff minibufexpl
 let loaded_minibufexplorer=1
 "-------------------------------------------------------------
 "Buftabs Plugin Settings
 "-------------------------------------------------------------
-let g:buftabs_in_statusline=1
+"let g:buftabs_in_statusline=1
 ":noremap <C-left> :bprev<CR>
+let g:buftabs_only_basename=1
 noremap <C-TAB> :bnext<CR>
 "-------------------------------------------------------------
 "Objective-J Settings
@@ -199,6 +211,10 @@ au BufNewFile,BufRead *.j setlocal foldmethod=expr
 map <Leader>ace :AcpEnable<CR>
 map <Leader>acd :AcpDisable<CR>
 "-------------------------------------------------------------
+"Supertab  Plugin Settings
+"-------------------------------------------------------------
+let loaded_supertab=1
+"-------------------------------------------------------------
 "taglist Settings
 "-------------------------------------------------------------
 "add objc to taglist
@@ -217,4 +233,9 @@ set wildignore+=.git,*.pyc
 "Ack plugin
 "-------------------------------------------------------------
 nnoremap <Leader>a :Ack --follow <C-r><C-w>
+"-------------------------------------------------------------
+"CTAGS plugin
+"-------------------------------------------------------------
+" Set the tags files to be the following
+set tags=./tags,tags,pytags
 

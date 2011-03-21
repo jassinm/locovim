@@ -77,6 +77,9 @@ noremap <silent> <Leader>ck :wincmd k<CR>:close<CR>
 noremap <silent> <Leader>ch :wincmd h<CR>:close<CR>
 noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
+
+
+
 "-------------------------------------------------------------
 "Coding Settings
 "-------------------------------------------------------------
@@ -96,8 +99,15 @@ autocmd FileType python setlocal autoindent
 autocmd FileType python compiler nose
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType python set formatprg = PythonTidy
-autocmd! bufwritepost *.py %!PythonTidy 
+"autocmd! bufwritepost *.py %!PythonTidy 
 
+function! PythonTidySaver()
+	let oldpos=getpos('.')
+	%!PythonTidy	
+	call setpos('.',oldpos)
+endfunction
+
+autocmd! bufwritepost *.py call PythonTidySaver()
 """""""""" Preview window for python
 map pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
 fu! DoRunPyBuffer2()

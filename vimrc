@@ -42,7 +42,7 @@ noremap <silent> <Leader>w :w<CR>
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><Leader>cd :cd %:p:h<CR>
-
+map <silent><Leader>noh :noh<CR>
 "set autochdir "auto change directories
 set cpoptions+=$
 set wildignore=*.swp,*.bak,*.pyc,*.class

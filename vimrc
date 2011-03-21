@@ -96,7 +96,7 @@ autocmd FileType python setlocal autoindent
 autocmd FileType python compiler nose
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType python set formatprg = PythonTidy
-autocmd! bufwritepost *.py %!PythonTidy 
+"autocmd! bufwritepost *.py %!PythonTidy 
 
 """""""""" Preview window for python
 map pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>

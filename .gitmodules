@@ -82,3 +82,9 @@
 [submodule "bundle/vim-pep8"]
 	path = bundle/vim-pep8
 	url = https://github.com/nvie/vim-pep8.git
+[submodule "bundle/pythonhelper"]
+	path = bundle/pythonhelper
+	url = https://github.com/vim-scripts/pythonhelper.git
+[submodule "bundle/python_open_module"]
+	path = bundle/python_open_module
+	url = https://github.com/vim-scripts/python_open_module.git

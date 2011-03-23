@@ -107,7 +107,9 @@ function! PythonTidySaver()
 	call setpos('.',oldpos)
 endfunction
 
-autocmd! bufwritepost *.py call PythonTidySaver()
+"autocmd! bufwritepost *.py call PythonTidySaver()
+autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR> 
+
 """""""""" Preview window for python
 map pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
 fu! DoRunPyBuffer2()

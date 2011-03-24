@@ -11,9 +11,9 @@ call pathogen#helptags()
 "-----------------------------------------------------------------------------
 if has('gui_running')
     " GUI colors
-    "set background=dark 
-    "colorscheme mac_classic 
-    colorscheme xoria256 
+    "set background=dark
+    "colorscheme mac_classic
+    colorscheme xoria256
     set guifont=Monaco:h14
 else
     " Non-GUI (terminal) colors
@@ -47,7 +47,7 @@ set cpoptions+=$
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell           " don't beep
 set noerrorbells         " don't beep
-set hidden "Allows to change buffer w/o saving current buffer 
+set hidden "Allows to change buffer w/o saving current buffer
 
 "-------------------------------------------------------------
 "Search Settings
@@ -75,7 +75,7 @@ noremap <silent> <Leader>ck :wincmd k<CR>:close<CR>
 noremap <silent> <Leader>ch :wincmd h<CR>:close<CR>
 noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
-"remove trailing whitespaces 
+"remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
 
 "-------------------------------------------------------------
@@ -83,7 +83,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 "-------------------------------------------------------------
 set number
 set hlsearch
-":com Devall cd /Users/locojay/Documents/workspace 
+":com Devall cd /Users/locojay/Documents/workspace
 "-------------------------------------------------------------
 "Python Settings
 "-------------------------------------------------------------
@@ -97,17 +97,17 @@ autocmd FileType python setlocal autoindent
 autocmd FileType python compiler nose
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd FileType python set formatprg = PythonTidy
-"autocmd! bufwritepost *.py %!PythonTidy 
+"autocmd! bufwritepost *.py %!PythonTidy
 
 function! PythonTidySaver()
 	let oldpos=getpos('.')
-	%!PythonTidy	
+	%!PythonTidy
 	call setpos('.',oldpos)
 endfunction
 
 "autocmd! bufwritepost *.py call PythonTidySaver()
-autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR> 
-
+autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
+autocmd BufNewFile,BufRead *.py set formatprg=PythonTidy
 """""""""" Preview window for python
 map pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
 fu! DoRunPyBuffer2()
@@ -153,7 +153,7 @@ let g:ConqueTerm_SendVisKey = '<C-i>'
 "-------------------------------------------------------------
 set completeopt=menu,preview
 " omnifocus as constrol space
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\<lt>C-n>" :
@@ -169,7 +169,7 @@ let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
 "-------------------------------------------------------------
 "PyFlakes Settings
 "-------------------------------------------------------------
-let g:pyflakes_use_quickfix = 0 
+let g:pyflakes_use_quickfix = 0
 "-------------------------------------------------------------
 "MinibufExplorer Plugin Settings
 "-------------------------------------------------------------
@@ -232,7 +232,7 @@ let tlist_objc_settings='objc;P:protocols;i:interfaces;I:implementations;M:insta
 "-------------------------------------------------------------
 "make green plugin
 "-------------------------------------------------------------
-map <Leader>nose :call MakeGreen()<CR> 
+map <Leader>nose :call MakeGreen()<CR>
 "-------------------------------------------------------------
 "CommanT plugin
 "-------------------------------------------------------------

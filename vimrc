@@ -21,7 +21,6 @@ endif
 
 
 let mapleader=","
-
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------
@@ -50,7 +49,6 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set hidden "Allows to change buffer w/o saving current buffer 
 
-
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
@@ -77,8 +75,8 @@ noremap <silent> <Leader>ck :wincmd k<CR>:close<CR>
 noremap <silent> <Leader>ch :wincmd h<CR>:close<CR>
 noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
-
-
+"remove trailing whitespaces 
+autocmd BufWritePre * :%s/\s\+$//e
 
 "-------------------------------------------------------------
 "Coding Settings

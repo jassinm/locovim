@@ -18,17 +18,10 @@ call pathogen#helptags()
 "-----------------------------------------------------------------------------
 if has('gui_running')
     " GUI colors
-<<<<<<< HEAD
-    "set background=dark 
-    "colorscheme mac_classic 
-    colorscheme xoria256 
-    set guifont=Monaco:h12
-=======
     "set background=dark
     "colorscheme mac_classic
     colorscheme xoria256
     set guifont=Monaco:h14
->>>>>>> 2887c2edd27f989118ebfc2e464e9065f2e9fce6
 else
     " Non-GUI (terminal) colors
 endif

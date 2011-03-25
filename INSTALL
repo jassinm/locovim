@@ -1,3 +1,5 @@
+sudo easy_install rope ropemode ropevim
+
 cd ~
 git clone http://github.com/username/dotvim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc

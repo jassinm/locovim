@@ -1,9 +1,14 @@
-syntax on
-filetype plugin on
-filetype indent on
 "-------------------------------------------------------------
 "Pathogen plugin plugin
 "-------------------------------------------------------------
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = []
+if !has('python')
+    call add(g:pathogen_disabled, 'pythonhelper')
+    call add(g:pathogen_disabled, 'pyflakes')
+    call add(g:pathogen_disabled, 'python_pep8')
+    call add(g:pathogen_disabled, 'pysmell')
+endif
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 "-----------------------------------------------------------------------------
@@ -19,6 +24,10 @@ else
     " Non-GUI (terminal) colors
 endif
 
+
+syntax on
+filetype plugin on
+filetype indent on
 
 let mapleader=","
 "-------------------------------------------------------------

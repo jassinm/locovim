@@ -5,9 +5,11 @@
 let g:pathogen_disabled = []
 if !has('python')
     call add(g:pathogen_disabled, 'pythonhelper')
-    call add(g:pathogen_disabled, 'pyflakes')
+    call add(g:pathogen_disabled, 'pyflakes-vim')
     call add(g:pathogen_disabled, 'python_pep8')
     call add(g:pathogen_disabled, 'pysmell')
+    call add(g:pathogen_disabled, 'python_open_module')
+    call add(g:pathogen_disabled, 'ropevim')
 endif
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()

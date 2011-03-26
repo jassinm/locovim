@@ -60,6 +60,13 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 set hidden "Allows to change buffer w/o saving current buffer
+"Move lines up and down
+nnoremap <C-S-j> :m+<CR>==
+nnoremap <C-S-k> :m-2<CR>==
+inoremap <C-S-j> <Esc>:m+<CR>==gi
+inoremap <C-S-k> <Esc>:m-2<CR>==gi
+vnoremap <C-S-j> :m'>+<CR>gv=gv
+vnoremap <C-S-k> :m-2<CR>gv=gv
 
 "-------------------------------------------------------------
 "Search Settings

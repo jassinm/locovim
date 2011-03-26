@@ -13,3 +13,5 @@ nmap <Leader>t :CommandT<CR>
 """"""""""""""
 noremap <silent> ,w :w<CR>
 
+
+nmap <silent> <Leader>d :NERDTreeToggle<CR>

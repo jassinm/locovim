@@ -91,3 +91,6 @@
 [submodule "bundle/rope-vim"]
 	path = bundle/rope-vim
 	url = https://github.com/gordyt/rope-vim.git
+[submodule "bundle/delimate"]
+	path = bundle/delimate
+	url = https://github.com/vim-scripts/delimitMate.vim.git

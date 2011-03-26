@@ -24,6 +24,7 @@ if has('gui_running')
     set guifont=Monaco:h14
 else
     " Non-GUI (terminal) colors
+    "colorscheme mac_classic
 endif
 
 

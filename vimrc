@@ -11,6 +11,8 @@ if !has('python')
     call add(g:pathogen_disabled, 'python_open_module')
     call add(g:pathogen_disabled, 'ropevim')
 endif
+
+call add(g:pathogen_disabled, 'supertab')
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 "-----------------------------------------------------------------------------
@@ -38,7 +40,8 @@ let mapleader=","
 "Vim Settings
 "-------------------------------------------------------------
 " Set the status line the way i like it
-set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+"set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
 "set laststatus=2
 
@@ -175,6 +178,7 @@ hi Title guifg=red guibg=#202020
 "-------------------------------------------------------------
 let Tlist_Use_Right_Window   = 1
 nmap <silent> <D-k> :TlistToggle<CR>
+nmap <silent> <Leader>k :TlistToggle<CR>
 "-------------------------------------------------------------
 "Conque Plugin Settings
 "-------------------------------------------------------------
@@ -252,6 +256,7 @@ au BufNewFile,BufRead *.j setlocal foldmethod=expr
 "-------------------------------------------------------------
 map <Leader>ace :AcpEnable<CR>
 map <Leader>acd :AcpDisable<CR>
+let g:acp_behaviorSnipmateLength=1
 "-------------------------------------------------------------
 "Supertab  Plugin Settings
 "-------------------------------------------------------------

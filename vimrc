@@ -67,7 +67,27 @@ inoremap <C-S-j> <Esc>:m+<CR>==gi
 inoremap <C-S-k> <Esc>:m-2<CR>==gi
 vnoremap <C-S-j> :m'>+<CR>gv=gv
 vnoremap <C-S-k> :m-2<CR>gv=gv
+"windows
+" Move the cursor to the window left of the current one
+noremap <silent> ,wh :wincmd h<cr>
+" Move the cursor to the window below the current one
+noremap <silent> ,wj :wincmd j<cr>
+" Move the cursor to the window above the current one
+noremap <silent> ,wk :wincmd k<cr>
+" Move the cursor to the window right of the current one
+noremap <silent> ,wl :wincmd l<cr>
 
+noremap <silent> ,cj :wincmd j<CR>:close<CR>
+noremap <silent> ,ck :wincmd k<CR>:close<CR>
+noremap <silent> ,ch :wincmd h<CR>:close<CR>
+noremap <silent> ,cl :wincmd l<CR>:close<CR>
+
+noremap <silent> ,wr :wincmd r<CR>
+noremap <silent> ,wo :wincmd o<CR>
+
+noremap <silent> ,vs :vsplit <CR>
+noremap <silent> ,hs :split <CR>
+""""""""""""""
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------

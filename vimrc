@@ -280,5 +280,11 @@ nnoremap <Leader>a :Ack --follow <C-r><C-w>
 "-------------------------------------------------------------
 " Set the tags files to be the following
 set tags=./tags,tags,pytags
+"-------------------------------------------------------------
+"Fuzzy Finder plugin
+"-------------------------------------------------------------
 
+nmap <Leader>ff :FuzzyFinderFile<CR>
+nmap <Leader>fb :FuzzyFinderBuffer<CR>
+nmap <Leader>ft :FuzzyFinderTag<CR>
 

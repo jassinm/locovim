@@ -97,3 +97,6 @@
 [submodule "bundle/vim-fuzzyfinder"]
 	path = bundle/vim-fuzzyfinder
 	url = https://github.com/clones/vim-fuzzyfinder.git
+[submodule "bundle/vim-fuzzyfinder-pathogen"]
+	path = bundle/vim-fuzzyfinder-pathogen
+	url = https://github.com/itspriddle/vim-fuzzyfinder-pathogen.git

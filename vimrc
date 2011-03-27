@@ -11,6 +11,8 @@ if !has('python')
     call add(g:pathogen_disabled, 'python_open_module')
     call add(g:pathogen_disabled, 'ropevim')
 endif
+
+call add(g:pathogen_disabled, 'supertab')
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 "-----------------------------------------------------------------------------
@@ -21,7 +23,12 @@ if has('gui_running')
     "set background=dark
     "colorscheme mac_classic
     colorscheme xoria256
+<<<<<<< HEAD
     set guifont=Monaco:h12
+=======
+    set guifont=Monaco:h14
+    set guioptions=egmrt
+>>>>>>> 2c00512943665b1e56936927bb909aa85fbc11ee
 else
     " Non-GUI (terminal) colors
     "colorscheme mac_classic
@@ -37,7 +44,8 @@ let mapleader=","
 "Vim Settings
 "-------------------------------------------------------------
 " Set the status line the way i like it
-set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+"set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
 "set laststatus=2
 
@@ -67,7 +75,27 @@ inoremap <C-S-j> <Esc>:m+<CR>==gi
 inoremap <C-S-k> <Esc>:m-2<CR>==gi
 vnoremap <C-S-j> :m'>+<CR>gv=gv
 vnoremap <C-S-k> :m-2<CR>gv=gv
+"windows
+" Move the cursor to the window left of the current one
+noremap <silent> ,wh :wincmd h<cr>
+" Move the cursor to the window below the current one
+noremap <silent> ,wj :wincmd j<cr>
+" Move the cursor to the window above the current one
+noremap <silent> ,wk :wincmd k<cr>
+" Move the cursor to the window right of the current one
+noremap <silent> ,wl :wincmd l<cr>
 
+noremap <silent> ,cj :wincmd j<CR>:close<CR>
+noremap <silent> ,ck :wincmd k<CR>:close<CR>
+noremap <silent> ,ch :wincmd h<CR>:close<CR>
+noremap <silent> ,cl :wincmd l<CR>:close<CR>
+
+noremap <silent> ,wr :wincmd r<CR>
+noremap <silent> ,wo :wincmd o<CR>
+
+noremap <silent> ,vs :vsplit <CR>
+noremap <silent> ,hs :split <CR>
+""""""""""""""
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
@@ -81,14 +109,6 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 "-------------------------------------------------------------
 ino jj <esc>
 cno jj <esc>
-" Move the cursor to the window left of the current one
-"noremap <silent> ,h :wincmd h<cr>
-" " Move the cursor to the window below the current one
-"noremap <silent> ,j :wincmd j<cr>
-" " Move the cursor to the window above the current one
-"noremap <silent> ,k :wincmd k<cr>
-" " Move the cursor to the window right of the current one
-"noremap <silent> ,l :wincmd l<cr>
 noremap <silent> <Leader>cj :wincmd j<CR>:close<CR>
 noremap <silent> <Leader>ck :wincmd k<CR>:close<CR>
 noremap <silent> <Leader>ch :wincmd h<CR>:close<CR>
@@ -162,6 +182,7 @@ hi Title guifg=red guibg=#202020
 "-------------------------------------------------------------
 let Tlist_Use_Right_Window   = 1
 nmap <silent> <D-k> :TlistToggle<CR>
+nmap <silent> <Leader>k :TlistToggle<CR>
 "-------------------------------------------------------------
 "Conque Plugin Settings
 "-------------------------------------------------------------
@@ -239,6 +260,7 @@ au BufNewFile,BufRead *.j setlocal foldmethod=expr
 "-------------------------------------------------------------
 map <Leader>ace :AcpEnable<CR>
 map <Leader>acd :AcpDisable<CR>
+let g:acp_behaviorSnipmateLength=1
 "-------------------------------------------------------------
 "Supertab  Plugin Settings
 "-------------------------------------------------------------
@@ -267,4 +289,11 @@ nnoremap <Leader>a :Ack --follow <C-r><C-w>
 "-------------------------------------------------------------
 " Set the tags files to be the following
 set tags=./tags,tags,pytags
+"-------------------------------------------------------------
+"Fuzzy Finder plugin
+"-------------------------------------------------------------
+
+nmap <Leader>ff :FuzzyFinderFile<CR>
+nmap <Leader>fb :FuzzyFinderBuffer<CR>
+nmap <Leader>ft :FuzzyFinderTag<CR>
 

@@ -94,3 +94,6 @@
 [submodule "bundle/delimate"]
 	path = bundle/delimate
 	url = https://github.com/vim-scripts/delimitMate.vim.git
+[submodule "bundle/vim-fuzzyfinder"]
+	path = bundle/vim-fuzzyfinder
+	url = https://github.com/clones/vim-fuzzyfinder.git

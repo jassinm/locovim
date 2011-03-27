@@ -22,6 +22,7 @@ if has('gui_running')
     "colorscheme mac_classic
     colorscheme xoria256
     set guifont=Monaco:h14
+    set guioptions=egmrt
 else
     " Non-GUI (terminal) colors
     "colorscheme mac_classic
@@ -101,14 +102,6 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 "-------------------------------------------------------------
 ino jj <esc>
 cno jj <esc>
-" Move the cursor to the window left of the current one
-"noremap <silent> ,h :wincmd h<cr>
-" " Move the cursor to the window below the current one
-"noremap <silent> ,j :wincmd j<cr>
-" " Move the cursor to the window above the current one
-"noremap <silent> ,k :wincmd k<cr>
-" " Move the cursor to the window right of the current one
-"noremap <silent> ,l :wincmd l<cr>
 noremap <silent> <Leader>cj :wincmd j<CR>:close<CR>
 noremap <silent> <Leader>ck :wincmd k<CR>:close<CR>
 noremap <silent> <Leader>ch :wincmd h<CR>:close<CR>
@@ -287,4 +280,5 @@ nnoremap <Leader>a :Ack --follow <C-r><C-w>
 "-------------------------------------------------------------
 " Set the tags files to be the following
 set tags=./tags,tags,pytags
+
 

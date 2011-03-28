@@ -49,6 +49,8 @@ set wildmode=longest:full
 set wildmenu
 " Buffer commands
 noremap <silent> <Leader>bd :bd<CR>
+noremap <silent> <Leader>bn :bn<CR>
+noremap <silent> <Leader>bp :bp<CR>
 " Edit the vimrc file
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>

@@ -65,12 +65,12 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set hidden "Allows to change buffer w/o saving current buffer
 "Move lines up and down
-nnoremap <C-S-j> :m+<CR>==
-nnoremap <C-S-k> :m-2<CR>==
-inoremap <C-S-j> <Esc>:m+<CR>==gi
-inoremap <C-S-k> <Esc>:m-2<CR>==gi
-vnoremap <C-S-j> :m'>+<CR>gv=gv
-vnoremap <C-S-k> :m-2<CR>gv=gv
+nnoremap <D-j> :m+<CR>==
+nnoremap <D-k> :m-2<CR>==
+inoremap <D-j> <Esc>:m+<CR>==gi
+inoremap <D-k> <Esc>:m-2<CR>==gi
+vnoremap <D-j> :m'>+<CR>gv=gv
+vnoremap <D-k> :m-2<CR>gv=gv
 "windows
 " Move the cursor to the window left of the current one
 noremap <silent> ,wh :wincmd h<cr>

@@ -11,7 +11,6 @@ if !has('python')
     call add(g:pathogen_disabled, 'python_open_module')
     call add(g:pathogen_disabled, 'ropevim')
 endif
-
 call add(g:pathogen_disabled, 'supertab')
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -29,7 +28,6 @@ else
     " Non-GUI (terminal) colors
     "colorscheme mac_classic
 endif
-
 
 syntax on
 filetype plugin on
@@ -67,12 +65,12 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set hidden "Allows to change buffer w/o saving current buffer
 "Move lines up and down
-nnoremap ,,j :m+<CR>==
-nnoremap ,,k :m-2<CR>==
-inoremap ,,j <Esc>:m+<CR>==gi
-inoremap ,,k <Esc>:m-2<CR>==gi
-vnoremap ,,j :m'>+<CR>gv=gv
-vnoremap ,,k :m-2<CR>gv=gv
+nnoremap <D-j> :m+<CR>==
+nnoremap <D-k>  :m-2<CR>==
+inoremap <D-j>  <Esc>:m+<CR>==gi
+inoremap <D-k>  <Esc>:m-2<CR>==gi
+vnoremap <D-j>  :m'>+<CR>gv=gv
+vnoremap <D-k>  :m-2<CR>gv=gv
 "windows
 " Move the cursor to the window left of the current one
 noremap <silent> ,wh :wincmd h<cr>
@@ -186,6 +184,12 @@ nmap <silent> <Leader>k :TlistToggle<CR>
 "-------------------------------------------------------------
 nmap <silent> <D-i> :ConqueTermVSplit ipython<CR>
 let g:ConqueTerm_SendVisKey = '<C-i>'
+
+function! RunConque()
+let filepath = %:p
+ConqueTermSplit ipython -c "run"filepath
+endfunction
+nmap <silent> ,,r :execute 'ConqueTermSplit ipython '.expand('%:p')<CR>
 "-------------------------------------------------------------
 "Omnifocus
 "-------------------------------------------------------------

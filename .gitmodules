@@ -100,3 +100,6 @@
 [submodule "bundle/vim-fuzzyfinder-pathogen"]
 	path = bundle/vim-fuzzyfinder-pathogen
 	url = https://github.com/itspriddle/vim-fuzzyfinder-pathogen.git
+[submodule "bundle/taskpaper.vim"]
+	path = bundle/taskpaper.vim
+	url = https://github.com/tsaleh/taskpaper.vim.git

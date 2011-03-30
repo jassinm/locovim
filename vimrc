@@ -43,12 +43,18 @@ set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
 "set laststatus=2
 
+"keep a longer history
+set history=1000
+
 set wildmode=longest:full
 set wildmenu
 " Buffer commands
 noremap <silent> <Leader>bd :bd<CR>
 noremap <silent> <Leader>bn :bn<CR>
 noremap <silent> <Leader>bp :bp<CR>
+
+noremap <silent> <Leader>tp :tabprevious<CR>
+noremap <silent> <Leader>tn :tabnext<CR>
 " Edit the vimrc file
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>

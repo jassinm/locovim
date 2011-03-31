@@ -15,3 +15,8 @@ noremap <silent> ,w :w<CR>
 
 
 nmap <silent> <Leader>d :NERDTreeToggle<CR>
+
+map <silent><Leader>cd :cd %:p:h<CR>
+"quickfix winow
+noremap <silent> ,cn :cn<CR>
+noremap <silent> ,cp :cp<CR>

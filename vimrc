@@ -12,8 +12,11 @@ if !has('python')
     call add(g:pathogen_disabled, 'ropevim')
 endif
 call add(g:pathogen_disabled, 'supertab')
+call add(g:pathogen_disabled, 'buftabs')
+call add(g:pathogen_disabled, 'vim-fuzzyfinder-pathogen')
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------

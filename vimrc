@@ -100,6 +100,10 @@ noremap <silent> ,wo :wincmd o<CR>
 
 noremap <silent> ,vs :vsplit <CR>
 noremap <silent> ,hs :split <CR>
+"quickfix winow
+noremap <silent> ,cn :cn<CR>
+noremap <silent> ,cp :cp<CR>
+
 """"""""""""""
 "-------------------------------------------------------------
 "Search Settings

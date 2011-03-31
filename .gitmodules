@@ -103,3 +103,9 @@
 [submodule "bundle/taskpaper.vim"]
 	path = bundle/taskpaper.vim
 	url = https://github.com/tsaleh/taskpaper.vim.git
+[submodule "bundle/LustyJuggler"]
+	path = bundle/LustyJuggler
+	url = https://github.com/vim-scripts/LustyJuggler.git
+[submodule "bundle/lusty"]
+	path = bundle/lusty
+	url = https://github.com/sjbach/lusty.git

@@ -157,7 +157,7 @@ endfunction
 autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
 autocmd BufNewFile,BufRead *.py set formatprg=PythonTidy
 """""""""" Preview window for python
-map pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
+map<Leader> pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
 fu! DoRunPyBuffer2()
 pclose! " force preview window closed
 setlocal ft=python

@@ -97,12 +97,14 @@ noremap <silent> ,cl :wincmd l<CR>:close<CR>
 
 noremap <silent> ,wr :wincmd r<CR>
 noremap <silent> ,wo :wincmd o<CR>
+noremap <silent> ,wx :wincmd x<CR>
+noremap <silent> ,ww :wincmd w<CR>
 
 noremap <silent> ,vs :vsplit <CR>
 noremap <silent> ,hs :split <CR>
 "quickfix winow
 noremap <silent> ,cn :cn<CR>
-noremap <silent> ,cp :cp<CR>
+noremap <silent> ,cp :cp<CR
 
 """"""""""""""
 "-------------------------------------------------------------
@@ -157,7 +159,8 @@ endfunction
 autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
 autocmd BufNewFile,BufRead *.py set formatprg=PythonTidy
 """""""""" Preview window for python
-map<Leader> pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
+map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
+
 fu! DoRunPyBuffer2()
 pclose! " force preview window closed
 setlocal ft=python

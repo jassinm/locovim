@@ -315,3 +315,8 @@ nmap <Leader>ff :FuzzyFinderFile<CR>
 nmap <Leader>fb :FuzzyFinderBuffer<CR>
 nmap <Leader>ft :FuzzyFinderTag<CR>
 
+"-------------------------------------------------------------
+"ZoomWin plugin
+"-------------------------------------------------------------
+"
+nmap <Leader>z :ZoomWin<CR>

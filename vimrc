@@ -11,6 +11,9 @@ if !has('python')
     call add(g:pathogen_disabled, 'python_open_module')
     call add(g:pathogen_disabled, 'ropevim')
 endif
+
+"call add(g:pathogen_disabled, 'ropevim')
+"call add(g:pathogen_disabled, 'pysmell')
 call add(g:pathogen_disabled, 'supertab')
 call add(g:pathogen_disabled, 'buftabs')
 call add(g:pathogen_disabled, 'vim-fuzzyfinder-pathogen')

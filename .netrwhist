@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/locojay/.vim'
 let g:netrw_dirhist_2='/Users/locojay'
 let g:netrw_dirhist_3='/Users/locojay/.python-eggs'
 let g:netrw_dirhist_4='/Users/locojay/.python-eggs/Thrift-0.2.0-py2.6-macosx-10.6-universal.egg-tmp'
 let g:netrw_dirhist_5='/Users/locojay/.vim'
+let g:netrw_dirhist_6='/Volumes/DATA/Development/Development/dataproviders/.git'
+let g:netrw_dirhist_7='/Users/locojay/.vim'

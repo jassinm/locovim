@@ -27,9 +27,12 @@ if has('gui_running')
     colorscheme xoria256
     set guifont=Monaco:h13
     set guioptions=egmrt
-else
+elseif $TERM_PROGRAM == "iTerm.app"
     " Non-GUI (terminal) colors
     "colorscheme mac_classic
+     set t_Co=256
+    colorscheme xoria256
+    set guifont=Monaco:h13
 endif
 
 syntax on

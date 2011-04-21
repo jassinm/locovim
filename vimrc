@@ -323,3 +323,10 @@ nmap <Leader>ft :FuzzyFinderTag<CR>
 "-------------------------------------------------------------
 "
 nmap <Leader>z :ZoomWin<CR>
+"-------------------------------------------------------------
+"OpenTerminal plugin
+"-------------------------------------------------------------
+"
+nnoremap <silent> <Leader>ot :OpenTerminal<CR>
+nnoremap <silent> <Leader>of :OpenFilemanager<CR><CR>
+

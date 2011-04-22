@@ -337,3 +337,4 @@ nmap <Leader>z :ZoomWin<CR>
 nnoremap <silent> <Leader>ot :OpenTerminal<CR>
 nnoremap <silent> <Leader>of :OpenFilemanager<CR><CR>
 
+nnoremap <silent> <Leader>oi :OpenIterm<CR>

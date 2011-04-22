@@ -31,7 +31,7 @@ if has('gui_running')
     set guifont=Monaco:h12
     set guioptions=egmrt
     winpos 0 0
-    winsize 130 70
+    winsize 270 70
     set go-=L
     set go-=r
 elseif $TERM_PROGRAM == "iTerm.app"
@@ -330,3 +330,10 @@ nmap <Leader>ft :FuzzyFinderTag<CR>
 "-------------------------------------------------------------
 "
 nmap <Leader>z :ZoomWin<CR>
+"-------------------------------------------------------------
+"OpenTerminal plugin
+"-------------------------------------------------------------
+"
+nnoremap <silent> <Leader>ot :OpenTerminal<CR>
+nnoremap <silent> <Leader>of :OpenFilemanager<CR><CR>
+

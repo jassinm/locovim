@@ -338,3 +338,16 @@ nnoremap <silent> <Leader>ot :OpenTerminal<CR>
 nnoremap <silent> <Leader>of :OpenFilemanager<CR><CR>
 
 nnoremap <silent> <Leader>oi :OpenIterm<CR>
+
+"-------------------------------------------------------------
+"Timux helper
+"-------------------------------------------------------------
+function! OpenTimuxWindow()
+  let l:current_dir = getcwd()
+  execute("chdir " . escape(expand("%:p:h"), " \"'"))
+  let l:cmd = 'tmux neww "cd $current_path;exec $SHELL"'
+  let l:cmd = substitute( l:cmd, "$current_path", "'" . expand("%:p:h") . "'" , "g")
+  call system (l:cmd)
+endfunction
+
+nmap <silent><Leader>ou : call OpenTimuxWindow()<CR>

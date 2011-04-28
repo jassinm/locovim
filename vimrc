@@ -25,8 +25,6 @@ call pathogen#helptags()
 "-----------------------------------------------------------------------------
 if has('gui_running')
     " GUI colors
-    "set background=dark
-    "colorscheme mac_classic
     colorscheme xoria256
     set guifont=Monaco:h12
     set guioptions=egmrt
@@ -36,7 +34,6 @@ if has('gui_running')
     set go-=r
 elseif $TERM_PROGRAM == "iTerm.app"
     " Non-GUI (terminal) colors
-    "colorscheme mac_classic
      set t_Co=256
     colorscheme xoria256
     set guifont=Monaco:h12
@@ -50,6 +47,11 @@ let mapleader=","
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------
+
+"paste mode
+nnoremap \p :set invpaste paste?<CR>
+set pastetoggle=\p
+set showmode
 " Set the status line the way i like it
 "set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
 set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)

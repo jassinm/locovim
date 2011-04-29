@@ -49,8 +49,8 @@ let mapleader=","
 "-------------------------------------------------------------
 
 "paste mode
-nnoremap \p :set invpaste paste?<CR>
-set pastetoggle=\p
+nnoremap <F5> :set invpaste paste?<CR>
+set pastetoggle=<F5>
 set showmode
 " Set the status line the way i like it
 "set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]

@@ -74,7 +74,7 @@ noremap <silent> <Leader>tn :tabnext<CR>
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 "quick save
-noremap <silent> <Leader>w :w<CR>
+"noremap <silent> <Leader>w :w<CR>
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><Leader>cd :cd %:p:h<CR>
@@ -353,3 +353,7 @@ function! OpenTimuxWindow()
 endfunction
 
 nmap <silent><Leader>ou : call OpenTimuxWindow()<CR>
+"-------------------------------------------------------------
+"Easymotion plugin
+"-------------------------------------------------------------
+"let g:EasyMotion_leader_key = '<Leader>m'

@@ -357,3 +357,9 @@ nmap <silent><Leader>ou : call OpenTimuxWindow()<CR>
 "Easymotion plugin
 "-------------------------------------------------------------
 "let g:EasyMotion_leader_key = '<Leader>m'
+
+"-------------------------------------------------------------
+"Yankring plugin
+"-------------------------------------------------------------
+nnoremap <silent> <Leader>y :YRShow<cr>
+inoremap <silent> <Leader>y <ESC>:YRShow<cr>

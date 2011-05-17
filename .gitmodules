@@ -130,3 +130,9 @@
 [submodule "colors/xoria256.vim"]
 	path = colors/xoria256.vim
 	url = https://github.com/vim-scripts/xoria256.vim.git
+[submodule "bundle/jellyx-colors"]
+	path = bundle/jellyx-colors
+	url = https://github.com/guns/jellyx.vim.git
+[submodule "bundle/jellybeans-colors"]
+	path = bundle/jellybeans-colors
+	url = https://github.com/nanotech/jellybeans.vim.git

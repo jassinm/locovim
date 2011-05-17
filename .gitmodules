@@ -124,3 +124,9 @@
 [submodule "bundle/vim-yankring"]
 	path = bundle/vim-yankring
 	url = https://github.com/chrismetcalf/vim-yankring.git
+[submodule "bundle/rainbow-parenthesis-bundle"]
+	path = bundle/rainbow-parenthesis-bundle
+	url = https://github.com/vim-scripts/Rainbow-Parenthsis-Bundle.git
+[submodule "colors/xoria256.vim"]
+	path = colors/xoria256.vim
+	url = https://github.com/vim-scripts/xoria256.vim.git

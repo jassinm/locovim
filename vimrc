@@ -34,8 +34,9 @@ if has('gui_running')
     set go-=r
 elseif $TERM_PROGRAM == "iTerm.app"
     " Non-GUI (terminal) colors
-     set t_Co=256
-    colorscheme xoria256
+    set t_Co=256
+    "colorscheme xoria256
+    colorscheme jellybeans
     set guifont=Monaco:h12
 endif
 

@@ -1,12 +1,21 @@
 snippet #utf8
 	# -*- coding: utf-8 -*-
 snippet unit
-	class ${1:ClassName}(unittest.TestCase):
-		"""${2:docstring for $1}"""
-		def setUp(self):
-			pass
-		def tearDown(self):
-			pass
+	from unittest import TestCase
+
+	class ${1:ClassName}(TestCase):
+	    """${2:docstring for $1}"""
+	    def setUp(self):
+	        """Setup Test"""
+		pass
+	    def tearDown(self):
+		"""Tear Down each test"""
+		pass
+snippet tst
+	def test_${1|method}(self):
+		"""${2|description}"""
+
+		assert ${3|Something}, "${4|Output}"
 
 snippet docst
 	'''
@@ -16,3 +25,9 @@ snippet docst
 	Author: ${2:`g:snips_author`}
 	Description: ${3}
 	'''
+snippet ldbg
+	logger.debug(${1|somevar})
+snippet linfo
+	logger.info(${1|somevar})
+snippet lwarn
+	logger.warn(${1|somevar})

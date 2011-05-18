@@ -55,7 +55,8 @@ set pastetoggle=<F5>
 set showmode
 " Set the status line the way i like it
 "set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
-set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+"set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+set statusline=%<\ %n:%f\ %m%r%y%w%=%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
 "set laststatus=2
 
@@ -140,7 +141,7 @@ noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
 "remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
-
+autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/
 "-------------------------------------------------------------
 "Coding Settings
 "-------------------------------------------------------------

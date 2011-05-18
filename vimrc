@@ -286,6 +286,8 @@ au BufNewFile,BufRead *.j  setfiletype objc
 au BufNewFile,BufRead *.j  setlocal ts=8 sts=4 sw=4 expandtab
 au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
 au BufNewFile,BufRead *.j setlocal foldmethod=expr
+"json
+au BufNewFile,BufRead *.json setfiletype javascript
 "-------------------------------------------------------------
 "AutoComplete Popup Plugin Settings
 "-------------------------------------------------------------

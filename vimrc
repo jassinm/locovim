@@ -25,7 +25,7 @@ call pathogen#helptags()
 "-----------------------------------------------------------------------------
 if has('gui_running')
     " GUI colors
-    colorscheme xoria256
+    colorscheme jellybeans
     set guifont=Monaco:h12
     set guioptions=egmrt
     winpos 0 0
@@ -35,7 +35,7 @@ if has('gui_running')
 elseif $TERM_PROGRAM == "iTerm.app"
     " Non-GUI (terminal) colors
     set t_Co=256
-    "colorscheme xoria256
+    colorscheme xoria256
     colorscheme jellybeans
     set guifont=Monaco:h12
 endif

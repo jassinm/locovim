@@ -136,3 +136,18 @@
 [submodule "bundle/jellybeans-colors"]
 	path = bundle/jellybeans-colors
 	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "bundle/solarized-colors"]
+	path = bundle/solarized-colors
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/aftercolors"]
+	path = bundle/aftercolors
+	url = https://github.com/vim-scripts/AfterColors.vim.git
+[submodule "bundle/lucius"]
+	path = bundle/lucius
+	url = https://github.com/vim-scripts/Lucius.git
+[submodule "bundle/wombat256"]
+	path = bundle/wombat256
+	url = https://github.com/vim-scripts/wombat256.vim.git
+[submodule "bundle/vim-speeddating"]
+	path = bundle/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git

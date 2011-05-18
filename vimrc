@@ -28,6 +28,7 @@ if has('gui_running')
     colorscheme jellybeans
     set guifont=Monaco:h12
     set guioptions=egmrt
+    "set guioptions+=T
     winpos 0 0
     winsize 270 70
     set go-=L
@@ -141,7 +142,7 @@ noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
 "remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/
+autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
 "-------------------------------------------------------------
 "Coding Settings
 "-------------------------------------------------------------

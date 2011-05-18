@@ -154,3 +154,21 @@
 [submodule "bundle/vim-virtualenv"]
 	path = bundle/vim-virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
+[submodule "bundle/pydoc"]
+	path = bundle/pydoc
+	url = https://github.com/fs111/pydoc.vim
+[submodule "bundle/desertink-color"]
+	path = bundle/desertink-color
+	url = https://github.com/toupeira/desertink.vim.git
+[submodule "bundle/vim-r-plugin"]
+	path = bundle/vim-r-plugin
+	url = https://github.com/vim-scripts/Vim-R-plugin.git
+[submodule "bundle/twillight256-colors"]
+	path = bundle/twillight256-colors
+	url = https://github.com/vim-scripts/twilight256.vim.git
+[submodule "bundle/sudo-gui"]
+	path = bundle/sudo-gui
+	url = https://github.com/gmarik/sudo-gui.vim.git
+[submodule "bundle/ipy-vim"]
+	path = bundle/ipy-vim
+	url = https://github.com/m5/ipy-vim.git

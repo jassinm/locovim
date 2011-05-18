@@ -1,1 +1,2 @@
- "hi Normal guifg=#c7c7c7 guibg=#c7c7c7 ctermfg=white ctermbg=none
+ "hi Normal guifg=#ffffff guibg=#222222 ctermfg=DarkGray ctermbg=none
+

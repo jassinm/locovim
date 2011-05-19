@@ -3,7 +3,10 @@ f=$(pwd)
 git submodule init
 git submodule update
 sudo brew install ack
+sudo easy_install pip
 sudo pip install pysmell
+sudo pip install virtualenv
+sudo pip install virtualenvwrapper
 #ctags with Objc support
 git clone https://github.com/fishman/ctags.git /tmp/ctags-objc
 cd /tmp/ctags-objc

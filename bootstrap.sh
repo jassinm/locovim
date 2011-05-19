@@ -22,4 +22,4 @@ cd $f"/bundle/command-t/ruby/command-t"
 ruby extconf.rb
 make
 
-ln -sF $f"vimrc" $HOME/.vimrc
+ln -sF $f"/vimrc" $HOME/.vimrc

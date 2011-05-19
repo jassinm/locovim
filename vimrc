@@ -368,3 +368,7 @@ nmap <silent><Leader>ou : call OpenTimuxWindow()<CR>
 "-------------------------------------------------------------
 nnoremap <silent> <Leader>y :YRShow<cr>
 inoremap <silent> <Leader>y <ESC>:YRShow<cr>
+"-------------------------------------------------------------
+"MRU plugin
+"-------------------------------------------------------------
+nnoremap <silent> <Leader>mr :MRU<CR>

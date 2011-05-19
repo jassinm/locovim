@@ -16,15 +16,19 @@
 [submodule "bundle/taglist"]
 	path = bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+	ignore = untracked
 [submodule "bundle/vcscommand"]
 	path = bundle/vcscommand
 	url = git://repo.or.cz/vcscommand
+	ignore = untracked
 [submodule "bundle/vim-debug"]
 	path = bundle/vim-debug
 	url = https://github.com/jabapyth/vim-debug.git
+	ignore = untracked
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
 	url = https://github.com/mineiro/vim-latex.git
+	ignore = untracked
 [submodule "bundle/vim-objj"]
 	path = bundle/vim-objj
 	url = git://github.com/nanki/vim-objj
@@ -34,9 +38,11 @@
 [submodule "bundle/timestamp"]
 	path = bundle/timestamp
 	url = https://github.com/vim-scripts/timestamp.vim.git
+	ignore = untracked
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+	ignore = untracked
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = http://github.com/ervandew/supertab
@@ -52,12 +58,14 @@
 [submodule "bundle/cocoa.vim"]
 	path = bundle/cocoa.vim
 	url = http://github.com/msanders/cocoa.vim
+	ignore = untracked
 [submodule "bundle/vim-align"]
 	path = bundle/vim-align
 	url = https://github.com/tsaleh/vim-align.git
 [submodule "bundle/AutoComplPop"]
 	path = bundle/AutoComplPop
 	url = https://github.com/vim-scripts/AutoComplPop.git
+	ignore = untracked
 [submodule "bundle/neocomplecache"]
 	path = bundle/neocomplecache
 	url = https://github.com/Shougo/neocomplcache.git
@@ -76,9 +84,11 @@
 [submodule "bundle/csv.vim"]
 	path = bundle/csv.vim
 	url = https://github.com/chrisbra/csv.vim
+	ignore = untracked
 [submodule "bundle/vim-autoclose"]
 	path = bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
+	ignore = untracked
 [submodule "bundle/vim-pep8"]
 	path = bundle/vim-pep8
 	url = https://github.com/nvie/vim-pep8.git
@@ -127,6 +137,7 @@
 [submodule "bundle/rainbow-parenthesis-bundle"]
 	path = bundle/rainbow-parenthesis-bundle
 	url = https://github.com/vim-scripts/Rainbow-Parenthsis-Bundle.git
+	ignore = untracked
 [submodule "colors/xoria256.vim"]
 	path = colors/xoria256.vim
 	url = https://github.com/vim-scripts/xoria256.vim.git
@@ -151,9 +162,11 @@
 [submodule "bundle/vim-speeddating"]
 	path = bundle/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
+	ignore = untracked
 [submodule "bundle/vim-virtualenv"]
 	path = bundle/vim-virtualenv
 	url = https://github.com/jmcantrell/vim-virtualenv.git
+	ignore = untracked
 [submodule "bundle/pydoc"]
 	path = bundle/pydoc
 	url = https://github.com/fs111/pydoc.vim
@@ -163,6 +176,7 @@
 [submodule "bundle/vim-r-plugin"]
 	path = bundle/vim-r-plugin
 	url = https://github.com/vim-scripts/Vim-R-plugin.git
+	ignore = untracked
 [submodule "bundle/twillight256-colors"]
 	path = bundle/twillight256-colors
 	url = https://github.com/vim-scripts/twilight256.vim.git

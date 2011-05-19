@@ -34,7 +34,7 @@ snippet lwarn
 snippet mlib
 	import matplotlib.pyplot as plt
 	fig = plt.figure()
-	ax = plt.add_subplot(111)
+	ax = fig.add_subplot(111)
 	plt.rcParams.update({'legend.fontsize':8})
 	plt.legend(bbox_to_anchor=(0.,1.04,1.,0.102),loc=6,ncol=2)
 	plt.grid()

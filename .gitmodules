@@ -128,6 +128,7 @@
 [submodule "bundle/open-terminal-filemanger"]
 	path = bundle/open-terminal-filemanger
 	url = https://github.com/vim-scripts/open-terminal-filemanager.git
+	ignore = untracked
 [submodule "bundle/vim-easymotion"]
 	path = bundle/vim-easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git

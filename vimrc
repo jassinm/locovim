@@ -16,6 +16,7 @@ if !has('ruby')
 endif
 "call add(g:pathogen_disabled, 'ropevim')
 "call add(g:pathogen_disabled, 'pysmell')
+call add(g:pathogen_disabled, 'csv.vim')
 call add(g:pathogen_disabled, 'supertab')
 call add(g:pathogen_disabled, 'buftabs')
 call add(g:pathogen_disabled, 'vim-fuzzyfinder-pathogen')
@@ -38,9 +39,12 @@ if has('gui_running')
 elseif $TERM_PROGRAM == "iTerm.app"
     " Non-GUI (terminal) colors
     set t_Co=256
-    colorscheme xoria256
+    "colorscheme xoria256
     colorscheme jellybeans
     set guifont=Monaco:h12
+    autocmd colorscheme * hi Normal ctermbg=233
+    autocmd colorscheme * hi NonText ctermbg=233
+    autocmd colorscheme * hi LineNr ctermbg=233
 endif
 
 syntax on

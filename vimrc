@@ -45,6 +45,7 @@ elseif $TERM_PROGRAM == "iTerm.app"
     autocmd colorscheme * hi Normal ctermbg=233
     autocmd colorscheme * hi NonText ctermbg=233
     autocmd colorscheme * hi LineNr ctermbg=233
+    autocmd colorscheme * hi VertSplit ctermbg=233
 endif
 
 syntax on

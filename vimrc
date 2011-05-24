@@ -215,7 +215,7 @@ hi Title guifg=red guibg=#202020
 "Tlist Plugin Settings
 "-------------------------------------------------------------
 let Tlist_Use_Right_Window   = 1
-nmap <silent> <D-k> :TlistToggle<CR>
+"nmap <silent> <D-k> :TlistToggle<CR>
 nmap <silent> <Leader>k :TlistToggle<CR>
 "-------------------------------------------------------------
 "Conque Plugin Settings

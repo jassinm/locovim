@@ -1,3 +1,9 @@
+git clone git://github.com/b4winckler/macvim.git
+./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --with-python-config-dir=/usr/local/Cellar/python/2.7.1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config
+edit auto/config.mk
+http://nerderati.com/2010/07/compiling-vim-with-ruby-integration-on-snow-leopard/
+
+
 sudo easy_install rope ropemode ropevim
 
 cd ~

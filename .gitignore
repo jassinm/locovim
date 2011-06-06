@@ -1,3 +1,4 @@
 /vim_phpdebug.sess
 /.vimrc.swp
 .netrwhist
+bundle/pyflakes-vim/ftplugin/python/pyflakes/pyflakes/*.pyc

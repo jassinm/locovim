@@ -212,3 +212,6 @@
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
 	url = https://github.com/Shougo/neocomplcache.git
+[submodule "bundle/vim-neocomplcache"]
+	path = bundle/vim-neocomplcache
+	url = https://github.com/Shougo/neocomplcache.git

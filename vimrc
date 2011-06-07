@@ -246,7 +246,7 @@ imap <C-@> <C-Space>
 "Snipmate Settings
 "-------------------------------------------------------------
 let g:snips_author = 'Jassin MEKNASSI'
-let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
+let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
 "-------------------------------------------------------------
 "PyFlakes Settings
 "-------------------------------------------------------------

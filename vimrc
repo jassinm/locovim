@@ -16,6 +16,7 @@ if !has('ruby')
 endif
 "call add(g:pathogen_disabled, 'ropevim')
 "call add(g:pathogen_disabled, 'pysmell')
+"call add(g:pathogen_disabled, 'vim-neocomplcache')
 call add(g:pathogen_disabled, 'AutoComplPop')
 call add(g:pathogen_disabled, 'csv.vim')
 call add(g:pathogen_disabled, 'supertab')
@@ -247,6 +248,7 @@ imap <C-@> <C-Space>
 "-------------------------------------------------------------
 let g:snips_author = 'Jassin MEKNASSI'
 let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
+"let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
 "-------------------------------------------------------------
 "PyFlakes Settings
 "-------------------------------------------------------------

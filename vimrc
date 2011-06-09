@@ -16,6 +16,8 @@ if !has('ruby')
 endif
 "call add(g:pathogen_disabled, 'ropevim')
 "call add(g:pathogen_disabled, 'pysmell')
+"call add(g:pathogen_disabled, 'vim-neocomplcache')
+call add(g:pathogen_disabled, 'AutoComplPop')
 call add(g:pathogen_disabled, 'csv.vim')
 call add(g:pathogen_disabled, 'supertab')
 call add(g:pathogen_disabled, 'buftabs')
@@ -180,7 +182,7 @@ endfunction
 "autocmd! bufwritepost *.py call PythonTidySaver()
 autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
 autocmd BufNewFile,BufRead *.py set formatprg=PythonTidy
-"""""""""" Preview window for python
+"pythontags
 map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
 
 fu! DoRunPyBuffer2()
@@ -194,7 +196,7 @@ setlocal previewwindow ro nomodifiable nomodified
 winc p
 endfu
 command! RunPyBuffer call DoRunPyBuffer2()
-map <Leader>r :RunPyBuffer<CR>
+autocmd FileType python map <Leader>r :RunPyBuffer<CR>
 "-------------------------------------------------------------
 "Latex Plugin Settings
 "-------------------------------------------------------------
@@ -245,7 +247,8 @@ imap <C-@> <C-Space>
 "Snipmate Settings
 "-------------------------------------------------------------
 let g:snips_author = 'Jassin MEKNASSI'
-let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
+let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
+"let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
 "-------------------------------------------------------------
 "PyFlakes Settings
 "-------------------------------------------------------------
@@ -342,8 +345,12 @@ nmap <Leader>ft :FuzzyFinderTag<CR>
 "-------------------------------------------------------------
 "ZoomWin plugin
 "-------------------------------------------------------------
-"
 nmap <Leader>z :ZoomWin<CR>
+" Without setting this, ZoomWin restores windows in a way that causes
+" equalalways behavior to be triggered the next time CommandT is used.
+" This is likely a bludgeon to solve some other issue, but it works
+set noequalalways
+
 "-------------------------------------------------------------
 "OpenTerminal plugin
 "-------------------------------------------------------------
@@ -375,7 +382,24 @@ nmap <silent><Leader>ou : call OpenTimuxWindow()<CR>
 "-------------------------------------------------------------
 nnoremap <silent> <Leader>y :YRShow<cr>
 inoremap <silent> <Leader>y <ESC>:YRShow<cr>
+let g:yankring_history_dir = "$HOME/.vim/"
+let g:yankring_history_file = 'yankring_history'
 "-------------------------------------------------------------
 "MRU plugin
 "-------------------------------------------------------------
 nnoremap <silent> <Leader>mr :MRU<CR>
+"-------------------------------------------------------------
+"neocomplete plugin
+"-------------------------------------------------------------
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Use camel case completion.
+let g:neocomplcache_enable_camel_case_completion = 1
+" AutoComplPop like behavior.
+let g:neocomplcache_enable_auto_select = 1
+"call add(s:snippets_dir,'~/.vim/bundle/snipmate/snippets/')
+let g:neocomplcache_snippets_dir='~/.vim/mysnipets'

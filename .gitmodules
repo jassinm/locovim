@@ -209,3 +209,9 @@
 [submodule "bundle/vim-ipython"]
 	path = bundle/vim-ipython
 	url = https://github.com/rygwdn/vim-ipython.git
+[submodule "bundle/neocomplcache"]
+	path = bundle/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.git
+[submodule "bundle/vim-neocomplcache"]
+	path = bundle/vim-neocomplcache
+	url = https://github.com/Shougo/neocomplcache.git

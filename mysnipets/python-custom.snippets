@@ -39,3 +39,22 @@ snippet mlib
 	plt.legend(bbox_to_anchor=(0.,1.04,1.,0.102),loc=6,ncol=2)
 	plt.grid()
 	plt.show()
+snippet mlibdate
+	import matplotlib.pyplot as plt
+	fig = plt.figure()
+	ax = fig.add_subplot(111)
+	plt.rcParams.update({'legend.fontsize':8})
+	plt.legend(bbox_to_anchor=(0.,1.04,1.,0.102),loc=6,ncol=2)
+	dates , values = zip(*datatoplot)
+	plt.plot_date(dates,values)
+    plt.xticks(rotation=50, size='small')
+	plt.grid()
+snippet db2
+	import ibm_db
+	ibm_db_conn = ibm_db.connect('nodename', 'user', 'pwd',
+					  {ibm_db.ATTR_CASE:ibm_db.CASE_LOWER})
+	sql = ''
+	stmt = ibm_db.exec_immediate(ibm_db_conn, sql) #@UndefinedVariable
+	result = ibm_db.fetch_assoc(stmt) #@UndefinedVariable
+	while(result):
+		result = ibm_db.fetch_assoc(stmt)

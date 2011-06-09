@@ -402,3 +402,4 @@ let g:neocomplcache_enable_camel_case_completion = 1
 " AutoComplPop like behavior.
 let g:neocomplcache_enable_auto_select = 1
 "call add(s:snippets_dir,'~/.vim/bundle/snipmate/snippets/')
+let g:neocomplcache_snippets_dir='~/.vim/mysnipets'

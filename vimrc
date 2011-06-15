@@ -159,6 +159,10 @@ set number
 set hlsearch
 ":com Devall cd /Users/locojay/Documents/workspace
 "-------------------------------------------------------------
+"R Settings
+"-------------------------------------------------------------
+autocmd FileType r setlocal ts=8 sts=4 sw=4 expandtab
+"-------------------------------------------------------------
 "Python Settings
 "-------------------------------------------------------------
 "start pydoc

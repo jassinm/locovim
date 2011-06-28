@@ -38,7 +38,8 @@ if has('gui_running')
     winsize 270 70
     set go-=L
     set go-=r
-elseif $TERM_PROGRAM == "iTerm.app"
+"elseif $TERM_PROGRAM == "iTerm.app"
+elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " Non-GUI (terminal) colors
     set t_Co=256
     "colorscheme xoria256
@@ -118,6 +119,7 @@ noremap <silent> ,cj :wincmd j<CR>:close<CR>
 noremap <silent> ,ck :wincmd k<CR>:close<CR>
 noremap <silent> ,ch :wincmd h<CR>:close<CR>
 noremap <silent> ,cl :wincmd l<CR>:close<CR>
+noremap <silent> ,cc :wincmd c<CR>:close<CR>
 
 noremap <silent> ,wr :wincmd r<CR>
 noremap <silent> ,wo :wincmd o<CR>
@@ -403,3 +405,9 @@ let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_auto_select = 1
 "call add(s:snippets_dir,'~/.vim/bundle/snipmate/snippets/')
 let g:neocomplcache_snippets_dir='~/.vim/mysnipets'
+map <Leader>nce :NeoComplCacheEnable<CR>
+map <Leader>ncd :NeoComplCacheDisable<CR>
+"-------------------------------------------------------------
+"Gundo plugin
+"-------------------------------------------------------------
+nnoremap <Leader>g :GundoToggle<CR>

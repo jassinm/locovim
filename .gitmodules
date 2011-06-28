@@ -215,3 +215,9 @@
 [submodule "bundle/vim-neocomplcache"]
 	path = bundle/vim-neocomplcache
 	url = https://github.com/Shougo/neocomplcache.git
+[submodule "bundle/Obvious-Mode"]
+	path = bundle/Obvious-Mode
+	url = https://github.com/vim-scripts/Obvious-Mode
+[submodule "bundle/gundo.vim"]
+	path = bundle/gundo.vim
+	url = http://github.com/sjl/gundo.vim.git

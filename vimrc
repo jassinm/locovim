@@ -32,18 +32,19 @@ if has('gui_running')
     " GUI colors
     colorscheme jellybeans
     set guifont=Monaco:h12
-    set guioptions=egmrt
+    "set guioptions=egmrt
     "set guioptions+=T
     winpos 0 0
     winsize 270 70
     set go-=L
     set go-=r
-elseif $TERM_PROGRAM == "iTerm.app"
+"elseif $TERM_PROGRAM == "iTerm.app"
+elseif $TERM == "xterm-256color" || $TERM=="screen-256color"
     " Non-GUI (terminal) colors
     set t_Co=256
-    "colorscheme xoria256
     colorscheme jellybeans
     set guifont=Monaco:h12
+    "colorscheme xoria256
     autocmd colorscheme * hi Normal ctermbg=233
     autocmd colorscheme * hi NonText ctermbg=233
     autocmd colorscheme * hi LineNr ctermbg=233
@@ -58,7 +59,8 @@ let mapleader=","
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------
-
+"read large files
+au BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetype=| endif
 "paste mode
 nnoremap <F5> :set invpaste paste?<CR>
 set pastetoggle=<F5>
@@ -328,7 +330,7 @@ map <Leader>nose :call MakeGreen()<CR>
 "-------------------------------------------------------------
 nmap <Leader>t :CommandT<CR>
 let g:CommandTMaxHeight = 15
-set wildignore+=.git,*.pyc
+set wildignore+=.git,*.pyc,*.png,*.jpg,*.zip,*.xls,*.xlsx
 "-------------------------------------------------------------
 "Ack plugin
 "-------------------------------------------------------------

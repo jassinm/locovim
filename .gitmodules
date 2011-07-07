@@ -221,3 +221,6 @@
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim
 	url = http://github.com/sjl/gundo.vim.git
+[submodule "bundle/vim-buffkill"]
+	path = bundle/vim-buffkill
+	url = https://github.com/vim-scripts/bufkill.vim

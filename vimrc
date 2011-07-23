@@ -322,6 +322,8 @@ let loaded_supertab=1
 "-------------------------------------------------------------
 "add objc to taglist
 let tlist_objc_settings='objc;P:protocols;i:interfaces;I:implementations;M:instance methods;C:implementation methods;Z:protocol methods'
+"use brew ctags
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 "-------------------------------------------------------------
 "make green plugin
 "-------------------------------------------------------------

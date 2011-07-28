@@ -418,3 +418,8 @@ map <Leader>ncd :NeoComplCacheDisable<CR>
 "Gundo plugin
 "-------------------------------------------------------------
 nnoremap <Leader>g :GundoToggle<CR>
+
+"-------------------------------------------------------------
+"Sweave
+"-------------------------------------------------------------
+map <Leader>swe :execute '!/usr/local/bin/R CMD Sweave '.expand('%:p')<CR>

@@ -419,6 +419,7 @@ nnoremap <silent> <Leader>mr :MRU<CR>
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
 " Use camel case completion.
@@ -446,3 +447,8 @@ let ropevim_vim_completion=1
 "Pweave
 "-------------------------------------------------------------
 autocmd BufNewFile,BufRead *.Pnw set filetype=python
+"-------------------------------------------------------------
+"dbext
+"-------------------------------------------------------------
+let g:dbext_default_DB2_cmd_options='-q off -s off'
+let dbext_default_DB2_cmd_terminator=''

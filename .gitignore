@@ -3,3 +3,4 @@
 .netrwhist
 bundle/pyflakes-vim/ftplugin/python/pyflakes/pyflakes/*.pyc
 yankring_history*
+plugin/mydbextprofiles.vim

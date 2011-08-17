@@ -224,7 +224,3 @@
 [submodule "bundle/vim-buffkill"]
 	path = bundle/vim-buffkill
 	url = https://github.com/vim-scripts/bufkill.vim
-[submodule "bundle/dbext"]
-	path = bundle/dbext
-	url = https://github.com/peterhoeg/dbext.vim.git
-	ignore = untracked

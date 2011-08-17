@@ -209,7 +209,20 @@ autocmd FileType python map <Leader>r :RunPyBuffer<CR>
 "Latex Plugin Settings
 "-------------------------------------------------------------
 autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
-:let g:Tex_ViewRule_pdf = 'Preview'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_CompileRule_pdf = 'pdflatex -interaction nonstopmode $*'
+let g:Tex_ViewRule_pdf = 'Preview'
+let g:Tex_IgnoredWarnings="Font""\n"
+let g:Tex_IgnoredWarnings =
+                \'Underfull'."\n".
+                \'Overfull'."\n".
+                \'specifier changed to'."\n".
+                \'You have requested'."\n".
+                \'Missing number, treated as zero.'."\n".
+                \'There were undefined references'."\n".
+                \'Latex Warning:'."\n".
+                \'LaTeX Warning:' " float stuck
+let g:Tex_IgnoreLevel = 8
 "-------------------------------------------------------------
 "NerdTree Plugin Settings
 "-------------------------------------------------------------

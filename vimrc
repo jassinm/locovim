@@ -450,5 +450,10 @@ autocmd BufNewFile,BufRead *.Pnw set filetype=python
 "-------------------------------------------------------------
 "dbext
 "-------------------------------------------------------------
-let g:dbext_default_DB2_cmd_options='-q off -s off'
-let dbext_default_DB2_cmd_terminator=''
+let dbext_default_DB2_bin='db2batch'
+"let g:dbext_default_DB2_cmd_options="-q on -s off -l ';'"
+"let g:dbext_default_DB2_cmd_options="-q del -s off"
+"let dbext_default_DB2_cmd_terminator=""
+"let dbext_default_DB2_cmd_terminator="':';"
+"output command
+"let dbext_default_display_cmd_line=1

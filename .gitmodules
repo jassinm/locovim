@@ -227,3 +227,4 @@
 [submodule "bundle/dbext"]
 	path = bundle/dbext
 	url = https://github.com/peterhoeg/dbext.vim.git
+	ignore = untracked

@@ -55,6 +55,7 @@ syntax on
 filetype plugin on
 filetype indent on
 
+set noswapfile
 let mapleader=","
 "-------------------------------------------------------------
 "Vim Settings
@@ -207,12 +208,13 @@ autocmd FileType python map <Leader>r :RunPyBuffer<CR>
 "-------------------------------------------------------------
 "Latex Plugin Settings
 "-------------------------------------------------------------
+autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
 :let g:Tex_ViewRule_pdf = 'Preview'
 "-------------------------------------------------------------
 "NerdTree Plugin Settings
 "-------------------------------------------------------------
 "down't display the following files
-let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$']
+let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$','\.pdf']
 nmap <silent> <D-d> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "left"
 " Show the bookmarks table on startup
@@ -423,3 +425,11 @@ nnoremap <Leader>g :GundoToggle<CR>
 "Sweave
 "-------------------------------------------------------------
 map <Leader>swe :execute '!/usr/local/bin/R CMD Sweave '.expand('%:p')<CR>
+"-------------------------------------------------------------
+"Ropevim
+"-------------------------------------------------------------
+let ropevim_vim_completion=1
+"-------------------------------------------------------------
+"Pweave
+"-------------------------------------------------------------
+autocmd BufNewFile,BufRead *.Pnw set filetype=python

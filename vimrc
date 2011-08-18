@@ -60,6 +60,8 @@ let mapleader=","
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------
+"add to clipbord
+set clipboard=unnamed
 "read large files
 au BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetype=| endif
 "paste mode
@@ -227,7 +229,7 @@ let g:Tex_IgnoreLevel = 8
 "NerdTree Plugin Settings
 "-------------------------------------------------------------
 "down't display the following files
-let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$','\.pdf']
+let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$']
 nmap <silent> <D-d> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "left"
 " Show the bookmarks table on startup

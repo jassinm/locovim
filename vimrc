@@ -456,4 +456,4 @@ let dbext_default_DB2_bin='db2batch'
 "let dbext_default_DB2_cmd_terminator=""
 "let dbext_default_DB2_cmd_terminator="':';"
 "output command
-"let dbext_default_display_cmd_line=1
+let dbext_default_display_cmd_line=1

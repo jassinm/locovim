@@ -61,7 +61,7 @@ let mapleader=","
 "Vim Settings
 "-------------------------------------------------------------
 "add to clipbord
-set clipboard=unnamed
+"set clipboard=unnamed
 "read large files
 au BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetype=| endif
 "paste mode

@@ -227,3 +227,9 @@
 [submodule "bundle/dbext"]
 	path = bundle/dbext
 	url = git@github.com:locojay/dbext.vim.git
+[submodule "bundle/reload.vim"]
+	path = bundle/reload.vim
+	url = https://github.com/vim-scripts/reload.vim.git
+[submodule "bundle/Scree-vim-gnu-screentmux"]
+	path = bundle/Scree-vim-gnu-screentmux
+	url = https://github.com/vim-scripts/Screen-vim---gnu-screentmux.git

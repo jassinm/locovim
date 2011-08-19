@@ -463,4 +463,20 @@ let dbext_default_DB2_bin='db2batch'
 "Screen/Tmux plugin
 "-------------------------------------------------------------
 let g:ScreenImpl = 'Tmux'
+let g:ScreenShellActive=0
 
+function! s:ScreenShellListener()
+    if g:ScreenShellActive
+        nmap <C-c><C-c> :ScreenSend<cr>
+        nmap <C-c><C-x> :ScreenQuit<cr>
+    else
+        nmap <C-c><C-c> :ScreenShellVertical<cr>
+    endif
+endfunction
+nmap <C-c><C-c> :ScreenShellVertical<cr>
+augroup ScreenShellEnter
+    autocmd User * call <SID>ScreenShellListener()
+augroup END
+augroup ScreenShellExit
+    autocmd User * call <SID>ScreenShellListener()
+augroup END

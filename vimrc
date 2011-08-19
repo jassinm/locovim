@@ -467,7 +467,7 @@ let g:ScreenShellActive=0
 
 function! s:ScreenShellListener()
     if g:ScreenShellActive
-        nmap <C-c><C-c> :ScreenSend<cr>
+        map <C-c><C-c> :ScreenSend<cr>
         nmap <C-c><C-x> :ScreenQuit<cr>
     else
         nmap <C-c><C-c> :ScreenShellVertical<cr>

@@ -60,6 +60,8 @@ let mapleader=","
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------
+"help in vertical spli
+au FileType help wincmd L
 "add to clipbord
 "set clipboard=unnamed
 "read large files
@@ -68,10 +70,11 @@ au BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetyp
 nnoremap <F5> :set invpaste paste?<CR>
 set pastetoggle=<F5>
 set showmode
-" Set the status line the way i like it
-"set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+"auto paste in paste mode
+imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
+"Set the status line the way i like it
 "set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
-set statusline=%<\ %n:%f\ %m%r%y%w%=%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
 "set laststatus=2
 
@@ -136,11 +139,23 @@ noremap <silent> ,hs :split <CR>
 noremap <silent> ,cn :cn<CR>
 noremap <silent> ,cp :cp<CR
 
+"Calculator
+inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+
+" Tabs, spaces, wrapping
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set wrap
+set textwidth=85
+set formatoptions=qrn1
+"set colorcolumn=+1
 """"""""""""""
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
-set ignorecase
+autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 09:17:11 PM EDT/e
 set smartcase
 set incsearch
 "replace word under cursor
@@ -157,7 +172,7 @@ noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
 "remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
+autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 08:27:57 PM EDT/e
 "-------------------------------------------------------------
 "Coding Settings
 "-------------------------------------------------------------
@@ -419,6 +434,7 @@ nnoremap <silent> <Leader>mr :MRU<CR>
 "-------------------------------------------------------------
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
+
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_at_startup = 1
@@ -436,7 +452,6 @@ map <Leader>ncd :NeoComplCacheDisable<CR>
 "Gundo plugin
 "-------------------------------------------------------------
 nnoremap <Leader>g :GundoToggle<CR>
-
 "-------------------------------------------------------------
 "Sweave
 "-------------------------------------------------------------
@@ -480,3 +495,4 @@ augroup END
 augroup ScreenShellExit
     autocmd User * call <SID>ScreenShellListener()
 augroup END
+

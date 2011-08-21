@@ -76,7 +76,7 @@ imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 "set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
-"set laststatus=2
+set laststatus=2
 
 "keep a longer history
 set history=1000
@@ -138,10 +138,8 @@ noremap <silent> ,hs :split <CR>
 "quickfix winow
 noremap <silent> ,cn :cn<CR>
 noremap <silent> ,cp :cp<CR
-
 "Calculator
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
-
 " Tabs, spaces, wrapping
 set tabstop=4
 set shiftwidth=4
@@ -213,7 +211,7 @@ map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "f
 fu! DoRunPyBuffer2()
 pclose! " force preview window closed
 setlocal ft=python
-" copy the buffer into a new window, then run that buffer through python
+"copy the buffer into a new window, then run that buffer through python
 sil %y a | below new | sil put a | sil %!python -
 "indicate the output window as the current previewwindow
 setlocal previewwindow ro nomodifiable nomodified
@@ -265,8 +263,8 @@ nmap <silent> <D-i> :ConqueTermVSplit ipython<CR>
 let g:ConqueTerm_SendVisKey = '<C-i>'
 
 function! RunConque()
-let filepath = %:p
-ConqueTermSplit ipython -c "run"filepath
+    let filepath = %:p
+    ConqueTermSplit ipython -c "run"filepath
 endfunction
 nmap <silent> ,,r :execute 'ConqueTermSplit ipython '.expand('%:p')<CR>
 "-------------------------------------------------------------
@@ -304,8 +302,7 @@ let g:miniBufExplTabWrap=1
 let g:miniBufExplMaxSize=1
 let g:miniBufExplorerMoreThanOne=0
 let g:miniBufExplMapCTabSwitchBufs = 1
-"tur
-"noff minibufexpl
+"turn noff minibufexpl
 let loaded_minibufexplorer=1
 "-------------------------------------------------------------
 "Buftabs Plugin Settings
@@ -329,7 +326,6 @@ function! MyFoldLevel( lineNumber )
   endif
   return '='
 endfunction
-
 "vim objj
 set runtimepath+=~/.vim/bundle/vim-objj
 "don't like highlighting of objj.vim ==> use objc
@@ -378,11 +374,9 @@ set tags=./tags,tags,pytags
 "-------------------------------------------------------------
 "Fuzzy Finder plugin
 "-------------------------------------------------------------
-
 nmap <Leader>ff :FuzzyFinderFile<CR>
 nmap <Leader>fb :FuzzyFinderBuffer<CR>
 nmap <Leader>ft :FuzzyFinderTag<CR>
-
 "-------------------------------------------------------------
 "ZoomWin plugin
 "-------------------------------------------------------------
@@ -391,16 +385,12 @@ nmap <Leader>z :ZoomWin<CR>
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
-
 "-------------------------------------------------------------
 "OpenTerminal plugin
 "-------------------------------------------------------------
-"
 nnoremap <silent> <Leader>ot :OpenTerminal<CR>
 nnoremap <silent> <Leader>of :OpenFilemanager<CR><CR>
-
 nnoremap <silent> <Leader>oi :OpenIterm<CR>
-
 "-------------------------------------------------------------
 "Timux helper
 "-------------------------------------------------------------
@@ -417,7 +407,6 @@ nmap <silent><Leader>ou : call OpenTimuxWindow()<CR>
 "Easymotion plugin
 "-------------------------------------------------------------
 "let g:EasyMotion_leader_key = '<Leader>m'
-
 "-------------------------------------------------------------
 "Yankring plugin
 "-------------------------------------------------------------
@@ -434,7 +423,6 @@ nnoremap <silent> <Leader>mr :MRU<CR>
 "-------------------------------------------------------------
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
-
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_at_startup = 1

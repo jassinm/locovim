@@ -153,7 +153,7 @@ set formatoptions=qrn1
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
-autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 09:17:11 PM EDT/e
+autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
 set smartcase
 set incsearch
 "replace word under cursor

@@ -153,7 +153,7 @@ set formatoptions=qrn1
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
-autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
+"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
 set smartcase
 set incsearch
 "replace word under cursor
@@ -170,7 +170,7 @@ noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
 "remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 08:27:57 PM EDT/e
+"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 08:27:57 PM EDT/e
 "-------------------------------------------------------------
 "Coding Settings
 "-------------------------------------------------------------

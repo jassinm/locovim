@@ -146,10 +146,29 @@ set textwidth=85
 set formatoptions=qrn1
 "set colorcolumn=+1
 """"""""""""""
+"JAVA
+"""""""""""""""""
+" Javadoc comments (/** and */ pairs) and code sections (marked by {} pairs) mark the start and end of folds. All other
+" lines simply take the fold level that is going so far.
+function! MyFoldLevel( lineNumber )
+  let thisLine = getline( a:lineNumber )
+  " If the entire Javadoc comment or the {} pair is on one line, then don't create a fold for it.
+  if ( thisLine =~ '\%(\%(/\*\*\).*\%(\*/\)\)\|\%({.*}\)' )
+    return '='
+  elseif ( thisLine =~ '\%(^\s*/\*\*\s*$\)\|{' )
+    return "a1"
+  elseif ( thisLine =~ '\%(^\s*\*/\s*$\)\|}' )
+    return "s1"
+  endif
+  return '='
+endfunction
+setlocal foldexpr=MyFoldLevel(v:lnum)
+setlocal foldmethod=expr
+
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
-autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
+"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
 set smartcase
 set incsearch
 "replace word under cursor
@@ -166,7 +185,6 @@ noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
 "remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 08:27:57 PM EDT/e
 "-------------------------------------------------------------
 "Coding Settings
 "-------------------------------------------------------------

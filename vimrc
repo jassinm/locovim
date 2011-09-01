@@ -185,6 +185,7 @@ noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
 "remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 08:27:57 PM EDT/e
 "-------------------------------------------------------------
 "Coding Settings
 "-------------------------------------------------------------
@@ -496,5 +497,4 @@ augroup ScreenShellEnter
 augroup END
 augroup ScreenShellExit
     autocmd User * call <SID>ScreenShellListener()
-augroup END
 

@@ -233,3 +233,6 @@
 [submodule "bundle/Scree-vim-gnu-screentmux"]
 	path = bundle/Scree-vim-gnu-screentmux
 	url = https://github.com/vim-scripts/Screen-vim---gnu-screentmux.git
+[submodule "rest.vim"]
+	path = rest.vim
+	url = https://github.com/vim-scripts/rest.vim.git

@@ -137,7 +137,7 @@ noremap <silent> ,vs :vsplit <CR>
 noremap <silent> ,hs :split <CR>
 "quickfix winow
 noremap <silent> ,cn :cn<CR>
-noremap <silent> ,cp :cp<CR
+noremap <silent> ,cp :cp<CR>
 "Calculator
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 " Tabs, spaces, wrapping

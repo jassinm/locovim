@@ -14,9 +14,6 @@ endif
 if !has('ruby')
     call add(g:pathogen_disabled, 'lusty')
 endif
-"call add(g:pathogen_disabled, 'ropevim')
-"call add(g:pathogen_disabled, 'pysmell')
-"call add(g:pathogen_disabled, 'vim-neocomplcache')
 call add(g:pathogen_disabled, 'AutoComplPop')
 call add(g:pathogen_disabled, 'csv.vim')
 call add(g:pathogen_disabled, 'supertab')
@@ -24,7 +21,6 @@ call add(g:pathogen_disabled, 'buftabs')
 call add(g:pathogen_disabled, 'vim-fuzzyfinder-pathogen')
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
@@ -150,6 +146,25 @@ set textwidth=85
 set formatoptions=qrn1
 "set colorcolumn=+1
 """"""""""""""
+"JAVA
+"""""""""""""""""
+" Javadoc comments (/** and */ pairs) and code sections (marked by {} pairs) mark the start and end of folds. All other
+" lines simply take the fold level that is going so far.
+function! MyFoldLevel( lineNumber )
+  let thisLine = getline( a:lineNumber )
+  " If the entire Javadoc comment or the {} pair is on one line, then don't create a fold for it.
+  if ( thisLine =~ '\%(\%(/\*\*\).*\%(\*/\)\)\|\%({.*}\)' )
+    return '='
+  elseif ( thisLine =~ '\%(^\s*/\*\*\s*$\)\|{' )
+    return "a1"
+  elseif ( thisLine =~ '\%(^\s*\*/\s*$\)\|}' )
+    return "s1"
+  endif
+  return '='
+endfunction
+setlocal foldexpr=MyFoldLevel(v:lnum)
+setlocal foldmethod=expr
+
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
@@ -482,5 +497,4 @@ augroup ScreenShellEnter
 augroup END
 augroup ScreenShellExit
     autocmd User * call <SID>ScreenShellListener()
-augroup END
 

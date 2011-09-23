@@ -292,3 +292,12 @@
 	path = rest.vim
 	url = https://github.com/vim-scripts/rest.vim.git
 	ignore = untracked
+[submodule "bundle/vim-coffe-script"]
+	path = bundle/vim-coffe-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "bundle/zencoding-vim"]
+	path = bundle/zencoding-vim
+	url = https://github.com/mattn/zencoding-vim.git
+[submodule "bundle/processing"]
+	path = bundle/processing
+	url = https://github.com/vim-scripts/Processing.git

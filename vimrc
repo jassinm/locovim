@@ -59,7 +59,7 @@ let mapleader=","
 "help in vertical spli
 au FileType help wincmd L
 "add to clipbord
-"set clipboard=unnamed
+set clipboard+=unnamed
 "read large files
 au BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetype=| endif
 "paste mode

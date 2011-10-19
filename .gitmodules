@@ -301,3 +301,6 @@
 [submodule "bundle/processing"]
 	path = bundle/processing
 	url = https://github.com/vim-scripts/Processing.git
+[submodule "bundle/vst"]
+	path = bundle/vst
+	url = https://github.com/vim-scripts/VST.git

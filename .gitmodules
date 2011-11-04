@@ -208,10 +208,6 @@
 	path = bundle/pydoc
 	url = https://github.com/fs111/pydoc.vim
 	ignore = untracked
-[submodule "bundle/desertink-color"]
-	path = bundle/desertink-color
-	url = https://github.com/toupeira/desertink.vim.git
-	ignore = untracked
 [submodule "bundle/vim-r-plugin"]
 	path = bundle/vim-r-plugin
 	url = https://github.com/vim-scripts/Vim-R-plugin.git

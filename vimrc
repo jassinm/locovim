@@ -171,6 +171,7 @@ setlocal foldmethod=expr
 "autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
 set smartcase
 set incsearch
+set ignorecase
 "replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 "-------------------------------------------------------------
@@ -452,9 +453,18 @@ let g:neocomplcache_snippets_dir='~/.vim/mysnipets'
 map <Leader>nce :NeoComplCacheEnable<CR>
 map <Leader>ncd :NeoComplCacheDisable<CR>
 "-------------------------------------------------------------
+"Fugitive plugin
+"-------------------------------------------------------------
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gco :Gcheckout<CR>
+nnoremap <Leader>gci :Gcommit<CR>
+"-------------------------------------------------------------
 "Gundo plugin
 "-------------------------------------------------------------
-nnoremap <Leader>g :GundoToggle<CR>
+nnoremap <Leader>gu :GundoToggle<CR>
+"let g:gundo_debug = 1
+let g:gundo_preview_bottom = 1
 "-------------------------------------------------------------
 "Sweave
 "-------------------------------------------------------------
@@ -497,4 +507,5 @@ augroup ScreenShellEnter
 augroup END
 augroup ScreenShellExit
     autocmd User * call <SID>ScreenShellListener()
+
 

@@ -112,14 +112,6 @@
 	path = bundle/delimate
 	url = https://github.com/vim-scripts/delimitMate.vim.git
 	ignore = untracked
-[submodule "bundle/vim-fuzzyfinder"]
-	path = bundle/vim-fuzzyfinder
-	url = https://github.com/clones/vim-fuzzyfinder.git
-	ignore = untracked
-[submodule "bundle/vim-fuzzyfinder-pathogen"]
-	path = bundle/vim-fuzzyfinder-pathogen
-	url = https://github.com/itspriddle/vim-fuzzyfinder-pathogen.git
-	ignore = untracked
 [submodule "bundle/taskpaper.vim"]
 	path = bundle/taskpaper.vim
 	url = https://github.com/tsaleh/taskpaper.vim.git

@@ -14,11 +14,10 @@ endif
 if !has('ruby')
     call add(g:pathogen_disabled, 'lusty')
 endif
-call add(g:pathogen_disabled, 'AutoComplPop')
+
 call add(g:pathogen_disabled, 'csv.vim')
-call add(g:pathogen_disabled, 'supertab')
 call add(g:pathogen_disabled, 'buftabs')
-call add(g:pathogen_disabled, 'vim-fuzzyfinder-pathogen')
+"call add(g:pathogen_disabled, 'vim-fuzzyfinder-pathogen')
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 "-----------------------------------------------------------------------------
@@ -337,12 +336,6 @@ au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
 au BufNewFile,BufRead *.j setlocal foldmethod=expr
 "json
 au BufNewFile,BufRead *.json setfiletype javascript
-"-------------------------------------------------------------
-"AutoComplete Popup Plugin Settings
-"-------------------------------------------------------------
-map <Leader>ace :AcpEnable<CR>
-map <Leader>acd :AcpDisable<CR>
-let g:acp_behaviorSnipmateLength=1
 "-------------------------------------------------------------
 "Supertab  Plugin Settings
 "-------------------------------------------------------------

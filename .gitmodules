@@ -72,10 +72,6 @@
 	path = bundle/runscript.vim
 	url = https://github.com/vim-scripts/runscript.vim.git
 	ignore = untracked
-[submodule "bundle/buftabs"]
-	path = bundle/buftabs
-	url = https://github.com/vim-scripts/buftabs.git
-	ignore = untracked
 [submodule "bundle/vim-makegreen"]
 	path = bundle/vim-makegreen
 	url = https://github.com/reinh/vim-makegreen

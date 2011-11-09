@@ -16,8 +16,6 @@ if !has('ruby')
 endif
 
 call add(g:pathogen_disabled, 'csv.vim')
-call add(g:pathogen_disabled, 'buftabs')
-"call add(g:pathogen_disabled, 'vim-fuzzyfinder-pathogen')
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 "-----------------------------------------------------------------------------
@@ -306,13 +304,6 @@ let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
 "-------------------------------------------------------------
 let g:pyflakes_use_quickfix = 0
 "-------------------------------------------------------------
-"Buftabs Plugin Settings
-"-------------------------------------------------------------
-"let g:buftabs_in_statusline=1
-":noremap <C-left> :bprev<CR>
-let g:buftabs_only_basename=1
-noremap <C-TAB> :bnext<CR>
-"-------------------------------------------------------------
 "Objective-J Settings
 "-------------------------------------------------------------
 function! MyFoldLevel( lineNumber )
@@ -366,12 +357,6 @@ nnoremap <Leader>a :Ack --follow <C-r><C-w>
 "-------------------------------------------------------------
 " Set the tags files to be the following
 set tags=./tags,tags,pytags
-"-------------------------------------------------------------
-"Fuzzy Finder plugin
-"-------------------------------------------------------------
-nmap <Leader>ff :FuzzyFinderFile<CR>
-nmap <Leader>fb :FuzzyFinderBuffer<CR>
-nmap <Leader>ft :FuzzyFinderTag<CR>
 "-------------------------------------------------------------
 "ZoomWin plugin
 "-------------------------------------------------------------

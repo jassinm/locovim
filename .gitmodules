@@ -273,6 +273,8 @@
 [submodule "bundle/vst"]
 	path = bundle/vst
 	url = https://github.com/vim-scripts/VST.git
+	ignore = untracked
 [submodule "bundle/vim-matchit"]
 	path = bundle/vim-matchit
 	url = https://github.com/mhz/vim-matchit.git
+	ignore = untracked

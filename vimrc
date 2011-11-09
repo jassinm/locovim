@@ -307,20 +307,6 @@ let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
 "-------------------------------------------------------------
 let g:pyflakes_use_quickfix = 0
 "-------------------------------------------------------------
-"MinibufExplorer Plugin Settings
-"-------------------------------------------------------------
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
-let g:miniBufExplTabWrap=1
-let g:miniBufExplMaxSize=1
-let g:miniBufExplorerMoreThanOne=0
-let g:miniBufExplMapCTabSwitchBufs = 1
-"turn noff minibufexpl
-let loaded_minibufexplorer=1
-"-------------------------------------------------------------
 "Buftabs Plugin Settings
 "-------------------------------------------------------------
 "let g:buftabs_in_statusline=1

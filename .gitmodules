@@ -17,10 +17,6 @@
 	path = bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
 	ignore = untracked
-[submodule "bundle/vcscommand"]
-	path = bundle/vcscommand
-	url = git://repo.or.cz/vcscommand
-	ignore = untracked
 [submodule "bundle/vim-debug"]
 	path = bundle/vim-debug
 	url = https://github.com/jabapyth/vim-debug.git

@@ -281,3 +281,6 @@
 [submodule "bundle/swap-parameters"]
 	path = bundle/swap-parameters
 	url = https://github.com/vim-scripts/swap-parameters.git
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git

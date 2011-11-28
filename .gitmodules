@@ -284,3 +284,6 @@
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "bundle/hammer.vim"]
+	path = bundle/hammer.vim
+	url = https://github.com/robgleeson/hammer.vim

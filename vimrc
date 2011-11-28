@@ -165,7 +165,7 @@ setlocal foldmethod=expr
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
-"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
+"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Sun 27 Nov 2011 08:19:35 PM EST/e
 set smartcase
 set incsearch
 set ignorecase

@@ -182,7 +182,9 @@ noremap <silent> <Leader>ch :wincmd h<CR>:close<CR>
 noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
 
 "remove trailing whitespaces
-autocmd BufWritePre * :%s/\s\+$//e
+if has("autocmd")
+    autocmd BufWritePre * :%s/\s\+$//e
+endif
 "autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 08:27:57 PM EDT/e
 "-------------------------------------------------------------
 "Coding Settings
@@ -193,7 +195,9 @@ set hlsearch
 "-------------------------------------------------------------
 "R Settings
 "-------------------------------------------------------------
-autocmd FileType r setlocal ts=8 sts=4 sw=4 expandtab
+if has("autocmd")
+    autocmd FileType r setlocal ts=8 sts=4 sw=4 expandtab
+endif
 "-------------------------------------------------------------
 "Python Settings
 "-------------------------------------------------------------
@@ -201,13 +205,17 @@ autocmd FileType r setlocal ts=8 sts=4 sw=4 expandtab
 map <buffer> <Leader>doc :execute "!pydoc " . expand("<cword>")<CR>
 "python pep8 settings
 "autocmd FileType python setlocal textwidth=79
-autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
-autocmd FileType python setlocal autoindent
-"nose for unittest
-autocmd FileType python compiler nose
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-"autocmd FileType python set formatprg = PythonTidy
-"autocmd! bufwritepost *.py %!PythonTidy
+if has("autocmd")
+    autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
+    autocmd FileType python setlocal autoindent
+    "nose for unittest
+    autocmd FileType python compiler nose
+    autocmd FileType python set omnifunc=pythoncomplete#Complete
+    "autocmd FileType python set formatprg = PythonTidy
+    "autocmd! bufwritepost *.py %!PythonTidy
+    autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
+    autocmd BufNewFile,BufRead *.py set formatprg=PythonTidy
+endif
 
 function! PythonTidySaver()
 	let oldpos=getpos('.')
@@ -216,8 +224,6 @@ function! PythonTidySaver()
 endfunction
 
 "autocmd! bufwritepost *.py call PythonTidySaver()
-autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
-autocmd BufNewFile,BufRead *.py set formatprg=PythonTidy
 "pythontags
 map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
 

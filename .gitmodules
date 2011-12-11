@@ -293,3 +293,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/wmgraphiz"]
+	path = bundle/wmgraphiz
+	url = https://github.com/wannesm/wmgraphviz.vim.git

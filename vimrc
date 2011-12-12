@@ -1,3 +1,4 @@
+set shell=/bin/zsh
 "-------------------------------------------------------------
 "Pathogen plugin plugin
 "-------------------------------------------------------------
@@ -66,7 +67,6 @@ set showmode
 "auto paste in paste mode
 imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 "Set the status line the way i like it
-"set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
@@ -99,12 +99,12 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set hidden "Allows to change buffer w/o saving current buffer
 "Move lines up and down
-nnoremap <D-j> :m+<CR>==
-nnoremap <D-k>  :m-2<CR>==
-inoremap <D-j>  <Esc>:m+<CR>==gi
-inoremap <D-k>  <Esc>:m-2<CR>==gi
-vnoremap <D-j>  :m'>+<CR>gv=gv
-vnoremap <D-k>  :m-2<CR>gv=gv
+nnoremap <Alt-j> :m+<CR>==
+nnoremap <Alt-k>  :m-2<CR>==
+inoremap <Alt-j>  <Esc>:m+<CR>==gi
+inoremap <Alt-k>  <Esc>:m-2<CR>==gi
+vnoremap <Alt-j>  :m'>+<CR>gv=gv
+vnoremap <Alt-k>  :m-2<CR>gv=gv
 "windows
 " Move the cursor to the window left of the current one
 noremap <silent> ,wh :wincmd h<cr>
@@ -165,7 +165,7 @@ setlocal foldmethod=expr
 "-------------------------------------------------------------
 "Search Settings
 "-------------------------------------------------------------
-"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Sun 27 Nov 2011 08:19:35 PM EST/e
+"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Sun 11 Dec 2011 09:24:58 PM EST/e
 set smartcase
 set incsearch
 set ignorecase
@@ -191,7 +191,6 @@ endif
 "-------------------------------------------------------------
 set number
 set hlsearch
-":com Devall cd /Users/locojay/Documents/workspace
 "-------------------------------------------------------------
 "R Settings
 "-------------------------------------------------------------
@@ -227,18 +226,6 @@ endfunction
 "pythontags
 map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
 
-fu! DoRunPyBuffer2()
-pclose! " force preview window closed
-setlocal ft=python
-"copy the buffer into a new window, then run that buffer through python
-sil %y a | below new | sil put a | sil %!python -
-"indicate the output window as the current previewwindow
-setlocal previewwindow ro nomodifiable nomodified
-"back into the original window
-winc p
-endfu
-command! RunPyBuffer call DoRunPyBuffer2()
-autocmd FileType python map <Leader>r :RunPyBuffer<CR>
 "-------------------------------------------------------------
 "Latex Plugin Settings
 "-------------------------------------------------------------
@@ -268,6 +255,8 @@ let g:NERDTreeWinPos = "left"
 let NERDTreeShowBookmarks=1
 let NERDTreeQuitOnOpen=1
 "let NERDTreeShowHidden=1
+"let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 hi Title guifg=red guibg=#202020
 "-------------------------------------------------------------
 "Tlist Plugin Settings
@@ -332,7 +321,15 @@ au BufNewFile,BufRead *.j  setlocal ts=8 sts=4 sw=4 expandtab
 au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
 au BufNewFile,BufRead *.j setlocal foldmethod=expr
 "json
-au BufNewFile,BufRead *.json setfiletype javascript
+"au BufNewFile,BufRead *.json setfiletype javascript
+"processing
+au BufNewFile,BufRead *.pde setfiletype processing
+"-------------------------------------------------------------
+"AutoComplete Popup Plugin Settings
+"-------------------------------------------------------------
+map <Leader>ace :AcpEnable<CR>
+map <Leader>acd :AcpDisable<CR>
+let g:acp_behaviorSnipmateLength=1
 "-------------------------------------------------------------
 "Supertab  Plugin Settings
 "-------------------------------------------------------------
@@ -378,7 +375,7 @@ nnoremap <silent> <Leader>ot :OpenTerminal<CR>
 nnoremap <silent> <Leader>of :OpenFilemanager<CR><CR>
 nnoremap <silent> <Leader>oi :OpenIterm<CR>
 "-------------------------------------------------------------
-"Timux helper
+"Tmux helper
 "-------------------------------------------------------------
 function! OpenTimuxWindow()
   let l:current_dir = getcwd()

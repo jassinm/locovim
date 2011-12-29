@@ -11,6 +11,7 @@ if !has('python')
     call add(g:pathogen_disabled, 'pysmell')
     call add(g:pathogen_disabled, 'python_open_module')
     call add(g:pathogen_disabled, 'ropevim')
+    call add(g:pathogen_disabled, 'swap-parameters')
 endif
 if !has('ruby')
     call add(g:pathogen_disabled, 'lusty')
@@ -67,7 +68,7 @@ set showmode
 "auto paste in paste mode
 imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 "Set the status line the way i like it
-set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+"set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
 

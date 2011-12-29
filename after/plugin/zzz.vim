@@ -17,8 +17,10 @@ map <silent><Leader>cd :cd %:p:h<CR>
 "quickfix winow
 noremap <silent> ,cn :cn<CR>
 noremap <silent> ,cp :cp<CR>
-"set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
-set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+set statusline=%<\ %n:%f\ %m%r%y%w%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+if has('python')
+    set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+endif
 autocmd BufNewFile,BufRead *.pde setfiletype processing
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gw :Gwrite<CR>

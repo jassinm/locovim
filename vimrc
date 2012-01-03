@@ -40,10 +40,12 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     colorscheme jellybeans
     set guifont=Monaco:h12
     "colorscheme xoria256
-    autocmd colorscheme * hi Normal ctermbg=233
-    autocmd colorscheme * hi NonText ctermbg=233
-    autocmd colorscheme * hi LineNr ctermbg=233
-    autocmd colorscheme * hi VertSplit ctermbg=233
+    if has("autocmd")
+        autocmd colorscheme * hi Normal ctermbg=233
+        autocmd colorscheme * hi NonText ctermbg=233
+        autocmd colorscheme * hi LineNr ctermbg=233
+        autocmd colorscheme * hi VertSplit ctermbg=233
+    endif
 endif
 
 syntax on
@@ -230,7 +232,9 @@ map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "f
 "-------------------------------------------------------------
 "Latex Plugin Settings
 "-------------------------------------------------------------
-autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
+if has("autocmd")
+    autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
+endif
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex -interaction nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'Preview'
@@ -281,8 +285,10 @@ nmap <silent> ,,r :execute 'ConqueTermSplit ipython '.expand('%:p')<CR>
 "-------------------------------------------------------------
 set completeopt=menu,preview
 " omnifocus as constrol space
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+if has("autocmd")
+    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+endif
 inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\<lt>C-n>" :
             \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
@@ -444,7 +450,9 @@ let ropevim_vim_completion=1
 "-------------------------------------------------------------
 "Pweave
 "-------------------------------------------------------------
-autocmd BufNewFile,BufRead *.Pnw set filetype=python
+if has("autocmd")
+    autocmd BufNewFile,BufRead *.Pnw set filetype=python
+endif
 "-------------------------------------------------------------
 "dbext <Leaeder>se
 "-------------------------------------------------------------

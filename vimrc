@@ -446,7 +446,7 @@ let ropevim_vim_completion=1
 "-------------------------------------------------------------
 autocmd BufNewFile,BufRead *.Pnw set filetype=python
 "-------------------------------------------------------------
-"dbext
+"dbext <Leaeder>se
 "-------------------------------------------------------------
 let dbext_default_DB2_bin='db2batch'
 "let g:dbext_default_DB2_cmd_options="-q on -s off -l ';'"
@@ -476,3 +476,10 @@ augroup END
 augroup ScreenShellExit
     autocmd User * call <SID>ScreenShellListener()
 augroup END
+"-------------------------------------------------------------
+"swap parameters plugin
+"-------------------------------------------------------------
+if has('ptyhon')
+    noremap gb :call SwapParams("forwards")<cr>
+    noremap gB :call SwapParams("backwards")<cr>
+endif

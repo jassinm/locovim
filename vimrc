@@ -58,6 +58,10 @@ endif
 "Vim Settings
 "-------------------------------------------------------------
 let mapleader=","
+"show invisible shars
+set list
+set listchars=tab:▸\ ,eol:¬
+"add line numbers
 set number
 syntax on
 filetype plugin on

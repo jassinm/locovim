@@ -301,3 +301,6 @@
 [submodule "bundle/vim-rst-tables"]
 	path = bundle/vim-rst-tables
 	url = https://github.com/nvie/vim-rst-tables.git
+[submodule "bundle/DocOutlineTree"]
+	path = bundle/DocOutlineTree
+	url = https://github.com/vim-scripts/DotOutlineTree.git

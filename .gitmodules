@@ -298,3 +298,6 @@
 	path = bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
 	ignore = untracked
+[submodule "bundle/vim-rst-tables"]
+	path = bundle/vim-rst-tables
+	url = https://github.com/nvie/vim-rst-tables.git

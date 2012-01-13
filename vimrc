@@ -12,6 +12,7 @@ if !has('python')
     call add(g:pathogen_disabled, 'python_open_module')
     call add(g:pathogen_disabled, 'ropevim')
     call add(g:pathogen_disabled, 'swap-parameters')
+    call add(g:pathogen_disabled, 'vim-rst-tables')
 endif
 if !has('ruby')
     call add(g:pathogen_disabled, 'vim-autoclose')
@@ -42,7 +43,7 @@ if has('gui_running')
 elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " Non-GUI (terminal) colors
     set t_Co=256
-    colorscheme jellybeans
+    colorscheme jellybeans_locojay
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
     "colorscheme xoria256
@@ -53,16 +54,15 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
         autocmd colorscheme * hi VertSplit ctermbg=233
     endif
 endif
-
-syntax on
-filetype plugin on
-filetype indent on
-
-set noswapfile
-let mapleader=","
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------
+let mapleader=","
+set number
+syntax on
+filetype plugin on
+filetype indent on
+set noswapfile
 "help in vertical spli
 au FileType help wincmd L
 "add to clipbord
@@ -75,15 +75,11 @@ set pastetoggle=<F5>
 set showmode
 "auto paste in paste mode
 imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
-"Set the status line the way i like it
-"set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
 set nocompatible
 set laststatus=2
-
 "keep a longer history
 set history=1000
-
 set wildmode=longest:full
 set wildmenu
 " Buffer commands
@@ -96,12 +92,9 @@ noremap <silent> <Leader>tn :tabnext<CR>
 " Edit the vimrc file
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
-"quick save
-"noremap <silent> <Leader>w :w<CR>
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><Leader>cd :cd %:p:h<CR>
-map <silent><Leader>noh :noh<CR>
 "set autochdir "auto change directories
 set cpoptions+=$
 set wildignore=*.swp,*.bak,*.pyc,*.class
@@ -115,7 +108,9 @@ inoremap <Alt-j>  <Esc>:m+<CR>==gi
 inoremap <Alt-k>  <Esc>:m-2<CR>==gi
 vnoremap <Alt-j>  :m'>+<CR>gv=gv
 vnoremap <Alt-k>  :m-2<CR>gv=gv
-"windows
+"-------------------------------------------------------------
+"Windows Settings
+"-------------------------------------------------------------
 " Move the cursor to the window left of the current one
 noremap <silent> ,wh :wincmd h<cr>
 " Move the cursor to the window below the current one
@@ -152,9 +147,37 @@ set wrap
 set textwidth=85
 set formatoptions=qrn1
 "set colorcolumn=+1
-""""""""""""""
+"-------------------------------------------------------------
+"Search Settings
+"-------------------------------------------------------------
+nnoremap / /\v
+vnoremap / /\v
+set smartcase
+set incsearch
+set gdefault "always /g
+set ignorecase
+set showmatch
+set hlsearch
+"replace word under cursor
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+map <silent><Leader><space> :noh<CR>
+"-------------------------------------------------------------
+"Motion Settings
+"-------------------------------------------------------------
+ino jj <esc>
+cno jj <esc>
+noremap <silent> <Leader>cj :wincmd j<CR>:close<CR>
+noremap <silent> <Leader>ck :wincmd k<CR>:close<CR>
+noremap <silent> <Leader>ch :wincmd h<CR>:close<CR>
+noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
+"remove trailing whitespaces
+if has("autocmd")
+    autocmd BufWritePre * :%s/\s\+$//e
+endif
+"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 08:27:57 PM EDT/e
+"-------------------------------------------------------------
 "JAVA
-"""""""""""""""""
+"-------------------------------------------------------------
 " Javadoc comments (/** and */ pairs) and code sections (marked by {} pairs) mark the start and end of folds. All other
 " lines simply take the fold level that is going so far.
 function! MyFoldLevel( lineNumber )
@@ -171,36 +194,6 @@ function! MyFoldLevel( lineNumber )
 endfunction
 setlocal foldexpr=MyFoldLevel(v:lnum)
 setlocal foldmethod=expr
-
-"-------------------------------------------------------------
-"Search Settings
-"-------------------------------------------------------------
-"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Sun 11 Dec 2011 09:24:58 PM EST/e
-set smartcase
-set incsearch
-set ignorecase
-"replace word under cursor
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-"-------------------------------------------------------------
-"Motion Settings
-"-------------------------------------------------------------
-ino jj <esc>
-cno jj <esc>
-noremap <silent> <Leader>cj :wincmd j<CR>:close<CR>
-noremap <silent> <Leader>ck :wincmd k<CR>:close<CR>
-noremap <silent> <Leader>ch :wincmd h<CR>:close<CR>
-noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
-
-"remove trailing whitespaces
-if has("autocmd")
-    autocmd BufWritePre * :%s/\s\+$//e
-endif
-"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 08:27:57 PM EDT/e
-"-------------------------------------------------------------
-"Coding Settings
-"-------------------------------------------------------------
-set number
-set hlsearch
 "-------------------------------------------------------------
 "R Settings
 "-------------------------------------------------------------
@@ -215,6 +208,7 @@ map <buffer> <Leader>doc :execute "!pydoc " . expand("<cword>")<CR>
 "python pep8 settings
 "autocmd FileType python setlocal textwidth=79
 if has("autocmd")
+    "pep8
     autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
     autocmd FileType python setlocal autoindent
     "nose for unittest
@@ -233,9 +227,11 @@ function! PythonTidySaver()
 endfunction
 
 "autocmd! bufwritepost *.py call PythonTidySaver()
-"pythontags
+"-------------------------------------------------------------
+"CTAGS Settings
+"-------------------------------------------------------------
 map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
-
+map <Leader>/ :exe '!ctags -R ./tags'
 "-------------------------------------------------------------
 "Latex Plugin Settings
 "-------------------------------------------------------------
@@ -260,21 +256,20 @@ let g:Tex_IgnoreLevel = 8
 "NerdTree Plugin Settings
 "-------------------------------------------------------------
 "down't display the following files
-let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$']
+let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$']
 nmap <silent> <D-d> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "left"
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
 let NERDTreeQuitOnOpen=1
-"let NERDTreeShowHidden=1
+let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 hi Title guifg=red guibg=#202020
 "-------------------------------------------------------------
 "Tlist Plugin Settings
 "-------------------------------------------------------------
-let Tlist_Use_Right_Window   = 1
-"nmap <silent> <D-k> :TlistToggle<CR>
+let Tlist_Use_Right_Window=1
 nmap <silent> <Leader>k :TlistToggle<CR>
 "-------------------------------------------------------------
 "Conque Plugin Settings
@@ -434,7 +429,7 @@ let g:neocomplcache_snippets_dir='~/.vim/mysnipets'
 map <Leader>nce :NeoComplCacheEnable<CR>
 map <Leader>ncd :NeoComplCacheDisable<CR>
 "-------------------------------------------------------------
-"Fugitive plugin
+"Git Fugitive plugin
 "-------------------------------------------------------------
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gs :Gstatus<CR>
@@ -520,4 +515,7 @@ nnoremap <leader>. :CtrlPTag<cr>
 "powerline
 "-------------------------------------------------------------
 let g:Powerline_symbols = "fancy"
-"set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
+"-------------------------------------------------------------
+" TimeStamp plugin
+"-------------------------------------------------------------
+"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 13 Jan 2012 04:09:38 PM EST/e

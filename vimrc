@@ -19,6 +19,9 @@ if !has('ruby')
 endif
 
 call add(g:pathogen_disabled, 'csv.vim')
+call add(g:pathogen_disabled, 'conque') "using screen tmux instead
+call add(g:pathogen_disabled, 'pysmell')
+call add(g:pathogen_disabled, 'pythonhelper') "need to update to work with owerline
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 "-----------------------------------------------------------------------------

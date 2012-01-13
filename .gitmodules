@@ -136,10 +136,6 @@
 	path = bundle/vim-yankring
 	url = https://github.com/chrismetcalf/vim-yankring.git
 	ignore = untracked
-[submodule "bundle/rainbow-parenthesis-bundle"]
-	path = bundle/rainbow-parenthesis-bundle
-	url = https://github.com/vim-scripts/Rainbow-Parenthsis-Bundle.git
-	ignore = untracked
 [submodule "colors/xoria256.vim"]
 	path = colors/xoria256.vim
 	url = https://github.com/vim-scripts/xoria256.vim.git
@@ -220,10 +216,6 @@
 	path = bundle/mru
 	url = https://github.com/vim-scripts/mru.vim.git
 	ignore = untracked
-[submodule "bundle/vim-ipython"]
-	path = bundle/vim-ipython
-	url = https://github.com/rygwdn/vim-ipython.git
-	ignore = untracked
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
 	url = https://github.com/Shougo/neocomplcache.git
@@ -231,10 +223,6 @@
 [submodule "bundle/vim-neocomplcache"]
 	path = bundle/vim-neocomplcache
 	url = https://github.com/Shougo/neocomplcache.git
-	ignore = untracked
-[submodule "bundle/Obvious-Mode"]
-	path = bundle/Obvious-Mode
-	url = https://github.com/vim-scripts/Obvious-Mode
 	ignore = untracked
 [submodule "bundle/gundo.vim"]
 	path = bundle/gundo.vim

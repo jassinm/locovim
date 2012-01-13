@@ -6,3 +6,5 @@ yankring_history*
 plugin/mydbextprofiles.vim
 eclim/
 plugin/eclim.vim
+bundle/.DS_Store
+.DS_Store

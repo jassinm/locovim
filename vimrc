@@ -14,6 +14,7 @@ if !has('python')
     call add(g:pathogen_disabled, 'swap-parameters')
 endif
 if !has('ruby')
+    call add(g:pathogen_disabled, 'vim-autoclose')
     call add(g:pathogen_disabled, 'lusty')
 endif
 
@@ -27,6 +28,7 @@ if has('gui_running')
     " GUI colors
     colorscheme jellybeans
     set guifont=Monaco:h12
+    set guifont=PragmataPro:h14
     "set guioptions=egmrt
     "set guioptions+=T
     winpos 0 0
@@ -39,6 +41,7 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     set t_Co=256
     colorscheme jellybeans
     set guifont=Monaco:h12
+    set guifont=PragmataPro:h14
     "colorscheme xoria256
     if has("autocmd")
         autocmd colorscheme * hi Normal ctermbg=233
@@ -72,7 +75,7 @@ imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 "Set the status line the way i like it
 "set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
-set laststatus=2
+"set laststatus=2
 
 "keep a longer history
 set history=1000
@@ -260,7 +263,7 @@ let g:NERDTreeWinPos = "left"
 let NERDTreeShowBookmarks=1
 let NERDTreeQuitOnOpen=1
 "let NERDTreeShowHidden=1
-"let NERDTreeMinimalUI = 1
+let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 hi Title guifg=red guibg=#202020
 "-------------------------------------------------------------
@@ -491,3 +494,25 @@ if has('ptyhon')
     noremap gb :call SwapParams("forwards")<cr>
     noremap gB :call SwapParams("backwards")<cr>
 endif
+"-------------------------------------------------------------
+"Ctrl-p plugin
+"-------------------------------------------------------------
+let g:ctrlp_map = '<leader>,'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 1
+let g:ctrlp_split_window = 0
+let g:ctrlp_max_height = 20
+let g:ctrlp_prompt_mappings = {
+\ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
+\ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<tab>'],
+\ 'PrtHistory(-1)':       ['<c-n>'],
+\ 'PrtHistory(1)':        ['<c-p>'],
+\ 'ToggleFocus()':        ['<c-tab>'],
+\ }
+let g:ctrlp_extensions = ['tag']
+
+nnoremap <leader>. :CtrlPTag<cr>
+"-------------------------------------------------------------
+"powerline
+"-------------------------------------------------------------
+let g:Powerline_symbols = "fancy"

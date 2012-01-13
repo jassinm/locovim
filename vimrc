@@ -75,7 +75,8 @@ imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 "Set the status line the way i like it
 "set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 " tell VIM to always put a status line in, even if there is only one window
-"set laststatus=2
+set nocompatible
+set laststatus=2
 
 "keep a longer history
 set history=1000
@@ -516,3 +517,4 @@ nnoremap <leader>. :CtrlPTag<cr>
 "powerline
 "-------------------------------------------------------------
 let g:Powerline_symbols = "fancy"
+"set statusline=%<\ %n:%f\ %m%r%y%w%=%{fugitive#statusline()}%{VirtualEnvStatusline()}%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)

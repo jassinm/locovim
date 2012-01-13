@@ -27,7 +27,7 @@ call pathogen#helptags()
 if has('gui_running')
     " GUI colors
     colorscheme jellybeans
-    set guifont=Monaco:h12
+    "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
     "set guioptions=egmrt
     "set guioptions+=T
@@ -40,7 +40,7 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " Non-GUI (terminal) colors
     set t_Co=256
     colorscheme jellybeans
-    set guifont=Monaco:h12
+    "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
     "colorscheme xoria256
     if has("autocmd")

@@ -19,6 +19,7 @@ if !has('ruby')
     call add(g:pathogen_disabled, 'lusty')
 endif
 
+call add(g:pathogen_disabled, 'command-t')
 call add(g:pathogen_disabled, 'csv.vim')
 call add(g:pathogen_disabled, 'conque') "using screen tmux instead
 call add(g:pathogen_disabled, 'pysmell')
@@ -440,6 +441,7 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gco :Gcheckout<CR>
 nnoremap <Leader>gci :Gcommit<CR>
 nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>gp :Git push<CR>
 "-------------------------------------------------------------
 "Gundo plugin
 "-------------------------------------------------------------

@@ -304,3 +304,6 @@
 [submodule "bundle/DocOutlineTree"]
 	path = bundle/DocOutlineTree
 	url = https://github.com/vim-scripts/DotOutlineTree.git
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git

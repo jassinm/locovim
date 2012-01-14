@@ -439,6 +439,7 @@ nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gco :Gcheckout<CR>
 nnoremap <Leader>gci :Gcommit<CR>
+nnoremap <Leader>gl :Glog<CR>
 "-------------------------------------------------------------
 "Gundo plugin
 "-------------------------------------------------------------

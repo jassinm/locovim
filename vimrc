@@ -83,6 +83,7 @@ imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 " tell VIM to always put a status line in, even if there is only one window
 set nocompatible
 set laststatus=2
+set encoding=utf-8
 "keep a longer history
 set history=1000
 set wildmode=longest:full
@@ -97,6 +98,10 @@ noremap <silent> <Leader>tn :tabnext<CR>
 " Edit the vimrc file
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><Leader>cd :cd %:p:h<CR>

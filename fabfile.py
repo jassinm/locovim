@@ -28,6 +28,14 @@ def _symlink():
 def updatesubmodules():
     local("git submodule foreach git checkout master")
     local("git submodule foreach git pull")
+    with lcd("./bundle/vim-powerline/"):
+        local("git checkout develop")
+        local("git pull")
+        local("git checkout locojay")
+        local("git merge  develop")
+    with lcd("./bundle/ctrlp.vim"):
+        local("git checkout custom_statusline")
+        local("git pull")
 
 def install():
     local("git submodule init")

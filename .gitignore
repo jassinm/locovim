@@ -6,5 +6,5 @@ plugin/mydbextprofiles.vim
 eclim/
 plugin/eclim.vim
 .DS_Store
-bundle/
 !bundle/vundle
+bundle/

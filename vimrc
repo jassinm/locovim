@@ -63,7 +63,7 @@ if has('python')
     Bundle 'jabapyth/vim-debug.git'
     Bundle 'vim-scripts/swap-parameters.git'
     Bundle 'vim-scripts/python_open_module.git'
-    Bundle 'gordyt/rope-vim.git'
+    "Bundle 'gordyt/rope-vim.git'
 endif
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
@@ -83,17 +83,17 @@ if has('gui_running')
 elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " Non-GUI (terminal) colors
     set t_Co=256
-    "colorscheme jellybeans_locojay
-    colorscheme jellybeans
+    colorscheme jellybeans_locojay
+    "colorscheme jellybeans
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
     "colorscheme xoria256
-    "if has("autocmd")
-        "autocmd colorscheme * hi Normal ctermbg=233
-        "autocmd colorscheme * hi NonText ctermbg=233
-        "autocmd colorscheme * hi LineNr ctermbg=233
-        "autocmd colorscheme * hi VertSplit ctermbg=233
-    "endif
+    if has("autocmd")
+        autocmd colorscheme * hi Normal ctermbg=233
+        autocmd colorscheme * hi NonText ctermbg=233
+        autocmd colorscheme * hi LineNr ctermbg=233
+        autocmd colorscheme * hi VertSplit ctermbg=233
+    endif
 endif
 "-------------------------------------------------------------
 "Vim Settings

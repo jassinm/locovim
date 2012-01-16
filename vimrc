@@ -2,7 +2,7 @@
 "Vundle plugin
 "-------------------------------------------------------------
 set nocompatible               " be iMproved
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/vundle/
 call vundle#rc()"
 
 Bundle 'tpope/vim-fugitive'
@@ -57,7 +57,7 @@ Bundle 'nanotech/jellybeans.vim.git'
 "Bundle 'vim-scripts/xoria256.vim.git'
 "Bundle 'altercation/vim-colors-solarized.git'
 if has('ruby')
-    Bundle 'vim-scripts/LustyJuggler.git'
+    Bundle 'sjbach/lusty.git'
     Bundle 'Townk/vim-autoclose.git'
 endif
 if has('python')

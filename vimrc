@@ -19,7 +19,10 @@ Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-speeddating.git'
 Bundle 'chrismetcalf/vim-yankring.git'
-Bundle 'vim-scripts/taglist.vim.git'
+"tags
+Bundle 'majutsushi/tagbar.git'
+"Bundle 'vim-scripts/taglist.vim.git'
+
 Bundle 'vim-scripts/SearchComplete.git'
 Bundle 'mineiro/vim-latex.git'
 Bundle 'hallettj/jslint.vim'
@@ -37,6 +40,7 @@ Bundle 'vim-scripts/open-terminal-filemanager.git'
 Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'gmarik/sudo-gui.vim.git'
 Bundle 'vim-scripts/reload.vim.git'
+Bundle 'mattn/gist-vim.git'
 "RST
 Bundle "vim-scripts/rest.vim.git"
 Bundle "vim-scripts/VST.git"
@@ -47,6 +51,7 @@ Bundle 'vim-scripts/DotOutlineTree.git'
 "Bundle 'vim-scripts/mru.vim.git'
 "colors
 Bundle 'vim-scripts/AfterColors.vim.git'
+Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'nanotech/jellybeans.vim.git'
 "Bundle 'guns/jellyx.vim.git'
 "Bundle 'vim-scripts/xoria256.vim.git'
@@ -317,10 +322,9 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 hi Title guifg=red guibg=#202020
 "-------------------------------------------------------------
-"Tlist Plugin Settings
+"Tagbar Plugin Settings
 "-------------------------------------------------------------
-let Tlist_Use_Right_Window=1
-nmap <silent> <Leader>k :TlistToggle<CR>
+nmap <silent> <Leader>k :TagbarToggle<CR>
 "-------------------------------------------------------------
 "Conque Plugin Settings
 "-------------------------------------------------------------
@@ -389,17 +393,6 @@ au BufNewFile,BufRead *.pde setfiletype processing
 map <Leader>ace :AcpEnable<CR>
 map <Leader>acd :AcpDisable<CR>
 let g:acp_behaviorSnipmateLength=1
-"-------------------------------------------------------------
-"Supertab  Plugin Settings
-"-------------------------------------------------------------
-let loaded_supertab=1
-"-------------------------------------------------------------
-"taglist Settings
-"-------------------------------------------------------------
-"add objc to taglist
-let tlist_objc_settings='objc;P:protocols;i:interfaces;I:implementations;M:instance methods;C:implementation methods;Z:protocol methods'
-"use brew ctags
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 "-------------------------------------------------------------
 "make green plugin
 "-------------------------------------------------------------

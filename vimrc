@@ -1,5 +1,7 @@
+"-------------------------------------------------------------
+"Vundle plugin
+"-------------------------------------------------------------
 set nocompatible               " be iMproved
-
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()"
 
@@ -61,36 +63,8 @@ if has('python')
     Bundle 'jabapyth/vim-debug.git'
     Bundle 'vim-scripts/swap-parameters.git'
     Bundle 'vim-scripts/python_open_module.git'
-    "Bundle 'gordyt/rope-vim.git'
+    Bundle 'gordyt/rope-vim.git'
 endif
-"-------------------------------------------------------------
-"Pathogen plugin plugin
-"-------------------------------------------------------------
-" To disable a plugin, add it's bundle name to the following list
-"let g:pathogen_disabled = []
-"if !has('python')
-    "call add(g:pathogen_disabled, 'pythonhelper')
-    "call add(g:pathogen_disabled, 'pyflakes-vim')
-    "call add(g:pathogen_disabled, 'python_pep8')
-    "call add(g:pathogen_disabled, 'pysmell')
-    "call add(g:pathogen_disabled, 'python_open_module')
-    "call add(g:pathogen_disabled, 'ropevim')
-    "call add(g:pathogen_disabled, 'swap-parameters')
-    "call add(g:pathogen_disabled, 'vim-rst-tables')
-"endif
-"if !has('ruby')
-    "call add(g:pathogen_disabled, 'vim-autoclose')
-    "call add(g:pathogen_disabled, 'lusty')
-"endif
-
-"call add(g:pathogen_disabled, 'mru') "using ctrp instead
-"call add(g:pathogen_disabled, 'command-t')
-"call add(g:pathogen_disabled, 'csv.vim')
-"call add(g:pathogen_disabled, 'conque') "using screen tmux instead
-"call add(g:pathogen_disabled, 'pysmell')
-"call add(g:pathogen_disabled, 'pythonhelper') "need to update to work with owerline
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------

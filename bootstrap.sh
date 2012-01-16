@@ -12,9 +12,5 @@ sudo pip install ropevim
 sudo pip install pyflakes
 sudo brew install ctags
 #
-#command-t
-cd $f"/bundle/command-t/ruby/command-t"
-ruby extconf.rb
-make
 
 ln -sF $f"/vimrc" $HOME/.vimrc

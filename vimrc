@@ -1,31 +1,96 @@
+set nocompatible               " be iMproved
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()"
+
+Bundle 'tpope/vim-fugitive'
+Bundle 'locojay/vim-powerline'
+Bundle 'kien/ctrlp.vim.git'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Shougo/neocomplcache.git'
+Bundle 'sjl/gundo.vim.git'
+Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-unimpaired.git'
+Bundle 'tpope/vim-repeat.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'tpope/vim-speeddating.git'
+Bundle 'chrismetcalf/vim-yankring.git'
+Bundle 'vim-scripts/taglist.vim.git'
+Bundle 'vim-scripts/SearchComplete.git'
+Bundle 'mineiro/vim-latex.git'
+Bundle 'hallettj/jslint.vim'
+Bundle 'mileszs/ack.vim.git'
+Bundle 'vim-scripts/bufkill.vim'
+Bundle 'locojay/dbext.vim.git'
+Bundle 'msanders/cocoa.vim'
+Bundle 'nanki/vim-objj'
+Bundle 'vim-scripts/Vim-R-plugin.git'
+Bundle 'tsaleh/vim-align.git'
+Bundle 'vim-scripts/timestamp.vim.git'
+Bundle 'reinh/vim-makegreen'
+Bundle 'vim-scripts/ZoomWin.git'
+Bundle 'vim-scripts/open-terminal-filemanager.git'
+Bundle 'Lokaltog/vim-easymotion.git'
+Bundle 'gmarik/sudo-gui.vim.git'
+Bundle 'vim-scripts/reload.vim.git'
+"RST
+Bundle "vim-scripts/rest.vim.git"
+Bundle "vim-scripts/VST.git"
+Bundle "robgleeson/hammer.vim"
+Bundle "nvie/vim-rst-tables.git"
+Bundle 'vim-scripts/DotOutlineTree.git'
+"Bundle 'chrisbra/csv.vim'
+"Bundle 'vim-scripts/mru.vim.git'
+"colors
+Bundle 'vim-scripts/AfterColors.vim.git'
+Bundle 'nanotech/jellybeans.vim.git'
+"Bundle 'guns/jellyx.vim.git'
+"Bundle 'vim-scripts/xoria256.vim.git'
+"Bundle 'altercation/vim-colors-solarized.git'
+if has('ruby')
+    Bundle 'vim-scripts/LustyJuggler.git'
+    Bundle 'Townk/vim-autoclose.git'
+endif
+if has('python')
+    Bundle 'jmcantrell/vim-virtualenv.git'
+    Bundle 'orestis/pysmell.git'
+    Bundle 'fs111/pydoc.vim'
+    Bundle 'nvie/vim-pep8.git'
+    Bundle 'jabapyth/vim-debug.git'
+    Bundle 'vim-scripts/swap-parameters.git'
+    Bundle 'vim-scripts/python_open_module.git'
+    "Bundle 'gordyt/rope-vim.git'
+endif
 "-------------------------------------------------------------
 "Pathogen plugin plugin
 "-------------------------------------------------------------
 " To disable a plugin, add it's bundle name to the following list
-let g:pathogen_disabled = []
-if !has('python')
-    call add(g:pathogen_disabled, 'pythonhelper')
-    call add(g:pathogen_disabled, 'pyflakes-vim')
-    call add(g:pathogen_disabled, 'python_pep8')
-    call add(g:pathogen_disabled, 'pysmell')
-    call add(g:pathogen_disabled, 'python_open_module')
-    call add(g:pathogen_disabled, 'ropevim')
-    call add(g:pathogen_disabled, 'swap-parameters')
-    call add(g:pathogen_disabled, 'vim-rst-tables')
-endif
-if !has('ruby')
-    call add(g:pathogen_disabled, 'vim-autoclose')
-    call add(g:pathogen_disabled, 'lusty')
-endif
+"let g:pathogen_disabled = []
+"if !has('python')
+    "call add(g:pathogen_disabled, 'pythonhelper')
+    "call add(g:pathogen_disabled, 'pyflakes-vim')
+    "call add(g:pathogen_disabled, 'python_pep8')
+    "call add(g:pathogen_disabled, 'pysmell')
+    "call add(g:pathogen_disabled, 'python_open_module')
+    "call add(g:pathogen_disabled, 'ropevim')
+    "call add(g:pathogen_disabled, 'swap-parameters')
+    "call add(g:pathogen_disabled, 'vim-rst-tables')
+"endif
+"if !has('ruby')
+    "call add(g:pathogen_disabled, 'vim-autoclose')
+    "call add(g:pathogen_disabled, 'lusty')
+"endif
 
-call add(g:pathogen_disabled, 'mru') "using ctrp instead
-call add(g:pathogen_disabled, 'command-t')
-call add(g:pathogen_disabled, 'csv.vim')
-call add(g:pathogen_disabled, 'conque') "using screen tmux instead
-call add(g:pathogen_disabled, 'pysmell')
-call add(g:pathogen_disabled, 'pythonhelper') "need to update to work with owerline
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+"call add(g:pathogen_disabled, 'mru') "using ctrp instead
+"call add(g:pathogen_disabled, 'command-t')
+"call add(g:pathogen_disabled, 'csv.vim')
+"call add(g:pathogen_disabled, 'conque') "using screen tmux instead
+"call add(g:pathogen_disabled, 'pysmell')
+"call add(g:pathogen_disabled, 'pythonhelper') "need to update to work with owerline
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
@@ -44,16 +109,17 @@ if has('gui_running')
 elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " Non-GUI (terminal) colors
     set t_Co=256
-    colorscheme jellybeans_locojay
+    "colorscheme jellybeans_locojay
+    colorscheme jellybeans
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
     "colorscheme xoria256
-    if has("autocmd")
-        autocmd colorscheme * hi Normal ctermbg=233
-        autocmd colorscheme * hi NonText ctermbg=233
-        autocmd colorscheme * hi LineNr ctermbg=233
-        autocmd colorscheme * hi VertSplit ctermbg=233
-    endif
+    "if has("autocmd")
+        "autocmd colorscheme * hi Normal ctermbg=233
+        "autocmd colorscheme * hi NonText ctermbg=233
+        "autocmd colorscheme * hi LineNr ctermbg=233
+        "autocmd colorscheme * hi VertSplit ctermbg=233
+    "endif
 endif
 "-------------------------------------------------------------
 "Vim Settings
@@ -81,7 +147,7 @@ set showmode
 "auto paste in paste mode
 imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 " tell VIM to always put a status line in, even if there is only one window
-set nocompatible
+"set nocompatible
 set laststatus=2
 set encoding=utf-8
 "keep a longer history

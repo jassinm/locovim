@@ -20,7 +20,7 @@
 "  along with this library; see the file COPYING.LIB.  If not, write to
 "  the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 "  Boston, MA 02110-1301, USA.
-"
+" 
 
 " Preamble {{{
 "
@@ -170,7 +170,7 @@ function! VST_Headers(text)
 			" LISTDEF:
 			let cind = len(matchstr(doc[i], '^\s*'))
 			let nind = len(matchstr(doc[nextline], '^\s*'))
-			if nind > cind
+			if nind > cind 
 				let ltype += ['uli']
 			elseif nind == cind && doc[nextline] =~ '^\s*'.s:vst_bulletdef.'\s'
 				let ltype += ['uli']
@@ -306,11 +306,11 @@ function! VST_Headers(text)
 						endfor
 					endif
 					let g:ptype[j] = 'pre'
-					let g:paras[j] = substitute(g:paras[j], '`', '\&#96;', 'g')
-					let g:paras[j] = substitute(g:paras[j], '_', '\&#95;', 'g')
-					let g:paras[j] = substitute(g:paras[j], '\[', '\&#91;', 'g')
-					let g:paras[j] = substitute(g:paras[j], '\.', '\&#46;', 'g')
-					let g:paras[j] = substitute(g:paras[j], '|', '\&#124;', 'g')
+					let g:paras[j] = substitute(g:paras[j], '`', '\&#96;', 'g') 
+					let g:paras[j] = substitute(g:paras[j], '_', '\&#95;', 'g') 
+					let g:paras[j] = substitute(g:paras[j], '\[', '\&#91;', 'g') 
+					let g:paras[j] = substitute(g:paras[j], '\.', '\&#46;', 'g') 
+					let g:paras[j] = substitute(g:paras[j], '|', '\&#124;', 'g') 
 
 				endif
 				let j += 1
@@ -363,7 +363,7 @@ function! VST_Headers(text)
 				let parlines = split(g:paras[i], '\n')
 				if parlines[1] =~ '^\s*'.s:vst_headdef.'\s*$'
 					let double = ' '
-				elseif parlines[0] == parlines[2] && parlines[0] =~ '^\s*'.s:vst_headdef.'\s*$'
+				elseif parlines[0] == parlines[2] && parlines[0] =~ '^\s*'.s:vst_headdef.'\s*$' 
 					let double = 'd'
 					call remove(parlines, 0)
 				endif
@@ -582,7 +582,7 @@ let doc = a:text
 			" LISTDEF:
 			let cind = len(matchstr(doc[line], '^\s*'))
 			let nind = len(matchstr(doc[nextline], '^\s*'))
-			if nind > cind
+			if nind > cind 
 				let ltype += ['uli']
 			elseif nind == cind && doc[nextline] =~ '^\s*'.s:vst_bulletdef.'\s'
 				let ltype += ['uli']
@@ -764,8 +764,8 @@ let doc = a:text
 						endfor
 					endif
 					let g:ptype[i] = 'prequoted'
-					let g:paras[i] = substitute(g:paras[i], '\[', '\&#91;', 'g')
-					let g:paras[i] = substitute(g:paras[i], '_', '\&#95;', 'g')
+					let g:paras[i] = substitute(g:paras[i], '\[', '\&#91;', 'g') 
+					let g:paras[i] = substitute(g:paras[i], '_', '\&#95;', 'g') 
 					"let g:paras[i-1] = substitute(g:paras[i-1], '::\s*$', ':', '')
 				endif
 			endif
@@ -877,12 +877,12 @@ let doc = a:text
 					let g:paras[j] = VST_SpecCharacter(g:paras[j])
 					" Prevent splitting for auto footnotes and hyperlinks or
 					" special treatment of backslashes
-					let g:paras[j] = substitute(g:paras[j], '`',  '\&#96;', 'g')
-					let g:paras[j] = substitute(g:paras[j], '\.', '\&#46;', 'g')
-					let g:paras[j] = substitute(g:paras[j], '\[', '\&#91;', 'g')
-					let g:paras[j] = substitute(g:paras[j], '\\', '\&#92;', 'g')
-					let g:paras[j] = substitute(g:paras[j], '_',  '\&#95;', 'g')
-					let g:paras[j] = substitute(g:paras[j], '|',  '\&#124;', 'g')
+					let g:paras[j] = substitute(g:paras[j], '`',  '\&#96;', 'g') 
+					let g:paras[j] = substitute(g:paras[j], '\.', '\&#46;', 'g') 
+					let g:paras[j] = substitute(g:paras[j], '\[', '\&#91;', 'g') 
+					let g:paras[j] = substitute(g:paras[j], '\\', '\&#92;', 'g') 
+					let g:paras[j] = substitute(g:paras[j], '_',  '\&#95;', 'g') 
+					let g:paras[j] = substitute(g:paras[j], '|',  '\&#124;', 'g') 
 
 				endif
 				let j += 1
@@ -989,7 +989,7 @@ let doc = a:text
 			elseif g:ptype[i] =~ '-unknown$'
 				let medtype = 'unknown'
 			endif
-
+				
 			let divindent = repeat(' ', g:pindent[i])
 			if medtype =~? '\(\<note\|tip\|warning\|attention\|caution\|danger\|error\|hint\|important\|admonition\)'
 				if medtype == 'admonition'
@@ -1005,7 +1005,7 @@ let doc = a:text
 					let firstpar = ''
 				else
 					let g:paras[i] = divindent.'<vim:div class="'.tolower(medtype).VST_AddClass(i,0,' ','').'">'
-					let title = substitute(tolower(medtype), '^.', '\U\0', '')
+					let title = substitute(tolower(medtype), '^.', '\U\0', '') 
 				endif
 
 				let title = divindent.'<vim:p><vim:span class="notetitle">'.title.'</vim:span></vim:p>'
@@ -1098,7 +1098,7 @@ let doc = a:text
 					endif
 					if identify == ''
 						let identify = matchstr(parline, ':identify:')
-						if identify != ''
+						if identify != '' 
 							if executable('identify') && noimage == 0
 								let [width, height] = VST_IdentifyImage(src, parline)
 							else
@@ -1192,7 +1192,7 @@ let doc = a:text
 			" Footnote \[\d\+\] {{{
 			let g:paras[i] = VST_SpecCharacter(g:paras[i])
 			let indent = repeat(' ', g:pindent[i])
-			let g:paras[i] =
+			let g:paras[i] = 
 				\ substitute(g:paras[i], '^\s*\.\. \[\(\d\+\)\]', indent.'<vim:footnote>\n'.indent.'<vim:div class="fnumber"><vim:a href="#target-\1" name="footnote-\1">[\1]</vim:a></vim:div>\n'.indent.'<vim:div class="ftext">', '')
 			let firstpar = matchstr(g:paras[i], '<vim:div class="ftext">\zs.*')
 			let firstpar = substitute(firstpar, '\(^\|\n\)\s\+', '\n', 'g')
@@ -1209,7 +1209,7 @@ let doc = a:text
 				let b:vst_afs = 1
 			endif
 			let k = g:autofnote
-			let g:paras[i] =
+			let g:paras[i] = 
 				\ substitute(g:paras[i], '^\s*\.\. \[#\]', indent.'<vim:footnote>\n'.indent.'<vim:div class="fnumber"><vim:a href="#target-'.k.'" name="footnote-'.k.'">['.k.']</vim:a></vim:div>\n'.indent.'<vim:div class="ftext">', '')
 			let firstpar = matchstr(g:paras[i], '<vim:div class="ftext">\zs.*')
 			let firstpar = substitute(firstpar, '\(^\|\n\)\s\+', '\n', 'g')
@@ -1225,7 +1225,7 @@ let doc = a:text
 			let indent = repeat(' ', g:pindent[i])
 			let label = matchstr(g:paras[i], '^\s*\.\. \[#\zs\k\+\ze\]')
 			let k = g:lfnotes[label]
-			let g:paras[i] =
+			let g:paras[i] = 
 				\ substitute(g:paras[i], '^\s*\.\. \[#\k\+\]', indent.'<vim:footnote>\n'.indent.'<vim:div class="fnumber"><vim:a href="#target-'.k.'" name="footnote-'.k.'">['.k.']</vim:a></vim:div>\n'.indent.'<vim:div class="ftext">', '')
 			let firstpar = matchstr(g:paras[i], '<vim:div class="ftext">\zs.*')
 			let firstpar = substitute(firstpar, '\(^\|\n\)\s\+', '\n', 'g')
@@ -1239,7 +1239,7 @@ let doc = a:text
 			let g:paras[i] = VST_SpecCharacter(g:paras[i])
 			let indent = repeat(' ', g:pindent[i])
 			let label = matchstr(g:paras[i], '^\s*\.\. \[\zs\k\+\ze\]')
-			let g:paras[i] =
+			let g:paras[i] = 
 				\ substitute(g:paras[i], '^\s*\.\. \[\k\+\]', indent.'<vim:citation>\n'.indent.'<vim:div class="cnumber"><vim:a href="#ctarget-'.label.'" name="citation-'.label.'">['.label.']</vim:a></vim:div>\n'.indent.'<vim:div class="ctext">', '')
 			let firstpar = matchstr(g:paras[i], '<vim:div class="ctext">\zs.*')
 			let firstpar = substitute(firstpar, '\(^\|\n\)\s\+', '\n', 'g')
@@ -1343,7 +1343,7 @@ let doc = a:text
 			" Bigger blockquote {{{
 			let g:paras[i] = VST_SpecCharacter(g:paras[i])
 			let indent = repeat(' ', g:pindent[i])
-			let g:paras[i] =
+			let g:paras[i] = 
 				\ substitute(g:paras[i], '^\s*\.\. pull-quote::', indent.'<vim:pullquote'.VST_AddClass(i,1,' ','').'>', '')
 			" }}}
 			elseif medtype == 'unknown'
@@ -1439,7 +1439,7 @@ let doc = a:text
 				let parlines = split(g:paras[i], '\n')
 				if parlines[1] =~ '^\s*'.s:vst_headdef.'\s*$'
 					let double = ' '
-				elseif parlines[0] == parlines[2] && parlines[0] =~ '^\s*'.s:vst_headdef.'\s*$'
+				elseif parlines[0] == parlines[2] && parlines[0] =~ '^\s*'.s:vst_headdef.'\s*$' 
 					let double = 'd'
 					call remove(parlines, 0)
 				endif
@@ -1548,7 +1548,7 @@ if string(g:ptype) =~ "'dl'"
 				endif
 				let j += 1
 			endwhile
-
+			
 		endif
 		let i += 1
 	endwhile
@@ -1579,8 +1579,8 @@ if string(g:ptype) =~ "'prequoted'"
 			" escaped.
 			let g:paras[i] = VST_SpecCharacter(g:paras[i])
 			" Prevent splitting for auto footnotes and hyperlinks
-			let g:paras[i] = substitute(g:paras[i], '\[', '\&#91;', 'g')
-			let g:paras[i] = substitute(g:paras[i], '_', '\&#95;', 'g')
+			let g:paras[i] = substitute(g:paras[i], '\[', '\&#91;', 'g') 
+			let g:paras[i] = substitute(g:paras[i], '_', '\&#95;', 'g') 
 
 			if g:paras[i-3] =~ '^\s*::\s*$'
 				let g:paras[i] = '<vim:pre class="quoted'.VST_AddClass(i-3, 0, ' ', '').'">'
@@ -1630,7 +1630,7 @@ if string(g:ptype) =~ "'optlist'"
 				endif
 				let j += 1
 			endwhile
-
+			
 			let g:paras[i] = VST_SpecCharacter(g:paras[i])
 			let g:paras[i] = substitute(g:paras[i], '^\(\s*\)\(--\|-\|/\|:\|+\)\(\S.\{-}\)  ', '\n<vim:dt class="option">\2\3</vim:dt>\n\1<vim:dd class="option">\n\1<vim:p>', '')
 			let g:paras[i] = substitute(g:paras[i], '\n\(\s*\)\(--\|-\|/\|:\|+\)\(\S.\{-}\)  ', '</vim:p></vim:dd>\n\1<vim:dt class="option">\2\3</vim:dt>\n\1<vim:dd class="option">\n\1<vim:p>', 'g')
@@ -1708,7 +1708,7 @@ endif
 " Create image paragraphs (.. image::) {{{
 if string(g:ptype) =~ "'img'"
 	let i = 0
-	while i < len(g:paras)-1
+	while i < len(g:paras)-1 
 		if g:ptype[i] == 'img'
 			let g:paras[i] = VST_ImagePar(g:paras[i], 1)
 		endif
@@ -1790,7 +1790,7 @@ if string(g:ptype) =~ "'uli'"
 				endif
 				let j += 1
 			endwhile
-
+			
 			if ustyle == 'disc'
 				" Potential danger: this also includes * and +
 				let elements = split(g:paras[i], '\(^\|\n\)\s*[\u2022\u2023\u2043\u204c\u204d\u25d8\u25e6\u2619\u2765\u2767-]\s\+')
@@ -1874,7 +1874,7 @@ if string(g:ptype) =~ "'oli'"
 							endif
 							let j += 1
 						endwhile
-
+						
 						exe 'let total = '.join(rtable, '+')
 						let number = ' start="'.total.'"'
 					else
@@ -1901,7 +1901,7 @@ if string(g:ptype) =~ "'oli'"
 			endwhile
 
 			" LISTDEF:
-
+			
 			let space = matchstr(g:paras[i], '^\s*')
 			if ostyle == 'upperroman'
 				let elements = split(g:paras[i], '\(^\|\n\)\s*(\?\(I\|[ICDVLMX]\{2,}\|#\)[\]:.)}]\s*')
@@ -1914,7 +1914,7 @@ if string(g:ptype) =~ "'oli'"
 			elseif ostyle == 'upperalpha'
 				let elements = split(g:paras[i], '\(^\|\n\)\s*(\?[A-Z#]\{,2}[\]:.)}]\s*')
 			elseif ostyle == 'decimal'
-				let elements = split(g:paras[i], '\(^\|\n\)\s*(\?[0-9#]\+[\]:.)}]\s*')
+				let elements = split(g:paras[i], '\(^\|\n\)\s*(\?[0-9#]\+[\]:.)}]\s*') 
 			endif
 			for inc in range(len(elements))
 				let elements[inc] = substitute(elements[inc], '\n\s*', '\n', 'g')
@@ -2149,7 +2149,7 @@ if string(g:ptype) =~ "'table'"
 			let line_count = 0
 			let headfoot_counter = 0
 			unlet! usedthead
-			unlet! usedtfoot
+			unlet! usedtfoot 
 
 			for line in lines
 				let row = substitute(line, '^\s*\|\s*$', '', 'g')
@@ -2165,7 +2165,7 @@ if string(g:ptype) =~ "'table'"
 							let trow[rl] = VST_Structure(cell)
 							let rl += 1
 						endwhile
-
+						
 						let g:taba += [trow]
 
 					endif
@@ -2309,7 +2309,7 @@ while i < len(g:paras)
 	if g:ptype[i] =~ 'subh\d'
 		let g:paras[i] = VST_SpecCharacter(g:paras[i])
 		let g:paras[i] = "\n".repeat(' ', g:pindent[i]).'<vim:p class="'.g:ptype[i].'">'."\n".g:paras[i]
-		" Remove last line of subtitle if this is ornament.
+		" Remove last line of subtitle if this is ornament. 
 		" Treatment of headers in reST is weird.
 		let g:paras[i] = substitute(g:paras[i], '\n\s*'.s:vst_headdef.'\s*$', '', '')
 		let g:paras[i] .= "\n".repeat(' ', g:pindent[i])."</vim:p>\n"
@@ -2447,7 +2447,7 @@ if string(g:ptype) =~ "'simpletbl'"
 			if usethead > 0
 				let g:paras[i] .= "<vim:thead>\n"
 			endif
-
+				
 			for k in range(len(rtable))
 				let row = rtable[k]
 
@@ -2603,7 +2603,7 @@ endwhile
 " Create markup {{{
 let i = 0
 while i < len(g:paras)
-	" Careful checking if given construct exists in paragraph.
+	" Careful checking if given construct exists in paragraph. 
 	" BIG speed gains.
 	if g:ptype[i] !~ '^pre\|^hr\|^blank'
 		if g:paras[i] =~ '|'
@@ -2666,7 +2666,7 @@ let file = substitute(file, '<vim:li><vim:p class="\%(first\|only\)li">\s*:</vim
 " Remove empty pre paragraphs
 let file = substitute(file, '<vim:pre[^>]\{-}>\n</vim:pre>', '', 'g')
 " Remove links created inside of image src
-let file = substitute(file, '<\(vim:\)\?img\([^>]\{-}\)src="<vim:a href=".\{-}">\([^<]*\)</vim:a>"',
+let file = substitute(file, '<\(vim:\)\?img\([^>]\{-}\)src="<vim:a href=".\{-}">\([^<]*\)</vim:a>"', 
 			\ '<\1img\2src="\3"', 'g')
 " let file = substitute(file, ' 	 	 \n', '', 'g')
 " Remove too much of empty space at the end of footnotes
@@ -2801,7 +2801,7 @@ function! VST_CreateDBs(table)
 			endif
 		endif
 		" Connect multiline link definitions
-		if preproc[i] =~ '^\s*\(\.\. _\|__ \)'
+		if preproc[i] =~ '^\s*\(\.\. _\|__ \)' 
 			if preproc[nextline] !~ '^\s*\(\.\. _\|__ \)' && preproc[nextline] !~ '^\s*$'
 				let findent = strlen(matchstr(preproc[i], '^\s*'))
 				let sindent = strlen(matchstr(preproc[nextline], '^\s*'))
@@ -2809,7 +2809,7 @@ function! VST_CreateDBs(table)
 					let preproc[i] = substitute(preproc[i], '\s\+$', '', '')
 						\.substitute(preproc[nextline], '^\s\+', '', '')
 					call remove(preproc, nextline)
-					" Turn counter down to process more than 2 lines
+					" Turn counter down to process more than 2 lines 
 					let i -= 1
 				endif
 			endif
@@ -3094,7 +3094,7 @@ function! VST_2html()
 	else
 		let g:html_no_pre = h_no_pre
 	endif
-	" }}}
+	" }}} 
 
 endfunction
 " }}}
@@ -3132,7 +3132,7 @@ function! VST_AnonHyperlink(text)
 	let parlines = split(a:text, '-vst-anon-hyperlink-')
 	let i = 0
 	let g:a0 = []
-	while i < len(g:vst_anonhlinkdb)
+	while i < len(g:vst_anonhlinkdb) 
 		if g:vst_anonhlinkdb[i] =~ '_\s*$'
 			let href = g:vst_anonhlinkdb[i]
 			let title = tolower(matchstr(href, '\(\.\. __ :\|__\)\s*\(`\?\)\zs.*\ze\2_\s*$'))
@@ -3154,7 +3154,7 @@ function! VST_AnonHyperlink(text)
 		let i += 1
 	endwhile
 	let par = join(parlines, '')
-
+	
 	return par
 
 endfunction
@@ -3170,7 +3170,7 @@ function! VST_AutoFootnote(text)
 		let k += 1
 	endwhile
 	let par = join(parlines, '')
-
+	
 	return par
 
 endfunction
@@ -3178,12 +3178,12 @@ endfunction
 " VST_Citations:	 Create citations [first]_ {{{
 function! VST_Citations(text)
 	let par = substitute(a:text, '\[\(\k\{-}\)]_', '<vim:a href="#citation-\1" name="ctarget-\1">[\1]</vim:a>', 'g')
-
+	
 	return par
 endfunction
 " }}}
 " VST_CreateVerse:   Create verse paragraph ("| ") {{{
-" Description:
+" Description: 
 function! VST_CreateVerse(text)
 	" Escaping of special characters
 	let par = substitute(a:text, '\n\s*|\( *\)', '\="<vim:br />-vst-new-line-".repeat("&nbsp;", len(submatch(1)))', 'g')
@@ -3207,14 +3207,14 @@ function! VST_EscapingSlash(text)
 	"
 	" To escape backslash, use backslash:
 	" \\*, \\<Space>, \\-
-
+	
 	" Remove single escaping backslash before letters and digits which can form
 	" lists enumerators:
 	let par = substitute(par, '\\\@<!\\\([A-Za-z0-9#][\]:.)}]\)', '\1', 'g')
 
 	" Remove single escaping backslash befor | at the beginning of paragraph
 	" let par = substitute(par, '^\(\s*\)\\|', '\1|', 'g')
-
+	
 	" Take care about \*
 	let par = substitute(par, '\\\@<!\\\*', '*', 'g')
 	" And remove escaping \
@@ -3241,7 +3241,7 @@ function! VST_EscapingSlash(text)
 	let par = substitute(par, '\\\@<!\\-', '\&nbsp;', 'g')
 	" And remove escaping \
 	let par = substitute(par, '\\\\-', '\\-', 'g')
-
+	
 
 	return par
 endfunction
@@ -3274,7 +3274,7 @@ function! VST_Footnotes(text)
 		let j += 1
 	endfor
 	let par = join(parlines, '')
-
+	
 	return par
 
 endfunction
@@ -3343,8 +3343,8 @@ function! VST_Hyperlink(text)
 			else
 				let href = '#l'.VST_IdMaker(title)
 			endif
-			let parlines[j] = substitute(parlines[j], '^refext=".\{-}"', 'ref="'.href.'"', 'g')
-			let parlines[j] = substitute(parlines[j], 'title="\(.\{-}\)"', '\="title=\"".substitute(submatch(1), " -vst-new-line-\s*", " ", "g")."\""', 'g')
+			let parlines[j] = substitute(parlines[j], '^refext=".\{-}"', 'ref="'.href.'"', 'g') 
+			let parlines[j] = substitute(parlines[j], 'title="\(.\{-}\)"', '\="title=\"".substitute(submatch(1), " -vst-new-line-\s*", " ", "g")."\""', 'g') 
 		endif
 		let j += 1
 	endfor
@@ -3387,8 +3387,8 @@ endfunction
 " arguments of links
 " Description: Split string to list (necessary to escape unholy mess with
 " utf-8 && multibyte characters) and iterate through elements:
-" 	When char is \w or - leave unchanged,
-" 	when \s change to -,
+" 	When char is \w or - leave unchanged, 
+" 	when \s change to -, 
 " 	when other use built-in char2nr() function.
 function! VST_IdMaker(str)
   " Changing to list is necessary to escape mess with utf-8 characters
@@ -3488,7 +3488,7 @@ function! VST_ImagePar(par, full)
 		endif
 		if identify == ''
 			let identify = matchstr(parline, ':identify:')
-			if identify != ''
+			if identify != '' 
 				if executable('identify') && noimage == 0
 					let [width, height] = VST_IdentifyImage(src, parline)
 				else
@@ -3566,10 +3566,10 @@ endfunction
 function! VST_LabelFootnote(text)
 	let par = a:text
 	for label in keys(g:lfnotes)
-		let k = g:lfnotes[label]
+		let k = g:lfnotes[label] 
 		let par = substitute(par, '\[#'.label.']_', '<vim:a href="#footnote-'.k.'" name="target-'.k.'">['.k.']</vim:a>', 'g')
 	endfor
-
+	
 	unlet! k
 
 	return par
@@ -3649,7 +3649,7 @@ endfunction
 function! VST_Replacement(text)
 
 	let par = a:text
-	" Loop through entries in replacedb
+	" Loop through entries in replacedb 
 	" keys and values have to be proper Vim regexp constructs
 	for key in keys(g:vst_replacedb)
 		let replace = g:vst_replacedb[key]
@@ -3660,8 +3660,8 @@ function! VST_Replacement(text)
 			" Create image. We have here one line of pairs term:definition,
 			" but definition can be a string with spaces embraced in quotes.
 			" image:src with:420 alt:"this image"
-			let img = substitute(replace, '\(\w\+\):', ',"\1":', 'g')
-			let img = substitute(img, ':\([^"].\{-}\)\( \|$\)', ':"\1"', 'g')
+			let img = substitute(replace, '\(\w\+\):', ',"\1":', 'g') 
+			let img = substitute(img, ':\([^"].\{-}\)\( \|$\)', ':"\1"', 'g') 
 			let img = '{'.substitute(img, '^\s*,', '', 'g').'}'
 			unlet! g:image
 			let g:image = eval(img)
@@ -3715,7 +3715,7 @@ function! VST_Replacement(text)
 				let par = substitute(par, ltrim.'|'.key.'|_'.rtrim, '`{-vst-replace-{'.replace.'}-vst-replace-}`_', 'g')
 				if has_key(g:vst_hlinkdb, key)
 					" replace can contain markup - in text it will be proceed,
-					" in db no. Force
+					" in db no. Force 
 					let proceed = VST_Markup(replace)
 					let proceed = VST_Roles(proceed)
 					let proceed = VST_EscapingSlash(proceed)
@@ -3758,7 +3758,7 @@ function! VST_Replacement(text)
 				let par = substitute(par, '|'.key.'|_', '`'.replace.'`_', 'g')
 				if has_key(g:vst_hlinkdb, key)
 					" replace can contain markup - in text it will be proceed,
-					" in db no. Force
+					" in db no. Force 
 					let proceed = VST_Markup(replace)
 					let proceed = VST_Roles(proceed)
 					let proceed = VST_EscapingSlash(proceed)
@@ -3947,7 +3947,7 @@ function! VST_SA_Hyperlink(text)
 endfunction
 " }}}
 " VST_SpecCharacter: Change special chars into entities {{{
-" Supported: &, <, >, (c)
+" Supported: &, <, >, (c) 
 function! VST_SpecCharacter(text)
 	" Escaping of special characters
 	let par = substitute(a:text, '&\([#a-z0-9]\+;\)\@!', '\&amp;', 'g')
@@ -3976,7 +3976,7 @@ function! VST_Target(text)
 		if parline =~ '^d='
 			let title = tolower(matchstr(parlines[j], '^d="\zs.\{-}\ze"'))
 			let href = VST_IdMaker(substitute(title, '\s\+-vst-new-line-\s\+', ' ', 'g'))
-			let parlines[j] = substitute(parlines[j], '^d=".\{-}"', 'd="l'.href.'"', 'g')
+			let parlines[j] = substitute(parlines[j], '^d=".\{-}"', 'd="l'.href.'"', 'g') 
 		endif
 		let j += 1
 	endfor
@@ -4097,7 +4097,7 @@ endfunction
 					let include = matchlist(text[i], '^\(\s*\)\.\. \(header\|include\|footer\)::\s*\(.*\)\s*$')
 					" Do nothing if file isn't readable, general VST policy:
 					" silently ignore all author errors.
-
+					
 					if include[3] =~ '^<' && include[3] =~ '>$'
 						let include[3] = matchstr(include[3], '^.\zs.*\ze.$')
 						let include[3] = g:vst_included.'/'.include[3]
@@ -4134,7 +4134,7 @@ endfunction
 						endif
 						let included = ['.. block:: vstfooter', '', '   -----------------------',
 							\ '', '   Vim reStructured Text document. Generated: '.date
-							\.'. `View VST source`_', '',
+							\.'. `View VST source`_', '', 
 							\ '   .. _view VST source: '.expand("%"),'']
 						call extend(text, included)
 						let text[i] = ''
@@ -4160,7 +4160,7 @@ endfunction
 					else
 						if include[3] !~ '^{.*}$'
 							let text[i] = ''
-							let included = [include[1].'.. Unknown file: '.VST_ProtectLiteral(include[3]),
+							let included = [include[1].'.. Unknown file: '.VST_ProtectLiteral(include[3]), 
 								\ '', include[1].'..']
 							call extend(text, included, i+1)
 						endif
@@ -4185,7 +4185,7 @@ endfunction
 	" This take care about modeline in last line
 	" Remove filetype setting from modeline to not confuse Vim in exported
 	" files
-	for i in range(&modelines+1) + range(len(text)-&modelines, len(text)-1)
+	for i in range(&modelines+1) + range(len(text)-&modelines, len(text)-1) 
 		if get(text, i) != ''
 			if text[i] =~ '^\s*\.\. vim:.*re\?st'
 				let text[i] = substitute(text[i], '\s\?\%(filetype\|ft\)=re\?st', '', 'g')
@@ -4234,7 +4234,7 @@ endfunction
 		endif
 		" Insert blank line between named admonition and unordered|ordered
 		" list in next line Have to be splitted in two if's because || is
-		" horrible ineffective.
+		" horrible ineffective.  
 		" LISTDEF: here is list definition which may require adjustment
 		if text[i] =~? '^\s*\.\. \(note\|tip\|warning\|attention\|caution\|danger\|error\|hint\|important\|admonition\)::\s*$' && text[i+1] =~ '^\s*'.s:vst_bulletdef.'\s'
 			let findent = strlen(matchstr(text[i], '^\s*'))
@@ -4498,7 +4498,7 @@ endfunction
 		elseif encoding == 'cp936'
 			let encoding = 'GBK'
 		elseif encoding =~ '^ucs\|^utf'
-			let encoding = 'utf8'
+			let encoding = 'UTF-8'
 		else
 			let encoding = ""
 		endif
@@ -4673,14 +4673,14 @@ endfunction
 				"\ '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" '."\n"
 				"\.'	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> '."\n"
 		else
-			let doctype =
+			let doctype = 
 				\ '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"'."\n"
 				\.'    "http://www.w3.org/TR/html4/strict.dtd">'."\n"
 				"\ '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" '."\n"
 				"\.' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n"
 		endif
 
-		let header =
+		let header = 
 			\ doctype
 			\.'<html xmlns="http://www.w3.org/1999/xhtml" lang="'.language.'" '
 			\.'xml:lang="'.language.'">'."\n"
@@ -4701,7 +4701,7 @@ endfunction
 		let file = substitute(file, '<vim:', '<', 'g')
 		" let file = substitute(file, '\(\[\d\+\]</a>\)_', '\1', 'g')
 		" let file = substitute(file, '\(\[#\]</a>\)_', '\1', 'g')
-
+		
 		" Create comment tags
 		let file = substitute(file, '</comment>', ' -->', 'g')
 		let file = substitute(file, '<comment.\{-}>', '<!-- ', 'g')
@@ -4867,7 +4867,7 @@ endfunction
 			endif
 		endwhile
 		" }}}
-		setlocal ft=html
+		setlocal ft=html 
 
 		" S5 postprocessing {{{
 		if format == 's5'
@@ -4987,7 +4987,7 @@ endfunction
 		elseif encoding == 'cp936'
 			let encoding = 'GBK'
 		elseif encoding =~ '^ucs\|^utf'
-			let encoding = 'utf8'
+			let encoding = 'UTF-8'
 		else
 			let encoding = ""
 		endif
@@ -5097,7 +5097,7 @@ endfunction
 
 		" Create attributions
 		let file = substitute(file, '<vim:p class="attribution.\{-}>\(.\{-}\)</vim:p>', '\\attribution{\1}', "g")
-
+		
 		" Replace table of contents
 		let file = substitute(file, '<vim:p id="tocheader" \_.\{-}\.\. comment:: end of toc -->', '\n\\tableofcontents', '')
 
@@ -5318,7 +5318,7 @@ endfunction
 		" This one is better for deflist but has some not nice side effects
 		" which have to be worked out
 		"\.'{\renewcommand{\makelabel}[1]{\parbox[b]{\labelwidth}{\makebox[0pt][l]{\textbf{##1}}\mbox{}\\}}'."\n"
-		let preamble =
+		let preamble = 
 			\ '\documentclass[12pt]{article}'."\n"
 			\.'%% Generated by Vim reStructured Text '.s:vst_ver.' - Vim '.v:version/100.".".v:version % 100."\n"
 			\.'\usepackage[a4paper,margin=2.5cm,nohead]{geometry}'."\n"
@@ -5404,7 +5404,7 @@ endfunction
 		if exists("g:vst_doc_title")
 			let pdftitle = 'pdftitle={'.substitute(g:vst_doc_title, '^\s*', '', '')."},\n"
 		endif
-
+				
 		let pdfinfo = "\\hypersetup{\npdfcreator={VST, LaTeX, hyperref},\n"
 			\."bookmarksopen=true,\nbookmarksopenlevel=2,\n"
 			\."colorlinks=true,urlcolor=blue,\n"
@@ -5413,7 +5413,7 @@ endfunction
 		let file = preamble."\n".pdfinfo."\n".author.data."\n".file."\n".footer
 		" }}}
 		" }}}
-
+		
 		" Create comments
 		let file = substitute(file, '<vim:comment>\(.\{-}\)<.vim:comment>', '\=VST_CreateTexComment(submatch(1))', 'g')
 
@@ -5635,7 +5635,7 @@ endfunction
 			silent! g/^bookmarksopenlevel=2,$/d
 			if encoding == 'Big5'
 				silent! g/\\begin{document}/s/.*/\0\\begin{CJK}{Bg5}{}/
-			elseif encoding == 'utf8'
+			elseif encoding == 'UTF-8'
 				silent! g/\\begin{document}/s/.*/\0\\begin{CJK}{UTF8}{}/
 			else
 				silent! g/\\begin{document}/s/.*/\0\\begin{CJK}{}{}/
@@ -5696,7 +5696,7 @@ endfunction
 					if !exists("g:vst_pdf_viewer")
 						if has("win32")
 							let g:vst_pdf_viewer = ""
-						elseif has("unix")
+						elseif has("unix") 
 							if executable("kpdf")
 								let g:vst_pdf_viewer = "kpdf"
 							elseif executable("xpdf")
@@ -5932,7 +5932,7 @@ endfunction
 		" }}}
 	elseif format =~ '^help'
 		" Help for commands {{{
-		echo
+		echo 
 			\ "Help for :Vst arguments:\n"
 			\."html  - [default] export to HTML format\n"
 			\."tex   - export to LaTeX format\n"
@@ -5971,7 +5971,7 @@ endfunction
 		silent call cursor(1,1)
 		" }}}
 	" }}}
-	endif
+	endif 
 
 	call VST_End()
 
@@ -6048,7 +6048,7 @@ function! VST_Ornaments()
 			elseif last_single_ornament == 4
 				let last_single_ornament = 2
 			endif
-			if last_single_ornament == 3
+			if last_single_ornament == 3 
 				if !exists('real3')
 					let character = '-'
 				else
@@ -6110,7 +6110,7 @@ function! VST_RotateOrnaments()
 	let s:vst_headdef = '\(=\{3,}\|+\{3,}\|\*\{3,}\|\^\{3,}\|%\{3,}\|\$\{3,}\|#\{3,}\|@\{3,}\|;\{3,}\|"\{3,}\|\.\{3,}\|,\{3,}\|`\{3,}\|\~\{3,}\|-\{3,}\|!\{3,}\|(\{3,}\|)\{3,}\|:\{3,}\|_\{3,}\|&\{3,}\|}\{3,}\|{\{3,}\||\{3,}\|?\{3,}\|<\{3,}\|>\{3,}\|\\\{3,}\|\[\{3,}\|\]\{3,}\|\/\{3,}\|''\{3,}\)'
 	let s:vst_headchars2 = '\(=\|+\|\*\|\^\|%\|\$\|#\|@\|;\|"\|\.\|,\|`\|\~\|-\|!\|(\|)\|:\|_\|&\|}\|{\||\|?\|<\|>\|\\\|\[\|\]\|\/\|''\)'
 	" Make sure we are in position to perform any actions
-	" This is more general regexp, could match several
+	" This is more general regexp, could match several 
 	if getline('.') !~ '^\s*'.s:vst_headdef.'\s*$'
 		return 0
 	endif

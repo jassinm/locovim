@@ -1,10 +1,10 @@
 /vim_phpdebug.sess
 /.vimrc.swp
 .netrwhist
-bundle/pyflakes-vim/ftplugin/python/pyflakes/pyflakes/*.pyc
 yankring_history*
 plugin/mydbextprofiles.vim
 eclim/
 plugin/eclim.vim
-bundle/.DS_Store
 .DS_Store
+bundle/
+!bundle/vundle

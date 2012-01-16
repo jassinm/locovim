@@ -51,7 +51,7 @@ Bundle 'vim-scripts/DotOutlineTree.git'
 "Bundle 'vim-scripts/mru.vim.git'
 "colors
 Bundle 'vim-scripts/AfterColors.vim.git'
-Bundle 'nathanaelkane/vim-indent-guides.git'
+"Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'nanotech/jellybeans.vim.git'
 "Bundle 'guns/jellyx.vim.git'
 "Bundle 'vim-scripts/xoria256.vim.git'

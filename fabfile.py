@@ -49,5 +49,5 @@ def install():
         _installdependencieslinux()
     else:
         raise Exception , "Unknow os type" #todo
-    _installcommandt()
+    #_installcommandt()
     _installpythondependencies()

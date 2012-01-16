@@ -21,6 +21,7 @@ Bundle 'tpope/vim-speeddating.git'
 Bundle 'chrismetcalf/vim-yankring.git'
 "tags
 Bundle 'majutsushi/tagbar.git'
+Bundle 'xolox/vim-easytags.git'
 "Bundle 'vim-scripts/taglist.vim.git'
 
 Bundle 'vim-scripts/SearchComplete.git'
@@ -565,3 +566,9 @@ let g:Powerline_symbols = "fancy"
 " TimeStamp plugin
 "-------------------------------------------------------------
 "autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 13 Jan 2012 04:09:38 PM EST/e
+"-------------------------------------------------------------
+" Easy tags plugin
+"-------------------------------------------------------------
+let g:easytags_cmd = '/usr/local/bin/ctags'
+set tags=./tags;
+let g:easytags_dynamic_files = 1

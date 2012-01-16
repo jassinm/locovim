@@ -1,4 +1,3 @@
-set shell=/bin/zsh
 "-------------------------------------------------------------
 "Pathogen plugin plugin
 "-------------------------------------------------------------
@@ -19,6 +18,7 @@ if !has('ruby')
     call add(g:pathogen_disabled, 'lusty')
 endif
 
+call add(g:pathogen_disabled, 'mru') "using ctrp instead
 call add(g:pathogen_disabled, 'command-t')
 call add(g:pathogen_disabled, 'csv.vim')
 call add(g:pathogen_disabled, 'conque') "using screen tmux instead
@@ -523,6 +523,7 @@ let g:ctrlp_prompt_mappings = {
 let g:ctrlp_extensions = ['tag']
 
 nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>mr :CtrlPMRUFiles<cr>
 "-------------------------------------------------------------
 "powerline
 "-------------------------------------------------------------

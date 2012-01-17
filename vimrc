@@ -148,6 +148,7 @@ nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufwritepost .vimrc call Pl#Load()
 endif
 
 
@@ -314,7 +315,7 @@ let g:Tex_IgnoreLevel = 8
 "NerdTree Plugin Settings
 "-------------------------------------------------------------
 "down't display the following files
-let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$']
+let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$']
 nmap <silent> <D-d> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "left"
 " Show the bookmarks table on startup

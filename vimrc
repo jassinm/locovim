@@ -66,7 +66,7 @@ endif
 if has('python')
     Bundle 'jmcantrell/vim-virtualenv.git'
     Bundle 'orestis/pysmell.git'
-    Bundle 'fs111/pydoc.vim'
+    "Bundle 'fs111/pydoc.vim'
     Bundle 'nvie/vim-pep8.git'
     Bundle 'jabapyth/vim-debug.git'
     Bundle 'vim-scripts/swap-parameters.git'
@@ -364,7 +364,7 @@ let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
 "-------------------------------------------------------------
 "PyFlakes Settings
 "-------------------------------------------------------------
-let g:pyflakes_use_quickfix = 0
+"let g:pyflakes_use_quickfix = 0
 "-------------------------------------------------------------
 "Objective-J Settings
 "-------------------------------------------------------------
@@ -575,3 +575,8 @@ let g:Powerline_symbols = "fancy"
 let g:easytags_cmd = '/usr/local/bin/ctags'
 set tags=./tags;
 let g:easytags_dynamic_files = 1
+"-------------------------------------------------------------
+" Syntastic plugin
+"-------------------------------------------------------------
+let g:syntastic_enable_signs = 1
+let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'

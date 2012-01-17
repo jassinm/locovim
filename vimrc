@@ -65,8 +65,8 @@ if has('ruby')
 endif
 if has('python')
     Bundle 'jmcantrell/vim-virtualenv.git'
-    Bundle 'orestis/pysmell.git'
-    "Bundle 'fs111/pydoc.vim'
+    "Bundle 'orestis/pysmell.git'
+    Bundle 'fs111/pydoc.vim'
     Bundle 'nvie/vim-pep8.git'
     Bundle 'jabapyth/vim-debug.git'
     Bundle 'vim-scripts/swap-parameters.git'

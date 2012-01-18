@@ -16,6 +16,7 @@ Bundle 'scrooloose/syntastic.git'
 Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
 "Bundle 'kikijump/tslime.vim.git'
 Bundle 'msanders/snipmate.vim'
+"Bundle 'locojay/snipmate.vim'
 Bundle 'tpope/vim-unimpaired.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
@@ -394,9 +395,9 @@ au BufNewFile,BufRead *.pde setfiletype processing
 "-------------------------------------------------------------
 "AutoComplete Popup Plugin Settings
 "-------------------------------------------------------------
-map <Leader>ace :AcpEnable<CR>
-map <Leader>acd :AcpDisable<CR>
-let g:acp_behaviorSnipmateLength=1
+"map <Leader>ace :AcpEnable<CR>
+"map <Leader>acd :AcpDisable<CR>
+"let g:acp_behaviorSnipmateLength=1
 "-------------------------------------------------------------
 "make green plugin
 "-------------------------------------------------------------
@@ -464,7 +465,6 @@ nnoremap <silent> <Leader>mr :MRU<CR>
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
 " Use camel case completion.
@@ -473,6 +473,9 @@ let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_auto_select = 1
 "call add(s:snippets_dir,'~/.vim/bundle/snipmate/snippets/')
 let g:neocomplcache_snippets_dir='~/.vim/mysnipets'
+"let g:neocomplcache_snippets_dir='~/.vim/bundle/sipmate/snippets'
+imap <c-j>     <Plug>(neocomplcache_snippets_jump)
+imap <C-k>     <Plug>(neocomplcache_snippets_expand)
 map <Leader>nce :NeoComplCacheEnable<CR>
 map <Leader>ncd :NeoComplCacheDisable<CR>
 "-------------------------------------------------------------

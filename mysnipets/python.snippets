@@ -6,11 +6,11 @@ snippet unit
 	class ${1:ClassName}(TestCase):
 	    """${2:docstring for $1}"""
 	    def setUp(self):
-	        """Setup Test"""
-		pass
+			"""Setup Test"""
+			pass
 	    def tearDown(self):
-		"""Tear Down each test"""
-		pass
+			"""Tear Down each test"""
+			pass
 snippet tst
 	def test_${1|method}(self):
 		"""${2|description}"""

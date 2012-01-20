@@ -13,8 +13,8 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'Shougo/neocomplcache.git'
 Bundle 'sjl/gundo.vim.git'
 Bundle 'scrooloose/syntastic.git'
-Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
-"Bundle 'kikijump/tslime.vim.git'
+"Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
+Bundle 'xaviershay/tslime.vim.git'
 Bundle 'msanders/snipmate.vim'
 "Bundle 'locojay/snipmate.vim'
 Bundle 'tpope/vim-unimpaired.git'
@@ -316,15 +316,15 @@ let g:Tex_IgnoreLevel = 8
 "NerdTree Plugin Settings
 "-------------------------------------------------------------
 "down't display the following files
-let NERDTreeIgnore=['\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$']
+let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject']
 nmap <silent> <D-d> :NERDTreeToggle<CR>
 let g:NERDTreeWinPos = "left"
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+"let NERDTreeMinimalUI = 1
+"let NERDTreeDirArrows = 1
 hi Title guifg=red guibg=#202020
 "-------------------------------------------------------------
 "Tagbar Plugin Settings
@@ -517,27 +517,6 @@ let dbext_default_DB2_bin='db2batch'
 "let dbext_default_DB2_cmd_terminator="':';"
 "output command
 "let dbext_default_display_cmd_line=1
-"-------------------------------------------------------------
-"Screen/Tmux plugin
-"-------------------------------------------------------------
-let g:ScreenImpl = 'Tmux'
-let g:ScreenShellActive=0
-
-function! s:ScreenShellListener()
-    if g:ScreenShellActive
-        map <C-c><C-c> :ScreenSend<cr>
-        nmap <C-c><C-x> :ScreenQuit<cr>
-    else
-        nmap <C-c><C-c> :ScreenShellVertical<cr>
-    endif
-endfunction
-nmap <C-c><C-c> :ScreenShellVertical<cr>
-augroup ScreenShellEnter
-    autocmd User * call <SID>ScreenShellListener()
-augroup END
-augroup ScreenShellExit
-    autocmd User * call <SID>ScreenShellListener()
-augroup END
 "-------------------------------------------------------------
 "swap parameters plugin
 "-------------------------------------------------------------

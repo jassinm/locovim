@@ -34,6 +34,14 @@ snippet sfile
 	Author: ${2:`g:snips_author`}
 	Description: ${3}
 	'''
+snippet ifmain
+	if name == '__main__':
+		import sys
+		import logging
+		logging.basicConfig(level=loggin.INFO)
+		status = main()
+		sys.exit(status)
+
 snippet ldbg
 	logger.debug(${1|somevar})
 snippet linfo

@@ -29,6 +29,7 @@ Bundle 'xolox/vim-easytags.git'
 "Bundle 'vim-scripts/taglist.vim.git'
 "
 Bundle "jceb/vim-orgmode"
+Bundle "aaronbieber/quicktask"
 
 Bundle 'vim-scripts/SearchComplete.git'
 Bundle 'mineiro/vim-latex.git'
@@ -333,17 +334,6 @@ hi Title guifg=red guibg=#202020
 "-------------------------------------------------------------
 nmap <silent> <Leader>k :TagbarToggle<CR>
 "-------------------------------------------------------------
-"Conque Plugin Settings
-"-------------------------------------------------------------
-nmap <silent> <D-i> :ConqueTermVSplit ipython<CR>
-let g:ConqueTerm_SendVisKey = '<C-i>'
-
-function! RunConque()
-    let filepath = %:p
-    ConqueTermSplit ipython -c "run"filepath
-endfunction
-nmap <silent> ,,r :execute 'ConqueTermSplit ipython '.expand('%:p')<CR>
-"-------------------------------------------------------------
 "Omnifocus
 "-------------------------------------------------------------
 set completeopt=menu,preview
@@ -364,10 +354,6 @@ imap <C-@> <C-Space>
 let g:snips_author = 'Jassin MEKNASSI'
 let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
 "let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
-"-------------------------------------------------------------
-"PyFlakes Settings
-"-------------------------------------------------------------
-"let g:pyflakes_use_quickfix = 0
 "-------------------------------------------------------------
 "Objective-J Settings
 "-------------------------------------------------------------
@@ -394,12 +380,6 @@ au BufNewFile,BufRead *.j setlocal foldmethod=expr
 "au BufNewFile,BufRead *.json setfiletype javascript
 "processing
 au BufNewFile,BufRead *.pde setfiletype processing
-"-------------------------------------------------------------
-"AutoComplete Popup Plugin Settings
-"-------------------------------------------------------------
-"map <Leader>ace :AcpEnable<CR>
-"map <Leader>acd :AcpDisable<CR>
-"let g:acp_behaviorSnipmateLength=1
 "-------------------------------------------------------------
 "make green plugin
 "-------------------------------------------------------------
@@ -428,18 +408,6 @@ nnoremap <silent> <Leader>ot :OpenTerminal<CR>
 nnoremap <silent> <Leader>of :OpenFilemanager<CR><CR>
 nnoremap <silent> <Leader>oi :OpenIterm<CR>
 "-------------------------------------------------------------
-"Tmux helper
-"-------------------------------------------------------------
-function! OpenTimuxWindow()
-  let l:current_dir = getcwd()
-  execute("chdir " . escape(expand("%:p:h"), " \"'"))
-  let l:cmd = 'tmux neww "cd $current_path;exec $SHELL"'
-  let l:cmd = substitute( l:cmd, "$current_path", "'" . expand("%:p:h") . "'" , "g")
-  call system (l:cmd)
-endfunction
-
-nmap <silent><Leader>ou : call OpenTimuxWindow()<CR>
-"-------------------------------------------------------------
 "Easymotion plugin
 "-------------------------------------------------------------
 "let g:EasyMotion_leader_key = '<Leader>m'
@@ -451,11 +419,7 @@ inoremap <silent> <Leader>y <ESC>:YRShow<cr>
 let g:yankring_history_dir = "$HOME/.vim/"
 let g:yankring_history_file = 'yankring_history'
 "-------------------------------------------------------------
-"MRU plugin
-"-------------------------------------------------------------
-nnoremap <silent> <Leader>mr :MRU<CR>
-"-------------------------------------------------------------
-"neocomplete plugin
+"Neocomplete plugin
 "-------------------------------------------------------------
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -514,7 +478,7 @@ let dbext_default_DB2_bin='db2batch'
 "output command
 "let dbext_default_display_cmd_line=1
 "-------------------------------------------------------------
-"swap parameters plugin
+"Swap parameters plugin
 "-------------------------------------------------------------
 if has('ptyhon')
     noremap gb :call SwapParams("forwards")<cr>
@@ -540,7 +504,7 @@ let g:ctrlp_extensions = ['tag']
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>mr :CtrlPMRUFiles<cr>
 "-------------------------------------------------------------
-"powerline
+"Powerline
 "-------------------------------------------------------------
 let g:Powerline_symbols = "fancy"
 "-------------------------------------------------------------

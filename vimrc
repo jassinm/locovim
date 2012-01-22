@@ -27,6 +27,8 @@ Bundle 'chrismetcalf/vim-yankring.git'
 Bundle 'majutsushi/tagbar.git'
 Bundle 'xolox/vim-easytags.git'
 "Bundle 'vim-scripts/taglist.vim.git'
+"
+Bundle "jceb/vim-orgmode"
 
 Bundle 'vim-scripts/SearchComplete.git'
 Bundle 'mineiro/vim-latex.git'
@@ -56,7 +58,7 @@ Bundle 'vim-scripts/DotOutlineTree.git'
 "Bundle 'vim-scripts/mru.vim.git'
 "colors
 Bundle 'vim-scripts/AfterColors.vim.git'
-"Bundle 'nathanaelkane/vim-indent-guides.git'
+Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'nanotech/jellybeans.vim.git'
 "Bundle 'guns/jellyx.vim.git'
 "Bundle 'vim-scripts/xoria256.vim.git'
@@ -89,21 +91,20 @@ if has('gui_running')
     winsize 270 70
     set go-=L
     set go-=r
-"elseif $TERM_PROGRAM == "iTerm.app"
 elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " Non-GUI (terminal) colors
     set t_Co=256
-    colorscheme jellybeans_locojay
-    "colorscheme jellybeans
+    "colorscheme jellybeans_locojay
+    colorscheme jellybeans
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
     "colorscheme xoria256
-    if has("autocmd")
-        autocmd colorscheme * hi Normal ctermbg=233
-        autocmd colorscheme * hi NonText ctermbg=233
-        autocmd colorscheme * hi LineNr ctermbg=233
-        autocmd colorscheme * hi VertSplit ctermbg=233
-    endif
+    "if has("autocmd")
+        "autocmd colorscheme * hi Normal ctermbg=233
+        "autocmd colorscheme * hi NonText ctermbg=233
+        "autocmd colorscheme * hi LineNr ctermbg=233
+        "autocmd colorscheme * hi VertSplit ctermbg=233
+    "endif
 endif
 "-------------------------------------------------------------
 "Vim Settings
@@ -403,12 +404,6 @@ au BufNewFile,BufRead *.pde setfiletype processing
 "make green plugin
 "-------------------------------------------------------------
 map <Leader>nose :call MakeGreen()<CR>
-"-------------------------------------------------------------
-"CommanT plugin
-"-------------------------------------------------------------
-nmap <Leader>t :CommandT<CR>
-let g:CommandTMaxHeight = 15
-set wildignore+=.git,*.pyc,*.png,*.jpg,*.zip,*.xls,*.xlsx
 "-------------------------------------------------------------
 "Ack plugin
 "-------------------------------------------------------------

@@ -16,11 +16,6 @@ def _installpythondependencies():
     local("sudo pip install ropevim")
     local("sudo pip install pyflakes")
 
-def _installcommandt():
-    with lcd("./bundle/command-t/ruby/command-t/"):
-        local("ruby extconf.rb")
-        local("make")
-
 def _symlink():
     currendir = local('echo $PWD',capture =True)
     local("ln -sF " + currendir+"/vimrc $HOME/.vimrc")
@@ -49,5 +44,4 @@ def install():
         _installdependencieslinux()
     else:
         raise Exception , "Unknow os type" #todo
-    #_installcommandt()
     _installpythondependencies()

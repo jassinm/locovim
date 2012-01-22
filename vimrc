@@ -372,14 +372,16 @@ endfunction
 "vim objj
 set runtimepath+=~/.vim/bundle/vim-objj
 "don't like highlighting of objj.vim ==> use objc
-au BufNewFile,BufRead *.j  setfiletype objc
-au BufNewFile,BufRead *.j  setlocal ts=8 sts=4 sw=4 expandtab
-au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
-au BufNewFile,BufRead *.j setlocal foldmethod=expr
-"json
-"au BufNewFile,BufRead *.json setfiletype javascript
-"processing
-au BufNewFile,BufRead *.pde setfiletype processing
+if has("autocmd")
+    au BufNewFile,BufRead *.j  setfiletype objc
+    au BufNewFile,BufRead *.j  setlocal ts=8 sts=4 sw=4 expandtab
+    au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
+    au BufNewFile,BufRead *.j setlocal foldmethod=expr
+    "json
+    au BufNewFile,BufRead *.json setfiletype json
+    "processing
+    au BufNewFile,BufRead *.pde setfiletype processing
+endif
 "-------------------------------------------------------------
 "make green plugin
 "-------------------------------------------------------------

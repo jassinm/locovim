@@ -6,7 +6,8 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()"
 
 Bundle 'tpope/vim-fugitive'
-Bundle 'locojay/vim-powerline'
+"Bundle 'locojay/vim-powerline'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -82,8 +83,8 @@ if has('gui_running')
     colorscheme jellybeans
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
-    "set guioptions=egmrt
-    "set guioptions+=T
+    set guioptions=egmrt
+    set guioptions-=T
     winpos 0 0
     winsize 270 70
     set go-=L

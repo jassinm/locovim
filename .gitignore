@@ -8,3 +8,4 @@ plugin/eclim.vim
 .DS_Store
 !bundle/vundle
 bundle/
+yankring_history_v2.txt

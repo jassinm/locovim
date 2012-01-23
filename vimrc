@@ -416,9 +416,9 @@ set noequalalways
 "-------------------------------------------------------------
 "OpenTerminal plugin
 "-------------------------------------------------------------
-nnoremap <silent> <Leader>ot :OpenTerminal<CR>
-nnoremap <silent> <Leader>of :OpenFilemanager<CR><CR>
-nnoremap <silent> <Leader>oi :OpenIterm<CR>
+nnoremap <silent><Leader>ot :OpenTerminal<CR>
+nnoremap <silent><Leader>of :OpenFilemanager<CR><CR>
+nnoremap <silent><Leader>oi :OpenIterm<CR>
 "-------------------------------------------------------------
 "Easymotion plugin
 "-------------------------------------------------------------
@@ -426,8 +426,8 @@ nnoremap <silent> <Leader>oi :OpenIterm<CR>
 "-------------------------------------------------------------
 "Yankring plugin
 "-------------------------------------------------------------
-nnoremap <silent> <Leader>y :YRShow<cr>
-inoremap <silent> <Leader>y <ESC>:YRShow<cr>
+nnoremap <silent><Leader>y :YRShow<cr>
+inoremap <silent><Leader>y <ESC>:YRShow<cr>
 let g:yankring_history_dir = "$HOME/.vim/"
 let g:yankring_history_file = 'yankring_history'
 "-------------------------------------------------------------

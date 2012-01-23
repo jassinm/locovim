@@ -58,7 +58,6 @@ Bundle 'vim-scripts/DotOutlineTree.git'
 "Bundle 'chrisbra/csv.vim'
 "Bundle 'vim-scripts/mru.vim.git'
 "colors
-Bundle 'vim-scripts/AfterColors.vim.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'nanotech/jellybeans.vim.git'
 "Bundle 'guns/jellyx.vim.git'
@@ -83,7 +82,8 @@ endif
 "-----------------------------------------------------------------------------
 if has('gui_running')
     " GUI colors
-    colorscheme jellybeans
+    "colorscheme jellybeans
+    colorscheme jellybeans_locojay
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
     set guioptions=egmrt
@@ -95,17 +95,10 @@ if has('gui_running')
 elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " Non-GUI (terminal) colors
     set t_Co=256
-    "colorscheme jellybeans_locojay
-    colorscheme jellybeans
+    "colorscheme jellybeans
+    colorscheme jellybeans_locojay
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
-    "colorscheme xoria256
-    "if has("autocmd")
-        "autocmd colorscheme * hi Normal ctermbg=233
-        "autocmd colorscheme * hi NonText ctermbg=233
-        "autocmd colorscheme * hi LineNr ctermbg=233
-        "autocmd colorscheme * hi VertSplit ctermbg=233
-    "endif
 endif
 "-------------------------------------------------------------
 "Vim Settings

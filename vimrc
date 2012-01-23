@@ -104,6 +104,12 @@ endif
 "-------------------------------------------------------------
 let mapleader=","
 
+set encoding=utf-8
+
+"shut up
+set visualbell           " don't beep
+set noerrorbells         " don't beep
+
 "Motion Settings
 ino jj <esc>
 cno jj <esc>
@@ -139,15 +145,30 @@ imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 
 
 " tell VIM to always put a status line in, even if there is only one window
-"set nocompatible
 set laststatus=2
-set encoding=utf-8
 "keep a longer history
 set history=1000
+
+"Completion
 set wildmode=longest:full
 set wildmenu
+set completeopt=menu,preview
+"autoclose preview window
+if has("autocmd")
+    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+endif
+"omnifocus as constrol space
+inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+            \ "\<lt>C-n>" :
+            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+imap <C-@> <C-Space>
 
 " Buffer commands
+set hidden "Allows to change buffer w/o saving current buffer
+
 noremap <silent> <Leader>bd :bd<CR>
 noremap <silent> <Leader>bn :bn<CR>
 noremap <silent> <Leader>bp :bp<CR>
@@ -170,9 +191,6 @@ endif
 map <silent><Leader>cd :cd %:p:h<CR>
 
 set wildignore=*.swp,*.bak,*.pyc,*.class
-set visualbell           " don't beep
-set noerrorbells         " don't beep
-set hidden "Allows to change buffer w/o saving current buffer
 
 
 "Move lines up and down
@@ -292,10 +310,10 @@ if has("autocmd")
     autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
 
     "Json
-    au BufNewFile,BufRead *.json setfiletype json
+    autocmd BufNewFile,BufRead *.json setfiletype json
 
     "Processing
-    au BufNewFile,BufRead *.pde setfiletype processing
+    autocmd BufNewFile,BufRead *.pde setfiletype processing
 
     "Pweave
     autocmd BufNewFile,BufRead *.Pnw set filetype=python
@@ -315,9 +333,6 @@ endif
 "-------------------------------------------------------------
 "Python Settings
 "-------------------------------------------------------------
-"start pydoc
-map <buffer><Leader>doc :execute "!pydoc " . expand("<cword>")<CR>
-
 function! PythonTidySaver()
     let oldpos=getpos('.')
     %!PythonTidy
@@ -364,22 +379,7 @@ hi Title guifg=red guibg=#202020
 "-------------------------------------------------------------
 "Tagbar Plugin Settings
 "-------------------------------------------------------------
-nmap <silent> <Leader>k :TagbarToggle<CR>
-"-------------------------------------------------------------
-"Omnifocus
-"-------------------------------------------------------------
-set completeopt=menu,preview
-" omnifocus as constrol space
-if has("autocmd")
-    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-endif
-inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-            \ "\<lt>C-n>" :
-            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-imap <C-@> <C-Space>
+nmap <silent><Leader>k :TagbarToggle<CR>
 "-------------------------------------------------------------
 "Snipmate Settings
 "-------------------------------------------------------------

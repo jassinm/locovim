@@ -17,7 +17,6 @@ Bundle 'scrooloose/syntastic.git'
 "Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
 Bundle 'xaviershay/tslime.vim.git'
 Bundle 'msanders/snipmate.vim'
-"Bundle 'locojay/snipmate.vim'
 Bundle 'tpope/vim-unimpaired.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
@@ -27,7 +26,7 @@ Bundle 'chrismetcalf/vim-yankring.git'
 Bundle 'majutsushi/tagbar.git'
 Bundle 'xolox/vim-easytags.git'
 "Bundle 'vim-scripts/taglist.vim.git'
-"
+
 Bundle "jceb/vim-orgmode"
 Bundle "aaronbieber/quicktask"
 
@@ -56,13 +55,13 @@ Bundle "robgleeson/hammer.vim"
 Bundle "nvie/vim-rst-tables.git"
 Bundle 'vim-scripts/DotOutlineTree.git'
 "Bundle 'chrisbra/csv.vim'
-"Bundle 'vim-scripts/mru.vim.git'
 "colors
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'nanotech/jellybeans.vim.git'
 "Bundle 'guns/jellyx.vim.git'
 "Bundle 'vim-scripts/xoria256.vim.git'
 "Bundle 'altercation/vim-colors-solarized.git'
+
 if has('ruby')
     Bundle 'sjbach/lusty.git'
     Bundle 'Townk/vim-autoclose.git'
@@ -104,27 +103,41 @@ endif
 "Vim Settings
 "-------------------------------------------------------------
 let mapleader=","
+
+"Motion Settings
+ino jj <esc>
+cno jj <esc>
+
 "show invisible shars
 set list
 set listchars=tab:▸\ ,eol:¬
+set cpoptions+=$
 "add line numbers
 set number
 syntax on
 filetype plugin on
 filetype indent on
+
 set noswapfile
-"help in vertical spli
-au FileType help wincmd L
+
+" Mouse Support
+"add mouse support
+set mouse=a
+"let this work in tmux 2
+set ttymouse=xterm2
+
+
+" Clipboad and Pasting
 "add to clipbord
 set clipboard+=unnamed
-"read large files
-au BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetype=| endif
 "paste mode
 nnoremap <F5> :set invpaste paste?<CR>
 set pastetoggle=<F5>
 set showmode
 "auto paste in paste mode
 imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
+
+
 " tell VIM to always put a status line in, even if there is only one window
 "set nocompatible
 set laststatus=2
@@ -133,30 +146,35 @@ set encoding=utf-8
 set history=1000
 set wildmode=longest:full
 set wildmenu
+
 " Buffer commands
 noremap <silent> <Leader>bd :bd<CR>
 noremap <silent> <Leader>bn :bn<CR>
 noremap <silent> <Leader>bp :bp<CR>
 
+"Tab commands
 noremap <silent> <Leader>tp :tabprevious<CR>
 noremap <silent> <Leader>tn :tabnext<CR>
-" Edit the vimrc file
+
+" vimrc
 nmap <silent> <Leader>ev :e $MYVIMRC<CR>
 nmap <silent> <Leader>sv :so $MYVIMRC<CR>
+
 if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-  autocmd bufwritepost .vimrc call Pl#Load()
+  "autocmd bufwritepost .vimrc source $MYVIMRC
+  "autocmd bufwritepost .vimrc call Pl#Load()
 endif
 
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><Leader>cd :cd %:p:h<CR>
-"set autochdir "auto change directories
-set cpoptions+=$
+
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 set hidden "Allows to change buffer w/o saving current buffer
+
+
 "Move lines up and down
 nnoremap <Alt-j> :m+<CR>==
 nnoremap <Alt-k>  :m-2<CR>==
@@ -164,48 +182,46 @@ inoremap <Alt-j>  <Esc>:m+<CR>==gi
 inoremap <Alt-k>  <Esc>:m-2<CR>==gi
 vnoremap <Alt-j>  :m'>+<CR>gv=gv
 vnoremap <Alt-k>  :m-2<CR>gv=gv
-"-------------------------------------------------------------
+
 "Windows Settings
-"-------------------------------------------------------------
 " Move the cursor to the window left of the current one
-noremap <silent> ,wh :wincmd h<cr>
+noremap <silent><Leader>wh :wincmd h<cr>
 " Move the cursor to the window below the current one
-noremap <silent> ,wj :wincmd j<cr>
+noremap <silent><Leader>wj :wincmd j<cr>
 " Move the cursor to the window above the current one
-noremap <silent> ,wk :wincmd k<cr>
+noremap <silent><Leader>wk :wincmd k<cr>
 " Move the cursor to the window right of the current one
-noremap <silent> ,wl :wincmd l<cr>
+noremap <silent><Leader>wl :wincmd l<cr>
 
-noremap <silent> ,cj :wincmd j<CR>:close<CR>
-noremap <silent> ,ck :wincmd k<CR>:close<CR>
-noremap <silent> ,ch :wincmd h<CR>:close<CR>
-noremap <silent> ,cl :wincmd l<CR>:close<CR>
-noremap <silent> ,cc :wincmd c<CR>:close<CR>
+noremap <silent><Leader>cj :wincmd j<CR>:close<CR>
+noremap <silent><Leader>ck :wincmd k<CR>:close<CR>
+noremap <silent><Leader>ch :wincmd h<CR>:close<CR>
+noremap <silent><Leader>cl :wincmd l<CR>:close<CR>
+noremap <silent><Leader>cc :wincmd c<CR>:close<CR>
 
-noremap <silent> ,wr :wincmd r<CR>
-noremap <silent> ,wo :wincmd o<CR>
-noremap <silent> ,wx :wincmd x<CR>
-noremap <silent> ,ww :wincmd w<CR>
+noremap <silent><Leader>wr :wincmd r<CR>
+noremap <silent><Leader>wo :wincmd o<CR>
+noremap <silent><Leader>wx :wincmd x<CR>
+noremap <silent><Leader>ww :wincmd w<CR>
 
-noremap <silent> ,vs :vsplit <CR>
-noremap <silent> ,hs :split <CR>
-"quickfix winow
+noremap <silent><Leader>cj :wincmd j<CR>:close<CR>
+noremap <silent><Leader>ck :wincmd k<CR>:close<CR>
+noremap <silent><Leader>ch :wincmd h<CR>:close<CR>
+noremap <silent><Leader>cl :wincmd l<CR>:close<CR>
+
+noremap <silent><Leader>vs :vsplit <CR>
+noremap <silent><Leader>hs :split <CR>
+
+"Quickfix window Settings
 noremap <silent> ,cn :cn<CR>
 noremap <silent> ,cp :cp<CR>
+
 "Calculator
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
-" Tabs, spaces, wrapping
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set wrap
-set textwidth=85
-set formatoptions=qrn1
-"set colorcolumn=+1
-"-------------------------------------------------------------
+
+
 "Search Settings
-"-------------------------------------------------------------
+
 nnoremap / /\v
 vnoremap / /\v
 set smartcase
@@ -217,22 +233,10 @@ set hlsearch
 "replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 map <silent><Leader><space> :noh<CR>
+
+
 "-------------------------------------------------------------
-"Motion Settings
-"-------------------------------------------------------------
-ino jj <esc>
-cno jj <esc>
-noremap <silent> <Leader>cj :wincmd j<CR>:close<CR>
-noremap <silent> <Leader>ck :wincmd k<CR>:close<CR>
-noremap <silent> <Leader>ch :wincmd h<CR>:close<CR>
-noremap <silent> <Leader>cl :wincmd l<CR>:close<CR>
-"remove trailing whitespaces
-if has("autocmd")
-    autocmd BufWritePre * :%s/\s\+$//e
-endif
-"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 19 Aug 2011 08:27:57 PM EDT/e
-"-------------------------------------------------------------
-"JAVA
+"Folding
 "-------------------------------------------------------------
 " Javadoc comments (/** and */ pairs) and code sections (marked by {} pairs) mark the start and end of folds. All other
 " lines simply take the fold level that is going so far.
@@ -248,38 +252,76 @@ function! MyFoldLevel( lineNumber )
   endif
   return '='
 endfunction
-setlocal foldexpr=MyFoldLevel(v:lnum)
-setlocal foldmethod=expr
 "-------------------------------------------------------------
-"R Settings
+"Filetype Settings
 "-------------------------------------------------------------
+" Tabs, spaces, wrapping
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set wrap
+set textwidth=85
+set formatoptions=qrn1
+
 if has("autocmd")
+    "All filetypes
+    "remove trailing whitespaces
+    autocmd BufWritePre * :%s/\s\+$//e
+
+    "Large files
+    autocmd BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetype=| endif
+
+    "Help
+    "help in vertical split
+    autocmd FileType help wincmd L
+
+    " R
     autocmd FileType r setlocal ts=8 sts=4 sw=4 expandtab
-endif
-"-------------------------------------------------------------
-"Python Settings
-"-------------------------------------------------------------
-"start pydoc
-map <buffer> <Leader>doc :execute "!pydoc " . expand("<cword>")<CR>
-"python pep8 settings
-"autocmd FileType python setlocal textwidth=79
-if has("autocmd")
-    "pep8
+
+    "Python
     autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
     autocmd FileType python setlocal autoindent
     "nose for unittest
     autocmd FileType python compiler nose
     autocmd FileType python set omnifunc=pythoncomplete#Complete
-    "autocmd FileType python set formatprg = PythonTidy
-    "autocmd! bufwritepost *.py %!PythonTidy
     autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
     autocmd BufNewFile,BufRead *.py set formatprg=PythonTidy
+
+    "Tex
+    autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
+
+    "Json
+    au BufNewFile,BufRead *.json setfiletype json
+
+    "Processing
+    au BufNewFile,BufRead *.pde setfiletype processing
+
+    "Pweave
+    autocmd BufNewFile,BufRead *.Pnw set filetype=python
+
+    "Objective-j
+    au BufNewFile,BufRead *.j  setfiletype objc
+    au BufNewFile,BufRead *.j  setlocal ts=8 sts=4 sw=4 expandtab
+    au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
+    au BufNewFile,BufRead *.j setlocal foldmethod=expr
+
+    "Java
+    au Filetype java setlocal foldexpr=MyFoldLevel(v:lnum)
+    au Filetype java setlocal foldmethod=expr
+
 endif
 
+"-------------------------------------------------------------
+"Python Settings
+"-------------------------------------------------------------
+"start pydoc
+map <buffer><Leader>doc :execute "!pydoc " . expand("<cword>")<CR>
+
 function! PythonTidySaver()
-	let oldpos=getpos('.')
-	%!PythonTidy
-	call setpos('.',oldpos)
+    let oldpos=getpos('.')
+    %!PythonTidy
+    call setpos('.',oldpos)
 endfunction
 
 "autocmd! bufwritepost *.py call PythonTidySaver()
@@ -291,9 +333,6 @@ map <Leader>/ :exe '!ctags -R ./tags'
 "-------------------------------------------------------------
 "Latex Plugin Settings
 "-------------------------------------------------------------
-if has("autocmd")
-    autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
-endif
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex -interaction nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'Preview'
@@ -350,31 +389,8 @@ let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
 "-------------------------------------------------------------
 "Objective-J Settings
 "-------------------------------------------------------------
-function! MyFoldLevel( lineNumber )
-  let thisLine = getline( a:lineNumber )
-  " If the entire Javadoc comment or the {} pair is on one line, then don't create a fold for it.
-  if ( thisLine =~ '\%(\%(/\*\*\).*\%(\*/\)\)\|\%({.*}\)' )
-    return '='
-  elseif ( thisLine =~ '\%(^\s*/\*\*\s*$\)\|{' )
-    return "a1"
-  elseif ( thisLine =~ '\%(^\s*\*/\s*$\)\|}' )
-    return "s1"
-  endif
-  return '='
-endfunction
 "vim objj
 set runtimepath+=~/.vim/bundle/vim-objj
-"don't like highlighting of objj.vim ==> use objc
-if has("autocmd")
-    au BufNewFile,BufRead *.j  setfiletype objc
-    au BufNewFile,BufRead *.j  setlocal ts=8 sts=4 sw=4 expandtab
-    au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
-    au BufNewFile,BufRead *.j setlocal foldmethod=expr
-    "json
-    au BufNewFile,BufRead *.json setfiletype json
-    "processing
-    au BufNewFile,BufRead *.pde setfiletype processing
-endif
 "-------------------------------------------------------------
 "make green plugin
 "-------------------------------------------------------------
@@ -456,12 +472,6 @@ map <Leader>swe :execute '!/usr/local/bin/R CMD Sweave '.expand('%:p')<CR>
 "Ropevim
 "-------------------------------------------------------------
 let ropevim_vim_completion=1
-"-------------------------------------------------------------
-"Pweave
-"-------------------------------------------------------------
-if has("autocmd")
-    autocmd BufNewFile,BufRead *.Pnw set filetype=python
-endif
 "-------------------------------------------------------------
 "dbext <Leaeder>se
 "-------------------------------------------------------------

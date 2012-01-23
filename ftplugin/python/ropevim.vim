@@ -1,3 +1,6 @@
+if !has('python')
+    finish
+endif
 function! LoadRope()
 python << EOF
 import ropevim

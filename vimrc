@@ -51,7 +51,6 @@ Bundle 'mattn/gist-vim.git'
 "RST
 Bundle "vim-scripts/rest.vim.git"
 Bundle "vim-scripts/VST.git"
-Bundle "robgleeson/hammer.vim"
 Bundle "nvie/vim-rst-tables.git"
 Bundle 'vim-scripts/DotOutlineTree.git'
 "Bundle 'chrisbra/csv.vim'
@@ -65,6 +64,8 @@ Bundle 'nanotech/jellybeans.vim.git'
 if has('ruby')
     Bundle 'sjbach/lusty.git'
     Bundle 'Townk/vim-autoclose.git'
+    "rst"
+    Bundle "robgleeson/hammer.vim"
 endif
 if has('python')
     Bundle 'jmcantrell/vim-virtualenv.git'

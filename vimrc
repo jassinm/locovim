@@ -22,6 +22,7 @@ Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-speeddating.git'
 Bundle 'chrismetcalf/vim-yankring.git'
+Bundle 'vim-scripts/delimitMate.vim'
 "tags
 Bundle 'majutsushi/tagbar.git'
 Bundle 'xolox/vim-easytags.git'
@@ -63,7 +64,7 @@ Bundle 'nanotech/jellybeans.vim.git'
 
 if has('ruby')
     Bundle 'sjbach/lusty.git'
-    Bundle 'Townk/vim-autoclose.git'
+    "Bundle 'Townk/vim-autoclose.git'
     "rst"
     Bundle "robgleeson/hammer.vim"
 endif

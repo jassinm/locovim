@@ -5,8 +5,8 @@ Intallation
 -----------
 
 + from shell run (hopefully zsh + oh-myzsh) ::
-    git clone https://locojay@github.com/locojay/locovim.git ~/.vim
 
+    git clone https://locojay@github.com/locojay/locovim.git ~/.vim
     git submodule init
     git sumoduel update
     ln -s ~/vimrc .vimrc

@@ -108,6 +108,9 @@ let mapleader=","
 
 set encoding=utf-8
 
+" Set backspace config
+set backspace=eol,start,indent
+
 "shut up
 set visualbell           " don't beep
 set noerrorbells         " don't beep
@@ -171,9 +174,11 @@ imap <C-@> <C-Space>
 " Buffer commands
 set hidden "Allows to change buffer w/o saving current buffer
 
-noremap <silent> <Leader>bd :bd<CR>
-noremap <silent> <Leader>bn :bn<CR>
-noremap <silent> <Leader>bp :bp<CR>
+noremap <silent><Leader>bd :bd<CR>
+noremap <silent><Leader>bn :bn<CR>
+noremap <silent><Leader>bp :bp<CR>
+noremap <silent><Leader>ba :1,300 bd!<CR> "close all buffer
+
 
 "Tab commands
 noremap <silent> <Leader>tp :tabprevious<CR>
@@ -196,12 +201,12 @@ set wildignore=*.swp,*.bak,*.pyc,*.class,*/.git/*,*/.svn/*,*/.hg/*
 
 
 "Move lines up and down
-nnoremap <Alt-j> :m+<CR>==
-nnoremap <Alt-k>  :m-2<CR>==
-inoremap <Alt-j>  <Esc>:m+<CR>==gi
-inoremap <Alt-k>  <Esc>:m-2<CR>==gi
-vnoremap <Alt-j>  :m'>+<CR>gv=gv
-vnoremap <Alt-k>  :m-2<CR>gv=gv
+nnoremap <M-j> :m+<CR>==
+nnoremap <M-k> :m-2<CR>==
+inoremap <M-j><Esc> :m+<CR>==gi
+inoremap <M-k><Esc> :m-2<CR>==gi
+vnoremap <M-j> :m'>+<CR>gv=gv
+vnoremap <M-k> :m-2<CR>gv=gv
 
 "Windows Settings
 " Move the cursor to the window left of the current one
@@ -248,7 +253,7 @@ set smartcase
 set incsearch
 set gdefault "always /g
 set ignorecase
-set showmatch
+set showmatch "show matching braces
 set hlsearch
 "replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/

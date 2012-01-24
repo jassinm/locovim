@@ -35,10 +35,10 @@ snippet sfile
 	Description: ${3}
 	'''
 snippet ifmain
-	if name == '__main__':
+	if __name__ == '__main__':
 		import sys
 		import logging
-		logging.basicConfig(level=loggin.INFO)
+		logging.basicConfig(level=logging.INFO)
 		status = main()
 		sys.exit(status)
 

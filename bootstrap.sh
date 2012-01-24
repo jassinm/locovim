@@ -10,6 +10,7 @@ sudo pip install virtualenvwrapper
 sudo pip install vim_debug
 sudo pip install ropevim
 sudo pip install pyflakes
+sudo pip install vim_bridge
 sudo brew install ctags
 #
 

@@ -192,7 +192,7 @@ endif
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><Leader>cd :cd %:p:h<CR>
 
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore=*.swp,*.bak,*.pyc,*.class,*/.git/*,*/.svn/*,*/.hg/*
 
 
 "Move lines up and down

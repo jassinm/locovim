@@ -11,7 +11,7 @@ Intallation
     git sumoduel update
     ln -s ~/vimrc .vimrc
 
-+ install submodule's using Vundle
++ install submodule's using `Vundle <https://github.com/gmarik/vundle>`_
 
     - start vim and type :BundleInstall
 

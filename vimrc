@@ -81,6 +81,11 @@ endif
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
+"Alt key
+if has("gui_mac")
+    set macmeta
+endif
+
 if has('gui_running')
     " GUI colors
     "colorscheme jellybeans

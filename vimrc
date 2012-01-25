@@ -395,7 +395,6 @@ let NERDTreeShowBookmarks=1
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 "some styling
-let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 hi Title guifg=red guibg=#202020
 if has("autocmd")
@@ -555,3 +554,5 @@ let g:easytags_dynamic_files = 1
 "-------------------------------------------------------------
 let g:syntastic_enable_signs = 1
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
+
+

@@ -443,13 +443,13 @@ set noequalalways
 "-------------------------------------------------------------
 "OpenTerminal plugin
 "-------------------------------------------------------------
-nnoremap <silent><Leader>ot :OpenTerminal<CR>
+"nnoremap <silent><Leader>ot :OpenTerminal<CR> "dont' need this
 nnoremap <silent><Leader>of :OpenFilemanager<CR><CR>
-nnoremap <silent><Leader>oi :OpenIterm<CR>
+"nnoremap <silent><Leader>oi :OpenIterm<CR> " J i m using tmux
 "-------------------------------------------------------------
 "Easymotion plugin
 "-------------------------------------------------------------
-"let g:EasyMotion_leader_key = '<Leader>m'
+let g:EasyMotion_leader_key = 'e'
 "-------------------------------------------------------------
 "Yankring plugin
 "-------------------------------------------------------------

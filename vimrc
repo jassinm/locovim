@@ -211,7 +211,6 @@ set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
 set wildignore+=*.DS_Store
 
 
-
 "Move lines up and down
 nnoremap <M-j> :m+<CR>==
 nnoremap <M-k> :m-2<CR>==
@@ -362,6 +361,10 @@ function! PythonTidySaver()
 endfunction
 
 "autocmd! bufwritepost *.py call PythonTidySaver()
+"
+"Virtualenv
+let g:virtualenv_auto_activate=1
+"
 "-------------------------------------------------------------
 "CTAGS Settings
 "-------------------------------------------------------------

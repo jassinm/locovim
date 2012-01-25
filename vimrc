@@ -6,8 +6,8 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()"
 
 Bundle 'tpope/vim-fugitive'
-"Bundle 'locojay/vim-powerline'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'locojay/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -363,7 +363,12 @@ endfunction
 "autocmd! bufwritepost *.py call PythonTidySaver()
 "
 "Virtualenv
-let g:virtualenv_auto_activate=1
+if  has('python')
+    if !empty($VIRTUAL_ENV)
+        let g:virtualenv_auto_activate=1
+    endif
+endif
+
 "
 "-------------------------------------------------------------
 "CTAGS Settings

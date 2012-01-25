@@ -1,7 +1,7 @@
 "-------------------------------------------------------------
 "Vundle plugin
 "-------------------------------------------------------------
-set nocompatible               " be iMproved
+set nocompatible "turn off vi compatibility, required for vundle"
 set rtp+=~/.vim/vundle/
 call vundle#rc()"
 
@@ -110,6 +110,7 @@ set encoding=utf-8
 
 " Set backspace config
 set backspace=eol,start,indent
+set showbreak=↪
 
 "shut up
 set visualbell           " don't beep
@@ -197,7 +198,13 @@ endif
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><Leader>cd :cd %:p:h<CR>
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,*/.git/*,*/.svn/*,*/.hg/*
+set wildignore=*.swp,*.bak
+set wildignore+=*/.git/*,*/.svn/*,/*.hg/* " Version control
+set wildignore+=*.aux,*.out,*.toc " LaTeX stuff
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Pics
+set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
+set wildignore+=*.DS_Store
+
 
 
 "Move lines up and down
@@ -250,7 +257,7 @@ inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 nnoremap / /\v
 vnoremap / /\v
 set smartcase
-set incsearch
+set incsearch "search as you type
 set gdefault "always /g
 set ignorecase
 set showmatch "show matching braces
@@ -372,17 +379,24 @@ let g:Tex_IgnoreLevel = 8
 "-------------------------------------------------------------
 "NerdTree Plugin Settings
 "-------------------------------------------------------------
+nmap <silent><Leader>d  :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "left"
 "down't display the following files
 let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject']
-nmap <silent> <D-d> :NERDTreeToggle<CR>
-let g:NERDTreeWinPos = "left"
+let NERDTreeHighlightCursorline=1
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
+"quit after opening a file
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
-"let NERDTreeMinimalUI = 1
-"let NERDTreeDirArrows = 1
+"some styling
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 hi Title guifg=red guibg=#202020
+if has("autocmd")
+    autocmd Filetype nerdtree setlocal nolist
+endif
+
 "-------------------------------------------------------------
 "Tagbar Plugin Settings
 "-------------------------------------------------------------
@@ -512,6 +526,8 @@ let g:ctrlp_prompt_mappings = {
 \ 'ToggleFocus()':        ['<c-tab>'],
 \ }
 let g:ctrlp_extensions = ['tag']
+"let g:ctrlp_dont_split = 'NERD_tree_2'
+
 
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>mr :CtrlPMRUFiles<cr>

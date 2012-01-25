@@ -271,6 +271,9 @@ set hlsearch
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 map <silent><Leader><space> :noh<CR>
 
+"Spell Checking
+map <leader>ss :setlocal spell! spelllang=en_us<cr>
+
 
 "-------------------------------------------------------------
 "Folding

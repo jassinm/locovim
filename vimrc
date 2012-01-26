@@ -84,6 +84,9 @@ Bundle 'nanotech/jellybeans.vim.git'
 "Bundle 'vim-scripts/xoria256.vim.git'
 "Bundle 'altercation/vim-colors-solarized.git'
 
+"help
+Bundle 'sjl/strftimedammit.vim'
+
 if has('ruby')
     Bundle 'sjbach/lusty.git'
     "Bundle 'Townk/vim-autoclose.git'

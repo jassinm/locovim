@@ -11,41 +11,63 @@ Bundle 'locojay/vim-powerline'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
+"autocompletion as you type
 Bundle 'Shougo/neocomplcache.git'
-Bundle 'sjl/gundo.vim.git'
+
+"checks syntax for multiple file type install
+"   - cpp , c g++, gcc
+"   - flake8 or pyflakes or pylint for python
+"   - jsonlint for json
+"   - java ?? / use eclim
+"   - jslint for javascript
 Bundle 'scrooloose/syntastic.git'
-"Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
-Bundle 'xaviershay/tslime.vim.git'
+
+if executable("tmux")
+    "Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
+    "TODO: ability to change pane numbers at runtime
+    Bundle 'xaviershay/tslime.vim.git'
+endif
+
 Bundle 'msanders/snipmate.vim'
+"Tpope plugins
 Bundle 'tpope/vim-unimpaired.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-speeddating.git'
+
 Bundle 'chrismetcalf/vim-yankring.git'
+"autoclose braces
 Bundle 'vim-scripts/delimitMate.vim'
 "tags
-Bundle 'majutsushi/tagbar.git'
-Bundle 'xolox/vim-easytags.git'
-"Bundle 'vim-scripts/taglist.vim.git'
+if executable("ctags")
+    Bundle 'majutsushi/tagbar.git'
+    Bundle 'xolox/vim-easytags.git'
+    "Bundle 'vim-scripts/taglist.vim.git'
+endif
 
-Bundle "jceb/vim-orgmode"
-Bundle "aaronbieber/quicktask"
+"Bundle 'jceb/vim-orgmode'
+Bundle 'aaronbieber/quicktask'
 
+Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'vim-scripts/SearchComplete.git'
+Bundle 'tsaleh/vim-align.git'
+Bundle 'vim-scripts/timestamp.vim.git'
+
 Bundle 'mineiro/vim-latex.git'
-Bundle 'hallettj/jslint.vim'
-Bundle 'mileszs/ack.vim.git'
+
+if executable("ack")
+    Bundle 'mileszs/ack.vim.git'
+endif
+
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'locojay/dbext.vim.git'
 Bundle 'msanders/cocoa.vim'
 Bundle 'nanki/vim-objj'
 Bundle 'vim-scripts/Vim-R-plugin.git'
-Bundle 'tsaleh/vim-align.git'
-Bundle 'vim-scripts/timestamp.vim.git'
+"unit testing
 Bundle 'reinh/vim-makegreen'
 Bundle 'vim-scripts/ZoomWin.git'
 Bundle 'vim-scripts/open-terminal-filemanager.git'
-Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'gmarik/sudo-gui.vim.git'
 Bundle 'vim-scripts/reload.vim.git'
 Bundle 'mattn/gist-vim.git'
@@ -69,11 +91,14 @@ if has('ruby')
     Bundle "robgleeson/hammer.vim"
 endif
 if has('python')
+    Bundle 'sjl/gundo.vim.git'
     Bundle 'jmcantrell/vim-virtualenv.git'
     "Bundle 'orestis/pysmell.git'
     Bundle 'fs111/pydoc.vim'
-    Bundle 'nvie/vim-pep8.git'
-    Bundle 'jabapyth/vim-debug.git'
+    if executable("pep8")
+        Bundle 'nvie/vim-pep8.git'
+    endif
+    "Bundle 'jabapyth/vim-debug.git'
     Bundle 'vim-scripts/swap-parameters.git'
     Bundle 'vim-scripts/python_open_module.git'
     "Bundle 'gordyt/rope-vim.git'
@@ -204,7 +229,7 @@ endif
 map <silent><Leader>cd :cd %:p:h<CR>
 
 set wildignore=*.swp,*.bak
-set wildignore+=*/.git/*,*/.svn/*,/*.hg/* " Version control
+set wildignore+=*/.svn/*,/*.hg/* " Version control (not git as otherwise conflict with fugitive)
 set wildignore+=*.aux,*.out,*.toc " LaTeX stuff
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Pics
 set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
@@ -240,17 +265,14 @@ noremap <silent><Leader>wo :wincmd o<CR>
 noremap <silent><Leader>wx :wincmd x<CR>
 noremap <silent><Leader>ww :wincmd w<CR>
 
-noremap <silent><Leader>cj :wincmd j<CR>:close<CR>
-noremap <silent><Leader>ck :wincmd k<CR>:close<CR>
-noremap <silent><Leader>ch :wincmd h<CR>:close<CR>
-noremap <silent><Leader>cl :wincmd l<CR>:close<CR>
 
 noremap <silent><Leader>vs :vsplit <CR>
 noremap <silent><Leader>hs :split <CR>
 
 "Quickfix window Settings
-noremap <silent> ,cn :cn<CR>
-noremap <silent> ,cp :cp<CR>
+"use vim -unimpaired
+"noremap <silent> ,cn :cn<CR>
+"noremap <silent> ,cp :cp<CR>
 
 "Calculator
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
@@ -371,10 +393,20 @@ endif
 
 "
 "-------------------------------------------------------------
-"CTAGS Settings
+"TAGS Settings
 "-------------------------------------------------------------
-map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
-map <Leader>/ :exe '!ctags -R ./tags'
+if executable('ctags')
+    map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
+    map <Leader>/ :exe '!ctags -R ./tags'
+
+    " Easy tags plugin
+    let g:easytags_cmd = '/usr/local/bin/ctags'
+    set tags=./tags;
+    let g:easytags_dynamic_files = 1
+
+    "Tagbar Plugin Settings
+    nmap <silent><Leader>k :TagbarToggle<CR>
+endif
 "-------------------------------------------------------------
 "Latex Plugin Settings
 "-------------------------------------------------------------
@@ -407,15 +439,11 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeShowHidden=1
 "some styling
 let NERDTreeDirArrows = 1
-hi Title guifg=red guibg=#202020
+"hi Title guifg=red guibg=#202020
 if has("autocmd")
     autocmd Filetype nerdtree setlocal nolist
 endif
 
-"-------------------------------------------------------------
-"Tagbar Plugin Settings
-"-------------------------------------------------------------
-nmap <silent><Leader>k :TagbarToggle<CR>
 "-------------------------------------------------------------
 "Snipmate Settings
 "-------------------------------------------------------------
@@ -434,12 +462,9 @@ map <Leader>nose :call MakeGreen()<CR>
 "-------------------------------------------------------------
 "Ack plugin
 "-------------------------------------------------------------
-nnoremap <Leader>a :Ack --follow <C-r><C-w>
-"-------------------------------------------------------------
-"CTAGS plugin
-"-------------------------------------------------------------
-" Set the tags files to be the following
-set tags=./tags,tags,pytags
+if executable("ack")
+    nnoremap <Leader>a :Ack --follow <C-r><C-w>
+endif
 "-------------------------------------------------------------
 "ZoomWin plugin
 "-------------------------------------------------------------
@@ -497,9 +522,11 @@ nnoremap <Leader>gp :Git push<CR>
 "-------------------------------------------------------------
 "Gundo plugin
 "-------------------------------------------------------------
-nnoremap <Leader>gu :GundoToggle<CR>
-"let g:gundo_debug = 1
-let g:gundo_preview_bottom = 1
+if has('python')
+    nnoremap <Leader>gu :GundoToggle<CR>
+    "let g:gundo_debug = 1
+    let g:gundo_preview_bottom = 1
+endif
 "-------------------------------------------------------------
 "Sweave
 "-------------------------------------------------------------
@@ -541,8 +568,8 @@ let g:ctrlp_prompt_mappings = {
 \ 'ToggleFocus()':        ['<c-tab>'],
 \ }
 let g:ctrlp_extensions = ['tag']
+let g:ctrlp_custom_ignore = 'DS_Store\|git'
 "let g:ctrlp_dont_split = 'NERD_tree_2'
-
 
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>mr :CtrlPMRUFiles<cr>
@@ -553,17 +580,9 @@ let g:Powerline_symbols = "fancy"
 "-------------------------------------------------------------
 " TimeStamp plugin
 "-------------------------------------------------------------
-"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/Fri 13 Jan 2012 04:09:38 PM EST/e
-"-------------------------------------------------------------
-" Easy tags plugin
-"-------------------------------------------------------------
-let g:easytags_cmd = '/usr/local/bin/ctags'
-set tags=./tags;
-let g:easytags_dynamic_files = 1
+"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
 "-------------------------------------------------------------
 " Syntastic plugin
 "-------------------------------------------------------------
 let g:syntastic_enable_signs = 1
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
-
-

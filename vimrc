@@ -54,11 +54,14 @@ Bundle 'tsaleh/vim-align.git'
 Bundle 'vim-scripts/timestamp.vim.git'
 
 Bundle 'mineiro/vim-latex.git'
+Bundle 'leshill/vim-json'
+
 
 if executable("ack")
     Bundle 'mileszs/ack.vim.git'
 endif
 
+Bundle 'IndexedSearch'
 Bundle 'vim-scripts/bufkill.vim'
 Bundle 'locojay/dbext.vim.git'
 Bundle 'msanders/cocoa.vim'
@@ -428,6 +431,8 @@ let g:Tex_IgnoreLevel = 8
 "NerdTree Plugin Settings
 "-------------------------------------------------------------
 nmap <silent><Leader>d  :NERDTreeToggle<CR>
+nmap <silent><leader>nf :NERDTreeFind<CR>
+
 let g:NERDTreeWinPos = "left"
 "down't display the following files
 let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject']
@@ -510,6 +515,7 @@ imap <c-j>     <Plug>(neocomplcache_snippets_jump)
 imap <C-k>     <Plug>(neocomplcache_snippets_expand)
 map <Leader>nce :NeoComplCacheEnable<CR>
 map <Leader>ncd :NeoComplCacheDisable<CR>
+
 "-------------------------------------------------------------
 "Git Fugitive plugin
 "-------------------------------------------------------------
@@ -585,4 +591,5 @@ let g:Powerline_symbols = "fancy"
 " Syntastic plugin
 "-------------------------------------------------------------
 let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list=1
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'

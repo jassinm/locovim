@@ -45,6 +45,7 @@ if executable("ctags")
     "Bundle 'vim-scripts/taglist.vim.git'
 endif
 
+"Task Management
 "Bundle 'jceb/vim-orgmode'
 Bundle 'aaronbieber/quicktask'
 
@@ -53,8 +54,6 @@ Bundle 'vim-scripts/SearchComplete.git'
 Bundle 'tsaleh/vim-align.git'
 Bundle 'vim-scripts/timestamp.vim.git'
 
-Bundle 'mineiro/vim-latex.git'
-Bundle 'leshill/vim-json'
 
 
 if executable("ack")
@@ -63,12 +62,16 @@ endif
 
 Bundle 'IndexedSearch'
 Bundle 'vim-scripts/bufkill.vim'
+
+Bundle 'mineiro/vim-latex.git'
+Bundle 'leshill/vim-json'
 Bundle 'locojay/dbext.vim.git'
 Bundle 'msanders/cocoa.vim'
 Bundle 'nanki/vim-objj'
 Bundle 'vim-scripts/Vim-R-plugin.git'
 "unit testing
 Bundle 'reinh/vim-makegreen'
+
 Bundle 'vim-scripts/ZoomWin.git'
 Bundle 'vim-scripts/open-terminal-filemanager.git'
 Bundle 'gmarik/sudo-gui.vim.git'
@@ -109,6 +112,7 @@ if has('python')
     Bundle 'vim-scripts/python_open_module.git'
     "Bundle 'gordyt/rope-vim.git'
 endif
+
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
@@ -179,8 +183,8 @@ set ttymouse=xterm2
 "add to clipbord
 set clipboard+=unnamed
 "paste mode
-nnoremap <F5> :set invpaste paste?<CR>
-set pastetoggle=<F5>
+"nnoremap <F5> :set invpaste paste?<CR>
+"set pastetoggle=<F5>
 set showmode
 "auto paste in paste mode
 imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>

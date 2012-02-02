@@ -90,6 +90,7 @@ Bundle 'nanotech/jellybeans.vim.git'
 "Bundle 'guns/jellyx.vim.git'
 "Bundle 'vim-scripts/xoria256.vim.git'
 "Bundle 'altercation/vim-colors-solarized.git'
+Bundle 'gmunkhbaatarmn/vim-largefile.git'
 
 "help
 Bundle 'sjl/strftimedammit.vim'

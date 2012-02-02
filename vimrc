@@ -599,5 +599,5 @@ let g:Powerline_symbols = "fancy"
 " Syntastic plugin
 "-------------------------------------------------------------
 let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list=1
+let g:syntastic_auto_loc_list=2
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'

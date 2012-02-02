@@ -6,6 +6,7 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()"
 
 Bundle 'tpope/vim-fugitive'
+Bundle 'gregsexton/gitv'
 Bundle 'locojay/vim-powerline'
 "Bundle 'Lokaltog/vim-powerline'
 Bundle 'kien/ctrlp.vim.git'

@@ -62,7 +62,8 @@ if executable("ack")
 endif
 
 Bundle 'IndexedSearch'
-Bundle 'vim-scripts/bufkill.vim'
+Bundle 'orftz/sbd.vim'
+"Bundle 'vim-scripts/bufkill.vim'
 
 Bundle 'mineiro/vim-latex.git'
 Bundle 'leshill/vim-json'
@@ -114,6 +115,8 @@ if has('python')
     Bundle 'vim-scripts/python_open_module.git'
     "Bundle 'gordyt/rope-vim.git'
 endif
+
+Bundle 'Headlights'
 
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
@@ -217,7 +220,10 @@ imap <C-@> <C-Space>
 " Buffer commands
 set hidden "Allows to change buffer w/o saving current buffer
 
-noremap <silent><Leader>bd :bd<CR>
+"noremap <silent><Leader>bd :bd<CR>
+nnoremap <silent><leader>bd :Sbd<CR>
+nnoremap <silent><leader>bdm :Sbdm<CR>
+
 noremap <silent><Leader>bn :bn<CR>
 noremap <silent><Leader>bp :bp<CR>
 noremap <silent><Leader>ba :1,300 bd!<CR> "close all buffer

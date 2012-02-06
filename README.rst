@@ -7,9 +7,7 @@ Intallation
 + from shell run (hopefully zsh + oh-myzsh) ::
 
     git clone https://locojay@github.com/locojay/locovim.git ~/.vim
-    git submodule init
-    git sumoduel update
-    ln -s ~/vimrc .vimrc
+    sh bootstrap.sh
 
 + install plugin's using `Vundle <https://github.com/gmarik/vundle>`_
 

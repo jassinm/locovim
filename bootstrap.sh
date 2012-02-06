@@ -2,7 +2,9 @@ vimf=$(pwd)
 #initialise and update submodules
 git submodule init
 git submodule update
+git submodule foreach git pull origin master
 #sudo brew install ack
+#sudo brew install ctags
 #sudo easy_install pip
 #sudo pip install pysmell
 #sudo pip install virtualenv
@@ -11,8 +13,7 @@ git submodule update
 #sudo pip install ropevim
 #sudo pip install pyflakes
 #sudo pip install vim_bridge
-#sudo brew install ctags
 
-SYMLINK="ln -fs"
+SYMLINK="ln -nfs"
 
 $SYMLINK $vimf/vimrc $HOME/.vimrc

@@ -9,3 +9,4 @@ plugin/eclim.vim
 !bundle/vundle
 bundle/
 yankring_history_v2.txt
+README.log

@@ -276,7 +276,7 @@ noremap <silent><Leader>cj :wincmd j<CR>:close<CR>
 noremap <silent><Leader>ck :wincmd k<CR>:close<CR>
 noremap <silent><Leader>ch :wincmd h<CR>:close<CR>
 noremap <silent><Leader>cl :wincmd l<CR>:close<CR>
-noremap <silent><Leader>cc :wincmd c<CR>:close<CR>
+noremap <silent><Leader>co :wincmd c<CR>:close<CR>
 
 noremap <silent><Leader>wr :wincmd r<CR>
 noremap <silent><Leader>wo :wincmd o<CR>

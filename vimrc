@@ -29,7 +29,8 @@ if executable("tmux")
     Bundle 'xaviershay/tslime.vim.git'
 endif
 
-Bundle 'msanders/snipmate.vim'
+"Bundle 'msanders/snipmate.vim'
+Bundle 'SirVer/ultisnips'
 "Tpope plugins
 Bundle 'tpope/vim-unimpaired.git'
 Bundle 'tpope/vim-repeat.git'
@@ -465,11 +466,17 @@ if has("autocmd")
 endif
 
 "-------------------------------------------------------------
+"Ultinips Settings
+"-------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"-------------------------------------------------------------
 "Snipmate Settings
 "-------------------------------------------------------------
-let g:snips_author = 'Jassin MEKNASSI'
-let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
-"let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
+"let g:snips_author = 'Jassin MEKNASSI'
+"let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
+""let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
 "-------------------------------------------------------------
 "Objective-J Settings
 "-------------------------------------------------------------

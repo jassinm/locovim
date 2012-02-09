@@ -1,8 +1,5 @@
 vimf=$(pwd)
 #initialise and update submodules
-git submodule init
-git submodule update
-git submodule foreach git pull origin master
 #sudo brew install ack
 #sudo brew install ctags
 #sudo easy_install pip
@@ -17,3 +14,7 @@ git submodule foreach git pull origin master
 SYMLINK="ln -nfs"
 
 $SYMLINK $vimf/vimrc $HOME/.vimrc
+
+git submodule init
+git submodule update
+git submodule foreach git pull origin master

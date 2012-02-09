@@ -30,7 +30,6 @@ if executable("tmux")
 endif
 
 "Bundle 'msanders/snipmate.vim'
-Bundle 'SirVer/ultisnips'
 "Tpope plugins
 Bundle 'tpope/vim-unimpaired.git'
 Bundle 'tpope/vim-repeat.git'
@@ -106,6 +105,7 @@ endif
 if has('python')
     Bundle 'sjl/gundo.vim.git'
     Bundle 'jmcantrell/vim-virtualenv.git'
+    Bundle 'SirVer/ultisnips'
     "Bundle 'orestis/pysmell.git'
     Bundle 'fs111/pydoc.vim'
     if executable("pep8")
@@ -235,8 +235,11 @@ noremap <silent> <Leader>tp :tabprevious<CR>
 noremap <silent> <Leader>tn :tabnext<CR>
 
 " vimrc
-nmap <silent> <Leader>ev :e $MYVIMRC<CR>
-nmap <silent> <Leader>sv :so $MYVIMRC<CR>
+"nmap <silent> <Leader>ev :e $MYVIMRC<CR>
+"nmap <silent> <Leader>sv :so $MYVIMRC<CR>
+"above does not really work as symlink ( neocompcache ...)
+nmap <silent> <Leader>ev :e $HOME/.dotfiles/vim/vimrc<CR>
+nmap <silent> <Leader>sv :so $HOME/.dotfiles/vim/vimrc<CR>
 
 if has("autocmd")
   "autocmd bufwritepost .vimrc source $MYVIMRC
@@ -292,6 +295,9 @@ noremap <silent><Leader>hs :split <CR>
 "use vim -unimpaired
 "noremap <silent> ,cn :cn<CR>
 "noremap <silent> ,cp :cp<CR>
+
+"location list
+noremap <silent> ,lo :lopen<CR>
 
 "Calculator
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
@@ -469,6 +475,7 @@ endif
 "Ultinips Settings
 "-------------------------------------------------------------
 let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnips
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "-------------------------------------------------------------

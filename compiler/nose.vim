@@ -23,5 +23,5 @@ CompilerSet efm=%-C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m,%
 "" Set nose as default compiler
 " CompilerSet makeprg=nosetests
 " Quite ugly but this make it ignore vim-makegreen passing argument for now
-CompilerSet makeprg=echo\ $*\ >/dev/null;\ nosetests
+CompilerSet makeprg=echo\ $*\ >/dev/null;\ /usr/local/share/python/nosetests
 

@@ -96,6 +96,8 @@ Bundle 'gmunkhbaatarmn/vim-largefile.git'
 "help
 Bundle 'sjl/strftimedammit.vim'
 
+Bundle 'xolox/vim-pyref'
+
 if has('ruby')
     Bundle 'sjbach/lusty.git'
     "Bundle 'Townk/vim-autoclose.git'

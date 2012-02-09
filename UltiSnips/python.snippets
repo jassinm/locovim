@@ -1,0 +1,53 @@
+snippet ifmainlog "ifmainlog" b
+if __name__ == "main":
+    import sys
+    import logging
+    logging.basicConfig(level=loggin.INFO)
+    status = ${1:main()}$0
+    sys.exit(status)
+endsnippet
+
+snippet mlib "mlib" b
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+plt.rcParams.update({'legend.fontsize':8})
+plt.legend(bbox_to_anchor=(0.,1.04,1.,0.102),loc=6,ncol=2)
+plt.grid()
+plt.show()
+endsnippet
+
+snippet ldebug "logger debug" b
+logger.debug(${1:somevar})
+endsnippet
+
+snippet linfo "logger info" b
+logger.info(${1:somevar})
+endsnippet
+
+snippet lwarn "logger warn" b
+logger.warn(${1:somevar})
+endsnippet
+
+snippet mlibdate "mlibdate" b
+import matplotlib.pyplot as plt
+fig = plt.figure()
+ax = fig.add_subplot(111)
+plt.rcParams.update({'legend.fontsize':8})
+plt.legend(bbox_to_anchor=(0.,1.04,1.,0.102),loc=6,ncol=2)
+dates , values = zip(*datatoplot)
+plt.plot_date(dates,values)
+plt.xticks(rotation=50, size='small')
+plt.grid()
+endsnippet
+
+snippet db2 "db2" b
+import ibm_db
+ibm_db_conn = ibm_db.connect('nodename', 'user', 'pwd',
+                  {ibm_db.ATTR_CASE:ibm_db.CASE_LOWER})
+sql = ''
+stmt = ibm_db.exec_immediate(ibm_db_conn, sql)
+result = ibm_db.fetch_assoc(stmt)
+while(result):
+    result = ibm_db.fetch_assoc(stmt)
+endsnippet

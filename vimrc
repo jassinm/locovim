@@ -4,122 +4,13 @@
 set nocompatible "turn off vi compatibility, required for vundle"
 set rtp+=~/.vim/vundle/
 call vundle#rc()"
-
-Bundle 'tpope/vim-fugitive'
-Bundle 'gregsexton/gitv'
-"Bundle 'locojay/vim-powerline'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'kien/ctrlp.vim.git'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-"autocompletion as you type
-Bundle 'Shougo/neocomplcache.git'
-
-"checks syntax for multiple file type install
-"   - cpp , c g++, gcc
-"   - flake8 or pyflakes or pylint for python
-"   - jsonlint for json
-"   - java ?? / use eclim
-"   - jslint for javascript
-Bundle 'scrooloose/syntastic.git'
-
-if executable("tmux")
-    "Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
-    "TODO: ability to change pane numbers at runtime
-    Bundle 'xaviershay/tslime.vim.git'
-endif
-
-"Bundle 'msanders/snipmate.vim'
-"Tpope plugins
-Bundle 'tpope/vim-unimpaired.git'
-Bundle 'tpope/vim-repeat.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'tpope/vim-speeddating.git'
-
-Bundle 'chrismetcalf/vim-yankring.git'
-"autoclose braces
-Bundle 'vim-scripts/delimitMate.vim'
-"tags
-if executable("ctags")
-    Bundle 'majutsushi/tagbar.git'
-    Bundle 'xolox/vim-easytags.git'
-    "Bundle 'vim-scripts/taglist.vim.git'
-endif
-
-"Task Management
-"Bundle 'jceb/vim-orgmode'
-Bundle 'aaronbieber/quicktask'
-
-Bundle 'Lokaltog/vim-easymotion.git'
-Bundle 'vim-scripts/SearchComplete.git'
-Bundle 'tsaleh/vim-align.git'
-Bundle 'vim-scripts/timestamp.vim.git'
-
-
-
-if executable("ack")
-    Bundle 'mileszs/ack.vim.git'
-endif
-
-Bundle 'IndexedSearch'
-Bundle 'orftz/sbd.vim'
-"Bundle 'vim-scripts/bufkill.vim'
-
-Bundle 'mineiro/vim-latex.git'
-Bundle 'leshill/vim-json'
-Bundle 'locojay/dbext.vim.git'
-Bundle 'msanders/cocoa.vim'
-Bundle 'nanki/vim-objj'
-Bundle 'vim-scripts/Vim-R-plugin.git'
-"unit testing
-Bundle 'reinh/vim-makegreen'
-
-Bundle 'vim-scripts/ZoomWin.git'
-Bundle 'vim-scripts/open-terminal-filemanager.git'
-Bundle 'gmarik/sudo-gui.vim.git'
-Bundle 'vim-scripts/reload.vim.git'
-Bundle 'mattn/gist-vim.git'
-"RST
-Bundle "vim-scripts/rest.vim.git"
-Bundle "vim-scripts/VST.git"
-Bundle "nvie/vim-rst-tables.git"
-Bundle 'vim-scripts/DotOutlineTree.git'
-"Bundle 'chrisbra/csv.vim'
-"colors
-Bundle 'nathanaelkane/vim-indent-guides.git'
-Bundle 'nanotech/jellybeans.vim.git'
-"Bundle 'guns/jellyx.vim.git'
-"Bundle 'vim-scripts/xoria256.vim.git'
-"Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'gmunkhbaatarmn/vim-largefile.git'
-
-"help
-Bundle 'sjl/strftimedammit.vim'
-
-Bundle 'xolox/vim-pyref'
-
-if has('ruby')
-    Bundle 'sjbach/lusty.git'
-    "Bundle 'Townk/vim-autoclose.git'
-    "rst"
-    Bundle "robgleeson/hammer.vim"
-endif
-if has('python')
-    Bundle 'sjl/gundo.vim.git'
-    Bundle 'jmcantrell/vim-virtualenv.git'
-    Bundle 'SirVer/ultisnips'
-    "Bundle 'orestis/pysmell.git'
-    Bundle 'fs111/pydoc.vim'
-    if executable("pep8")
-        Bundle 'nvie/vim-pep8.git'
-    endif
-    "Bundle 'jabapyth/vim-debug.git'
-    Bundle 'vim-scripts/swap-parameters.git'
-    Bundle 'vim-scripts/python_open_module.git'
-    "Bundle 'gordyt/rope-vim.git'
-endif
-
+"Adds bundle menu to guivim
 Bundle 'Headlights'
+
+"
+" colors
+Bundle 'nanotech/jellybeans.vim.git'
+
 
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
@@ -153,6 +44,8 @@ endif
 "Vim Settings
 "-------------------------------------------------------------
 let mapleader=","
+"save a keypress
+map ; :
 
 set encoding=utf-8
 
@@ -223,6 +116,9 @@ imap <C-@> <C-Space>
 " Buffer commands
 set hidden "Allows to change buffer w/o saving current buffer
 
+Bundle 'orftz/sbd.vim'
+"Bundle 'vim-scripts/bufkill.vim'
+
 "noremap <silent><Leader>bd :bd<CR>
 nnoremap <silent><leader>bd :Sbd<CR>
 nnoremap <silent><leader>bdm :Sbdm<CR>
@@ -243,10 +139,6 @@ noremap <silent> <Leader>tn :tabnext<CR>
 nmap <silent> <Leader>ev :e $HOME/.dotfiles/vim/vimrc<CR>
 nmap <silent> <Leader>sv :so $HOME/.dotfiles/vim/vimrc<CR>
 
-if has("autocmd")
-  "autocmd bufwritepost .vimrc source $MYVIMRC
-  "autocmd bufwritepost .vimrc call Pl#Load()
-endif
 
 
 " When pressing <leader>cd switch to the directory of the open buffer
@@ -282,7 +174,7 @@ noremap <silent><Leader>cj :wincmd j<CR>:close<CR>
 noremap <silent><Leader>ck :wincmd k<CR>:close<CR>
 noremap <silent><Leader>ch :wincmd h<CR>:close<CR>
 noremap <silent><Leader>cl :wincmd l<CR>:close<CR>
-noremap <silent><Leader>co :wincmd c<CR>:close<CR>
+noremap <silent><Leader>cc :wincmd c<CR>:close<CR>
 
 noremap <silent><Leader>wr :wincmd r<CR>
 noremap <silent><Leader>wo :wincmd o<CR>
@@ -373,7 +265,6 @@ if has("autocmd")
     "nose for unittest
     autocmd FileType python compiler nose
     autocmd FileType python set omnifunc=pythoncomplete#Complete
-    autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
     autocmd BufNewFile,BufRead *.py set formatprg=PythonTidy
 
     "Tex
@@ -398,6 +289,9 @@ if has("autocmd")
     au Filetype java setlocal foldexpr=MyFoldLevel(v:lnum)
     au Filetype java setlocal foldmethod=expr
 
+    "Sweave
+    au BufNewFile,BufRead *.Rnw map <Leader>swe :execute '!/usr/local/bin/R CMD Sweave '.expand('%:p')<CR>
+
 endif
 
 "-------------------------------------------------------------
@@ -413,6 +307,7 @@ endfunction
 "
 "Virtualenv
 if  has('python')
+    Bundle 'jmcantrell/vim-virtualenv.git'
     if !empty($VIRTUAL_ENV)
         let g:virtualenv_auto_activate=1
     endif
@@ -427,16 +322,21 @@ if executable('ctags')
     map <Leader>/ :exe '!ctags -R ./tags'
 
     " Easy tags plugin
+    Bundle 'xolox/vim-easytags.git'
     let g:easytags_cmd = '/usr/local/bin/ctags'
     set tags=./tags;
     let g:easytags_dynamic_files = 1
 
+    Bundle 'majutsushi/tagbar.git'
     "Tagbar Plugin Settings
     nmap <silent><Leader>k :TagbarToggle<CR>
 endif
+
 "-------------------------------------------------------------
-"Latex Plugin Settings
+"Latex Plugin
 "-------------------------------------------------------------
+Bundle 'mineiro/vim-latex.git'
+
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'pdflatex -interaction nonstopmode $*'
 let g:Tex_ViewRule_pdf = 'Preview'
@@ -451,9 +351,12 @@ let g:Tex_IgnoredWarnings =
                 \'Latex Warning:'."\n".
                 \'LaTeX Warning:' " float stuck
 let g:Tex_IgnoreLevel = 8
+
 "-------------------------------------------------------------
-"NerdTree Plugin Settings
+"NerdTree Plugin
 "-------------------------------------------------------------
+Bundle 'scrooloose/nerdtree'
+
 nmap <silent><Leader>d  :NERDTreeToggle<CR>
 nmap <silent><leader>nf :NERDTreeFind<CR>
 
@@ -476,61 +379,77 @@ endif
 "-------------------------------------------------------------
 "Ultinips Settings
 "-------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnips
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"-------------------------------------------------------------
-"Snipmate Settings
-"-------------------------------------------------------------
-"let g:snips_author = 'Jassin MEKNASSI'
-"let g:snippets_dir = "~/.vim/bundle/snipmate/snippets/,~/.vim/mysnipets/"
-""let g:snippets_dir = "~/.vim/mysnipets/,~/.vim/bundle/snipmate/snippets/"
+if has('python')
+    Bundle 'SirVer/ultisnips'
+
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+endif
+
 "-------------------------------------------------------------
 "Objective-J Settings
 "-------------------------------------------------------------
+Bundle 'nanki/vim-objj'
 "vim objj
 set runtimepath+=~/.vim/bundle/vim-objj
+
 "-------------------------------------------------------------
 "make green plugin
 "-------------------------------------------------------------
+Bundle 'reinh/vim-makegreen'
 map <Leader>nose :call MakeGreen()<CR>
+
 "-------------------------------------------------------------
 "Ack plugin
 "-------------------------------------------------------------
 if executable("ack")
+    Bundle 'mileszs/ack.vim.git'
     nnoremap <Leader>a :Ack --follow <C-r><C-w>
 endif
+
 "-------------------------------------------------------------
 "ZoomWin plugin
 "-------------------------------------------------------------
+Bundle 'vim-scripts/ZoomWin.git'
+
 nmap <Leader>z :ZoomWin<CR>
 " Without setting this, ZoomWin restores windows in a way that causes
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
+
 "-------------------------------------------------------------
 "OpenTerminal plugin
 "-------------------------------------------------------------
-"nnoremap <silent><Leader>ot :OpenTerminal<CR> "dont' need this
+Bundle 'vim-scripts/open-terminal-filemanager.git'
+
 nnoremap <silent><Leader>of :OpenFilemanager<CR><CR>
-"nnoremap <silent><Leader>oi :OpenIterm<CR> " J i m using tmux
+
 "-------------------------------------------------------------
 "Easymotion plugin
 "-------------------------------------------------------------
+Bundle 'Lokaltog/vim-easymotion.git'
+
 let g:EasyMotion_leader_key = 'e'
+
 "-------------------------------------------------------------
 "Yankring plugin
 "-------------------------------------------------------------
+Bundle 'chrismetcalf/vim-yankring.git'
+
 nnoremap <silent><Leader>y :YRShow<cr>
 inoremap <silent><Leader>y <ESC>:YRShow<cr>
 let g:yankring_history_dir = "$HOME/.vim/"
 let g:yankring_history_file = 'yankring_history'
+
 "-------------------------------------------------------------
 "Neocomplete plugin
 "-------------------------------------------------------------
+Bundle 'Shougo/neocomplcache.git'
+
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
+"let g:acp_enableAtStartup = 0
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
@@ -549,33 +468,41 @@ map <Leader>nce :NeoComplCacheEnable<CR>
 map <Leader>ncd :NeoComplCacheDisable<CR>
 
 "-------------------------------------------------------------
-"Git Fugitive plugin
+"Git plugins
 "-------------------------------------------------------------
+"fugitive
+Bundle 'tpope/vim-fugitive'
+
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gco :Gcheckout<CR>
 nnoremap <Leader>gci :Gcommit<CR>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gp :Git push<CR>
+
+"gitv
+Bundle 'gregsexton/gitv'
+
 "-------------------------------------------------------------
 "Gundo plugin
 "-------------------------------------------------------------
 if has('python')
+    Bundle 'sjl/gundo.vim.git'
+
     nnoremap <Leader>gu :GundoToggle<CR>
     "let g:gundo_debug = 1
     let g:gundo_preview_bottom = 1
 endif
 "-------------------------------------------------------------
-"Sweave
-"-------------------------------------------------------------
-map <Leader>swe :execute '!/usr/local/bin/R CMD Sweave '.expand('%:p')<CR>
-"-------------------------------------------------------------
 "Ropevim
 "-------------------------------------------------------------
 let ropevim_vim_completion=1
+
 "-------------------------------------------------------------
+"DBext plugin
+"-------------------------------------------------------------
+Bundle 'locojay/dbext.vim.git'
 "dbext <Leaeder>se
-"-------------------------------------------------------------
 let dbext_default_DB2_bin='db2batch'
 "let g:dbext_default_DB2_cmd_options="-q on -s off -l ';'"
 "let g:dbext_default_DB2_cmd_options="-q del -s off"
@@ -583,16 +510,22 @@ let dbext_default_DB2_bin='db2batch'
 "let dbext_default_DB2_cmd_terminator="':';"
 "output command
 "let dbext_default_display_cmd_line=1
+
 "-------------------------------------------------------------
 "Swap parameters plugin
 "-------------------------------------------------------------
 if has('ptyhon')
+    Bundle 'vim-scripts/swap-parameters.git'
+
     noremap gb :call SwapParams("forwards")<cr>
     noremap gB :call SwapParams("backwards")<cr>
 endif
+
 "-------------------------------------------------------------
 "Ctrl-p plugin
 "-------------------------------------------------------------
+Bundle 'kien/ctrlp.vim.git'
+
 let g:ctrlp_map = '<leader>,'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 1
@@ -611,17 +544,135 @@ let g:ctrlp_custom_ignore = 'DS_Store\|git'
 
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>mr :CtrlPMRUFiles<cr>
+
+"-------------------------------------------------------------
+"Visualization
 "-------------------------------------------------------------
 "Powerline
-"-------------------------------------------------------------
+Bundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = "fancy"
+if has("autocmd")
+  "autocmd bufwritepost .vimrc source $MYVIMRC
+  "autocmd bufwritepost .vimrc call Pl#Load()
+endif
+
+"IndentationGuide <Leader>ig
+Bundle 'nathanaelkane/vim-indent-guides.git'
+
+"ShowMarks
+"Bundle "garbas/vim-showmarks"
+
 "-------------------------------------------------------------
 " TimeStamp plugin
 "-------------------------------------------------------------
 "autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
+
 "-------------------------------------------------------------
 " Syntastic plugin
 "-------------------------------------------------------------
+Bundle 'scrooloose/syntastic.git'
+"checks syntax for multiple file type install
+"   - cpp , c g++, gcc
+"   - flake8 or pyflakes or pylint for python
+"   - jsonlint for json
+"   - java ?? / use eclim
+"   - jslint for javascript
+
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list=2
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
+
+"-------------------------------------------------------------
+"Pep8 plugin # using flake8
+"-------------------------------------------------------------
+if has('python')
+    "Bundle 'orestis/pysmell.git'
+    if executable("pep8")
+        "Bundle 'nvie/vim-pep8.git'
+        "autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
+    endif
+endif
+
+"-------------------------------------------------------------
+"Gitst plugin
+"-------------------------------------------------------------
+
+Bundle 'mattn/gist-vim.git'
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+
+"-------------------------------------------------------------
+"Pydoc, Pyref plugin
+"-------------------------------------------------------------
+
+Bundle 'xolox/vim-pyref'
+Bundle 'fs111/pydoc.vim'
+let g:pydoc_cmd='/usr/local/bin/pydoc'
+"-------------------------------------------------------------
+"Comments
+"-------------------------------------------------------------
+"Bundle 'scrooloose/nerdcommenter'
+" Bundle 'tpope/vim-commentary'
+" nmap <leader>c <Plug>CommentaryLine
+" xmap <leader>c <Plug>Commentary
+Bundle "tomtom/tcomment_vim"
+
+
+"autocompletion as you type
+
+if executable("tmux")
+    "Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
+    "TODO: ability to change pane numbers at runtime
+    Bundle 'xaviershay/tslime.vim.git'
+endif
+
+"Tpope plugins
+Bundle 'tpope/vim-unimpaired.git'
+Bundle 'tpope/vim-repeat.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'tpope/vim-speeddating.git'
+
+"Editing
+Bundle 'vim-scripts/delimitMate.vim'
+
+"Task Management
+"Bundle 'jceb/vim-orgmode'
+Bundle 'aaronbieber/quicktask'
+
+Bundle 'vim-scripts/SearchComplete.git'
+Bundle 'tsaleh/vim-align.git'
+Bundle 'vim-scripts/timestamp.vim.git'
+
+Bundle 'IndexedSearch'
+
+
+Bundle 'gmunkhbaatarmn/vim-largefile.git'
+Bundle 'leshill/vim-json'
+Bundle 'msanders/cocoa.vim'
+Bundle 'vim-scripts/Vim-R-plugin.git'
+
+Bundle 'gmarik/sudo-gui.vim.git'
+
+"vim scripting
+Bundle 'vim-scripts/reload.vim.git'
+
+"RST
+Bundle "vim-scripts/rest.vim.git"
+Bundle "vim-scripts/VST.git"
+Bundle "nvie/vim-rst-tables.git"
+Bundle 'vim-scripts/DotOutlineTree.git'
+"Bundle 'chrisbra/csv.vim'
+
+if has('ruby')
+    "rst"
+    Bundle "robgleeson/hammer.vim"
+endif
+
+"help
+Bundle 'sjl/strftimedammit.vim'
+
+
+if has('ruby')
+    "add lusty jugler and lusty finder"
+    Bundle 'sjbach/lusty.git'
+endif

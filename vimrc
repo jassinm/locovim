@@ -516,7 +516,7 @@ let dbext_default_DB2_bin='db2batch'
 "-------------------------------------------------------------
 "Swap parameters plugin
 "-------------------------------------------------------------
-if has('ptyhon')
+if has('pyhon')
     Bundle 'vim-scripts/swap-parameters.git'
 
     noremap gb :call SwapParams("forwards")<cr>

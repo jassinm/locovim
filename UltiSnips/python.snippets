@@ -7,6 +7,10 @@ if __name__ == "main":
     sys.exit(status)
 endsnippet
 
+snippet todo "TODO reminder" b
+#TODO : ${1:dev} `!v strftime("%c")`
+endsnippet
+
 snippet mlib "matlpolib plot" b
 import matplotlib.pyplot as plt
 fig = plt.figure()

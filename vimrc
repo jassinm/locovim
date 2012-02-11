@@ -385,7 +385,12 @@ if has('python')
     Bundle 'SirVer/ultisnips'
 
     let g:UltiSnipsEditSplit='vertical'
+    let g:UltiSnipsUsePythonVersion = 2
     autocmd BufNewFile,BufRead *.snippets set filetype=snippets
+
+    let g:UltiSnipsListSnippets="<c-tab>"
+    "does not seem to work so call it"
+    map <c-tab> :call UltiSnips_ListSnippets()<CR>
 
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"

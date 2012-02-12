@@ -627,8 +627,13 @@ Bundle "tomtom/tcomment_vim"
 
 if executable("tmux")
     "Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
-    "TODO: ability to change pane numbers at runtime
     Bundle 'xaviershay/tslime.vim.git'
+    "change pane number at runtime by setting
+    function! TmuxPaneNumber()
+          let b:tmux_panenumber = input("pane number: ", "", "custom,Tmux_Pane_Numbers")
+    endfunction
+    command! TmuxPaneNumber call TmuxPaneNumber()
+
 endif
 
 "Tpope plugins

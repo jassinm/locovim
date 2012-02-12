@@ -69,6 +69,16 @@ set listchars=tab:▸\ ,eol:¬
 set cpoptions+=$
 "add line numbers
 set number
+function! ToggleRelativeNumber()
+    if &nu == 1
+        set rnu
+    else
+        set nu
+    endif
+endfunction
+
+command! Rn call ToggleRelativeNumber()
+
 syntax on
 filetype plugin on
 filetype indent on
@@ -622,8 +632,8 @@ let g:pydoc_cmd='/usr/local/bin/pydoc'
 " nmap <leader>c <Plug>CommentaryLine
 " xmap <leader>c <Plug>Commentary
 Bundle "tomtom/tcomment_vim"
-nnoremap // :TComment<CR>
-vnoremap // :TComment<CR>
+nnoremap <silent><leader>c :TComment<CR>
+vnoremap <silent><leader>c :TComment<CR>
 
 
 "autocompletion as you type

@@ -267,7 +267,7 @@ if has("autocmd")
     "nose for unittest
     autocmd FileType python compiler nose
     autocmd FileType python set omnifunc=pythoncomplete#Complete
-    autocmd BufNewFile,BufRead *.py set formatprg=PythonTidy
+    autocmd FileType python set formatprg=PythonTidy
 
     "Tex
     autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
@@ -468,14 +468,6 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 " AutoComplPop like behavior.
 let g:neocomplcache_enable_auto_select = 1
-"call add(s:snippets_dir,'~/.vim/bundle/snipmate/snippets/')
-let g:neocomplcache_snippets_dir='~/.vim/UltiSnips'
-"let g:neocomplcache_snippets_dir='~/.vim/mysnipets'
-"let g:neocomplcache_snippets_dir='~/.vim/bundle/sipmate/snippets'
-"imap <c-j>     <Plug>(neocomplcache_snippets_jump)
-"imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-map <Leader>nce :NeoComplCacheEnable<CR>
-map <Leader>ncd :NeoComplCacheDisable<CR>
 
 "-------------------------------------------------------------
 "Git plugins
@@ -524,7 +516,7 @@ let dbext_default_DB2_bin='db2batch'
 "-------------------------------------------------------------
 "Swap parameters plugin
 "-------------------------------------------------------------
-if has('pyhon')
+if has('python')
     Bundle 'vim-scripts/swap-parameters.git'
 
     noremap gb :call SwapParams("forwards")<cr>
@@ -675,7 +667,6 @@ Bundle "vim-scripts/VST.git"
 Bundle "nvie/vim-rst-tables.git"
 Bundle 'vim-scripts/DotOutlineTree.git'
 "Bundle 'chrisbra/csv.vim'
-
 if has('ruby')
     "rst"
     Bundle "robgleeson/hammer.vim"
@@ -687,5 +678,6 @@ Bundle 'sjl/strftimedammit.vim'
 
 if has('ruby')
     "add lusty jugler and lusty finder"
+    "Todo: only use jugle ( ctrlp replaces   Sat Feb 11 18:29:47 2012
     Bundle 'sjbach/lusty.git'
 endif

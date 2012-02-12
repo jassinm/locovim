@@ -423,7 +423,8 @@ endif
 "-------------------------------------------------------------
 Bundle 'vim-scripts/ZoomWin.git'
 
-nmap <Leader>z :ZoomWin<CR>
+nnoremap <Leader>z :ZoomWin<CR>
+inoremap <Leader>z <ESC>:ZoomWin<CR>
 " Without setting this, ZoomWin restores windows in a way that causes
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works

@@ -622,6 +622,8 @@ let g:pydoc_cmd='/usr/local/bin/pydoc'
 " nmap <leader>c <Plug>CommentaryLine
 " xmap <leader>c <Plug>Commentary
 Bundle "tomtom/tcomment_vim"
+nnoremap // :TComment<CR>
+vnoremap // :TComment<CR>
 
 
 "autocompletion as you type

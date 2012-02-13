@@ -11,6 +11,18 @@ snippet todo "TODO reminder" b
 #TODO : ${1:dev} `!v strftime("%c")`
 endsnippet
 
+snippet ane "Assert not equal" b
+self.assertNotEqueal(${1:fist}, ${2:second})
+endsnippet
+
+snippet ain "Assert is none" b
+self.assertIsNone(${1:first})
+endsnippet
+
+snippet ainn "Assert is not none" b
+self.assertIsNotNone(${1:first})
+endsnippet
+
 snippet mlib "matlpolib plot" b
 import matplotlib.pyplot as plt
 fig = plt.figure()

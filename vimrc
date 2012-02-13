@@ -13,6 +13,7 @@ endif
 " colors
 Bundle 'nanotech/jellybeans.vim.git'
 Bundle 'sjl/badwolf'
+set fillchars+=vert:│
 
 
 "-----------------------------------------------------------------------------
@@ -422,6 +423,13 @@ set runtimepath+=~/.vim/bundle/vim-objj
 "-------------------------------------------------------------
 Bundle 'reinh/vim-makegreen'
 map <Leader>nose :call MakeGreen()<CR>
+
+if has('python')
+    Bundle 'nvie/vim-pyunit'
+    let g:PyUnitCmd = '/usr/local/share/python/nosetests -q --with-machineout'
+    autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
+    autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>
+endif
 
 "-------------------------------------------------------------
 "Ack plugin

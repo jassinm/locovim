@@ -12,6 +12,7 @@ endif
 "
 " colors
 Bundle 'nanotech/jellybeans.vim.git'
+Bundle 'sjl/badwolf'
 
 
 "-----------------------------------------------------------------------------
@@ -25,7 +26,8 @@ endif
 if has('gui_running')
     " GUI colors
     "colorscheme jellybeans
-    colorscheme jellybeans_locojay
+    " colorscheme jellybeans_locojay
+    colorscheme badwolf
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
     set guioptions=egmrt
@@ -38,7 +40,8 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " Non-GUI (terminal) colors
     set t_Co=256
     "colorscheme jellybeans
-    colorscheme jellybeans_locojay
+    " colorscheme jellybeans_locojay
+    colorscheme badwolf
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
 endif

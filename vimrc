@@ -166,6 +166,7 @@ set wildignore+=*.aux,*.out,*.toc " LaTeX stuff
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Pics
 set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
 set wildignore+=*.DS_Store
+set wildignore+=*.pdf,*.xls,*.xlsx,*.doc
 
 
 "Move lines up and down
@@ -427,6 +428,7 @@ map <Leader>nose :call MakeGreen()<CR>
 if has('python')
     Bundle 'nvie/vim-pyunit'
     let g:PyUnitCmd = '/usr/local/share/python/nosetests -q --with-machineout'
+    let g:PyUnitTestStructure="nose"
     autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
     autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>
 endif
@@ -523,7 +525,7 @@ endif
 let ropevim_vim_completion=1
 
 "-------------------------------------------------------------
-"DBext plugin
+"SQL plugin's
 "-------------------------------------------------------------
 Bundle 'locojay/dbext.vim.git'
 "dbext <Leaeder>se
@@ -555,6 +557,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 1
 let g:ctrlp_split_window = 0
 let g:ctrlp_max_height = 20
+let g:ctrlp_open_new_file = 'v'
 let g:ctrlp_prompt_mappings = {
 \ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
 \ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<tab>'],
@@ -652,6 +655,8 @@ vnoremap <silent><leader>c :TComment<CR>
 if executable("tmux")
     "Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
     Bundle 'xaviershay/tslime.vim.git'
+    Bundle 'acustodioo/vim-tmux'
+
     "change pane number at runtime by setting
     function! TmuxPaneNumber()
           let b:tmux_panenumber = input("pane number: ", "", "custom,Tmux_Pane_Numbers")

@@ -432,6 +432,8 @@ if has('python')
     let g:PyUnitTestsStructure="nose"
     autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
     autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>
+    autocmd Filetype python noremap <Leader>unit :call PyUnitSwitchToCounterpart()<CR>
+    autocmd Filetype python noremap! <Leader>unit <ESC>:call PyUnitSwitchToCounterpart()<CR>
 endif
 
 "-------------------------------------------------------------

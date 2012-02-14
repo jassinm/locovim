@@ -1,4 +1,5 @@
 "-------------------------------------------------------------
+let g:ctrlp_open_new_file = 'v'
 "Vundle plugin
 "-------------------------------------------------------------
 set nocompatible "turn off vi compatibility, required for vundle"
@@ -428,7 +429,7 @@ map <Leader>nose :call MakeGreen()<CR>
 if has('python')
     Bundle 'nvie/vim-pyunit'
     let g:PyUnitCmd = '/usr/local/share/python/nosetests -q --with-machineout'
-    let g:PyUnitTestStructure="nose"
+    let g:PyUnitTestsStructure="nose"
     autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
     autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>
 endif

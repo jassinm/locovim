@@ -1,5 +1,4 @@
 "-------------------------------------------------------------
-let g:ctrlp_open_new_file = 'v'
 "Vundle plugin
 "-------------------------------------------------------------
 set nocompatible "turn off vi compatibility, required for vundle"

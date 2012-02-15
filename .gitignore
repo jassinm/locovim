@@ -6,7 +6,7 @@ plugin/mydbextprofiles.vim
 eclim/
 plugin/eclim.vim
 .DS_Store
-!bundle/vundle
 bundle/
+!bundle/vundle
 yankring_history_v2.txt
 README.log

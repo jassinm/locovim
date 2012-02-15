@@ -2,8 +2,11 @@
 "Vundle plugin
 "-------------------------------------------------------------
 set nocompatible "turn off vi compatibility, required for vundle"
-set rtp+=~/.vim/vundle/
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()"
+
 "Adds bundle menu to guivim
 if has('python') && version>700
     Bundle 'Headlights'
@@ -286,6 +289,9 @@ if has("autocmd")
     autocmd FileType python compiler nose
     autocmd FileType python set omnifunc=pythoncomplete#Complete
     autocmd FileType python set formatprg=PythonTidy
+
+    "Clojure"
+    " autocmd FileType clojure set ts=2 sts=2 sw=2 expandtab
 
     "Tex
     autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab

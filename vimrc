@@ -13,7 +13,7 @@ endif
 " colors
 Bundle 'nanotech/jellybeans.vim.git'
 Bundle 'sjl/badwolf'
-set fillchars+=vert:│
+
 
 
 "-----------------------------------------------------------------------------
@@ -54,6 +54,9 @@ let mapleader=","
 map ; :
 
 set encoding=utf-8
+
+set fillchars+=vert:│
+
 
 " Set backspace config
 set backspace=eol,start,indent
@@ -323,11 +326,19 @@ endfunction
 "autocmd! bufwritepost *.py call PythonTidySaver()
 "
 "Virtualenv
+
 if  has('python')
     Bundle 'jmcantrell/vim-virtualenv.git'
     if !empty($VIRTUAL_ENV)
         let g:virtualenv_auto_activate=1
     endif
+
+    "make sure to change /etc/paths"
+    function! MakePyProjet(projectname)
+        " execute '!source /usr/local/share/python/virtualenvwrapper.sh'
+        execute '!mkproject& -t locodev ' . a:projectname
+    endfunction
+
 endif
 
 "
@@ -706,7 +717,12 @@ Bundle 'vim-scripts/DotOutlineTree.git'
 if has('ruby')
     "rst"
     Bundle "robgleeson/hammer.vim"
+    " autocmd BufWritePost *.rst :Hammer<CR>
+
 endif
+
+"Clojusre
+Bundle 'VimClojure'
 
 "help
 Bundle 'sjl/strftimedammit.vim'

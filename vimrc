@@ -445,6 +445,9 @@ map <Leader>nose :call MakeGreen()<CR>
 if has('python')
     Bundle 'nvie/vim-pyunit'
     let g:PyUnitCmd = '/usr/local/share/python/nosetests -q --with-machineout'
+    if !empty($VIRTUAL_ENV)
+        let g:PyUnitCmd = $VIRTUAL_ENV . '/bin/nosetests -q --with-machineout'
+    endif
     let g:PyUnitTestsStructure="nose"
     autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
     autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>

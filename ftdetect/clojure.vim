@@ -1,0 +1,1 @@
+../bundle/VimClojure/ftdetect/clojure.vim

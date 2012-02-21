@@ -348,23 +348,6 @@ if  has('python')
 endif
 
 "
-"-------------------------------------------------------------
-"TAGS Settings
-"-------------------------------------------------------------
-if executable('ctags')
-    map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
-    map <Leader>/ :exe '!ctags -R ./tags'
-
-    " Easy tags plugin
-    Bundle 'xolox/vim-easytags.git'
-    let g:easytags_cmd = '/usr/local/bin/ctags'
-    set tags=./tags;
-    let g:easytags_dynamic_files = 1
-
-    Bundle 'majutsushi/tagbar.git'
-    "Tagbar Plugin Settings
-    nmap <silent><Leader>k :TagbarToggle<CR>
-endif
 
 "-------------------------------------------------------------
 "Latex Plugin
@@ -422,7 +405,8 @@ if has('python')
 
     " let g:UltiSnipsListSnippets="<c-tab>"
     "does not seem to work so call it"
-    map <Leader>us :call UltiSnips_ListSnippets()<CR>
+    nnoremap <Leader>us :call UltiSnips_ListSnippets()<CR>
+    inoremap <Leader>us <ESC>:call UltiSnips_ListSnippets()<CR>
 
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -451,8 +435,8 @@ if has('python')
     let g:PyUnitTestsStructure="nose"
     autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
     autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>
-    autocmd Filetype python noremap <Leader>unit :call PyUnitSwitchToCounterpart()<CR>
-    autocmd Filetype python noremap! <Leader>unit <ESC>:call PyUnitSwitchToCounterpart()<CR>
+    autocmd Filetype python noremap <Leader>ut :call PyUnitSwitchToCounterpart()<CR>
+    autocmd Filetype python noremap! <Leader>ut <ESC>:call PyUnitSwitchToCounterpart()<CR>
 endif
 
 "-------------------------------------------------------------
@@ -723,6 +707,8 @@ Bundle "vim-scripts/VST.git"
 Bundle "nvie/vim-rst-tables.git"
 Bundle 'vim-scripts/DotOutlineTree.git'
 "Bundle 'chrisbra/csv.vim'
+command! CsvCleanup :%s/\%x0d/\r/
+
 if has('ruby')
     "rst"
     Bundle "robgleeson/hammer.vim"

@@ -2,7 +2,7 @@ snippet ifmainlog "ifmainlog" b
 if __name__ == "main":
     import sys
     import logging
-    logging.basicConfig(level=loggin.INFO)
+    logging.basicConfig(level=logging.INFO)
     status = ${1:main()}$0
     sys.exit(status)
 endsnippet
@@ -72,4 +72,11 @@ result = ibm_db.fetch_assoc(stmt)
 while(result):
     ${5:todo}
     result = ibm_db.fetch_assoc(stmt)
+endsnippet
+
+snippet sqlalchemy "sqlalchemy" b
+import sqlalchemy
+engine = sqlalchemy.create_engine('mssql://${1:user}:${2:pwd}@/?/dsn=${3:db}', echo=False)
+conn = engine.connect()
+results = conn.execute('${4:sql}')
 endsnippet

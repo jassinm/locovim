@@ -718,6 +718,12 @@ endif
 
 "Clojusre
 Bundle 'VimClojure'
+"Highlight Clojure's builtins
+let g:vimclojure#HighlightBuiltins=1
+"Rainbow parentheses'!
+let g:vimclojure#ParenRainbow=1
+
+
 
 "help
 Bundle 'sjl/strftimedammit.vim'

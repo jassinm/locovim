@@ -552,6 +552,24 @@ if has('python')
     noremap gb :call SwapParams("forwards")<cr>
     noremap gB :call SwapParams("backwards")<cr>
 endif
+"
+"-------------------------------------------------------------
+"TAGS Settings
+"-------------------------------------------------------------
+if executable('ctags')
+    map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
+    map <Leader>/ :exe '!ctags -R ./tags'
+
+    " Easy tags plugin
+    Bundle 'xolox/vim-easytags.git'
+    let g:easytags_cmd = '/usr/local/bin/ctags'
+    set tags=./tags;
+    let g:easytags_dynamic_files = 1
+
+    Bundle 'majutsushi/tagbar.git'
+    "Tagbar Plugin Settings
+    nmap <silent><Leader>k :TagbarToggle<CR>
+endif
 
 "-------------------------------------------------------------
 "Ctrl-p plugin

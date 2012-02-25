@@ -553,23 +553,6 @@ if has('python')
     noremap gB :call SwapParams("backwards")<cr>
 endif
 "
-"-------------------------------------------------------------
-"TAGS Settings
-"-------------------------------------------------------------
-if executable('ctags')
-    map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
-    map <Leader>/ :exe '!ctags -R ./tags'
-
-    " Easy tags plugin
-    Bundle 'xolox/vim-easytags.git'
-    let g:easytags_cmd = '/usr/local/bin/ctags'
-    set tags=./tags;
-    let g:easytags_dynamic_files = 1
-
-    Bundle 'majutsushi/tagbar.git'
-    "Tagbar Plugin Settings
-    nmap <silent><Leader>k :TagbarToggle<CR>
-endif
 
 "-------------------------------------------------------------
 "Ctrl-p plugin
@@ -595,6 +578,25 @@ let g:ctrlp_custom_ignore = 'DS_Store\|git'
 
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>mr :CtrlPMRUFiles<cr>
+
+"-------------------------------------------------------------
+"TAGS Settings
+"-------------------------------------------------------------
+if executable('ctags')
+    map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
+    map <Leader>/ :exe '!ctags -R ./tags'
+
+    " Easy tags plugin
+    Bundle 'xolox/vim-easytags.git'
+    let g:easytags_cmd = '/usr/local/bin/ctags'
+    set tags=./tags;
+    let g:easytags_dynamic_files = 1
+
+    Bundle 'majutsushi/tagbar.git'
+    let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+    "Tagbar Plugin Settings
+    nmap <silent><Leader>k :TagbarToggle<CR>
+endif
 
 "-------------------------------------------------------------
 "Visualization

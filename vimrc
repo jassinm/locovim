@@ -73,6 +73,10 @@ set noerrorbells         " don't beep
 ino jj <esc>
 cno jj <esc>
 
+"visual
+vnoremap < <gv
+vnoremap > >gv
+
 "show invisible shars
 set list
 set listchars=tab:▸\ ,eol:¬
@@ -289,7 +293,9 @@ if has("autocmd")
     autocmd FileType python compiler nose
     autocmd FileType python set omnifunc=pythoncomplete#Complete
     autocmd FileType python set formatprg=PythonTidy
-
+    if exists('+colorcolumn')
+          autocmd FileType python set colorcolumn=80
+    endif
     "Clojure"
     " autocmd FileType clojure set ts=2 sts=2 sw=2 expandtab
 

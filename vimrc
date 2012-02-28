@@ -294,7 +294,7 @@ if has("autocmd")
     autocmd FileType python set omnifunc=pythoncomplete#Complete
     autocmd FileType python set formatprg=PythonTidy
     if exists('+colorcolumn')
-          autocmd FileType python set colorcolumn=80
+          " autocmd FileType python set colorcolumn=80
     endif
     "Clojure"
     " autocmd FileType clojure set ts=2 sts=2 sw=2 expandtab

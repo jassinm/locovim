@@ -65,7 +65,7 @@ endsnippet
 snippet db2 "db2" b
 import ibm_db
 ibm_db_conn = ibm_db.connect('${1:nodename}', '${2:user}', '${3:pwd}',
-                  {ibm_db.ATTR_CASE:ibm_db.CASE_LOWER})
+                  {ibm_db.ATTR_CASE: ibm_db.CASE_LOWER})
 sql = '${4:query}'
 stmt = ibm_db.exec_immediate(ibm_db_conn, sql)
 result = ibm_db.fetch_assoc(stmt)

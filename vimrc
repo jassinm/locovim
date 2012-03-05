@@ -593,7 +593,7 @@ nnoremap <leader>mr :CtrlPMRUFiles<cr>
 "-------------------------------------------------------------
 if executable('ctags')
     map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
-    map <Leader>/ :exe '!ctags -R ./tags'
+    map <Leader>/ :exe '!ctags -R . ./tags'
 
     " Easy tags plugin
     Bundle 'xolox/vim-easytags.git'

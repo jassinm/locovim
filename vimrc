@@ -48,6 +48,7 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     colorscheme badwolf
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h14
+    set lazyredraw
 endif
 "-------------------------------------------------------------
 "Vim Settings

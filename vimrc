@@ -7,12 +7,6 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()"
 
-"Adds bundle menu to guivim
-if has('python') && version>700
-    Bundle 'Headlights'
-endif
-
-"
 " colors
 Bundle 'nanotech/jellybeans.vim.git'
 Bundle 'sjl/badwolf'
@@ -50,6 +44,15 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     set guifont=PragmataPro:h14
     set lazyredraw
 endif
+
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
 "-------------------------------------------------------------
 "Vim Settings
 "-------------------------------------------------------------

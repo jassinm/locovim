@@ -331,6 +331,9 @@ if has("autocmd")
     "Sweave
     au BufNewFile,BufRead *.Rnw map <Leader>swe :execute '!/usr/local/bin/R CMD Sweave '.expand('%:p')<CR>
 
+    au BufRead ~/.mutt/temp/mutt* set spell
+    "Mutt
+
 endif
 
 "-------------------------------------------------------------

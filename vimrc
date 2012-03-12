@@ -371,7 +371,7 @@ endif
 Bundle 'mineiro/vim-latex.git'
 
 let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_CompileRule_pdf = 'pdflatex -interaction nonstopmode $*'
+let g:Tex_CompileRule_pdf = 'mkdir -p latex-build; /usr/texbin/pdflatex -output-directory latex-build -interaction nonstopmode $*; cp latex-build/*.pdf .'
 let g:Tex_ViewRule_pdf = 'Preview'
 let g:Tex_IgnoredWarnings="Font""\n"
 let g:Tex_IgnoredWarnings =
@@ -747,9 +747,10 @@ command! CsvCleanup :%s/\%x0d/\r/
 
 if has('ruby')
     "rst"
-    Bundle "robgleeson/hammer.vim"
+    Bundle "matthias-guenther/hammer.vim"
+    let g:mdown_preview_cmd="/Users/locojay/.cabal/bin/pandoc -s --highlight-style pygments"
+    Bundle "locojay/vim-markdown-preview"
     " autocmd BufWritePost *.rst :Hammer<CR>
-
 endif
 
 "Clojusre

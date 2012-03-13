@@ -225,10 +225,13 @@ noremap <silent><Leader>hs :split <CR>
 "noremap <silent> ,cp :cp<CR>
 
 "location list
-noremap <silent> ,lo :lopen<CR>
+noremap <silent> <leader>lo :lopen<CR>
 
 "Calculator
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+
+
+noremap <silent><leader>u :! urlview %<CR>
 
 
 "Search Settings

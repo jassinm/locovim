@@ -24,6 +24,21 @@ snippet ainn "Assert is not none" b
 self.assertIsNotNone(${1:first})
 endsnippet
 
+snippet optparse "optparse" b
+from optparse import OptionParser
+
+usage = 'usage: %prog [options] user -h for help'
+parser = OptionParser(usage)
+parser.add_option('${1:-s}', '${2:--sample}', action='${3:store}',
+type='${4:string}', dest='${5:destination}', help='${6:some help}')
+
+(options, args) = parser.parse_args()
+if options.$5:
+    pass
+else:
+    parser.print_help()
+endsnippet
+
 snippet mlib "matlpolib plot" b
 import matplotlib.pyplot as plt
 fig = plt.figure()

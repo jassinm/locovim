@@ -11,8 +11,6 @@ call vundle#rc()"
 Bundle 'nanotech/jellybeans.vim.git'
 Bundle 'sjl/badwolf'
 
-
-
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
@@ -45,6 +43,7 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     set lazyredraw
 endif
 
+"Todo: fix so works with replace as well  Sat Mar 17 21:56:10 2012
 if exists('$TMUX')
     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"

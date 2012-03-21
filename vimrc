@@ -25,7 +25,7 @@ if has('gui_running')
     " colorscheme jellybeans_locojay
     colorscheme badwolf
     "set guifont=Monaco:h12
-    set guifont=PragmataPro:h14
+    set guifont=PragmataPro:h15
     set guioptions=egmrt
     set guioptions-=T
     winpos 0 0
@@ -39,7 +39,7 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " colorscheme jellybeans_locojay
     colorscheme badwolf
     "set guifont=Monaco:h12
-    set guifont=PragmataPro:h14
+    set guifont=PragmataPro:h15
     set lazyredraw
 endif
 
@@ -708,6 +708,11 @@ if executable("tmux")
     command! TmuxPaneNumber call TmuxPaneNumber()
 
 endif
+
+
+"Work with ipython notebook
+"
+Bundle 'ivanov/vim-ipython'
 
 "Tpope plugins
 Bundle 'tpope/vim-unimpaired.git'

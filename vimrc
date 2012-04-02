@@ -10,6 +10,7 @@ call vundle#rc()"
 " colors
 Bundle 'nanotech/jellybeans.vim.git'
 Bundle 'sjl/badwolf'
+Bundle 'godlygeek/csapprox'
 
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
@@ -44,13 +45,13 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
 endif
 
 "Todo: fix so works with replace as well  Sat Mar 17 21:56:10 2012
-if exists('$TMUX')
-    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
+" if exists('$TMUX')
+"     let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+"     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+" else
+"     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+"     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+" endif
 
 "-------------------------------------------------------------
 "Vim Settings
@@ -397,7 +398,7 @@ nmap <silent><leader>nf :NERDTreeFind<CR>
 
 let g:NERDTreeWinPos = "left"
 "down't display the following files
-let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject']
+let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject', '\.so$']
 let NERDTreeHighlightCursorline=1
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
@@ -713,6 +714,9 @@ endif
 "Work with ipython notebook
 "
 Bundle 'ivanov/vim-ipython'
+let g:ipy_perform_mappings = 0
+map <silent> <C-i> :python run_this_line()<CR>
+imap <silent> <C-i> <C-O>:python run_this_line()<CR>
 
 "Tpope plugins
 Bundle 'tpope/vim-unimpaired.git'

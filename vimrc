@@ -4,7 +4,7 @@
 set nocompatible "turn off vi compatibility, required for vundle"
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/vundle/
 call vundle#rc()"
 
 " colors
@@ -725,7 +725,8 @@ Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-speeddating.git'
 
 "Editing
-Bundle 'vim-scripts/delimitMate.vim'
+"Bundle 'vim-scripts/delimitMate.vim'
+Bundle 'kana/vim-smartinput'
 
 "Task Management
 "Bundle 'jceb/vim-orgmode'

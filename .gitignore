@@ -7,6 +7,5 @@ eclim/
 plugin/eclim.vim
 .DS_Store
 bundle/
-!bundle/vundle
 yankring_history_v2.txt
 README.log

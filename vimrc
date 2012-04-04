@@ -807,3 +807,6 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 let g:rbpt_max = 16
+
+
+Bundle 'sjl/clam.vim'

@@ -430,6 +430,8 @@ if has('python')
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<tab>"
     let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+    autocmd Filetype python :UltiSnipsAddFiletypes python
 endif
 
 "-------------------------------------------------------------
@@ -713,10 +715,10 @@ endif
 
 "Work with ipython notebook
 "
-Bundle 'ivanov/vim-ipython'
-let g:ipy_perform_mappings = 0
-map <silent> <C-i> :python run_this_line()<CR>
-imap <silent> <C-i> <C-O>:python run_this_line()<CR>
+" Bundle 'ivanov/vim-ipython'
+" let g:ipy_perform_mappings = 0
+" map <silent> <C-i> :python run_this_line()<CR>
+" imap <silent> <C-i> <C-O>:python run_this_line()<CR>
 
 "Tpope plugins
 Bundle 'tpope/vim-unimpaired.git'

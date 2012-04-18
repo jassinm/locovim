@@ -702,7 +702,7 @@ if executable("tmux")
     endfunction
     command! TmuxPaneNumber call TmuxPaneNumber()
 
-    Bundle 'sjl/vitality.vim'
+    "Bundle 'sjl/vitality.vim'
 
 endif
 

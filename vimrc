@@ -585,7 +585,7 @@ let g:ctrlp_prompt_mappings = {
 \ 'ToggleFocus()':        ['<c-tab>'],
 \ }
 let g:ctrlp_extensions = ['tag']
-let g:ctrlp_custom_ignore = 'DS_Store\|git'
+let g:ctrlp_custom_ignore = '.DS_Store$ | \.git$'
 "let g:ctrlp_dont_split = 'NERD_tree_2'
 
 nnoremap <leader>. :CtrlPTag<cr>

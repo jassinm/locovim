@@ -145,7 +145,7 @@ Bundle 'orftz/sbd.vim'
 
 "noremap <silent><Leader>bd :bd<CR>
 nnoremap <silent><leader>bd :Sbd<CR>
-nnoremap <silent><leader>bdm :Sbdm<CR>
+"nnoremap <silent><leader>bdm :Sbdm<CR>
 
 noremap <silent><Leader>bn :bn<CR>
 noremap <silent><Leader>bp :bp<CR>

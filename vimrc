@@ -169,7 +169,7 @@ nmap <silent> <Leader>sv :so $HOME/.dotfiles/vim/vimrc<CR>
 map <silent><Leader>cd :cd %:p:h<CR>
 
 set wildignore=*.swp,*.bak
-set wildignore+=*/.svn/*,/*.hg/* " Version control (not git as otherwise conflict with fugitive)
+set wildignore+=*/.svn/*,/*.hg/*,/*.git/* " Version control (not git as otherwise conflict with fugitive)
 set wildignore+=*.aux,*.out,*.toc " LaTeX stuff
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Pics
 set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
@@ -585,7 +585,10 @@ let g:ctrlp_prompt_mappings = {
 \ 'ToggleFocus()':        ['<c-tab>'],
 \ }
 let g:ctrlp_extensions = ['tag']
-let g:ctrlp_custom_ignore = '.DS_Store$ | \.git$'
+" let g:ctrlp_custom_ignore = {
+" \ 'dir' : '\.git/',
+" \
+" \ }
 "let g:ctrlp_dont_split = 'NERD_tree_2'
 
 nnoremap <leader>. :CtrlPTag<cr>
@@ -664,7 +667,7 @@ endif
 "-------------------------------------------------------------
 "Gitst plugin
 "-------------------------------------------------------------
-
+Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim.git'
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1

@@ -170,6 +170,7 @@ map <silent><Leader>cd :cd %:p:h<CR>
 
 set wildignore=*.swp,*.bak
 set wildignore+=*/.svn/*,/*.hg/*,/*.git/* " Version control (not git as otherwise conflict with fugitive)
+set wildignore+=*/.virtualenvs/*
 set wildignore+=*.aux,*.out,*.toc " LaTeX stuff
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Pics
 set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
@@ -353,6 +354,10 @@ if  has('python')
     function! MakePyProjet(projectname)
         " execute '!source /usr/local/share/python/virtualenvwrapper.sh'
         execute '!mkproject& -t locodev ' . a:projectname
+    endfunction
+else
+    "ack to make vi work
+    function! VirtualEnvStatusline()
     endfunction
 
 endif

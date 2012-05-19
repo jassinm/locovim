@@ -287,6 +287,9 @@ if has("autocmd")
     " R
     autocmd FileType r setlocal ts=8 sts=4 sw=4 expandtab
 
+    "Html
+    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+
     "Python
     autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
     autocmd FileType python setlocal autoindent
@@ -807,3 +810,5 @@ let g:rbpt_max = 16
 
 
 Bundle 'sjl/clam.vim'
+
+Bundle 'mattn/zencoding-vim'

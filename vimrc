@@ -428,6 +428,7 @@ if has('python')
     let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
     autocmd Filetype python :UltiSnipsAddFiletypes python
+    autocmd Filetype html :UltiSnipsAddFiletypes html
 endif
 
 "-------------------------------------------------------------
@@ -812,3 +813,5 @@ let g:rbpt_max = 16
 
 
 Bundle 'sjl/clam.vim'
+Bundle 'mattn/zencoding-vim'
+let g:user_zen_leader_key = '<leader>h'

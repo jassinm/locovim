@@ -290,6 +290,7 @@ if has("autocmd")
 
     "Html
     autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
 
     "Python
     autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
@@ -303,6 +304,13 @@ if has("autocmd")
     endif
     "Clojure"
     " autocmd FileType clojure set ts=2 sts=2 sw=2 expandtab
+    "
+    "Css
+    autocmd Filetype css set omnifunc=csscomplete#CompleteCSS
+
+    "Javascript
+    autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
     "Tex
     autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
@@ -816,5 +824,8 @@ let g:rbpt_max = 16
 
 
 Bundle 'sjl/clam.vim'
+"Web dev
 Bundle 'mattn/zencoding-vim'
 let g:user_zen_leader_key = '<leader>h'
+Bundle 'Glench/Vim-Jinja2-Syntax'
+Bundle 'nono/jquery.vim'

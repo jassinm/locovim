@@ -183,6 +183,7 @@ set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Pics
 set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
 set wildignore+=*.DS_Store
 set wildignore+=*.pdf,*.xls,*.xlsx,*.doc
+set wildignore+=*.jar
 
 
 "Move lines up and down

@@ -43,6 +43,7 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
 endif
 " }}}
 
+
 "Vim Settings---------------------------------------------------------------- {{{
 let mapleader=","
 "save a keypress
@@ -126,7 +127,8 @@ set laststatus=2
 set history=1000
 " }}}
 
-"Completion ----------------------------------------------------------- {{{
+
+"Completion/Wildmenu ----------------------------------------------------------- {{{
 set wildmode=longest:full
 set wildmenu
 set completeopt=menu,preview
@@ -143,9 +145,23 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
 
+set wildignore=*.swp,*.bak
+set wildignore+=*/.svn/*,/*.hg/*,/*.git/* " Version control (not git as otherwise conflict with fugitive)
+set wildignore+=*/.virtualenvs/*
+set wildignore+=*.aux,*.out,*.toc " LaTeX stuff
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Pics
+set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
+set wildignore+=*.DS_Store
+set wildignore+=*.pdf,*.xls,*.xlsx,*.doc
+set wildignore+=*.jar
+" Lein
+set wildignore+=classes
+set wildignore+=lib
+
 " }}}
 
-" Buffer/Tab nativgation ----------------------------------------------------------- {{{
+
+" Buffer/Tab/Window nativgation ----------------------------------------------------------- {{{
 set hidden "Allows to change buffer w/o saving current buffer
 
 Bundle 'orftz/sbd.vim'
@@ -163,43 +179,6 @@ noremap <silent><Leader>ba :1,300 bd!<CR> "close all buffer
 "Tab commands
 noremap <silent> <Leader>tp :tabprevious<CR>
 noremap <silent> <Leader>tn :tabnext<CR>
-" }}}
-
-" vimrc
-"nmap <silent> <Leader>ev :e $MYVIMRC<CR>
-"nmap <silent> <Leader>sv :so $MYVIMRC<CR>
-"above does not really work as symlink ( neocompcache ...)
-nmap <silent> <Leader>ev :e $HOME/.dotfiles/vim/vimrc<CR>
-nmap <silent> <Leader>sv :so $HOME/.dotfiles/vim/vimrc<CR>
-
-
-
-" When pressing <leader>cd switch to the directory of the open buffer
-map <silent><Leader>cd :cd %:p:h<CR>
-
-set wildignore=*.swp,*.bak
-set wildignore+=*/.svn/*,/*.hg/*,/*.git/* " Version control (not git as otherwise conflict with fugitive)
-set wildignore+=*/.virtualenvs/*
-set wildignore+=*.aux,*.out,*.toc " LaTeX stuff
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Pics
-set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
-set wildignore+=*.DS_Store
-set wildignore+=*.pdf,*.xls,*.xlsx,*.doc
-set wildignore+=*.jar
-" Lein
-set wildignore+=classes
-set wildignore+=lib
-
-
-
-
-"Move lines up and down
-nnoremap <M-j> :m+<CR>==
-nnoremap <M-k> :m-2<CR>==
-inoremap <M-j><Esc> :m+<CR>==gi
-inoremap <M-k><Esc> :m-2<CR>==gi
-vnoremap <M-j> :m'>+<CR>gv=gv
-vnoremap <M-k> :m-2<CR>gv=gv
 
 "Windows Settings
 " Move the cursor to the window left of the current one
@@ -234,14 +213,30 @@ noremap <silent><Leader>hs :split <CR>
 "location list
 noremap <silent> <leader>lo :lopen<CR>
 
+" }}}
+
+
+"Some more-------------------------------------------------- {{{
+nmap <silent> <Leader>ev :vsplit $HOME/.dotfiles/vim/vimrc<CR>
+nmap <silent> <Leader>sv :so $HOME/.dotfiles/vim/vimrc<CR>
+
+" When pressing <leader>cd switch to the directory of the open buffer
+map <silent><Leader>cd :cd %:p:h<CR>
+"Move lines up and down
+nnoremap <M-j> :m+<CR>==
+nnoremap <M-k> :m-2<CR>==
+inoremap <M-j><Esc> :m+<CR>==gi
+inoremap <M-k><Esc> :m-2<CR>==gi
+vnoremap <M-j> :m'>+<CR>gv=gv
+vnoremap <M-k> :m-2<CR>gv=gv
 "Calculator
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
-
-
+"urlview
 noremap <silent><leader>u :! urlview %<CR>
+" }}}
 
 
-"Search Settings
+"Search Settings -------------------------------------------------- {{{
 
 nnoremap / /\v
 vnoremap / /\v
@@ -257,11 +252,10 @@ map <silent><Leader><space> :noh<CR>
 
 "Spell Checking
 map <leader>ss :setlocal spell! spelllang=en_us<cr>
+" }}}
 
 
-"-------------------------------------------------------------
-"Folding
-"-------------------------------------------------------------
+"Folding ------------------------------------------------ {{{
 " Javadoc comments (/** and */ pairs) and code sections (marked by {} pairs) mark the start and end of folds. All other
 " lines simply take the fold level that is going so far.
 function! MyFoldLevel( lineNumber )
@@ -277,14 +271,10 @@ function! MyFoldLevel( lineNumber )
   return '='
 endfunction
 
-augroup ft_vim
-    au!
-    au FileType vim setlocal foldmethod=marker
-augroup END
-"-------------------------------------------------------------
-"Filetype Settings
-"-------------------------------------------------------------
-" Tabs, spaces, wrapping
+"}}}
+
+
+" Default Tabs, spaces, wrapping ------------------------------------ {{{
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -293,10 +283,17 @@ set wrap
 set textwidth=85
 set formatoptions=qrn1
 
+" }}}
+
+
+"Filetype Settings -------------------------------------------------{{{
 if has("autocmd")
     "All filetypes
     "remove trailing whitespaces
     autocmd BufWritePre * :%s/\s\+$//e
+
+    "vim
+    au FileType vim setlocal foldmethod=marker
 
     "Large files
     autocmd BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetype=| endif
@@ -367,9 +364,10 @@ if has("autocmd")
 
 endif
 
-"-------------------------------------------------------------
-"Python Settings
-"-------------------------------------------------------------
+" }}}
+
+
+"Python Settings/Plugins --------------------------------------------- {{{
 function! PythonTidySaver()
     let oldpos=getpos('.')
     %!PythonTidy
@@ -377,9 +375,7 @@ function! PythonTidySaver()
 endfunction
 
 "autocmd! bufwritepost *.py call PythonTidySaver()
-"
 "Virtualenv
-
 if  has('python')
     Bundle 'jmcantrell/vim-virtualenv.git'
     if !empty($VIRTUAL_ENV)
@@ -398,11 +394,43 @@ else
 
 endif
 
-"
+"make green plugin
+Bundle 'reinh/vim-makegreen'
+map <Leader>nose :call MakeGreen()<CR>
 
-"-------------------------------------------------------------
-"Latex Plugin
-"-------------------------------------------------------------
+if has('python')
+    Bundle 'nvie/vim-pyunit'
+    let g:PyUnitCmd = '/usr/local/share/python/nosetests -q --with-machineout'
+    if !empty($VIRTUAL_ENV)
+        let g:PyUnitCmd = $VIRTUAL_ENV . '/bin/nosetests -q --with-machineout'
+    endif
+    let g:PyUnitTestsStructure="nose"
+    autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
+    autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>
+    autocmd Filetype python noremap <Leader>ut :call PyUnitSwitchToCounterpart()<CR>
+    autocmd Filetype python noremap! <Leader>ut <ESC>:call PyUnitSwitchToCounterpart()<CR>
+endif
+
+"Ropevim
+let ropevim_vim_completion=1
+
+"Pep8 plugin # using flake8
+if has('python')
+    "Bundle 'orestis/pysmell.git'
+    if executable("pep8")
+        "Bundle 'nvie/vim-pep8.git'
+        "autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
+    endif
+endif
+
+"Pydoc, Pyref plugin
+Bundle 'xolox/vim-pyref'
+Bundle 'fs111/pydoc.vim'
+let g:pydoc_cmd='/usr/local/bin/pydoc'
+
+" }}}
+
+"Latex Plugin ---------------------------------------------------- {{{
 Bundle 'mineiro/vim-latex.git'
 
 let g:Tex_DefaultTargetFormat='pdf'
@@ -420,9 +448,10 @@ let g:Tex_IgnoredWarnings =
                 \'LaTeX Warning:' " float stuck
 let g:Tex_IgnoreLevel = 8
 
-"-------------------------------------------------------------
-"NerdTree Plugin
-"-------------------------------------------------------------
+" }}}
+
+
+"NerdTree Plugin---------------------------------------------------- {{{
 Bundle 'scrooloose/nerdtree'
 
 nmap <silent><Leader>d  :NERDTreeToggle<CR>
@@ -444,9 +473,10 @@ if has("autocmd")
     autocmd Filetype nerdtree setlocal nolist
 endif
 
-"-------------------------------------------------------------
-"Ultinips Settings
-"-------------------------------------------------------------
+" }}}
+
+
+"Ultinips Settings------------------------------------------------------- {{{
 if has('python')
     Bundle 'SirVer/ultisnips'
 
@@ -467,43 +497,27 @@ if has('python')
     autocmd Filetype html :UltiSnipsAddFiletypes html
 endif
 
-"-------------------------------------------------------------
-"Objective-J Settings
-"-------------------------------------------------------------
+" }}}
+
+
+"Objective-J Settings--------------------------------------------------------- {{{
 Bundle 'nanki/vim-objj'
 "vim objj
 set runtimepath+=~/.vim/bundle/vim-objj
 
-"-------------------------------------------------------------
-"make green plugin
-"-------------------------------------------------------------
-Bundle 'reinh/vim-makegreen'
-map <Leader>nose :call MakeGreen()<CR>
+" }}}
 
-if has('python')
-    Bundle 'nvie/vim-pyunit'
-    let g:PyUnitCmd = '/usr/local/share/python/nosetests -q --with-machineout'
-    if !empty($VIRTUAL_ENV)
-        let g:PyUnitCmd = $VIRTUAL_ENV . '/bin/nosetests -q --with-machineout'
-    endif
-    let g:PyUnitTestsStructure="nose"
-    autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
-    autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>
-    autocmd Filetype python noremap <Leader>ut :call PyUnitSwitchToCounterpart()<CR>
-    autocmd Filetype python noremap! <Leader>ut <ESC>:call PyUnitSwitchToCounterpart()<CR>
-endif
 
-"-------------------------------------------------------------
-"Ack plugin
-"-------------------------------------------------------------
+"Ack plugin -----------------------------------------------------------------{{{
 if executable("ack")
     Bundle 'mileszs/ack.vim.git'
     nnoremap <Leader>a :Ack --follow <C-r><C-w>
 endif
 
-"-------------------------------------------------------------
-"ZoomWin plugin
-"-------------------------------------------------------------
+" }}}
+
+
+"ZoomWin plugin ------------------------------------------------------------{{{
 Bundle 'vim-scripts/ZoomWin.git'
 
 nnoremap <Leader>z :ZoomWin<CR>
@@ -513,23 +527,26 @@ inoremap <Leader>z <ESC>:ZoomWin<CR>
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
-"-------------------------------------------------------------
-"OpenTerminal plugin
-"-------------------------------------------------------------
+" }}}
+
+
+"OpenTerminal plugin -------------------------------------------------------- {{{
 Bundle 'vim-scripts/open-terminal-filemanager.git'
 
 nnoremap <silent><Leader>of :OpenFilemanager<CR><CR>
 
-"-------------------------------------------------------------
-"Easymotion plugin
-"-------------------------------------------------------------
+" }}}
+
+
+"Easymotion plugin ---------------------------------------------------------- {{{
 Bundle 'Lokaltog/vim-easymotion.git'
 
 let g:EasyMotion_leader_key = 'e'
 
-"-------------------------------------------------------------
-"Yankring plugin
-"-------------------------------------------------------------
+" }}}
+
+
+"Yankring plugin ------------------------------------------------------------- {{{
 Bundle 'chrismetcalf/vim-yankring.git'
 
 nnoremap <silent><Leader>y :YRShow<cr>
@@ -537,9 +554,10 @@ inoremap <silent><Leader>y <ESC>:YRShow<cr>
 let g:yankring_history_dir = "$HOME/.vim/"
 let g:yankring_history_file = 'yankring_history'
 
-"-------------------------------------------------------------
-"Neocomplete plugin
-"-------------------------------------------------------------
+" }}}
+
+
+"Neocomplete plugin ---------------------------------------------------------- {{{
 Bundle 'Shougo/neocomplcache.git'
 
 " Disable AutoComplPop.
@@ -553,9 +571,10 @@ let g:neocomplcache_enable_camel_case_completion = 1
 " AutoComplPop like behavior.
 let g:neocomplcache_enable_auto_select = 1
 
-"-------------------------------------------------------------
-"Git plugins
-"-------------------------------------------------------------
+" }}}
+
+
+"Git plugins ------------------------------------------------------------------ {{{
 "fugitive
 Bundle 'tpope/vim-fugitive'
 
@@ -569,9 +588,7 @@ nnoremap <Leader>gp :Git push<CR>
 "gitv
 Bundle 'gregsexton/gitv'
 
-"-------------------------------------------------------------
 "Gundo plugin
-"-------------------------------------------------------------
 if has('python')
     Bundle 'sjl/gundo.vim.git'
 
@@ -579,14 +596,11 @@ if has('python')
     "let g:gundo_debug = 1
     let g:gundo_preview_bottom = 1
 endif
-"-------------------------------------------------------------
-"Ropevim
-"-------------------------------------------------------------
-let ropevim_vim_completion=1
 
-"-------------------------------------------------------------
-"SQL plugin's
-"-------------------------------------------------------------
+" }}}
+
+
+"SQL plugin's --------------------------------------------------{{{
 Bundle 'locojay/dbext.vim.git'
 "dbext <Leaeder>se
 let dbext_default_DB2_bin='db2batch'
@@ -597,20 +611,21 @@ let dbext_default_DB2_bin='db2batch'
 "output command
 "let dbext_default_display_cmd_line=1
 
-"-------------------------------------------------------------
-"Swap parameters plugin
-"-------------------------------------------------------------
+"}}}
+
+
+"Swap parameters plugin-------------------------------------------------{{{
 if has('python')
     Bundle 'vim-scripts/swap-parameters.git'
 
     noremap gb :call SwapParams("forwards")<cr>
     noremap gB :call SwapParams("backwards")<cr>
 endif
-"
 
-"-------------------------------------------------------------
-"Ctrl-p plugin
-"-------------------------------------------------------------
+"}}}
+
+
+"Ctrl-p plugin-----------------------------------------------------------------{{{
 Bundle 'kien/ctrlp.vim.git'
 
 let g:ctrlp_map = '<leader>,'
@@ -636,9 +651,10 @@ let g:ctrlp_extensions = ['tag']
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>mr :CtrlPMRUFiles<cr>
 
-"-------------------------------------------------------------
-"TAGS Settings
-"-------------------------------------------------------------
+"}}}
+
+
+"TAGS Settings ---------------------------------------------------------{{{
 if executable('ctags')
     map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
     map <Leader>/ :exe '!ctags -R . ./tags'
@@ -654,10 +670,10 @@ if executable('ctags')
     "Tagbar Plugin Settings
     nmap <silent><Leader>k :TagbarToggle<CR>
 endif
+" }}}
 
-"-------------------------------------------------------------
-"Visualization
-"-------------------------------------------------------------
+
+"Visualization ---------------------------------------------------------{{{
 "Powerline
 Bundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = "fancy"
@@ -671,15 +687,16 @@ Bundle 'nathanaelkane/vim-indent-guides.git'
 
 "ShowMarks
 "Bundle "garbas/vim-showmarks"
+"
+" }}}
 
-"-------------------------------------------------------------
-" TimeStamp plugin
-"-------------------------------------------------------------
+
+" TimeStamp plugin--------------------------------------------------{{{
 "autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
+" }}}
 
-"-------------------------------------------------------------
-" Syntastic plugin
-"-------------------------------------------------------------
+
+" Syntastic plugin ---------------------------------------------------------- {{{
 Bundle 'scrooloose/syntastic.git'
 "checks syntax for multiple file type install
 "   - cpp , c g++, gcc
@@ -695,35 +712,18 @@ let g:syntastic_python_checker = 'flake8'
 
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
 
-"-------------------------------------------------------------
-"Pep8 plugin # using flake8
-"-------------------------------------------------------------
-if has('python')
-    "Bundle 'orestis/pysmell.git'
-    if executable("pep8")
-        "Bundle 'nvie/vim-pep8.git'
-        "autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
-    endif
-endif
+" }}}
 
-"-------------------------------------------------------------
-"Gitst plugin
-"-------------------------------------------------------------
+
+"Gitst plugin ------------------------------------------------------ {{{
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim.git'
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 
-"-------------------------------------------------------------
-"Pydoc, Pyref plugin
-"-------------------------------------------------------------
+"}}}
 
-Bundle 'xolox/vim-pyref'
-Bundle 'fs111/pydoc.vim'
-let g:pydoc_cmd='/usr/local/bin/pydoc'
-"-------------------------------------------------------------
-"Comments
-"-------------------------------------------------------------
+"Comments---------------------------------------------------------------{{{
 "Bundle 'scrooloose/nerdcommenter'
 " Bundle 'tpope/vim-commentary'
 " nmap <leader>c <Plug>CommentaryLine
@@ -732,9 +732,10 @@ Bundle "tomtom/tcomment_vim"
 nnoremap <silent><leader>c :TComment<CR>
 vnoremap <silent><leader>c :TComment<CR>
 
+"}}}
 
-"autocompletion as you type
 
+" Tmux -----------------------------------------------------------------{{{
 if executable("tmux")
     "Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
     Bundle 'xaviershay/tslime.vim.git'
@@ -751,21 +752,42 @@ if executable("tmux")
 
 endif
 
+" }}}
 
-"Work with ipython notebook
-"
-" Bundle 'ivanov/vim-ipython'
-" let g:ipy_perform_mappings = 0
-" map <silent> <C-i> :python run_this_line()<CR>
-" imap <silent> <C-i> <C-O>:python run_this_line()<CR>
 
-"Tpope plugins
+"Tpope plugins -------------------------------------------- {{{
 Bundle 'tpope/vim-unimpaired.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-speeddating.git'
 
+" }}}
 
+
+"Clojure ---------------------------------------------------------------- {{{
+Bundle 'VimClojure'
+"Highlight Clojure's builtins
+let g:vimclojure#HighlightBuiltins=1
+"Rainbow parentheses'!
+let g:vimclojure#ParenRainbow=1
+
+" Bundle 'vim-scripts/slimv.vim'
+" Bundle 'gberenfield/sjl-slimv'
+" let g:slimv_leader = '\'
+" let g:lisp_rainbow = 1
+" let g:slimv_repl_syntax = 1
+" }}}
+
+
+"Web dev -------------------------------------------------------- {{{
+Bundle 'mattn/zencoding-vim'
+let g:user_zen_leader_key = '<leader>h'
+Bundle 'Glench/Vim-Jinja2-Syntax'
+Bundle 'nono/jquery.vim'
+"}}}
+
+
+"Other ----------------------------------------------------- {{{
 "Task Management
 "Bundle 'jceb/vim-orgmode'
 Bundle 'aaronbieber/quicktask'
@@ -806,23 +828,6 @@ endif
 "Editing
 "Bundle 'vim-scripts/delimitMate.vim'
 Bundle 'kana/vim-smartinput'
-
-
-"Clojusre
-Bundle 'VimClojure'
-"Highlight Clojure's builtins
-let g:vimclojure#HighlightBuiltins=1
-"Rainbow parentheses'!
-let g:vimclojure#ParenRainbow=1
-
-" Bundle 'vim-scripts/slimv.vim'
-" Bundle 'gberenfield/sjl-slimv'
-" let g:slimv_leader = '\'
-" let g:lisp_rainbow = 1
-" let g:slimv_repl_syntax = 1
-
-
-
 "help
 Bundle 'sjl/strftimedammit.vim'
 
@@ -857,8 +862,5 @@ let g:rbpt_max = 16
 
 
 Bundle 'sjl/clam.vim'
-"Web dev
-Bundle 'mattn/zencoding-vim'
-let g:user_zen_leader_key = '<leader>h'
-Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle 'nono/jquery.vim'
+
+" }}}

@@ -186,6 +186,11 @@ set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
 set wildignore+=*.DS_Store
 set wildignore+=*.pdf,*.xls,*.xlsx,*.doc
 set wildignore+=*.jar
+" Lein
+set wildignore+=classes
+set wildignore+=lib
+
+
 
 
 "Move lines up and down
@@ -319,6 +324,11 @@ if has("autocmd")
     endif
     "Clojure"
     " autocmd FileType clojure set ts=2 sts=2 sw=2 expandtab
+    autocmd FileType clojure compiler clojure
+
+    "clojurescript
+    autocmd BufNewFile,BufRead *.cljs set filetype=clojurescript
+
     "
     "Css
     autocmd Filetype css set omnifunc=csscomplete#CompleteCSS
@@ -755,9 +765,6 @@ Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-speeddating.git'
 
-"Editing
-"Bundle 'vim-scripts/delimitMate.vim'
-Bundle 'kana/vim-smartinput'
 
 "Task Management
 "Bundle 'jceb/vim-orgmode'
@@ -796,12 +803,23 @@ if has('ruby')
     " autocmd BufWritePost *.rst :Hammer<CR>
 endif
 
+"Editing
+"Bundle 'vim-scripts/delimitMate.vim'
+Bundle 'kana/vim-smartinput'
+
+
 "Clojusre
 Bundle 'VimClojure'
 "Highlight Clojure's builtins
 let g:vimclojure#HighlightBuiltins=1
 "Rainbow parentheses'!
 let g:vimclojure#ParenRainbow=1
+
+" Bundle 'vim-scripts/slimv.vim'
+" Bundle 'gberenfield/sjl-slimv'
+" let g:slimv_leader = '\'
+" let g:lisp_rainbow = 1
+" let g:slimv_repl_syntax = 1
 
 
 

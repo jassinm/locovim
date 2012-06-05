@@ -104,6 +104,13 @@ set mouse=a
 set ttymouse=xterm2
 
 
+"fast
+set ttyfast
+
+"undo statck
+set undofile
+
+
 " Clipboad and Pasting
 "add to clipbord
 set clipboard+=unnamed

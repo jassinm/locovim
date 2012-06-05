@@ -7,19 +7,17 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()"
 
-" colors
+" Look good ---------------------------------------------------------------- {{{
 Bundle 'nanotech/jellybeans.vim.git'
 Bundle 'sjl/badwolf'
 Bundle 'godlygeek/csapprox'
 
-"-----------------------------------------------------------------------------
-" Set up the window colors and size
-"-----------------------------------------------------------------------------
 "Alt key
 if has("gui_mac")
     set macmeta
 endif
 
+"Set up the window colors and size
 if has('gui_running')
     " GUI colors
     "colorscheme jellybeans
@@ -43,10 +41,9 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     set guifont=PragmataPro:h15
     set lazyredraw
 endif
+" }}}
 
-"-------------------------------------------------------------
-"Vim Settings
-"-------------------------------------------------------------
+"Vim Settings---------------------------------------------------------------- {{{
 let mapleader=","
 "save a keypress
 map ; :
@@ -65,6 +62,7 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 
 "Motion Settings
+"Life saver
 ino jj <esc>
 cno jj <esc>
 
@@ -126,8 +124,9 @@ imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 set laststatus=2
 "keep a longer history
 set history=1000
+" }}}
 
-"Completion
+"Completion ----------------------------------------------------------- {{{
 set wildmode=longest:full
 set wildmenu
 set completeopt=menu,preview
@@ -144,7 +143,9 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
 
-" Buffer commands
+" }}}
+
+" Buffer/Tab nativgation ----------------------------------------------------------- {{{
 set hidden "Allows to change buffer w/o saving current buffer
 
 Bundle 'orftz/sbd.vim'
@@ -162,6 +163,7 @@ noremap <silent><Leader>ba :1,300 bd!<CR> "close all buffer
 "Tab commands
 noremap <silent> <Leader>tp :tabprevious<CR>
 noremap <silent> <Leader>tn :tabnext<CR>
+" }}}
 
 " vimrc
 "nmap <silent> <Leader>ev :e $MYVIMRC<CR>
@@ -269,6 +271,11 @@ function! MyFoldLevel( lineNumber )
   endif
   return '='
 endfunction
+
+augroup ft_vim
+    au!
+    au FileType vim setlocal foldmethod=marker
+augroup END
 "-------------------------------------------------------------
 "Filetype Settings
 "-------------------------------------------------------------
@@ -413,7 +420,7 @@ nmap <silent><leader>nf :NERDTreeFind<CR>
 
 let g:NERDTreeWinPos = "left"
 "down't display the following files
-let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject', '\.so$']
+let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject', '\.so$', '\.un\~$']
 let NERDTreeHighlightCursorline=1
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1

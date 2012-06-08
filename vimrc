@@ -7,6 +7,9 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()"
 
+filetype plugin indent on
+
+
 " Look good ---------------------------------------------------------------- {{{
 Bundle 'nanotech/jellybeans.vim.git'
 Bundle 'sjl/badwolf'
@@ -46,6 +49,8 @@ endif
 
 "Vim Settings---------------------------------------------------------------- {{{
 let mapleader=","
+let maplocalleader = "\\"
+
 "save a keypress
 map ; :
 
@@ -91,8 +96,6 @@ endfunction
 command! Rn call ToggleRelativeNumber()
 
 syntax on
-filetype plugin on
-filetype indent on
 
 set noswapfile
 
@@ -125,6 +128,14 @@ imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 set laststatus=2
 "keep a longer history
 set history=1000
+
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+" sjl
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
 " }}}
 
 
@@ -322,6 +333,8 @@ if has("autocmd")
     "Clojure"
     " autocmd FileType clojure set ts=2 sts=2 sw=2 expandtab
     autocmd FileType clojure compiler clojure
+    autocmd FileType clojure silent! call TurnOnClojureFolding()
+
 
     "clojurescript
     autocmd BufNewFile,BufRead *.cljs set filetype=clojurescript
@@ -723,6 +736,7 @@ let g:gist_detect_filetype = 1
 
 "}}}
 
+
 "Comments---------------------------------------------------------------{{{
 "Bundle 'scrooloose/nerdcommenter'
 " Bundle 'tpope/vim-commentary'
@@ -765,17 +779,22 @@ Bundle 'tpope/vim-speeddating.git'
 
 
 "Clojure ---------------------------------------------------------------- {{{
-Bundle 'VimClojure'
+" Bundle 'VimClojure'
 "Highlight Clojure's builtins
 let g:vimclojure#HighlightBuiltins=1
 "Rainbow parentheses'!
 let g:vimclojure#ParenRainbow=1
+"using slimv
+let vimclojure#WantNailgun = 0
 
 " Bundle 'vim-scripts/slimv.vim'
-" Bundle 'gberenfield/sjl-slimv'
-" let g:slimv_leader = '\'
-" let g:lisp_rainbow = 1
-" let g:slimv_repl_syntax = 1
+Bundle 'gberenfield/sjl-slimv'
+let g:slimv_leader = '\'
+let g:slimv_keybindings = 2
+let g:slimv_swank_clojure = "! tmux new-window -d -n swank 'lein swank'"
+
+let g:lisp_rainbow = 1
+let g:slimv_repl_syntax = 1
 " }}}
 
 

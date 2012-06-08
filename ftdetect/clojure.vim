@@ -1,1 +1,1 @@
-../bundle/VimClojure/ftdetect/clojure.vim
+../bundle/sjl-slimv/ftdetect/clojure.vim

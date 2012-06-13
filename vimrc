@@ -7,7 +7,6 @@ filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()"
 
-filetype plugin indent on
 
 
 " Look good ---------------------------------------------------------------- {{{
@@ -334,6 +333,7 @@ if has("autocmd")
     " autocmd FileType clojure set ts=2 sts=2 sw=2 expandtab
     autocmd FileType clojure compiler clojure
     autocmd FileType clojure silent! call TurnOnClojureFolding()
+    autocmd BufNewFile,BufRead *.clj set filetype=clojure
 
 
     "clojurescript
@@ -779,16 +779,16 @@ Bundle 'tpope/vim-speeddating.git'
 
 
 "Clojure ---------------------------------------------------------------- {{{
-" Bundle 'VimClojure'
+Bundle 'VimClojure'
 "Highlight Clojure's builtins
 let g:vimclojure#HighlightBuiltins=1
 "Rainbow parentheses'!
 let g:vimclojure#ParenRainbow=1
 "using slimv
-let vimclojure#WantNailgun = 0
+let vimclojure#WantNailgun = 1
 
 " Bundle 'vim-scripts/slimv.vim'
-Bundle 'gberenfield/sjl-slimv'
+" Bundle 'gberenfield/sjl-slimv'
 let g:slimv_leader = '\'
 let g:slimv_keybindings = 2
 let g:slimv_swank_clojure = "! tmux new-window -d -n swank 'lein swank'"
@@ -883,3 +883,6 @@ let g:rbpt_max = 16
 Bundle 'sjl/clam.vim'
 
 " }}}
+
+filetype plugin indent on
+

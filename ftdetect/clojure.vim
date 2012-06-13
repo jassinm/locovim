@@ -1,1 +1,0 @@
-../bundle/sjl-slimv/ftdetect/clojure.vim

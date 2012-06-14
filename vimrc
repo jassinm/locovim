@@ -739,13 +739,20 @@ let g:gist_detect_filetype = 1
 
 "Comments---------------------------------------------------------------{{{
 "Bundle 'scrooloose/nerdcommenter'
-" Bundle 'tpope/vim-commentary'
-" nmap <leader>c <Plug>CommentaryLine
-" xmap <leader>c <Plug>Commentary
-Bundle "tomtom/tcomment_vim"
-nnoremap <silent><leader>c :TComment<CR>
-vnoremap <silent><leader>c :TComment<CR>
 
+Bundle 'tpope/vim-commentary'
+xmap <Leader>c  <Plug>Commentary
+nmap <Leader>c  <Plug>Commentary
+nmap <Leader>cc <Plug>CommentaryLine
+au FileType htmldjango setlocal commentstring={#\ %s\ #}
+au FileType jinja setlocal commentstring={#\ %s\ #}
+au FileType clojurescript setlocal commentstring=;\ %s
+
+" Bundle "tomtom/tcomment_vim"
+" nnoremap <silent><leader>c :TComment<CR>
+" vnoremap <silent><leader>c :TComment<CR>
+"
+" let g:tcomment_jinja="{#\ %s \#}""
 "}}}
 
 
@@ -801,7 +808,7 @@ let g:slimv_repl_syntax = 1
 "Web dev -------------------------------------------------------- {{{
 Bundle 'mattn/zencoding-vim'
 let g:user_zen_leader_key = '<leader>h'
-Bundle 'Glench/Vim-Jinja2-Syntax'
+" Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'nono/jquery.vim'
 "}}}
 

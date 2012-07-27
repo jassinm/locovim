@@ -334,10 +334,10 @@ if has("autocmd")
     autocmd FileType clojure compiler clojure
     autocmd FileType clojure silent! call TurnOnClojureFolding()
     autocmd BufNewFile,BufRead *.clj set filetype=clojure
-
+    autocmd Filetype clojure setlocal lispwords+=defpage,defpartial,deftest,defroute
 
     "clojurescript
-    autocmd BufNewFile,BufRead *.cljs set filetype=clojurescript
+    autocmd BufNewFile,BufRead *.cljs set filetype=clojure
 
     "
     "Css
@@ -374,6 +374,10 @@ if has("autocmd")
 
     au BufRead ~/.mutt/temp/mutt* set spell
     "Mutt
+
+    "Scala
+    autocmd BufNewFile,BufRead *.scala set filetype=scala
+
 
 endif
 
@@ -472,7 +476,7 @@ nmap <silent><leader>nf :NERDTreeFind<CR>
 
 let g:NERDTreeWinPos = "left"
 "down't display the following files
-let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject', '\.so$', '\.un\~$']
+let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject', '\.so$', '\.un\~$', '\.lein-plugins$']
 let NERDTreeHighlightCursorline=1
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
@@ -786,13 +790,22 @@ Bundle 'tpope/vim-speeddating.git'
 
 
 "Clojure ---------------------------------------------------------------- {{{
-Bundle 'VimClojure'
+Bundle 'locojay/VimClojure'
 "Highlight Clojure's builtins
 let g:vimclojure#HighlightBuiltins=1
+let g:vimclojure#DynamicHighlighting=1
 "Rainbow parentheses'!
 let g:vimclojure#ParenRainbow=1
 "using slimv
-let vimclojure#WantNailgun = 1
+" let vimclojure#WantNailgun = 1
+let vimclojure#FuzzyIndent = 1
+
+" syn keyword clojureNoirDef defpage
+" hi def link clojureNoirDef Define
+
+
+
+" setlocal lispwords+=defpage, defpartial, deftest, defroute
 
 " Bundle 'vim-scripts/slimv.vim'
 " Bundle 'gberenfield/sjl-slimv'
@@ -889,7 +902,14 @@ let g:rbpt_max = 16
 
 Bundle 'sjl/clam.vim'
 
+Bundle "derekwyatt/vim-scala"
+
+Bundle "AndrewRadev/linediff.vim"
+
+
 " }}}
+
+
 
 filetype plugin indent on
 

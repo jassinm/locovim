@@ -601,6 +601,7 @@ nnoremap <Leader>gco :Gcheckout<CR>
 nnoremap <Leader>gci :Gcommit<CR>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>gcaa :Git commit -a --amend -C HEAD
 
 "gitv
 Bundle 'gregsexton/gitv'

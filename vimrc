@@ -564,7 +564,7 @@ let g:EasyMotion_leader_key = 'e'
 
 
 "Yankring plugin ------------------------------------------------------------- {{{
-Bundle 'chrismetcalf/vim-yankring.git'
+Bundle 'vim-scripts/YankRing.vim'
 
 nnoremap <silent><Leader>y :YRShow<cr>
 inoremap <silent><Leader>y <ESC>:YRShow<cr>

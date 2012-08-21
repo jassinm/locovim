@@ -512,6 +512,7 @@ if has('python')
 
     autocmd Filetype python :UltiSnipsAddFiletypes python
     autocmd Filetype html :UltiSnipsAddFiletypes html
+    autocmd Filetype c :UltiSnipsAddFiletypes c
 endif
 
 " }}}

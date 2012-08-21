@@ -775,7 +775,9 @@ if executable("tmux")
     endfunction
     command! TmuxPaneNumber call TmuxPaneNumber()
 
-    "Bundle 'sjl/vitality.vim'
+    Bundle 'sjl/vitality.vim'
+    " Save when losing focus
+    au FocusLost * :silent! wall
 
 endif
 

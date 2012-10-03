@@ -512,6 +512,7 @@ if has('python')
 
     autocmd Filetype python :UltiSnipsAddFiletypes python
     autocmd Filetype html :UltiSnipsAddFiletypes html
+    autocmd Filetype c :UltiSnipsAddFiletypes c
 endif
 
 " }}}
@@ -776,6 +777,7 @@ if executable("tmux")
 
     " Bundle 'sjl/vitality.vim'
     " Save when losing focus
+    " " Save when losing focus
     " au FocusLost * :silent! wall
 
 endif

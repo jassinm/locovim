@@ -13,6 +13,7 @@ call vundle#rc()"
 Bundle 'nanotech/jellybeans.vim.git'
 Bundle 'sjl/badwolf'
 Bundle 'godlygeek/csapprox'
+Bundle 'altercation/vim-colors-solarized'
 
 "Alt key
 if has("gui_mac")
@@ -411,6 +412,7 @@ else
 
 endif
 
+" Bundle 'ivanov/vim-ipython'
 "make green plugin
 Bundle 'reinh/vim-makegreen'
 map <Leader>nose :call MakeGreen()<CR>

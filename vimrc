@@ -27,7 +27,11 @@ if has('gui_running')
     " colorscheme jellybeans_locojay
     colorscheme badwolf
     "set guifont=Monaco:h12
-    set guifont=PragmataPro:h15
+    if has("gui_gtk2")
+        set guifont=PragmataPro\ 15
+    else
+        set guifont=PragmataPro:h15
+    endif
     set guioptions=egmrt
     set guioptions-=T
     winpos 0 0
@@ -40,7 +44,8 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     "colorscheme jellybeans
     " colorscheme jellybeans_locojay
     colorscheme badwolf
-    "set guifont=PragmataPro:h15
+    "set guifont=Monaco:h12
+    set guifont=PragmataPro:h15
     set lazyredraw
 endif
 " }}}
@@ -227,8 +232,8 @@ noremap <silent> <leader>lo :lopen<CR>
 
 
 "Some more-------------------------------------------------- {{{
-nmap <silent> <Leader>ev :vsplit $HOME/.vimrc<CR>
-nmap <silent> <Leader>sv :so $HOME/.vimrc<CR>
+nmap <silent> <Leader>ev :vsplit $HOME/.dotfiles/vim/vimrc<CR>
+nmap <silent> <Leader>sv :so $HOME/.dotfiles/vim/vimrc<CR>
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><Leader>cd :cd %:p:h<CR>

@@ -40,8 +40,7 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     "colorscheme jellybeans
     " colorscheme jellybeans_locojay
     colorscheme badwolf
-    "set guifont=Monaco:h12
-    set guifont=PragmataPro:h15
+    "set guifont=PragmataPro:h15
     set lazyredraw
 endif
 " }}}
@@ -228,8 +227,8 @@ noremap <silent> <leader>lo :lopen<CR>
 
 
 "Some more-------------------------------------------------- {{{
-nmap <silent> <Leader>ev :vsplit $HOME/.dotfiles/vim/vimrc<CR>
-nmap <silent> <Leader>sv :so $HOME/.dotfiles/vim/vimrc<CR>
+nmap <silent> <Leader>ev :vsplit $HOME/.vimrc<CR>
+nmap <silent> <Leader>sv :so $HOME/.vimrc<CR>
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><Leader>cd :cd %:p:h<CR>
@@ -412,7 +411,14 @@ else
 
 endif
 
-" Bundle 'ivanov/vim-ipython'
+Bundle 'ivanov/vim-ipython'
+"tmux does no like C-s
+let g:ipy_perform_mappings = 0
+autocmd FileType python map<silent>K :py get_doc_buffer()<CR>
+autocmd FileType python map<silent><C-i> :python run_this_line()<CR>
+autocmd FileType python vmap <silent> <C-i> :python run_these_lines()<CR>
+
+
 "make green plugin
 Bundle 'reinh/vim-makegreen'
 map <Leader>nose :call MakeGreen()<CR>
@@ -846,7 +852,8 @@ Bundle 'vim-scripts/timestamp.vim.git'
 Bundle 'IndexedSearch'
 
 
-Bundle 'gmunkhbaatarmn/vim-largefile.git'
+"Bundle 'gmunkhbaatarmn/vim-largefile.git'
+Bundle 'vim-scripts/LargeFile'
 Bundle 'leshill/vim-json'
 Bundle 'msanders/cocoa.vim'
 Bundle 'vim-scripts/Vim-R-plugin.git'

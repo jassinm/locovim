@@ -232,8 +232,8 @@ noremap <silent> <leader>lo :lopen<CR>
 
 
 "Some more-------------------------------------------------- {{{
-nmap <silent> <Leader>ev :vsplit $HOME/.dotfiles/vim/vimrc<CR>
-nmap <silent> <Leader>sv :so $HOME/.dotfiles/vim/vimrc<CR>
+nmap <silent> <Leader>ev :vsplit $HOME/.vimrc<CR>
+nmap <silent> <Leader>sv :so $HOME/.vimrc<CR>
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <silent><Leader>cd :cd %:p:h<CR>

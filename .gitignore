@@ -10,3 +10,4 @@ bundle/
 yankring_history_v2.txt
 README.log
 *.un~
+tmp/

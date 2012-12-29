@@ -760,6 +760,8 @@ let g:syntastic_python_checker = 'flake8'
 " let g:syntastic_python_checker = 'flake8 --ignore=E221,E225,E231,E251,E302,E303,W391,E501,E702'
 
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
 " }}}
 
@@ -859,6 +861,11 @@ Bundle 'mattn/zencoding-vim'
 let g:user_zen_leader_key = '<leader>h'
 " Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'nono/jquery.vim'
+"}}}
+
+"C++ ------------------------------------------------------------ {{{
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'osyo-manga/neocomplcache-clang_complete'
 "}}}
 
 

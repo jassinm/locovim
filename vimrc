@@ -400,6 +400,10 @@ if has("autocmd")
     "Scala
     autocmd BufNewFile,BufRead *.scala set filetype=scala
 
+    "Scons
+    autocmd BufNewFile,BufRead SConstruct set filetype=scons
+
+
 
 endif
 
@@ -761,7 +765,7 @@ let g:syntastic_python_checker = 'flake8'
 
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
 let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall'
 
 " }}}
 
@@ -785,6 +789,7 @@ nmap <Leader>cc <Plug>CommentaryLine
 au FileType htmldjango setlocal commentstring={#\ %s\ #}
 au FileType jinja setlocal commentstring={#\ %s\ #}
 au FileType clojurescript setlocal commentstring=;\ %s
+au FileType scons setlocal commentstring=#\ %s
 
 " Bundle "tomtom/tcomment_vim"
 " nnoremap <silent><leader>c :TComment<CR>
@@ -866,6 +871,7 @@ Bundle 'nono/jquery.vim'
 "C++ ------------------------------------------------------------ {{{
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'osyo-manga/neocomplcache-clang_complete'
+Bundle 'vim-scripts/scons.vim'
 "}}}
 
 

@@ -547,6 +547,7 @@ if has('python')
     autocmd Filetype python :UltiSnipsAddFiletypes python
     autocmd Filetype html :UltiSnipsAddFiletypes html
     autocmd Filetype c :UltiSnipsAddFiletypes c
+    autocmd Filetype cpp :UltiSnipsAddFiletypes cpp
 endif
 
 " }}}
@@ -868,10 +869,13 @@ let g:user_zen_leader_key = '<leader>h'
 Bundle 'nono/jquery.vim'
 "}}}
 
-"C++ ------------------------------------------------------------ {{{
+"C/C++ ------------------------------------------------------------ {{{
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'osyo-manga/neocomplcache-clang_complete'
 Bundle 'vim-scripts/scons.vim'
+Bundle 'vim-scripts/a.vim'
+
+set makeprg=scons
 "}}}
 
 

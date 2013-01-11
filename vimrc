@@ -403,6 +403,11 @@ if has("autocmd")
     "Scons
     autocmd BufNewFile,BufRead SConstruct set filetype=scons
 
+    "C++11
+    autocmd BufNewFile,BufRead *.cpp set syntax=cpp11
+    autocmd BufNewFile,BufRead *.hpp set syntax=cpp11
+
+
 
 
 endif
@@ -548,6 +553,7 @@ if has('python')
     autocmd Filetype html :UltiSnipsAddFiletypes html
     autocmd Filetype c :UltiSnipsAddFiletypes c
     autocmd Filetype cpp :UltiSnipsAddFiletypes cpp
+
 endif
 
 " }}}
@@ -870,7 +876,22 @@ Bundle 'nono/jquery.vim'
 "}}}
 
 "C/C++ ------------------------------------------------------------ {{{
+
+Bundle 'vim-scripts/Cpp11-Syntax-Support'
+" let c_no_curly_error=1
 Bundle 'Rip-Rip/clang_complete'
+
+autocmd FileType c let g:clang_user_options = "-std=c11 2>/dev/null || exit 0"
+autocmd FileType cpp let g:clang_user_options = "-std=c++11 2>/dev/null || exit 0"
+
+
+let g:clang_use_library=1
+" let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+let g:clang_library='/usr/lib'
+let g:clang_snippets=1
+let g:clang_snippets_engine='ultisnips'
+
+
 Bundle 'osyo-manga/neocomplcache-clang_complete'
 Bundle 'vim-scripts/scons.vim'
 Bundle 'vim-scripts/a.vim'

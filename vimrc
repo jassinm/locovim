@@ -840,7 +840,12 @@ Bundle 'tpope/vim-speeddating.git'
 
 
 "Clojure ---------------------------------------------------------------- {{{
-Bundle 'locojay/VimClojure'
+Bundle "guns/vim-clojure-static"
+
+
+autocmd FileType clojure RainbowParenthesesToggle
+
+" Bundle 'locojay/VimClojure'
 "Highlight Clojure's builtins
 let g:vimclojure#HighlightBuiltins=1
 let g:vimclojure#DynamicHighlighting=1
@@ -859,12 +864,14 @@ let vimclojure#FuzzyIndent = 1
 
 " Bundle 'vim-scripts/slimv.vim'
 " Bundle 'gberenfield/sjl-slimv'
-let g:slimv_leader = '\'
-let g:slimv_keybindings = 2
-let g:slimv_swank_clojure = "! tmux new-window -d -n swank 'lein swank'"
+" let g:slimv_leader = '\'
+" let g:slimv_keybindings = 2
+" let g:slimv_swank_clojure = "! tmux new-window -d -n swank 'lein swank'"
 
-let g:lisp_rainbow = 1
-let g:slimv_repl_syntax = 1
+" let g:lisp_rainbow = 1
+" let g:slimv_repl_syntax = 1
+
+Bundle "tpope/vim-foreplay"
 " }}}
 
 
@@ -910,6 +917,9 @@ Bundle 'tsaleh/vim-align.git'
 Bundle 'vim-scripts/timestamp.vim.git'
 
 Bundle 'IndexedSearch'
+
+"Nice markers
+Bundle 'kshenoy/vim-signature'
 
 
 "Bundle 'gmunkhbaatarmn/vim-largefile.git'

@@ -815,8 +815,8 @@ au FileType scons setlocal commentstring=#\ %s
 if executable("tmux")
     "Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
     Bundle 'xaviershay/tslime.vim.git'
-    Bundle 'acustodioo/vim-tmux'
-    Bundle 'benmills/vimux'
+    " Bundle 'acustodioo/vim-tmux'
+    " Bundle 'benmills/vimux'
 
 
     "change pane number at runtime by setting

@@ -170,12 +170,12 @@ if has("autocmd")
     autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 endif
 "omnifocus as constrol space
-inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-            \ "\<lt>C-n>" :
-            \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-            \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-            \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-imap <C-@> <C-Space>
+" inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+"             \ "\<lt>C-n>" :
+"             \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+"             \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+"             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+" imap <C-@> <C-Space>
 
 set wildignore=*.swp,*.bak
 set wildignore+=*/.svn/*,/*.hg/*,/*.git/* " Version control (not git as otherwise conflict with fugitive)
@@ -768,8 +768,9 @@ Bundle 'scrooloose/syntastic.git'
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list=2
 let g:syntastic_python_checker = 'flake8'
-" let g:syntastic_python_checker = 'flake8 --ignore=E221,E225,E231,E251,E302,E303,W391,E501,E702'
 
+"use YoucompleteMe
+" let g:syntastic_cpp_config_file='.clang_complete'
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall'
@@ -885,23 +886,23 @@ Bundle 'nono/jquery.vim'
 "C/C++ ------------------------------------------------------------ {{{
 
 Bundle 'vim-scripts/Cpp11-Syntax-Support'
-" let c_no_curly_error=1
-Bundle 'Rip-Rip/clang_complete'
 
-autocmd FileType c let g:clang_user_options = "-std=c11 2>/dev/null || exit 0"
-autocmd FileType cpp let g:clang_user_options = "-std=c++11 2>/dev/null || exit 0"
-
-
-let g:clang_use_library=1
-" let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
-let g:clang_library='/usr/lib'
-let g:clang_snippets=1
-let g:clang_snippets_engine='ultisnips'
-
-
-Bundle 'osyo-manga/neocomplcache-clang_complete'
+" Bundle 'Rip-Rip/clang_complete'
+" autocmd FileType c let g:clang_user_options = "-std=c99 2>/dev/null || exit 0"
+" autocmd FileType cpp let g:clang_user_options = "-std=c++11 2>/dev/null || exit 0"
+" let g:clang_use_library=1
+" let g:clang_library='/usr/lib'
+" let g:clang_snippets=1
+" let g:clang_snippets_engine='ultisnips'
+" Bundle 'osyo-manga/neocomplcache-clang_complete'
+"
 Bundle 'vim-scripts/scons.vim'
 Bundle 'vim-scripts/a.vim'
+
+Bundle "Valloric/YouCompleteMe"
+let g:ycm_key_detailed_diagnostics=''
+" let g:ycm_key_invoke_completion=''
+nmap <silent><Leader> cm :YcmForceCompileAndDiagnostics<CR>
 
 set makeprg=scons
 "}}}

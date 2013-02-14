@@ -448,6 +448,11 @@ let g:ipy_perform_mappings = 0
 autocmd FileType python map<silent>K :py get_doc_buffer()<CR>
 autocmd FileType python map<silent><C-i> :python run_this_line()<CR>
 autocmd FileType python vmap <silent> <C-i> :python run_these_lines()<CR>
+function! IPythonShell()
+  :py if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')
+endfunction
+
+command! IPythonShell call IPythonShell()
 
 
 "make green plugin
@@ -811,8 +816,8 @@ au FileType scons setlocal commentstring=#\ %s
 if executable("tmux")
     "Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
     Bundle 'xaviershay/tslime.vim.git'
-    Bundle 'acustodioo/vim-tmux'
-    Bundle 'benmills/vimux'
+    " Bundle 'acustodioo/vim-tmux'
+    " Bundle 'benmills/vimux'
 
 
     "change pane number at runtime by setting
@@ -991,6 +996,8 @@ Bundle 'sjl/clam.vim'
 Bundle "derekwyatt/vim-scala"
 
 Bundle "AndrewRadev/linediff.vim"
+
+Bundle "goldfeld/vim-seek"
 
 
 " }}}

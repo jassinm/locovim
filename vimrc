@@ -749,6 +749,10 @@ endif
 
 "IndentationGuide <Leader>ig
 Bundle 'nathanaelkane/vim-indent-guides.git'
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#998f84 ctermbg=245
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#d9cec3 ctermbg=252
+
 
 "ShowMarks
 "Bundle "garbas/vim-showmarks"

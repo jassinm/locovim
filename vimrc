@@ -196,7 +196,8 @@ set wildignore+=lib
 " Buffer/Tab/Window nativgation ----------------------------------------------------------- {{{
 set hidden "Allows to change buffer w/o saving current buffer
 
-Bundle 'orftz/sbd.vim'
+Bundle "ollummis/sbd.vim"
+" Bundle 'orftz/sbd.vim'
 "Bundle 'vim-scripts/bufkill.vim'
 
 "noremap <silent><Leader>bd :bd<CR>
@@ -550,9 +551,12 @@ if has('python')
     nnoremap <Leader>us :call UltiSnips_ListSnippets()<CR>
     inoremap <Leader>us <ESC>:call UltiSnips_ListSnippets()<CR>
 
-    let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<tab>"
-    let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+    " let g:UltiSnipsExpandTrigger="<tab>"
+    " let g:UltiSnipsJumpForwardTrigger="<tab>"
+    " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+    let g:UltiSnipsExpandTrigger="<c-j>"
+    let g:UltiSnipsJumpForwardTrigger="<c-j>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
     autocmd Filetype python :UltiSnipsAddFiletypes python
     autocmd Filetype html :UltiSnipsAddFiletypes html
@@ -694,11 +698,13 @@ endif
 Bundle 'kien/ctrlp.vim.git'
 
 let g:ctrlp_map = '<leader>,'
+let g:ctrlp_jump_to_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 1
 let g:ctrlp_split_window = 0
 let g:ctrlp_max_height = 20
 let g:ctrlp_open_new_file = 'v'
+let g:ctrlp_extensions = ['tag']
 let g:ctrlp_prompt_mappings = {
 \ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
 \ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<tab>'],
@@ -853,34 +859,8 @@ Bundle 'tpope/vim-speeddating.git'
 Bundle "guns/vim-clojure-static"
 
 
-autocmd FileType clojure RainbowParenthesesToggle
 
-" Bundle 'locojay/VimClojure'
-"Highlight Clojure's builtins
-let g:vimclojure#HighlightBuiltins=1
-let g:vimclojure#DynamicHighlighting=1
-"Rainbow parentheses'!
-let g:vimclojure#ParenRainbow=1
-"using slimv
-" let vimclojure#WantNailgun = 1
-let vimclojure#FuzzyIndent = 1
-
-" syn keyword clojureNoirDef defpage
-" hi def link clojureNoirDef Define
-
-
-
-" setlocal lispwords+=defpage, defpartial, deftest, defroute
-
-" Bundle 'vim-scripts/slimv.vim'
-" Bundle 'gberenfield/sjl-slimv'
-" let g:slimv_leader = '\'
-" let g:slimv_keybindings = 2
-" let g:slimv_swank_clojure = "! tmux new-window -d -n swank 'lein swank'"
-
-" let g:lisp_rainbow = 1
-" let g:slimv_repl_syntax = 1
-
+Bundle "tpope/vim-classpath"
 Bundle "tpope/vim-foreplay"
 " }}}
 
@@ -910,6 +890,10 @@ Bundle 'vim-scripts/a.vim'
 
 Bundle "Valloric/YouCompleteMe"
 let g:ycm_key_detailed_diagnostics=''
+"leave Ultisnips allone
+" let g:ycm_key_list_select_completion=['']
+" let g:ycm_key_list_previous_completion=['']
+
 " let g:ycm_key_invoke_completion=''
 nmap <silent><Leader> cm :YcmForceCompileAndDiagnostics<CR>
 
@@ -974,36 +958,23 @@ endif
 
 "Rainbow Parenthesis
 Bundle 'kien/rainbow_parentheses.vim'
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
 let g:rbpt_max = 16
+" autocmd FileType clojure RainbowParenthesesToggle
+" au VimEnter * RainbowParenthesesToggle
+
 
 
 Bundle 'sjl/clam.vim'
-
-Bundle "derekwyatt/vim-scala"
 
 Bundle "AndrewRadev/linediff.vim"
 
 Bundle "goldfeld/vim-seek"
 
 
+" }}}
+
+"Scala ---------------------------------------------------------------- {{{
+Bundle "derekwyatt/vim-scala"
 " }}}
 
 

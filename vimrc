@@ -342,6 +342,9 @@ if has("autocmd")
     autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
 
+    "Erlang
+    autocmd FileType erlang setlocal ts=8 sts=4 sw=4 expandtab
+
     "Python
     autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
     autocmd FileType python setlocal autoindent
@@ -977,6 +980,10 @@ Bundle "goldfeld/vim-seek"
 Bundle "derekwyatt/vim-scala"
 " }}}
 
+
+"Erlang ---------------------------------------------------------------- {{{
+Bundle "jimenezrick/vimerl"
+" }}}
 
 
 filetype plugin indent on

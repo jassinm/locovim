@@ -489,8 +489,10 @@ if has('python')
 endif
 
 "Pydoc, Pyref plugin
+Bundle "xolox/vim-misc"
 Bundle 'xolox/vim-pyref'
-Bundle 'fs111/pydoc.vim'
+Bundle "davidhalter/jedi-vim"
+"Bundle 'fs111/pydoc.vim'
 let g:pydoc_cmd='/usr/local/bin/pydoc'
 
 " }}}

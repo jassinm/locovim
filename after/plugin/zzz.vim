@@ -7,3 +7,4 @@
 "noremap <silent> ,cl :wincmd l<CR>:close<CR>
 
 "map <silent><Leader>cd :cd %:p:h<CR>
+nmap <silent><Leader>d  :NERDTreeToggle<CR>

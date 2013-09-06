@@ -12,6 +12,7 @@ call vundle#rc()"
 " Look good ---------------------------------------------------------------- {{{
 Bundle 'nanotech/jellybeans.vim.git'
 Bundle 'sjl/badwolf'
+Bundle 'tomasr/molokai'
 Bundle 'godlygeek/csapprox'
 Bundle 'altercation/vim-colors-solarized'
 
@@ -492,6 +493,8 @@ endif
 Bundle "xolox/vim-misc"
 Bundle 'xolox/vim-pyref'
 Bundle "davidhalter/jedi-vim"
+let g:jedi#goto_definitions_command = "<leader>D"
+
 "Bundle 'fs111/pydoc.vim'
 let g:pydoc_cmd='/usr/local/bin/pydoc'
 
@@ -818,6 +821,7 @@ au FileType htmldjango setlocal commentstring={#\ %s\ #}
 au FileType jinja setlocal commentstring={#\ %s\ #}
 au FileType clojurescript setlocal commentstring=;\ %s
 au FileType scons setlocal commentstring=#\ %s
+au FileType python setlocal commentstring=#\ %s
 
 " Bundle "tomtom/tcomment_vim"
 " nnoremap <silent><leader>c :TComment<CR>

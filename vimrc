@@ -494,6 +494,10 @@ Bundle "xolox/vim-misc"
 Bundle 'xolox/vim-pyref'
 Bundle "davidhalter/jedi-vim"
 let g:jedi#goto_definitions_command = "<leader>D"
+"using neocompletecache
+let g:jedi#popup_on_dot = 0
+
+
 
 "Bundle 'fs111/pydoc.vim'
 let g:pydoc_cmd='/usr/local/bin/pydoc'

@@ -952,7 +952,8 @@ if has('ruby')
     "rst"
     Bundle "matthias-guenther/hammer.vim"
     let g:mdown_preview_cmd="/Users/locojay/.cabal/bin/pandoc -s --highlight-style pygments"
-    Bundle "locojay/vim-markdown-preview"
+    Bundle "tpope/vim-markdown"
+    Bundle "itspriddle/vim-marked"
     " autocmd BufWritePost *.rst :Hammer<CR>
 endif
 

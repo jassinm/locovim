@@ -493,6 +493,7 @@ endif
 Bundle "xolox/vim-misc"
 Bundle 'xolox/vim-pyref'
 Bundle "davidhalter/jedi-vim"
+let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#goto_definitions_command = "<leader>D"
 "using neocompletecache
 let g:jedi#popup_on_dot = 0
@@ -909,6 +910,7 @@ let g:ycm_key_detailed_diagnostics=''
 
 " let g:ycm_key_invoke_completion=''
 nmap <silent><Leader> cm :YcmForceCompileAndDiagnostics<CR>
+let g:ycm_filetype_specific_completion_to_disable = {'erl':1, 'hrl':1}
 
 set makeprg=scons
 "}}}

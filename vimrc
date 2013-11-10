@@ -16,6 +16,7 @@ Bundle 'tomasr/molokai'
 Bundle 'godlygeek/csapprox'
 Bundle 'altercation/vim-colors-solarized'
 
+
 "Alt key
 if has("gui_mac")
     set macmeta
@@ -994,6 +995,7 @@ Bundle "derekwyatt/vim-scala"
 
 "Erlang ---------------------------------------------------------------- {{{
 Bundle "jimenezrick/vimerl"
+Bundle "mbbx6spp/vim-rebar"
 " }}}
 
 

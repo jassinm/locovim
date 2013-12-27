@@ -760,8 +760,11 @@ endif
 
 "Visualization ---------------------------------------------------------{{{
 "Powerline
-Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols = "fancy"
+" Bundle 'Lokaltog/vim-powerline'
+" let g:Powerline_symbols = "fancy"
+Bundle 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+
 if has("autocmd")
   "autocmd bufwritepost .vimrc source $MYVIMRC
   "autocmd bufwritepost .vimrc call Pl#Load()

@@ -806,6 +806,9 @@ let g:syntastic_python_checker = 'flake8'
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall'
+"erlang
+let g:syntastic_erlang_checkers=['syntaxerl']
+
 
 " }}}
 
@@ -1000,7 +1003,10 @@ Bundle "derekwyatt/vim-scala"
 
 "Erlang ---------------------------------------------------------------- {{{
 Bundle "jimenezrick/vimerl"
+"use syntastic
+let erlang_show_errors = 0
 Bundle "mbbx6spp/vim-rebar"
+
 " }}}
 
 

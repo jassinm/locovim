@@ -762,8 +762,11 @@ endif
 
 "Visualization ---------------------------------------------------------{{{
 "Powerline
-Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols = "fancy"
+" Bundle 'Lokaltog/vim-powerline'
+" let g:Powerline_symbols = "fancy"
+Bundle 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+
 if has("autocmd")
   "autocmd bufwritepost .vimrc source $MYVIMRC
   "autocmd bufwritepost .vimrc call Pl#Load()
@@ -805,6 +808,9 @@ let g:syntastic_python_checker = 'flake8'
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall'
+"erlang
+let g:syntastic_erlang_checkers=['syntaxerl']
+
 
 " }}}
 
@@ -1002,7 +1008,9 @@ Bundle "jimenezrick/vimerl"
 let erlang_force_use_vimerl_indent = 0
 let erlang_skel_header = { "author": "Locojay", "owner" : "Locojay" }
                           "
-Bundle "mbbx6spp/vim-rebar"
+"use syntastic
+let erlang_show_errors = 0
+
 " }}}
 
 filetype plugin indent on

@@ -344,6 +344,9 @@ if has("autocmd")
     autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
 
+    "Yml
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
     "Erlang
     autocmd FileType erlang setlocal ts=8 sts=4 sw=4 expandtab
 
@@ -591,10 +594,9 @@ set runtimepath+=~/.vim/bundle/vim-objj
 
 
 "Ack plugin -----------------------------------------------------------------{{{
-if executable("ack")
-    Bundle 'mileszs/ack.vim.git'
-    nnoremap <Leader>a :Ack --follow <C-r><C-w>
-endif
+Bundle 'mileszs/ack.vim.git'
+nnoremap <Leader>a :Ack --follow <C-r><C-w>
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " }}}
 
@@ -997,9 +999,10 @@ Bundle "derekwyatt/vim-scala"
 
 "Erlang ---------------------------------------------------------------- {{{
 Bundle "jimenezrick/vimerl"
+let erlang_force_use_vimerl_indent = 0
+let erlang_skel_header = { "author": "Locojay", "owner" : "Locojay" }
+                          "
 Bundle "mbbx6spp/vim-rebar"
 " }}}
 
-
 filetype plugin indent on
-

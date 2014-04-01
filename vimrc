@@ -889,9 +889,10 @@ Bundle "tpope/vim-foreplay"
 
 
 "Web dev -------------------------------------------------------- {{{
-Bundle 'mattn/zencoding-vim'
-let g:user_zen_leader_key = '<leader>h'
+" Bundle 'mattn/zencoding-vim'
+" let g:user_zen_leader_key = '<leader>h'
 " Bundle 'Glench/Vim-Jinja2-Syntax'
+Bundle "mattn/emmet-vim"
 Bundle 'nono/jquery.vim'
 "}}}
 

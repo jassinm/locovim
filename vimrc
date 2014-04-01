@@ -1015,6 +1015,8 @@ let erlang_skel_header = { "author": "Locojay", "owner" : "Locojay" }
 "use syntastic
 let erlang_show_errors = 0
 
+Bundle 'edkolev/erlang-motions.vim'
+
 " }}}
 
 Bundle "gcmt/wildfire.vim"

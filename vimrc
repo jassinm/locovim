@@ -344,6 +344,9 @@ if has("autocmd")
     autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
 
+    "Yml
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
     "Erlang
     autocmd FileType erlang setlocal ts=8 sts=4 sw=4 expandtab
 
@@ -591,10 +594,9 @@ set runtimepath+=~/.vim/bundle/vim-objj
 
 
 "Ack plugin -----------------------------------------------------------------{{{
-if executable("ack")
-    Bundle 'mileszs/ack.vim.git'
-    nnoremap <Leader>a :Ack --follow <C-r><C-w>
-endif
+Bundle 'mileszs/ack.vim.git'
+nnoremap <Leader>a :Ack --follow <C-r><C-w>
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " }}}
 
@@ -890,9 +892,10 @@ Bundle "tpope/vim-foreplay"
 
 
 "Web dev -------------------------------------------------------- {{{
-Bundle 'mattn/zencoding-vim'
-let g:user_zen_leader_key = '<leader>h'
+" Bundle 'mattn/zencoding-vim'
+" let g:user_zen_leader_key = '<leader>h'
 " Bundle 'Glench/Vim-Jinja2-Syntax'
+Bundle "mattn/emmet-vim"
 Bundle 'nono/jquery.vim'
 "}}}
 
@@ -1006,13 +1009,13 @@ Bundle "derekwyatt/vim-scala"
 
 "Erlang ---------------------------------------------------------------- {{{
 Bundle "jimenezrick/vimerl"
+let erlang_force_use_vimerl_indent = 0
+let erlang_skel_header = { "author": "Locojay", "owner" : "Locojay" }
+                          "
 "use syntastic
 let erlang_show_errors = 0
-Bundle "mbbx6spp/vim-rebar"
 
 " }}}
 
-
 Bundle "gcmt/wildfire.vim"
 filetype plugin indent on
-

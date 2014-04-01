@@ -801,6 +801,8 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list=2
 let g:syntastic_python_checker = 'flake8'
 
+
+
 "use YoucompleteMe
 " let g:syntastic_cpp_config_file='.clang_complete'
 let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
@@ -808,6 +810,7 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall'
 "erlang
 let g:syntastic_erlang_checkers=['syntaxerl']
+let g:syntastic_javascript_checkers = ['jshint']
 
 
 " }}}
@@ -1010,5 +1013,6 @@ Bundle "mbbx6spp/vim-rebar"
 " }}}
 
 
+Bundle "gcmt/wildfire.vim"
 filetype plugin indent on
 

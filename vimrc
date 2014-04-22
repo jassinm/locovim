@@ -538,7 +538,7 @@ nmap <silent><leader>nf :NERDTreeFind<CR>
 
 let g:NERDTreeWinPos = "left"
 "down't display the following files
-let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject', '\.so$', '\.un\~$', '\.lein-plugins$']
+let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject', '\.so$', '\.un\~$', '\.lein-plugins$', '\.beam$']
 let NERDTreeHighlightCursorline=1
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
@@ -1021,5 +1021,6 @@ Bundle 'edkolev/erlang-motions.vim'
 
 Bundle "gcmt/wildfire.vim"
 " Bundle "MattesGroeger/vim-bookmarks"
+Bundle "mhinz/vim-startify"
 filetype plugin indent on
 

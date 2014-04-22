@@ -1020,4 +1020,6 @@ Bundle 'edkolev/erlang-motions.vim'
 " }}}
 
 Bundle "gcmt/wildfire.vim"
+" Bundle "MattesGroeger/vim-bookmarks"
 filetype plugin indent on
+

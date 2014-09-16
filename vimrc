@@ -188,6 +188,7 @@ set wildignore+=*.o,*.obj,*.pyc,*.class "compiled files, bytecode
 set wildignore+=*.DS_Store
 set wildignore+=*.pdf,*.xls,*.xlsx,*.doc
 set wildignore+=*.jar
+set wildignore+=*.beam
 " Lein
 set wildignore+=classes
 set wildignore+=lib
@@ -595,7 +596,7 @@ set runtimepath+=~/.vim/bundle/vim-objj
 
 "Ack plugin -----------------------------------------------------------------{{{
 Bundle 'mileszs/ack.vim.git'
-nnoremap <Leader>a :Ack --follow <C-r><C-w>
+nnoremap <Leader>ag :Ack --follow <C-r><C-w>
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " }}}
@@ -637,6 +638,9 @@ nnoremap <silent><Leader>y :YRShow<cr>
 inoremap <silent><Leader>y <ESC>:YRShow<cr>
 let g:yankring_history_dir = "$HOME/.vim/"
 let g:yankring_history_file = 'yankring_history'
+
+nnoremap <leader>Y :call system('nc localhost 8377', @0)<CR>
+
 
 " }}}
 
@@ -751,6 +755,7 @@ if executable('ctags')
     let g:easytags_cmd = '/usr/local/bin/ctags'
     set tags=./tags;
     let g:easytags_dynamic_files = 1
+    let g:easytags_async = 1
 
     Bundle 'majutsushi/tagbar.git'
     let g:tagbar_ctags_bin='/usr/local/bin/ctags'
@@ -801,7 +806,7 @@ Bundle 'scrooloose/syntastic.git'
 
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list=2
-let g:syntastic_python_checker = 'flake8'
+let g:syntastic_python_checkers = ['flake8']
 
 
 
@@ -936,7 +941,7 @@ Bundle 'aaronbieber/quicktask'
 
 Bundle 'vim-scripts/SearchComplete.git'
 Bundle 'tsaleh/vim-align.git'
-Bundle 'vim-scripts/timestamp.vim.git'
+"Bundle 'vim-scripts/timestamp.vim.git'
 
 Bundle 'IndexedSearch'
 
@@ -1011,6 +1016,7 @@ Bundle "derekwyatt/vim-scala"
 Bundle "jimenezrick/vimerl"
 let erlang_force_use_vimerl_indent = 0
 let erlang_skel_header = { "author": "Locojay", "owner" : "Locojay" }
+let erlang_folding=1
                           "
 "use syntastic
 let erlang_show_errors = 0
@@ -1021,6 +1027,6 @@ Bundle 'edkolev/erlang-motions.vim'
 
 Bundle "gcmt/wildfire.vim"
 " Bundle "MattesGroeger/vim-bookmarks"
-Bundle "mhinz/vim-startify"
+"Bundle "mhinz/vim-startify"
 filetype plugin indent on
 

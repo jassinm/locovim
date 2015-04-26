@@ -28,6 +28,8 @@ if has('gui_running')
     "colorscheme jellybeans
     " colorscheme jellybeans_locojay
     colorscheme badwolf
+
+    let g:molokai_original = 1
     "set guifont=Monaco:h12
     if has("gui_gtk2")
         set guifont=PragmataPro\ 15
@@ -1029,4 +1031,3 @@ Bundle "gcmt/wildfire.vim"
 " Bundle "MattesGroeger/vim-bookmarks"
 "Bundle "mhinz/vim-startify"
 filetype plugin indent on
-

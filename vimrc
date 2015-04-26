@@ -15,6 +15,7 @@ Bundle 'sjl/badwolf'
 Bundle 'tomasr/molokai'
 Bundle 'godlygeek/csapprox'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'sickill/vim-monokai'
 
 
 "Alt key
@@ -201,12 +202,12 @@ set wildignore+=lib
 " Buffer/Tab/Window nativgation ----------------------------------------------------------- {{{
 set hidden "Allows to change buffer w/o saving current buffer
 
-Bundle "ollummis/sbd.vim"
+"Bundle "ollummis/sbd.vim"
 " Bundle 'orftz/sbd.vim'
 "Bundle 'vim-scripts/bufkill.vim'
 
 "noremap <silent><Leader>bd :bd<CR>
-nnoremap <silent><leader>bd :Sbd<CR>
+"nnoremap <silent><leader>bd :Sbd<CR>
 "nnoremap <silent><leader>bdm :Sbdm<CR>
 
 noremap <silent><Leader>bn :bn<CR>
@@ -240,8 +241,8 @@ noremap <silent><Leader>wx :wincmd x<CR>
 noremap <silent><Leader>ww :wincmd w<CR>
 
 
-noremap <silent><Leader>vs :vsplit <CR>
-noremap <silent><Leader>hs :split <CR>
+noremap <silent><Leader>ws :split <CR>
+noremap <silent><Leader>wv :vsplit <CR>
 
 "Quickfix window Settings
 "use vim -unimpaired
@@ -502,6 +503,7 @@ Bundle 'xolox/vim-pyref'
 Bundle "davidhalter/jedi-vim"
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#goto_definitions_command = "<leader>D"
+let g:jedi#rename_command = "<leader>r"
 "using neocompletecache
 let g:jedi#popup_on_dot = 0
 
@@ -922,7 +924,7 @@ Bundle 'vim-scripts/Cpp11-Syntax-Support'
 Bundle 'vim-scripts/scons.vim'
 Bundle 'vim-scripts/a.vim'
 
-Bundle "Valloric/YouCompleteMe"
+"Bundle "Valloric/YouCompleteMe"
 let g:ycm_key_detailed_diagnostics=''
 "leave Ultisnips allone
 " let g:ycm_key_list_select_completion=['']
@@ -1030,4 +1032,7 @@ Bundle 'edkolev/erlang-motions.vim'
 Bundle "gcmt/wildfire.vim"
 " Bundle "MattesGroeger/vim-bookmarks"
 "Bundle "mhinz/vim-startify"
+"
+"
+Bundle "https://bitbucket.org/larsyencken/vim-drake-syntax.git"
 filetype plugin indent on

@@ -46,7 +46,10 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     set t_Co=256
     "colorscheme jellybeans
     " colorscheme jellybeans_locojay
+    let g:molokai_original=1
+    let g:rehash256=1
     colorscheme badwolf
+    "colorscheme molokai
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h15
     set lazyredraw

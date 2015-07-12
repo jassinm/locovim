@@ -1,23 +1,132 @@
-"-------------------------------------------------------------
-"Vundle plugin
-"-------------------------------------------------------------
-set nocompatible "turn off vi compatibility, required for vundle"
-filetype off
-
-set rtp+=~/.vim/vundle/
-call vundle#rc()"
-
-
+call plug#begin('~/.vim/plugged')
 
 " Look good ---------------------------------------------------------------- {{{
-Bundle 'nanotech/jellybeans.vim.git'
-Bundle 'sjl/badwolf'
-Bundle 'tomasr/molokai'
-Bundle 'godlygeek/csapprox'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'sickill/vim-monokai'
+Plug 'nanotech/jellybeans.vim'
+Plug 'sjl/badwolf'
+Plug 'tomasr/molokai'
+Plug 'godlygeek/csapprox'
+Plug 'altercation/vim-colors-solarized'
+Plug 'sickill/vim-monokai'
+"}}}
 
+" Latest ---------------------------------------------------------------- {{{
+Plug 'Lokaltog/vim-easymotion'
+Plug 'xaviershay/tslime.vim'
+Plug 'SirVer/ultisnips'
+Plug 'scrooloose/nerdtree'
+Plug 'mileszs/ack.vim'
+Plug 'vim-scripts/ZoomWin'
+Plug 'vim-scripts/open-terminal-filemanager'
+Plug 'Shougo/neocomplcache'
+Plug 'gregsexton/gitv'
+Plug 'sjl/gundo.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'vim-scripts/swap-parameters'
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/syntastic'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+Plug 'gmarik/sudo-gui.vim'
+Plug 'gcmt/wildfire.vim'
+" }}}
 
+"Tpope plugins -------------------------------------------- {{{
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-speeddating'
+" }}}
+
+"Clojure ---------------------------------------------------------------- {{{
+Plug 'guns/vim-clojure-static', {'for': 'clojure'}
+Plug 'tpope/vim-classpath', {'for': 'clojure'}
+Plug 'tpope/vim-foreplay', {'for': 'clojure'}
+" }}}
+
+"Python ---------------------------------------------------------------- {{{
+Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
+Plug 'ivanov/vim-ipython', {'for': 'python'}
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-pyref', {'for': 'python'}
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
+" }}}
+
+"Web dev -------------------------------------------------------- {{{
+Plug 'mattn/emmet-vim'
+Plug 'nono/jquery.vim'
+"}}}
+
+"C/C++ ------------------------------------------------------------ {{{
+Plug 'vim-scripts/Cpp11-Syntax-Support'
+Plug 'vim-scripts/scons.vim'
+Plug 'vim-scripts/a.vim'
+"}}}
+
+"Scala ---------------------------------------------------------------- {{{
+Plug 'derekwyatt/vim-scala', {'for': 'scala'}
+" }}}
+
+"Erlang ---------------------------------------------------------------- {{{
+Plug 'jimenezrick/vimerl', {'for': 'erlang'}
+Plug 'edkolev/erlang-motions.vim', {'for': 'erlang'}
+" }}}
+
+"Latex ---------------------------------------------------------------- {{{
+Plug 'mineiro/vim-latex', {'for': 'tex'}
+" }}}
+
+"Objective-J ---------------------------------------------------------------- {{{
+Plug 'nanki/vim-objj', {'for': 'objj'}
+" }}}
+
+"Json ---------------------------------------------------------------- {{{
+Plug 'leshill/vim-json', {'for': 'json'}
+" }}}
+
+"Objc ---------------------------------------------------------------- {{{
+Plug 'msanders/cocoa.vim', {'for': 'objc'}
+" }}}
+
+"R ---------------------------------------------------------------- {{{
+Plug 'vim-scripts/Vim-R-plugin', {'for': 'r'}
+" }}}
+
+"Drake ---------------------------------------------------------------- {{{
+Plug 'https://bitbucket.org/larsyencken/vim-drake-syntax.git'
+" }}}
+
+"RST ---------------------------------------------------------------- {{{
+Plug 'vim-scripts/rest.vim'
+Plug 'vim-scripts/VST'
+Plug 'nvie/vim-rst-tables'
+Plug 'vim-scripts/DotOutlineTree'
+" }}}
+
+"Other ---------------------------------------------------------------- {{{
+Plug 'matthias-guenther/hammer.vim'
+Plug 'vim-scripts/SearchComplete'
+Plug 'tsaleh/vim-align'
+Plug 'IndexedSearch'
+"Editing
+Plug 'kana/vim-smartinput'
+"help
+Plug 'sjbach/lusty'
+Plug 'kien/rainbow_parentheses.vim'
+"Nice markers
+Plug 'kshenoy/vim-signature'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'sjl/clam.vim'
+Plug 'AndrewRadev/linediff.vim'
+Plug 'goldfeld/vim-seek'
+Plug 'vim-scripts/LargeFile'
+"vim scripting
+Plug 'vim-scripts/reload.vim'
+
+call plug#end()
 "Alt key
 if has("gui_mac")
     set macmeta
@@ -48,8 +157,8 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     set t_Co=256
     "colorscheme jellybeans
     " colorscheme jellybeans_locojay
-    let g:molokai_original=1
-    let g:rehash256=1
+    "let g:molokai_original=1
+    "let g:rehash256=1
     colorscheme badwolf
     "colorscheme molokai
     "set guifont=Monaco:h12
@@ -58,8 +167,8 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
 endif
 " }}}
 
-
 "Vim Settings---------------------------------------------------------------- {{{
+
 let mapleader=","
 let maplocalleader = "\\"
 
@@ -70,6 +179,7 @@ set encoding=utf-8
 
 set fillchars+=vert:│
 
+filetype plugin indent on
 
 " Set backspace config
 set backspace=eol,start,indent
@@ -152,7 +262,6 @@ set showmode
 "auto paste in paste mode
 imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 
-
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
 "keep a longer history
@@ -166,7 +275,6 @@ set ttimeout
 set ttimeoutlen=10
 
 " }}}
-
 
 "Completion/Wildmenu ----------------------------------------------------------- {{{
 set wildmode=longest:full
@@ -201,17 +309,9 @@ set wildignore+=lib
 
 " }}}
 
-
 " Buffer/Tab/Window nativgation ----------------------------------------------------------- {{{
 set hidden "Allows to change buffer w/o saving current buffer
 
-"Bundle "ollummis/sbd.vim"
-" Bundle 'orftz/sbd.vim'
-"Bundle 'vim-scripts/bufkill.vim'
-
-"noremap <silent><Leader>bd :bd<CR>
-"nnoremap <silent><leader>bd :Sbd<CR>
-"nnoremap <silent><leader>bdm :Sbdm<CR>
 
 noremap <silent><Leader>bn :bn<CR>
 noremap <silent><Leader>bp :bp<CR>
@@ -257,7 +357,6 @@ noremap <silent> <leader>lo :lopen<CR>
 
 " }}}
 
-
 "Some more-------------------------------------------------- {{{
 nmap <silent> <Leader>ev :vsplit $HOME/.vimrc<CR>
 nmap <silent> <Leader>sv :so $HOME/.vimrc<CR>
@@ -277,7 +376,6 @@ inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 noremap <silent><leader>u :! urlview %<CR>
 " }}}
 
-
 "Search Settings -------------------------------------------------- {{{
 
 nnoremap / /\v
@@ -295,7 +393,6 @@ map <silent><Leader><space> :noh<CR>
 "Spell Checking
 map <leader>ss :setlocal spell! spelllang=en_us<cr>
 " }}}
-
 
 "Folding ------------------------------------------------ {{{
 " Javadoc comments (/** and */ pairs) and code sections (marked by {} pairs) mark the start and end of folds. All other
@@ -315,7 +412,6 @@ endfunction
 
 "}}}
 
-
 " Default Tabs, spaces, wrapping ------------------------------------ {{{
 set tabstop=4
 set shiftwidth=4
@@ -326,7 +422,6 @@ set textwidth=85
 set formatoptions=qrn1
 
 " }}}
-
 
 "Filetype Settings -------------------------------------------------{{{
 if has("autocmd")
@@ -364,6 +459,7 @@ if has("autocmd")
     autocmd FileType python compiler nose
     autocmd FileType python set omnifunc=pythoncomplete#Complete
     autocmd FileType python set formatprg=PythonTidy
+    autocmd BufNewFile,BufRead *.pyx setlocal foldmethod=indent
     if exists('+colorcolumn')
           " autocmd FileType python set colorcolumn=80
     endif
@@ -430,7 +526,6 @@ endif
 
 " }}}
 
-
 "Python Settings/Plugins --------------------------------------------- {{{
 function! PythonTidySaver()
     let oldpos=getpos('.')
@@ -441,7 +536,6 @@ endfunction
 "autocmd! bufwritepost *.py call PythonTidySaver()
 "Virtualenv
 if  has('python')
-    Bundle 'jmcantrell/vim-virtualenv.git'
     if !empty($VIRTUAL_ENV)
         let g:virtualenv_auto_activate=1
     endif
@@ -458,7 +552,6 @@ else
 
 endif
 
-Bundle 'ivanov/vim-ipython'
 "tmux does no like C-s
 let g:ipy_perform_mappings = 0
 autocmd FileType python map<silent>K :py get_doc_buffer()<CR>
@@ -472,11 +565,11 @@ command! IPythonShell call IPythonShell()
 
 
 "make green plugin
-Bundle 'reinh/vim-makegreen'
+Plug 'reinh/vim-makegreen'
 map <Leader>nose :call MakeGreen()<CR>
 
 if has('python')
-    Bundle 'nvie/vim-pyunit'
+    Plug 'nvie/vim-pyunit'
     let g:PyUnitCmd = '/usr/local/share/python/nosetests -q --with-machineout'
     if !empty($VIRTUAL_ENV)
         let g:PyUnitCmd = $VIRTUAL_ENV . '/bin/nosetests -q --with-machineout'
@@ -493,17 +586,14 @@ let ropevim_vim_completion=1
 
 "Pep8 plugin # using flake8
 if has('python')
-    "Bundle 'orestis/pysmell.git'
+    "Plug 'orestis/pysmell.git'
     if executable("pep8")
-        "Bundle 'nvie/vim-pep8.git'
+        "Plug 'nvie/vim-pep8.git'
         "autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
     endif
 endif
 
 "Pydoc, Pyref plugin
-Bundle "xolox/vim-misc"
-Bundle 'xolox/vim-pyref'
-Bundle "davidhalter/jedi-vim"
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#goto_definitions_command = "<leader>D"
 let g:jedi#rename_command = "<leader>r"
@@ -512,13 +602,12 @@ let g:jedi#popup_on_dot = 0
 
 
 
-"Bundle 'fs111/pydoc.vim'
+"Plug 'fs111/pydoc.vim'
 let g:pydoc_cmd='/usr/local/bin/pydoc'
 
 " }}}
 
 "Latex Plugin ---------------------------------------------------- {{{
-Bundle 'mineiro/vim-latex.git'
 
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'mkdir -p latex-build; /usr/texbin/pdflatex -output-directory latex-build -interaction nonstopmode $*; cp latex-build/*.pdf .'
@@ -537,11 +626,9 @@ let g:Tex_IgnoreLevel = 8
 
 " }}}
 
-
 "NerdTree Plugin---------------------------------------------------- {{{
-Bundle 'scrooloose/nerdtree'
 
-nmap <silent><Leader>d  :NERDTreeToggle<CR>
+nmap <silent><Leader>ft :NERDTreeToggle<CR>
 nmap <silent><leader>nf :NERDTreeFind<CR>
 
 let g:NERDTreeWinPos = "left"
@@ -562,23 +649,17 @@ endif
 
 " }}}
 
-
 "Ultinips Settings------------------------------------------------------- {{{
 if has('python')
-    Bundle 'SirVer/ultisnips'
 
     let g:UltiSnipsEditSplit='vertical'
     let g:UltiSnipsUsePythonVersion = 2
     autocmd BufNewFile,BufRead *.snippets set filetype=snippets
 
-    " let g:UltiSnipsListSnippets="<c-tab>"
     "does not seem to work so call it"
     nnoremap <Leader>us :call UltiSnips_ListSnippets()<CR>
     inoremap <Leader>us <ESC>:call UltiSnips_ListSnippets()<CR>
 
-    " let g:UltiSnipsExpandTrigger="<tab>"
-    " let g:UltiSnipsJumpForwardTrigger="<tab>"
-    " let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
     let g:UltiSnipsExpandTrigger="<c-j>"
     let g:UltiSnipsJumpForwardTrigger="<c-j>"
     let g:UltiSnipsJumpBackwardTrigger="<c-k>"
@@ -592,25 +673,19 @@ endif
 
 " }}}
 
-
 "Objective-J Settings--------------------------------------------------------- {{{
-Bundle 'nanki/vim-objj'
 "vim objj
 set runtimepath+=~/.vim/bundle/vim-objj
 
 " }}}
 
-
 "Ack plugin -----------------------------------------------------------------{{{
-Bundle 'mileszs/ack.vim.git'
 nnoremap <Leader>ag :Ack --follow <C-r><C-w>
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " }}}
 
-
 "ZoomWin plugin ------------------------------------------------------------{{{
-Bundle 'vim-scripts/ZoomWin.git'
 
 nnoremap <Leader>z :ZoomWin<CR>
 inoremap <Leader>z <ESC>:ZoomWin<CR>
@@ -621,25 +696,20 @@ set noequalalways
 
 " }}}
 
-
 "OpenTerminal plugin -------------------------------------------------------- {{{
-Bundle 'vim-scripts/open-terminal-filemanager.git'
 
 nnoremap <silent><Leader>of :OpenFilemanager<CR><CR>
 
 " }}}
 
-
 "Easymotion plugin ---------------------------------------------------------- {{{
-Bundle 'Lokaltog/vim-easymotion.git'
 
 let g:EasyMotion_leader_key = 'e'
 
 " }}}
 
-
 "Yankring plugin ------------------------------------------------------------- {{{
-Bundle 'vim-scripts/YankRing.vim'
+Plug 'vim-scripts/YankRing.vim'
 
 nnoremap <silent><Leader>y :YRShow<cr>
 inoremap <silent><Leader>y <ESC>:YRShow<cr>
@@ -651,9 +721,7 @@ nnoremap <leader>Y :call system('nc localhost 8377', @0)<CR>
 
 " }}}
 
-
 "Neocomplete plugin ---------------------------------------------------------- {{{
-Bundle 'Shougo/neocomplcache.git'
 
 " Disable AutoComplPop.
 "let g:acp_enableAtStartup = 0
@@ -668,10 +736,8 @@ let g:neocomplcache_enable_auto_select = 1
 
 " }}}
 
-
 "Git plugins ------------------------------------------------------------------ {{{
 "fugitive
-Bundle 'tpope/vim-fugitive'
 
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gs :Gstatus<CR>
@@ -682,11 +748,9 @@ nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gcaa :Git commit -a --amend -C HEAD
 
 "gitv
-Bundle 'gregsexton/gitv'
 
 "Gundo plugin
 if has('python')
-    Bundle 'sjl/gundo.vim.git'
 
     nnoremap <Leader>gu :GundoToggle<CR>
     "let g:gundo_debug = 1
@@ -695,9 +759,7 @@ endif
 
 " }}}
 
-
 "SQL plugin's --------------------------------------------------{{{
-Bundle 'locojay/dbext.vim.git'
 "dbext <Leaeder>se
 let dbext_default_DB2_bin='db2batch'
 "let g:dbext_default_DB2_cmd_options="-q on -s off -l ';'"
@@ -709,20 +771,15 @@ let dbext_default_DB2_bin='db2batch'
 
 "}}}
 
-
 "Swap parameters plugin-------------------------------------------------{{{
 if has('python')
-    Bundle 'vim-scripts/swap-parameters.git'
-
     noremap gb :call SwapParams("forwards")<cr>
     noremap gB :call SwapParams("backwards")<cr>
 endif
 
 "}}}
 
-
 "Ctrl-p plugin-----------------------------------------------------------------{{{
-Bundle 'kien/ctrlp.vim.git'
 
 let g:ctrlp_map = '<leader>,'
 let g:ctrlp_jump_to_buffer = 0
@@ -751,32 +808,27 @@ nnoremap <leader>mr :CtrlPMRUFiles<cr>
 
 "}}}
 
-
 "TAGS Settings ---------------------------------------------------------{{{
 if executable('ctags')
     map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
     map <Leader>/ :exe '!ctags -R . ./tags'
 
     " Easy tags plugin
-    Bundle 'xolox/vim-easytags.git'
     let g:easytags_cmd = '/usr/local/bin/ctags'
     set tags=./tags;
     let g:easytags_dynamic_files = 1
     let g:easytags_async = 1
 
-    Bundle 'majutsushi/tagbar.git'
     let g:tagbar_ctags_bin='/usr/local/bin/ctags'
     "Tagbar Plugin Settings
     nmap <silent><Leader>k :TagbarToggle<CR>
 endif
 " }}}
 
-
 "Visualization ---------------------------------------------------------{{{
 "Powerline
-" Bundle 'Lokaltog/vim-powerline'
+" Plug 'Lokaltog/vim-powerline'
 " let g:Powerline_symbols = "fancy"
-Bundle 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 
 if has("autocmd")
@@ -785,25 +837,18 @@ if has("autocmd")
 endif
 
 "IndentationGuide <Leader>ig
-Bundle 'nathanaelkane/vim-indent-guides.git'
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#998f84 ctermbg=245
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#d9cec3 ctermbg=252
 
-
-"ShowMarks
-"Bundle "garbas/vim-showmarks"
 "
 " }}}
-
 
 " TimeStamp plugin--------------------------------------------------{{{
 "autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
 " }}}
 
-
 " Syntastic plugin ---------------------------------------------------------- {{{
-Bundle 'scrooloose/syntastic.git'
 "checks syntax for multiple file type install
 "   - cpp , c g++, gcc
 "   - flake8 or pyflakes or pylint for python
@@ -829,20 +874,15 @@ let g:syntastic_javascript_checkers = ['jshint']
 
 " }}}
 
-
 "Gitst plugin ------------------------------------------------------ {{{
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim.git'
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 
 "}}}
 
-
 "Comments---------------------------------------------------------------{{{
-"Bundle 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter'
 
-Bundle 'tpope/vim-commentary'
 xmap <Leader>c  <Plug>Commentary
 nmap <Leader>c  <Plug>Commentary
 nmap <Leader>cc <Plug>CommentaryLine
@@ -852,20 +892,18 @@ au FileType clojurescript setlocal commentstring=;\ %s
 au FileType scons setlocal commentstring=#\ %s
 au FileType python setlocal commentstring=#\ %s
 
-" Bundle "tomtom/tcomment_vim"
+" Plug "tomtom/tcomment_vim"
 " nnoremap <silent><leader>c :TComment<CR>
 " vnoremap <silent><leader>c :TComment<CR>
 "
 " let g:tcomment_jinja="{#\ %s \#}""
 "}}}
 
-
 " Tmux -----------------------------------------------------------------{{{
 if executable("tmux")
-    "Bundle 'vim-scripts/Screen-vim---gnu-screentmux'
-    Bundle 'xaviershay/tslime.vim.git'
-    " Bundle 'acustodioo/vim-tmux'
-    " Bundle 'benmills/vimux'
+    "Plug 'vim-scripts/Screen-vim---gnu-screentmux'
+    " Plug 'acustodioo/vim-tmux'
+    " Plug 'benmills/vimux'
 
 
     "change pane number at runtime by setting
@@ -874,7 +912,7 @@ if executable("tmux")
     endfunction
     command! TmuxPaneNumber call TmuxPaneNumber()
 
-    " Bundle 'sjl/vitality.vim'
+    " Plug 'sjl/vitality.vim'
     " Save when losing focus
     " " Save when losing focus
     " au FocusLost * :silent! wall
@@ -883,51 +921,19 @@ endif
 
 " }}}
 
-
-"Tpope plugins -------------------------------------------- {{{
-Bundle 'tpope/vim-unimpaired.git'
-Bundle 'tpope/vim-repeat.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'tpope/vim-speeddating.git'
-
-" }}}
-
-
-"Clojure ---------------------------------------------------------------- {{{
-Bundle "guns/vim-clojure-static"
-
-
-
-Bundle "tpope/vim-classpath"
-Bundle "tpope/vim-foreplay"
-" }}}
-
-
-"Web dev -------------------------------------------------------- {{{
-" Bundle 'mattn/zencoding-vim'
-" let g:user_zen_leader_key = '<leader>h'
-" Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle "mattn/emmet-vim"
-Bundle 'nono/jquery.vim'
-"}}}
-
 "C/C++ ------------------------------------------------------------ {{{
 
-Bundle 'vim-scripts/Cpp11-Syntax-Support'
 
-" Bundle 'Rip-Rip/clang_complete'
+" Plug 'Rip-Rip/clang_complete'
 " autocmd FileType c let g:clang_user_options = "-std=c99 2>/dev/null || exit 0"
 " autocmd FileType cpp let g:clang_user_options = "-std=c++11 2>/dev/null || exit 0"
 " let g:clang_use_library=1
 " let g:clang_library='/usr/lib'
 " let g:clang_snippets=1
 " let g:clang_snippets_engine='ultisnips'
-" Bundle 'osyo-manga/neocomplcache-clang_complete'
+" Plug 'osyo-manga/neocomplcache-clang_complete'
 "
-Bundle 'vim-scripts/scons.vim'
-Bundle 'vim-scripts/a.vim'
-
-"Bundle "Valloric/YouCompleteMe"
+"Plug "Valloric/YouCompleteMe"
 let g:ycm_key_detailed_diagnostics=''
 "leave Ultisnips allone
 " let g:ycm_key_list_select_completion=['']
@@ -940,102 +946,35 @@ let g:ycm_filetype_specific_completion_to_disable = {'erl':1, 'hrl':1}
 set makeprg=scons
 "}}}
 
-
 "Other ----------------------------------------------------- {{{
 "Task Management
-"Bundle 'jceb/vim-orgmode'
-Bundle 'aaronbieber/quicktask'
-
-Bundle 'vim-scripts/SearchComplete.git'
-Bundle 'tsaleh/vim-align.git'
-"Bundle 'vim-scripts/timestamp.vim.git'
-
-Bundle 'IndexedSearch'
-
-"Nice markers
-Bundle 'kshenoy/vim-signature'
-
-
-"Bundle 'gmunkhbaatarmn/vim-largefile.git'
-Bundle 'vim-scripts/LargeFile'
-Bundle 'leshill/vim-json'
-Bundle 'msanders/cocoa.vim'
-Bundle 'vim-scripts/Vim-R-plugin.git'
-
-Bundle 'gmarik/sudo-gui.vim.git'
-
-"vim scripting
-Bundle 'vim-scripts/reload.vim.git'
-
-"RST
-Bundle "vim-scripts/rest.vim.git"
-Bundle "vim-scripts/VST.git"
-Bundle "nvie/vim-rst-tables.git"
-Bundle 'vim-scripts/DotOutlineTree.git'
-"Bundle 'chrisbra/csv.vim'
+"Plug 'chrisbra/csv.vim'
 command! CsvCleanup :%s/\%x0d/\r/
 
 if has('ruby')
     "rst"
-    Bundle "matthias-guenther/hammer.vim"
     let g:mdown_preview_cmd="/Users/locojay/.cabal/bin/pandoc -s --highlight-style pygments"
-    Bundle "tpope/vim-markdown"
-    Bundle "itspriddle/vim-marked"
+    Plug 'tpope/vim-markdown'
+    Plug 'itspriddle/vim-marked'
     " autocmd BufWritePost *.rst :Hammer<CR>
 endif
 
-"Editing
-"Bundle 'vim-scripts/delimitMate.vim'
-Bundle 'kana/vim-smartinput'
-"help
-Bundle 'sjl/strftimedammit.vim'
 
-
-if has('ruby')
-    "add lusty jugler and lusty finder"
-    "Todo: only use jugle ( ctrlp replaces   Sat Feb 11 18:29:47 2012
-    Bundle 'sjbach/lusty.git'
-endif
 
 "Rainbow Parenthesis
-Bundle 'kien/rainbow_parentheses.vim'
 let g:rbpt_max = 16
 " autocmd FileType clojure RainbowParenthesesToggle
 " au VimEnter * RainbowParenthesesToggle
 
 
-
-Bundle 'sjl/clam.vim'
-
-Bundle "AndrewRadev/linediff.vim"
-
-Bundle "goldfeld/vim-seek"
-
-
 " }}}
-
-"Scala ---------------------------------------------------------------- {{{
-Bundle "derekwyatt/vim-scala"
-" }}}
-
 
 "Erlang ---------------------------------------------------------------- {{{
-Bundle "jimenezrick/vimerl"
 let erlang_force_use_vimerl_indent = 0
 let erlang_skel_header = { "author": "Locojay", "owner" : "Locojay" }
 let erlang_folding=1
                           "
 "use syntastic
 let erlang_show_errors = 0
-
-Bundle 'edkolev/erlang-motions.vim'
-
 " }}}
 
-Bundle "gcmt/wildfire.vim"
-" Bundle "MattesGroeger/vim-bookmarks"
-"Bundle "mhinz/vim-startify"
-"
-"
-Bundle "https://bitbucket.org/larsyencken/vim-drake-syntax.git"
-filetype plugin indent on

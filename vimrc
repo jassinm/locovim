@@ -107,7 +107,7 @@ Plug 'vim-scripts/DotOutlineTree'
 " }}}
 
 "Other ---------------------------------------------------------------- {{{
-Plug 'matthias-guenther/hammer.vim'
+"Plug 'matthias-guenther/hammer.vim'
 Plug 'vim-scripts/SearchComplete'
 Plug 'tsaleh/vim-align'
 Plug 'IndexedSearch'
@@ -191,8 +191,8 @@ set noerrorbells         " don't beep
 
 "Motion Settings
 "Life saver
-ino jj <esc>
-cno jj <esc>
+ino jk <esc>
+cno jk <esc>
 
 "visual
 vnoremap < <gv
@@ -956,7 +956,6 @@ if has('ruby')
     let g:mdown_preview_cmd="/Users/locojay/.cabal/bin/pandoc -s --highlight-style pygments"
     Plug 'tpope/vim-markdown'
     Plug 'itspriddle/vim-marked'
-    " autocmd BufWritePost *.rst :Hammer<CR>
 endif
 
 

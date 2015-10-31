@@ -137,9 +137,10 @@ if has('gui_running')
     " GUI colors
     "colorscheme jellybeans
     " colorscheme jellybeans_locojay
-    colorscheme badwolf
-
+    "colorscheme badwolf
     let g:molokai_original = 1
+    colorscheme molokai
+
     "set guifont=Monaco:h12
     if has("gui_gtk2")
         set guifont=PragmataPro\ 15
@@ -158,9 +159,9 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     "colorscheme jellybeans
     " colorscheme jellybeans_locojay
     "let g:molokai_original=1
-    "let g:rehash256=1
-    colorscheme badwolf
-    "colorscheme molokai
+    let g:rehash256=1
+    "colorscheme badwolf
+    colorscheme molokai
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h15
     set lazyredraw
@@ -169,7 +170,8 @@ endif
 
 "Vim Settings---------------------------------------------------------------- {{{
 
-let mapleader=","
+"let mapleader=","
+let mapleader="\<Space>"
 let maplocalleader = "\\"
 
 "save a keypress
@@ -781,7 +783,7 @@ endif
 
 "Ctrl-p plugin-----------------------------------------------------------------{{{
 
-let g:ctrlp_map = '<leader>,'
+let g:ctrlp_map = '<leader>ff'
 let g:ctrlp_jump_to_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_reversed = 1
@@ -803,8 +805,11 @@ let g:ctrlp_extensions = ['tag']
 " \ }
 "let g:ctrlp_dont_split = 'NERD_tree_2'
 
+nnoremap <leader>bb :CtrlPBuffer<cr>
+
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>mr :CtrlPMRUFiles<cr>
+
 
 "}}}
 

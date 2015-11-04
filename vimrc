@@ -187,6 +187,8 @@ let maplocalleader = "\\"
 map ; :
 
 set encoding=utf-8
+"https://github.com/morhetz/gruvbox/issues/81
+set t_ut=
 
 set fillchars+=vert:│
 
@@ -236,7 +238,7 @@ set noswapfile
 "add mouse support
 set mouse=a
 "let this work in tmux 2
-set ttymouse=xterm2
+"set ttymouse=xterm2
 
 
 "fast

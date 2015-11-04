@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Look good ---------------------------------------------------------------- {{{
+Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 Plug 'tomasr/molokai'
@@ -138,8 +139,12 @@ if has('gui_running')
     "colorscheme jellybeans
     " colorscheme jellybeans_locojay
     "colorscheme badwolf
+
     let g:molokai_original = 1
     colorscheme molokai
+
+    set background=dark
+    colorscheme gruvbox
 
     "set guifont=Monaco:h12
     if has("gui_gtk2")
@@ -161,7 +166,11 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     "let g:molokai_original=1
     let g:rehash256=1
     "colorscheme badwolf
+    "colorscheme molokai
     colorscheme molokai
+
+    set background=dark
+    colorscheme  gruvbox
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h15
     set lazyredraw

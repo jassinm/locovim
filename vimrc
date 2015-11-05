@@ -115,7 +115,7 @@ Plug 'IndexedSearch'
 "Editing
 Plug 'kana/vim-smartinput'
 "help
-Plug 'sjbach/lusty'
+"Plug 'sjbach/lusty'
 Plug 'kien/rainbow_parentheses.vim'
 "Nice markers
 Plug 'kshenoy/vim-signature'
@@ -136,13 +136,6 @@ endif
 "Set up the window colors and size
 if has('gui_running')
     " GUI colors
-    "colorscheme jellybeans
-    " colorscheme jellybeans_locojay
-    "colorscheme badwolf
-
-    let g:molokai_original = 1
-    colorscheme molokai
-
     set background=dark
     colorscheme gruvbox
 
@@ -160,14 +153,13 @@ if has('gui_running')
     set go-=r
 elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " Non-GUI (terminal) colors
-    set t_Co=256
+    "set t_Co=256
     "colorscheme jellybeans
     " colorscheme jellybeans_locojay
     "let g:molokai_original=1
-    let g:rehash256=1
+    "let g:rehash256=1
     "colorscheme badwolf
     "colorscheme molokai
-    colorscheme molokai
 
     set background=dark
     colorscheme  gruvbox

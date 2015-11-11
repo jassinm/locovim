@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-" Look good ---------------------------------------------------------------- {{{
+" Look good ----------------------------------------------------------------
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
@@ -8,9 +8,9 @@ Plug 'tomasr/molokai'
 Plug 'godlygeek/csapprox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'sickill/vim-monokai'
-"}}}
 
-" Latest ---------------------------------------------------------------- {{{
+
+" Latest ----------------------------------------------------------------
 Plug 'Lokaltog/vim-easymotion'
 Plug 'xaviershay/tslime.vim'
 Plug 'SirVer/ultisnips'
@@ -31,83 +31,83 @@ Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'gmarik/sudo-gui.vim'
 Plug 'gcmt/wildfire.vim'
-" }}}
+"
 
-"Tpope plugins -------------------------------------------- {{{
+"Tpope plugins --------------------------------------------
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
-" }}}
+"
 
-"Clojure ---------------------------------------------------------------- {{{
+"Clojure ----------------------------------------------------------------
 Plug 'guns/vim-clojure-static', {'for': 'clojure'}
 Plug 'tpope/vim-classpath', {'for': 'clojure'}
 Plug 'tpope/vim-foreplay', {'for': 'clojure'}
-" }}}
+"
 
-"Python ---------------------------------------------------------------- {{{
+"Python ----------------------------------------------------------------
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'ivanov/vim-ipython', {'for': 'python'}
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-pyref', {'for': 'python'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
-" }}}
+"
 
-"Web dev -------------------------------------------------------- {{{
+"Web dev --------------------------------------------------------
 Plug 'mattn/emmet-vim'
 Plug 'nono/jquery.vim'
-"}}}
 
-"C/C++ ------------------------------------------------------------ {{{
+
+"C/C++ ------------------------------------------------------------
 Plug 'vim-scripts/Cpp11-Syntax-Support'
 Plug 'vim-scripts/scons.vim'
 Plug 'vim-scripts/a.vim'
-"}}}
 
-"Scala ---------------------------------------------------------------- {{{
+
+"Scala ----------------------------------------------------------------
 Plug 'derekwyatt/vim-scala', {'for': 'scala'}
-" }}}
+"
 
-"Erlang ---------------------------------------------------------------- {{{
+"Erlang ----------------------------------------------------------------
 Plug 'jimenezrick/vimerl', {'for': 'erlang'}
 Plug 'edkolev/erlang-motions.vim', {'for': 'erlang'}
-" }}}
+"
 
-"Latex ---------------------------------------------------------------- {{{
+"Latex ----------------------------------------------------------------
 Plug 'mineiro/vim-latex', {'for': 'tex'}
-" }}}
+"
 
-"Objective-J ---------------------------------------------------------------- {{{
+"Objective-J ----------------------------------------------------------------
 Plug 'nanki/vim-objj', {'for': 'objj'}
-" }}}
+"
 
-"Json ---------------------------------------------------------------- {{{
+"Json ----------------------------------------------------------------
 Plug 'leshill/vim-json', {'for': 'json'}
-" }}}
+"
 
-"Objc ---------------------------------------------------------------- {{{
+"Objc ----------------------------------------------------------------
 Plug 'msanders/cocoa.vim', {'for': 'objc'}
-" }}}
+"
 
-"R ---------------------------------------------------------------- {{{
+"R ----------------------------------------------------------------
 Plug 'vim-scripts/Vim-R-plugin', {'for': 'r'}
-" }}}
+"
 
-"Drake ---------------------------------------------------------------- {{{
+"Drake ----------------------------------------------------------------
 Plug 'https://bitbucket.org/larsyencken/vim-drake-syntax.git'
-" }}}
+"
 
-"RST ---------------------------------------------------------------- {{{
+"RST ----------------------------------------------------------------
 Plug 'vim-scripts/rest.vim'
 Plug 'vim-scripts/VST'
 Plug 'nvie/vim-rst-tables'
 Plug 'vim-scripts/DotOutlineTree'
-" }}}
+"
 
-"Other ---------------------------------------------------------------- {{{
+"Other ----------------------------------------------------------------
 "Plug 'matthias-guenther/hammer.vim'
 Plug 'vim-scripts/SearchComplete'
 Plug 'tsaleh/vim-align'
@@ -126,6 +126,9 @@ Plug 'goldfeld/vim-seek'
 Plug 'vim-scripts/LargeFile'
 "vim scripting
 Plug 'vim-scripts/reload.vim'
+
+Plug 'christoomey/vim-tmux-navigator'
+
 
 call plug#end()
 "Alt key
@@ -167,9 +170,9 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     set guifont=PragmataPro:h15
     set lazyredraw
 endif
-" }}}
+"
 
-"Vim Settings---------------------------------------------------------------- {{{
+"Vim Settings----------------------------------------------------------------
 
 "let mapleader=","
 let mapleader="\<Space>"
@@ -279,9 +282,9 @@ set notimeout
 set ttimeout
 set ttimeoutlen=10
 
-" }}}
+"
 
-"Completion/Wildmenu ----------------------------------------------------------- {{{
+"Completion/Wildmenu -----------------------------------------------------------
 set wildmode=longest:full
 set wildmenu
 set completeopt=menu,preview
@@ -312,9 +315,9 @@ set wildignore+=*.beam
 set wildignore+=classes
 set wildignore+=lib
 
-" }}}
+"
 
-" Buffer/Tab/Window nativgation ----------------------------------------------------------- {{{
+" Buffer/Tab/Window nativgation -----------------------------------------------------------
 set hidden "Allows to change buffer w/o saving current buffer
 
 
@@ -360,9 +363,9 @@ noremap <silent><Leader>wv :vsplit <CR>
 "location list
 noremap <silent> <leader>lo :lopen<CR>
 
-" }}}
+"
 
-"Some more-------------------------------------------------- {{{
+"Some more--------------------------------------------------
 nmap <silent> <Leader>ev :vsplit $HOME/.vimrc<CR>
 nmap <silent> <Leader>sv :so $HOME/.vimrc<CR>
 
@@ -379,9 +382,9 @@ vnoremap <M-k> :m-2<CR>gv=gv
 inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 "urlview
 noremap <silent><leader>u :! urlview %<CR>
-" }}}
+"
 
-"Search Settings -------------------------------------------------- {{{
+"Search Settings --------------------------------------------------
 
 nnoremap / /\v
 vnoremap / /\v
@@ -397,9 +400,9 @@ map <silent><Leader><space> :noh<CR>
 
 "Spell Checking
 map <leader>ss :setlocal spell! spelllang=en_us<cr>
-" }}}
+"
 
-"Folding ------------------------------------------------ {{{
+"Folding ------------------------------------------------
 " Javadoc comments (/** and */ pairs) and code sections (marked by {} pairs) mark the start and end of folds. All other
 " lines simply take the fold level that is going so far.
 function! MyFoldLevel( lineNumber )
@@ -415,9 +418,9 @@ function! MyFoldLevel( lineNumber )
   return '='
 endfunction
 
-"}}}
 
-" Default Tabs, spaces, wrapping ------------------------------------ {{{
+
+" Default Tabs, spaces, wrapping ------------------------------------
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -426,9 +429,9 @@ set wrap
 set textwidth=85
 set formatoptions=qrn1
 
-" }}}
+"
 
-"Filetype Settings -------------------------------------------------{{{
+"Filetype Settings -------------------------------------------------
 if has("autocmd")
     "All filetypes
     "remove trailing whitespaces
@@ -529,9 +532,9 @@ if has("autocmd")
 
 endif
 
-" }}}
+"
 
-"Python Settings/Plugins --------------------------------------------- {{{
+"Python Settings/Plugins ---------------------------------------------
 function! PythonTidySaver()
     let oldpos=getpos('.')
     %!PythonTidy
@@ -610,9 +613,9 @@ let g:jedi#popup_on_dot = 0
 "Plug 'fs111/pydoc.vim'
 let g:pydoc_cmd='/usr/local/bin/pydoc'
 
-" }}}
+"
 
-"Latex Plugin ---------------------------------------------------- {{{
+"Latex Plugin ----------------------------------------------------
 
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf = 'mkdir -p latex-build; /usr/texbin/pdflatex -output-directory latex-build -interaction nonstopmode $*; cp latex-build/*.pdf .'
@@ -629,9 +632,9 @@ let g:Tex_IgnoredWarnings =
                 \'LaTeX Warning:' " float stuck
 let g:Tex_IgnoreLevel = 8
 
-" }}}
+"
 
-"NerdTree Plugin---------------------------------------------------- {{{
+"NerdTree Plugin----------------------------------------------------
 
 nmap <silent><Leader>ft :NERDTreeToggle<CR>
 nmap <silent><leader>nf :NERDTreeFind<CR>
@@ -652,9 +655,9 @@ if has("autocmd")
     autocmd Filetype nerdtree setlocal nolist
 endif
 
-" }}}
+"
 
-"Ultinips Settings------------------------------------------------------- {{{
+"Ultinips Settings-------------------------------------------------------
 if has('python')
 
     let g:UltiSnipsEditSplit='vertical'
@@ -676,21 +679,21 @@ if has('python')
 
 endif
 
-" }}}
+"
 
-"Objective-J Settings--------------------------------------------------------- {{{
+"Objective-J Settings---------------------------------------------------------
 "vim objj
 set runtimepath+=~/.vim/bundle/vim-objj
 
-" }}}
+"
 
-"Ack plugin -----------------------------------------------------------------{{{
+"Ack plugin -----------------------------------------------------------------
 nnoremap <Leader>ag :Ack --follow <C-r><C-w>
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-" }}}
+"
 
-"ZoomWin plugin ------------------------------------------------------------{{{
+"ZoomWin plugin ------------------------------------------------------------
 
 nnoremap <Leader>z :ZoomWin<CR>
 inoremap <Leader>z <ESC>:ZoomWin<CR>
@@ -699,21 +702,21 @@ inoremap <Leader>z <ESC>:ZoomWin<CR>
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
-" }}}
+"
 
-"OpenTerminal plugin -------------------------------------------------------- {{{
+"OpenTerminal plugin --------------------------------------------------------
 
 nnoremap <silent><Leader>of :OpenFilemanager<CR><CR>
 
-" }}}
+"
 
-"Easymotion plugin ---------------------------------------------------------- {{{
+"Easymotion plugin ----------------------------------------------------------
 
 let g:EasyMotion_leader_key = 'e'
 
-" }}}
+"
 
-"Yankring plugin ------------------------------------------------------------- {{{
+"Yankring plugin -------------------------------------------------------------
 Plug 'vim-scripts/YankRing.vim'
 
 nnoremap <silent><Leader>y :YRShow<cr>
@@ -724,9 +727,9 @@ let g:yankring_history_file = 'yankring_history'
 nnoremap <leader>Y :call system('nc localhost 8377', @0)<CR>
 
 
-" }}}
+"
 
-"Neocomplete plugin ---------------------------------------------------------- {{{
+"Neocomplete plugin ----------------------------------------------------------
 
 " Disable AutoComplPop.
 "let g:acp_enableAtStartup = 0
@@ -739,9 +742,9 @@ let g:neocomplcache_enable_camel_case_completion = 1
 " AutoComplPop like behavior.
 let g:neocomplcache_enable_auto_select = 1
 
-" }}}
+"
 
-"Git plugins ------------------------------------------------------------------ {{{
+"Git plugins ------------------------------------------------------------------
 "fugitive
 
 nnoremap <Leader>gd :Gdiff<CR>
@@ -762,9 +765,9 @@ if has('python')
     let g:gundo_preview_bottom = 1
 endif
 
-" }}}
+"
 
-"SQL plugin's --------------------------------------------------{{{
+"SQL plugin's --------------------------------------------------
 "dbext <Leaeder>se
 let dbext_default_DB2_bin='db2batch'
 "let g:dbext_default_DB2_cmd_options="-q on -s off -l ';'"
@@ -774,17 +777,17 @@ let dbext_default_DB2_bin='db2batch'
 "output command
 "let dbext_default_display_cmd_line=1
 
-"}}}
 
-"Swap parameters plugin-------------------------------------------------{{{
+
+"Swap parameters plugin-------------------------------------------------
 if has('python')
     noremap gb :call SwapParams("forwards")<cr>
     noremap gB :call SwapParams("backwards")<cr>
 endif
 
-"}}}
 
-"Ctrl-p plugin-----------------------------------------------------------------{{{
+
+"Ctrl-p plugin-----------------------------------------------------------------
 
 let g:ctrlp_map = '<leader>ff'
 let g:ctrlp_jump_to_buffer = 0
@@ -814,9 +817,9 @@ nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>mr :CtrlPMRUFiles<cr>
 
 
-"}}}
 
-"TAGS Settings ---------------------------------------------------------{{{
+
+"TAGS Settings ---------------------------------------------------------
 if executable('ctags')
     map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
     map <Leader>/ :exe '!ctags -R . ./tags'
@@ -831,9 +834,9 @@ if executable('ctags')
     "Tagbar Plugin Settings
     nmap <silent><Leader>k :TagbarToggle<CR>
 endif
-" }}}
+"
 
-"Visualization ---------------------------------------------------------{{{
+"Visualization ---------------------------------------------------------
 "Powerline
 " Plug 'Lokaltog/vim-powerline'
 " let g:Powerline_symbols = "fancy"
@@ -850,13 +853,13 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#998f84 ctermbg=245
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#d9cec3 ctermbg=252
 
 "
-" }}}
+"
 
-" TimeStamp plugin--------------------------------------------------{{{
+" TimeStamp plugin--------------------------------------------------
 "autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
-" }}}
+"
 
-" Syntastic plugin ---------------------------------------------------------- {{{
+" Syntastic plugin ----------------------------------------------------------
 "checks syntax for multiple file type install
 "   - cpp , c g++, gcc
 "   - flake8 or pyflakes or pylint for python
@@ -880,15 +883,15 @@ let g:syntastic_erlang_checkers=['syntaxerl']
 let g:syntastic_javascript_checkers = ['jshint']
 
 
-" }}}
+"
 
-"Gitst plugin ------------------------------------------------------ {{{
+"Gitst plugin ------------------------------------------------------
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 
-"}}}
 
-"Comments---------------------------------------------------------------{{{
+
+"Comments---------------------------------------------------------------
 "Plug 'scrooloose/nerdcommenter'
 
 xmap <Leader>c  <Plug>Commentary
@@ -905,9 +908,9 @@ au FileType python setlocal commentstring=#\ %s
 " vnoremap <silent><leader>c :TComment<CR>
 "
 " let g:tcomment_jinja="{#\ %s \#}""
-"}}}
 
-" Tmux -----------------------------------------------------------------{{{
+
+" Tmux -----------------------------------------------------------------
 if executable("tmux")
     "Plug 'vim-scripts/Screen-vim---gnu-screentmux'
     " Plug 'acustodioo/vim-tmux'
@@ -927,9 +930,9 @@ if executable("tmux")
 
 endif
 
-" }}}
+"
 
-"C/C++ ------------------------------------------------------------ {{{
+"C/C++ ------------------------------------------------------------
 
 
 " Plug 'Rip-Rip/clang_complete'
@@ -952,9 +955,9 @@ nmap <silent><Leader> cm :YcmForceCompileAndDiagnostics<CR>
 let g:ycm_filetype_specific_completion_to_disable = {'erl':1, 'hrl':1}
 
 set makeprg=scons
-"}}}
 
-"Other ----------------------------------------------------- {{{
+
+"Other -----------------------------------------------------
 "Task Management
 "Plug 'chrisbra/csv.vim'
 command! CsvCleanup :%s/\%x0d/\r/
@@ -974,14 +977,13 @@ let g:rbpt_max = 16
 " au VimEnter * RainbowParenthesesToggle
 
 
-" }}}
+"
 
-"Erlang ---------------------------------------------------------------- {{{
+"Erlang ----------------------------------------------------------------
 let erlang_force_use_vimerl_indent = 0
 let erlang_skel_header = { "author": "Locojay", "owner" : "Locojay" }
 let erlang_folding=1
-                          "
+
 "use syntastic
 let erlang_show_errors = 0
-" }}}
-
+"

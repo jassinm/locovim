@@ -1,5 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
+let g:python_host_prog = '/Users/locojay/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog  = '/Users/locojay/.pyenv/versions/neovim3/bin/python'
 " Look good ----------------------------------------------------------------
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
@@ -42,12 +44,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 "
 
-"Clojure ----------------------------------------------------------------
-Plug 'guns/vim-clojure-static', {'for': 'clojure'}
-Plug 'tpope/vim-classpath', {'for': 'clojure'}
-Plug 'tpope/vim-foreplay', {'for': 'clojure'}
-"
-
 "Python ----------------------------------------------------------------
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'ivanov/vim-ipython', {'for': 'python'}
@@ -76,20 +72,9 @@ Plug 'jimenezrick/vimerl', {'for': 'erlang'}
 Plug 'edkolev/erlang-motions.vim', {'for': 'erlang'}
 "
 
-"Latex ----------------------------------------------------------------
-Plug 'mineiro/vim-latex', {'for': 'tex'}
-"
-
-"Objective-J ----------------------------------------------------------------
-Plug 'nanki/vim-objj', {'for': 'objj'}
-"
-
 "Json ----------------------------------------------------------------
 Plug 'leshill/vim-json', {'for': 'json'}
 "
-
-"Objc ----------------------------------------------------------------
-Plug 'msanders/cocoa.vim', {'for': 'objc'}
 "
 
 "R ----------------------------------------------------------------
@@ -111,7 +96,7 @@ Plug 'vim-scripts/DotOutlineTree'
 "Plug 'matthias-guenther/hammer.vim'
 Plug 'vim-scripts/SearchComplete'
 Plug 'tsaleh/vim-align'
-Plug 'IndexedSearch'
+"Plug 'IndexedSearch'
 "Editing
 Plug 'kana/vim-smartinput'
 "help
@@ -139,7 +124,7 @@ endif
 "Set up the window colors and size
 if has('gui_running')
     " GUI colors
-    set background=dark
+    "set background=dark
     colorscheme gruvbox
 
     "set guifont=Monaco:h12
@@ -154,17 +139,12 @@ if has('gui_running')
     winsize 270 70
     set go-=L
     set go-=r
+    let g:gruvbox_contrast_dark='hard'
 elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     " Non-GUI (terminal) colors
-    "set t_Co=256
-    "colorscheme jellybeans
-    " colorscheme jellybeans_locojay
-    "let g:molokai_original=1
-    "let g:rehash256=1
-    "colorscheme badwolf
-    "colorscheme molokai
 
-    set background=dark
+    let g:gruvbox_contrast_dark='hard'
+    let g:gruvbox_termcolors=256
     colorscheme  gruvbox
     "set guifont=Monaco:h12
     set guifont=PragmataPro:h15
@@ -526,9 +506,6 @@ if has("autocmd")
     "C++11
     autocmd BufNewFile,BufRead *.cpp set syntax=cpp11
     autocmd BufNewFile,BufRead *.hpp set syntax=cpp11
-
-
-
 
 endif
 
@@ -896,7 +873,7 @@ let g:gist_detect_filetype = 1
 
 xmap <Leader>c  <Plug>Commentary
 nmap <Leader>c  <Plug>Commentary
-nmap <Leader>cc <Plug>CommentaryLine
+nmap <Leader>cl <Plug>CommentaryLine
 au FileType htmldjango setlocal commentstring={#\ %s\ #}
 au FileType jinja setlocal commentstring={#\ %s\ #}
 au FileType clojurescript setlocal commentstring=;\ %s

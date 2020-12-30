@@ -4,37 +4,36 @@ let g:python_host_prog = '/Users/locojay/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog  = '/Users/locojay/.pyenv/versions/neovim3/bin/python'
 " Look good ----------------------------------------------------------------
 Plug 'morhetz/gruvbox'
-Plug 'nanotech/jellybeans.vim'
-Plug 'sjl/badwolf'
-Plug 'tomasr/molokai'
-Plug 'godlygeek/csapprox'
-Plug 'altercation/vim-colors-solarized'
-Plug 'sickill/vim-monokai'
+"Plug 'nanotech/jellybeans.vim'
+"Plug 'sjl/badwolf'
+"Plug 'tomasr/molokai'
+"Plug 'godlygeek/csapprox'
+"Plug 'altercation/vim-colors-solarized'
+"Plug 'sickill/vim-monokai'
 
 
 " Latest ----------------------------------------------------------------
 Plug 'Lokaltog/vim-easymotion'
-Plug 'xaviershay/tslime.vim'
 Plug 'SirVer/ultisnips'
 Plug 'scrooloose/nerdtree'
 Plug 'mileszs/ack.vim'
-Plug 'vim-scripts/ZoomWin'
-Plug 'vim-scripts/open-terminal-filemanager'
+"Plug 'vim-scripts/ZoomWin'
+"Plug 'vim-scripts/open-terminal-filemanager'
 Plug 'Shougo/neocomplcache'
-Plug 'gregsexton/gitv'
 Plug 'sjl/gundo.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/swap-parameters'
-Plug 'xolox/vim-easytags'
+"Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 Plug 'bling/vim-airline'
-Plug 'scrooloose/syntastic'
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
-Plug 'gmarik/sudo-gui.vim'
+"Plug 'scrooloose/syntastic'
+"Plug 'mattn/gist-vim'
+"Plug 'gmarik/sudo-gui.vim'
 Plug 'gcmt/wildfire.vim'
+Plug 'vim-scripts/YankRing.vim'
 "
 
+Plug 'sheerun/vim-polyglot'
 "Tpope plugins --------------------------------------------
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -45,21 +44,22 @@ Plug 'tpope/vim-speeddating'
 "
 
 "Python ----------------------------------------------------------------
+"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'}
+Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
-Plug 'ivanov/vim-ipython', {'for': 'python'}
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-pyref', {'for': 'python'}
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
+"Plug 'ivanov/vim-ipython', {'for': 'python'}
+"Plug 'xolox/vim-pyref', {'for': 'python'}
+"Plug 'davidhalter/jedi-vim', {'for': 'python'} /# moved to  coc.vim and  coc-python
+
 "
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Web dev --------------------------------------------------------
 Plug 'mattn/emmet-vim'
-Plug 'nono/jquery.vim'
 
 
 "C/C++ ------------------------------------------------------------
-Plug 'vim-scripts/Cpp11-Syntax-Support'
-Plug 'vim-scripts/scons.vim'
+"Plug 'vim-scripts/scons.vim'
 Plug 'vim-scripts/a.vim'
 
 
@@ -70,26 +70,6 @@ Plug 'derekwyatt/vim-scala', {'for': 'scala'}
 "Erlang ----------------------------------------------------------------
 Plug 'jimenezrick/vimerl', {'for': 'erlang'}
 Plug 'edkolev/erlang-motions.vim', {'for': 'erlang'}
-"
-
-"Json ----------------------------------------------------------------
-Plug 'leshill/vim-json', {'for': 'json'}
-"
-"
-
-"R ----------------------------------------------------------------
-Plug 'vim-scripts/Vim-R-plugin', {'for': 'r'}
-"
-
-"Drake ----------------------------------------------------------------
-Plug 'https://bitbucket.org/larsyencken/vim-drake-syntax.git'
-"
-
-"RST ----------------------------------------------------------------
-Plug 'vim-scripts/rest.vim'
-Plug 'vim-scripts/VST'
-Plug 'nvie/vim-rst-tables'
-Plug 'vim-scripts/DotOutlineTree'
 "
 
 "Other ----------------------------------------------------------------
@@ -112,10 +92,12 @@ Plug 'vim-scripts/LargeFile'
 "vim scripting
 Plug 'vim-scripts/reload.vim'
 
-Plug 'christoomey/vim-tmux-navigator'
-
+Plug 'christoomey/vim-tmux-runner'
+Plug 'xaviershay/tslime.vim'
+"Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
+
 "Alt key
 if has("gui_mac")
     set macmeta
@@ -129,9 +111,9 @@ if has('gui_running')
 
     "set guifont=Monaco:h12
     if has("gui_gtk2")
-        set guifont=PragmataPro\ 15
+        set guifont=PragmataPro Mono\ 15
     else
-        set guifont=PragmataPro:h15
+        set guifont=PragmataPro\ Mono:h15
     endif
     set guioptions=egmrt
     set guioptions-=T
@@ -147,7 +129,7 @@ elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
     let g:gruvbox_termcolors=256
     colorscheme  gruvbox
     "set guifont=Monaco:h12
-    set guifont=PragmataPro:h15
+    set guifont=PragmataPro\ Mono:h15
     set lazyredraw
 endif
 "
@@ -509,6 +491,19 @@ if has("autocmd")
 
 endif
 
+
+
+"Coc-python
+autocmd FileType python nmap <silent> gd <Plug>(coc-definition)
+autocmd FileType python nmap <leader>rn <Plug>(coc-rename)
+autocmd FileType python noremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 "
 
 "Python Settings/Plugins ---------------------------------------------
@@ -520,7 +515,7 @@ endfunction
 
 "autocmd! bufwritepost *.py call PythonTidySaver()
 "Virtualenv
-if  has('python')
+if has('python')
     if !empty($VIRTUAL_ENV)
         let g:virtualenv_auto_activate=1
     endif
@@ -539,7 +534,7 @@ endif
 
 "tmux does no like C-s
 let g:ipy_perform_mappings = 0
-autocmd FileType python map<silent>K :py get_doc_buffer()<CR>
+"autocmd FileType python map<silent>K :py get_doc_buffer()<CR>
 autocmd FileType python map<silent><C-i> :python run_this_line()<CR>
 autocmd FileType python vmap <silent> <C-i> :python run_these_lines()<CR>
 function! IPythonShell()
@@ -592,25 +587,6 @@ let g:pydoc_cmd='/usr/local/bin/pydoc'
 
 "
 
-"Latex Plugin ----------------------------------------------------
-
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_CompileRule_pdf = 'mkdir -p latex-build; /usr/texbin/pdflatex -output-directory latex-build -interaction nonstopmode $*; cp latex-build/*.pdf .'
-let g:Tex_ViewRule_pdf = 'Preview'
-let g:Tex_IgnoredWarnings="Font""\n"
-let g:Tex_IgnoredWarnings =
-                \'Underfull'."\n".
-                \'Overfull'."\n".
-                \'specifier changed to'."\n".
-                \'You have requested'."\n".
-                \'Missing number, treated as zero.'."\n".
-                \'There were undefined references'."\n".
-                \'Latex Warning:'."\n".
-                \'LaTeX Warning:' " float stuck
-let g:Tex_IgnoreLevel = 8
-
-"
-
 "NerdTree Plugin----------------------------------------------------
 
 nmap <silent><Leader>ft :NERDTreeToggle<CR>
@@ -658,12 +634,6 @@ endif
 
 "
 
-"Objective-J Settings---------------------------------------------------------
-"vim objj
-set runtimepath+=~/.vim/bundle/vim-objj
-
-"
-
 "Ack plugin -----------------------------------------------------------------
 nnoremap <Leader>ag :Ack --follow <C-r><C-w>
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -694,7 +664,6 @@ let g:EasyMotion_leader_key = 'e'
 "
 
 "Yankring plugin -------------------------------------------------------------
-Plug 'vim-scripts/YankRing.vim'
 
 nnoremap <silent><Leader>y :YRShow<cr>
 inoremap <silent><Leader>y <ESC>:YRShow<cr>
@@ -736,7 +705,6 @@ nnoremap <Leader>gcaa :Git commit -a --amend -C HEAD
 
 "Gundo plugin
 if has('python')
-
     nnoremap <Leader>gu :GundoToggle<CR>
     "let g:gundo_debug = 1
     let g:gundo_preview_bottom = 1
@@ -794,8 +762,6 @@ nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>mr :CtrlPMRUFiles<cr>
 
 
-
-
 "TAGS Settings ---------------------------------------------------------
 if executable('ctags')
     map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
@@ -829,8 +795,6 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#998f84 ctermbg=245
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#d9cec3 ctermbg=252
 
-"
-"
 
 " TimeStamp plugin--------------------------------------------------
 "autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
@@ -869,8 +833,6 @@ let g:gist_detect_filetype = 1
 
 
 "Comments---------------------------------------------------------------
-"Plug 'scrooloose/nerdcommenter'
-
 xmap <Leader>c  <Plug>Commentary
 nmap <Leader>c  <Plug>Commentary
 nmap <Leader>cl <Plug>CommentaryLine
@@ -880,19 +842,10 @@ au FileType clojurescript setlocal commentstring=;\ %s
 au FileType scons setlocal commentstring=#\ %s
 au FileType python setlocal commentstring=#\ %s
 
-" Plug "tomtom/tcomment_vim"
-" nnoremap <silent><leader>c :TComment<CR>
-" vnoremap <silent><leader>c :TComment<CR>
 "
-" let g:tcomment_jinja="{#\ %s \#}""
-
 
 " Tmux -----------------------------------------------------------------
 if executable("tmux")
-    "Plug 'vim-scripts/Screen-vim---gnu-screentmux'
-    " Plug 'acustodioo/vim-tmux'
-    " Plug 'benmills/vimux'
-
 
     "change pane number at runtime by setting
     function! TmuxPaneNumber()
@@ -904,6 +857,13 @@ if executable("tmux")
     " Save when losing focus
     " " Save when losing focus
     " au FocusLost * :silent! wall
+
+    "vim tmux-runner
+    let g:VtrStripLeadingWhitespace = 0
+    let g:VtrClearEmptyLines = 0
+    let g:VtrAppendNewline = 1
+    nmap <leader>sr :VtrSendLinesToRunner<CR>
+    vmap <leader>sr :VtrSendLinesToRunner<CR>
 
 endif
 
@@ -939,22 +899,10 @@ set makeprg=scons
 "Plug 'chrisbra/csv.vim'
 command! CsvCleanup :%s/\%x0d/\r/
 
-if has('ruby')
-    "rst"
-    let g:mdown_preview_cmd="/Users/locojay/.cabal/bin/pandoc -s --highlight-style pygments"
-    Plug 'tpope/vim-markdown'
-    Plug 'itspriddle/vim-marked'
-endif
-
-
-
 "Rainbow Parenthesis
 let g:rbpt_max = 16
 " autocmd FileType clojure RainbowParenthesesToggle
 " au VimEnter * RainbowParenthesesToggle
-
-
-"
 
 "Erlang ----------------------------------------------------------------
 let erlang_force_use_vimerl_indent = 0

@@ -253,10 +253,8 @@ set wildmode=longest:full
 set wildmenu
 set completeopt=menu,preview
 "autoclose preview window
-if has("autocmd")
-    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-endif
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "omnifocus as constrol space
 " inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 "             \ "\<lt>C-n>" :
@@ -625,9 +623,7 @@ command! CsvCleanup :%s/\%x0d/\r/
 " au VimEnter * RainbowParenthesesToggle
 
 "Erlang ----------------------------------------------------------------
-if has("autocmd")
-    autocmd FileType erlang setlocal ts=8 sts=4 sw=4 expandtab
-endif
+autocmd FileType erlang setlocal ts=8 sts=4 sw=4 expandtab
 let erlang_force_use_vimerl_indent = 0
 let erlang_skel_header = { "author": "Locojay", "owner" : "Locojay" }
 let erlang_folding=1
@@ -636,82 +632,81 @@ let erlang_folding=1
 let erlang_show_errors = 0
 
 "Filetype Settings -------------------------------------------------
-if has("autocmd")
-    "All filetypes
-    "remove trailing whitespaces
-    autocmd BufWritePre * :%s/\s\+$//e
 
-    "vim
-    au FileType vim setlocal foldmethod=marker
+"All filetypes
+"remove trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e
 
-    "Large files
-    autocmd BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetype=| endif
+"vim
+au FileType vim setlocal foldmethod=marker
 
-    "Help
-    "help in vertical split
-    autocmd FileType help wincmd L
+"Large files
+autocmd BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetype=| endif
 
-    " R
-    autocmd FileType r setlocal ts=8 sts=4 sw=4 expandtab
+"Help
+"help in vertical split
+autocmd FileType help wincmd L
 
-    "Html
-    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
+" R
+autocmd FileType r setlocal ts=8 sts=4 sw=4 expandtab
 
-    "Yml
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+"Html
+autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType htmldjango setlocal ts=2 sts=2 sw=2 expandtab
 
-    "
-    "Clojure"
-    " autocmd FileType clojure set ts=2 sts=2 sw=2 expandtab
-    autocmd FileType clojure compiler clojure
-    autocmd FileType clojure silent! call TurnOnClojureFolding()
-    autocmd BufNewFile,BufRead *.clj set filetype=clojure
-    autocmd Filetype clojure setlocal lispwords+=defpage,defpartial,deftest,defroute
+"Yml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-    "clojurescript
-    autocmd BufNewFile,BufRead *.cljs set filetype=clojure
+"
+"Clojure"
+" autocmd FileType clojure set ts=2 sts=2 sw=2 expandtab
+autocmd FileType clojure compiler clojure
+autocmd FileType clojure silent! call TurnOnClojureFolding()
+autocmd BufNewFile,BufRead *.clj set filetype=clojure
+autocmd Filetype clojure setlocal lispwords+=defpage,defpartial,deftest,defroute
 
-    "
-    "Css
-    autocmd Filetype css set omnifunc=csscomplete#CompleteCSS
+"clojurescript
+autocmd BufNewFile,BufRead *.cljs set filetype=clojure
 
-    "Javascript
-    autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+"
+"Css
+autocmd Filetype css set omnifunc=csscomplete#CompleteCSS
 
-    "Tex
-    autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
+"Javascript
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
-    "Json
-    autocmd BufNewFile,BufRead *.json setfiletype json
+"Tex
+autocmd FileType tex setlocal ts=8 sts=4 sw=4 expandtab
 
-    "Processing
-    autocmd BufNewFile,BufRead *.pde setfiletype processing
+"Json
+autocmd BufNewFile,BufRead *.json setfiletype json
 
-    "Pweave
-    autocmd BufNewFile,BufRead *.Pnw set filetype=python
+"Processing
+autocmd BufNewFile,BufRead *.pde setfiletype processing
 
-    "Objective-j
-    au BufNewFile,BufRead *.j  setfiletype objc
-    au BufNewFile,BufRead *.j  setlocal ts=8 sts=4 sw=4 expandtab
-    au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
-    au BufNewFile,BufRead *.j setlocal foldmethod=expr
+"Pweave
+autocmd BufNewFile,BufRead *.Pnw set filetype=python
 
-    "Java
-    au Filetype java setlocal foldexpr=MyFoldLevel(v:lnum)
-    au Filetype java setlocal foldmethod=expr
+"Objective-j
+au BufNewFile,BufRead *.j  setfiletype objc
+au BufNewFile,BufRead *.j  setlocal ts=8 sts=4 sw=4 expandtab
+au BufNewFile,BufRead *.j setlocal foldexpr=MyFoldLevel(v:lnum)
+au BufNewFile,BufRead *.j setlocal foldmethod=expr
 
-    "Sweave
-    au BufNewFile,BufRead *.Rnw map <Leader>swe :execute '!/usr/local/bin/R CMD Sweave '.expand('%:p')<CR>
+"Java
+au Filetype java setlocal foldexpr=MyFoldLevel(v:lnum)
+au Filetype java setlocal foldmethod=expr
 
-    au BufRead ~/.mutt/temp/mutt* set spell
-    "Mutt
+"Sweave
+au BufNewFile,BufRead *.Rnw map <Leader>swe :execute '!/usr/local/bin/R CMD Sweave '.expand('%:p')<CR>
 
-    "Scala
-    autocmd BufNewFile,BufRead *.scala set filetype=scala
+au BufRead ~/.mutt/temp/mutt* set spell
+"Mutt
 
-    "Scons
-    autocmd BufNewFile,BufRead SConstruct set filetype=scons
+"Scala
+autocmd BufNewFile,BufRead *.scala set filetype=scala
 
-endif
+"Scons
+autocmd BufNewFile,BufRead SConstruct set filetype=scons
+

@@ -1,36 +1,37 @@
 call plug#begin('~/.vim/plugged')
 
-let g:python_host_prog = '/Users/locojay/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog  = '/Users/locojay/.pyenv/versions/neovim3/bin/python'
-" Look good ----------------------------------------------------------------
+"let g:python_host_prog = '/Users/locojay/.pyenv/versions/neovim2/bin/python'
+"let g:python3_host_prog  = '/Users/locojay/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog  = '/usr/local/bin/python3'
 Plug 'morhetz/gruvbox'
-"Plug 'nanotech/jellybeans.vim'
+Plug 'bling/vim-airline'
+Plug 'mhinz/vim-startify'
+Plug 'pineapplegiant/spaceduck'
 "Plug 'sjl/badwolf'
-"Plug 'tomasr/molokai'
-"Plug 'godlygeek/csapprox'
-"Plug 'altercation/vim-colors-solarized'
-"Plug 'sickill/vim-monokai'
 
-
-" Latest ----------------------------------------------------------------
+" File Management ----------------------------------------------------------------
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'kien/ctrlp.vim'
+"Plug 'mileszs/ack.vim'
+"
+"Time Machine
+Plug 'sjl/gundo.vim'
+Plug 'vim-scripts/YankRing.vim'
+"
 Plug 'Lokaltog/vim-easymotion'
 Plug 'SirVer/ultisnips'
-Plug 'scrooloose/nerdtree'
-Plug 'mileszs/ack.vim'
 "Plug 'vim-scripts/ZoomWin'
 "Plug 'vim-scripts/open-terminal-filemanager'
-Plug 'Shougo/neocomplcache'
-Plug 'sjl/gundo.vim'
-Plug 'kien/ctrlp.vim'
-Plug 'vim-scripts/swap-parameters'
+"Plug 'vim-scripts/swap-parameters'
 "Plug 'xolox/vim-easytags'
-Plug 'majutsushi/tagbar'
-Plug 'bling/vim-airline'
+"Plug 'majutsushi/tagbar'
 "Plug 'scrooloose/syntastic'
 "Plug 'mattn/gist-vim'
 "Plug 'gmarik/sudo-gui.vim'
 Plug 'gcmt/wildfire.vim'
-Plug 'vim-scripts/YankRing.vim'
 "
 
 Plug 'sheerun/vim-polyglot'
@@ -42,38 +43,47 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-speeddating'
 "
+Plug 'airblade/vim-gitgutter'        " shows git changes in gutter
+
+
+Plug 'reinh/vim-makegreen'
 
 "Python ----------------------------------------------------------------
 "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'}
-Plug 'Vimjas/vim-python-pep8-indent'
+"Plug 'nvie/vim-pyunit', {'for': 'python'}
+Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
+Plug 'fisadev/vim-isort', {'for': 'python'} " Python sort imports [dep]: pip3 install isort
+Plug 'tmhedberg/SimpylFold', {'for': 'python'} " Code folding (zo: open, zc: close)
 "Plug 'ivanov/vim-ipython', {'for': 'python'}
 "Plug 'xolox/vim-pyref', {'for': 'python'}
 "Plug 'davidhalter/jedi-vim', {'for': 'python'} /# moved to  coc.vim and  coc-python
 
-"
+" LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'liuchengxu/vista.vim'
+Plug 'dense-analysis/ale' " linter
 
 "Web dev --------------------------------------------------------
-Plug 'mattn/emmet-vim'
-
+Plug 'mattn/emmet-vim', {'for': 'html'}
 
 "C/C++ ------------------------------------------------------------
 "Plug 'vim-scripts/scons.vim'
-Plug 'vim-scripts/a.vim'
-
+Plug 'vim-scripts/a.vim', {'for': 'cpp'}
 
 "Scala ----------------------------------------------------------------
 Plug 'derekwyatt/vim-scala', {'for': 'scala'}
 "
-
 "Erlang ----------------------------------------------------------------
 Plug 'jimenezrick/vimerl', {'for': 'erlang'}
 Plug 'edkolev/erlang-motions.vim', {'for': 'erlang'}
-"
+
+
+"Plug 'karoliskoncevicius/vim-sendtowindow'
+"Tmux
+Plug 'jpalardy/vim-slime'
 
 "Other ----------------------------------------------------------------
-"Plug 'matthias-guenther/hammer.vim'
 Plug 'vim-scripts/SearchComplete'
 Plug 'tsaleh/vim-align'
 "Plug 'IndexedSearch'
@@ -81,20 +91,14 @@ Plug 'tsaleh/vim-align'
 Plug 'kana/vim-smartinput'
 "help
 "Plug 'sjbach/lusty'
-Plug 'kien/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim', {'for': 'erlang'}
 "Nice markers
-Plug 'kshenoy/vim-signature'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'sjl/clam.vim'
-Plug 'AndrewRadev/linediff.vim'
+"Plug 'AndrewRadev/linediff.vim'
 Plug 'goldfeld/vim-seek'
 Plug 'vim-scripts/LargeFile'
 "vim scripting
-Plug 'vim-scripts/reload.vim'
+"Plug 'vim-scripts/reload.vim'
 
-Plug 'christoomey/vim-tmux-runner'
-Plug 'xaviershay/tslime.vim'
-"Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -106,9 +110,7 @@ endif
 "Set up the window colors and size
 if has('gui_running')
     " GUI colors
-    "set background=dark
-    colorscheme gruvbox
-
+    set background=dark
     "set guifont=Monaco:h12
     if has("gui_gtk2")
         set guifont=PragmataPro Mono\ 15
@@ -121,23 +123,25 @@ if has('gui_running')
     winsize 270 70
     set go-=L
     set go-=r
-    let g:gruvbox_contrast_dark='hard'
-elseif $TERM == "xterm-256color" || $TERM == "screen-256color"
+elseif exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
     " Non-GUI (terminal) colors
 
-    let g:gruvbox_contrast_dark='hard'
-    let g:gruvbox_termcolors=256
-    colorscheme  gruvbox
-    "set guifont=Monaco:h12
+    "let g:gruvbox_termcolors=256
     set guifont=PragmataPro\ Mono:h15
-    set lazyredraw
+    "set lazyredraw
 endif
+
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 "
 
 "Vim Settings----------------------------------------------------------------
 
-"let mapleader=","
-let mapleader="\<Space>"
+let mapleader=","
+"let mapleader="\<Space>"
 let maplocalleader = "\\"
 
 "save a keypress
@@ -244,8 +248,6 @@ set notimeout
 set ttimeout
 set ttimeoutlen=10
 
-"
-
 "Completion/Wildmenu -----------------------------------------------------------
 set wildmode=longest:full
 set wildmenu
@@ -277,16 +279,22 @@ set wildignore+=*.beam
 set wildignore+=classes
 set wildignore+=lib
 
-"
 
 " Buffer/Tab/Window nativgation -----------------------------------------------------------
 set hidden "Allows to change buffer w/o saving current buffer
 
+" Some lp servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+" LSP Give more space for displaying messages.
+set cmdheight=2
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
 noremap <silent><Leader>bn :bn<CR>
 noremap <silent><Leader>bp :bp<CR>
 noremap <silent><Leader>ba :1,300 bd!<CR> "close all buffer
-
 
 "Tab commands
 noremap <silent> <Leader>tp :tabprevious<CR>
@@ -302,6 +310,7 @@ noremap <silent><Leader>wk :wincmd k<cr>
 " Move the cursor to the window right of the current one
 noremap <silent><Leader>wl :wincmd l<cr>
 
+
 noremap <silent><Leader>cj :wincmd j<CR>:close<CR>
 noremap <silent><Leader>ck :wincmd k<CR>:close<CR>
 noremap <silent><Leader>ch :wincmd h<CR>:close<CR>
@@ -312,20 +321,14 @@ noremap <silent><Leader>wr :wincmd r<CR>
 noremap <silent><Leader>wo :wincmd o<CR>
 noremap <silent><Leader>wx :wincmd x<CR>
 noremap <silent><Leader>ww :wincmd w<CR>
+noremap <silent><Leader>wq :wincmd q<cr>
 
 
 noremap <silent><Leader>ws :split <CR>
 noremap <silent><Leader>wv :vsplit <CR>
 
-"Quickfix window Settings
-"use vim -unimpaired
-"noremap <silent> ,cn :cn<CR>
-"noremap <silent> ,cp :cp<CR>
-
 "location list
 noremap <silent> <leader>lo :lopen<CR>
-
-"
 
 "Some more--------------------------------------------------
 nmap <silent> <Leader>ev :vsplit $HOME/.vimrc<CR>
@@ -361,8 +364,16 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 map <silent><Leader><space> :noh<CR>
 
 "Spell Checking
-map <leader>ss :setlocal spell! spelllang=en_us<cr>
+"map <leader>ss :setlocal spell! spelllang=en_us<cr>
 "
+"Linter
+" Check Python files with flake8
+let b:ale_linters = ['flake8']
+" Fix Python files with autopep8 and yapf.
+let b:ale_fixers = ['black'] "['autopep8', 'yapf']
+" Disable warnings about trailing whitespace for Python files.
+let b:ale_warn_about_trailing_whitespace = 0
+"let g:ale_fix_on_save = 1
 
 "Folding ------------------------------------------------
 " Javadoc comments (/** and */ pairs) and code sections (marked by {} pairs) mark the start and end of folds. All other
@@ -391,7 +402,238 @@ set wrap
 set textwidth=85
 set formatoptions=qrn1
 
+
+"Git plugins ------------------------------------------------------------------
+"fugitive
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gco :Gcheckout<CR>
+nnoremap <Leader>gci :Gcommit<CR>
+nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>gcaa :Git commit -a --amend -C HEAD
+
+"gitv
+
+"Gundo plugin
+if has('python')
+    nnoremap <Leader>gu :GundoToggle<CR>
+    "let g:gundo_debug = 1
+    let g:gundo_preview_bottom = 1
+endif
+
+
+
+"Swap parameters plugin-------------------------------------------------
+if has('python')
+    noremap gb :call SwapParams("forwards")<cr>
+    noremap gB :call SwapParams("backwards")<cr>
+endif
+
+"Ctrl-p plugin-----------------------------------------------------------------
+let g:ctrlp_map = '<leader>ff'
+let g:ctrlp_jump_to_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 1
+let g:ctrlp_split_window = 0
+let g:ctrlp_max_height = 20
+let g:ctrlp_open_new_file = 'v'
+let g:ctrlp_extensions = ['tag']
+let g:ctrlp_prompt_mappings = {
+\ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
+\ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<tab>'],
+\ 'PrtHistory(-1)':       ['<c-n>'],
+\ 'PrtHistory(1)':        ['<c-p>'],
+\ 'ToggleFocus()':        ['<c-tab>'],
+\ }
+let g:ctrlp_extensions = ['tag']
+" let g:ctrlp_custom_ignore = {
+" \ 'dir' : '\.git/',
+" \
+" \ }
+"let g:ctrlp_dont_split = 'NERD_tree_2'
+
+nnoremap <leader>bb :CtrlPBuffer<cr>
+
+nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>mr :CtrlPMRUFiles<cr>
+
+" NerdTree
+map <Leader>ft :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']  " ignore pyc files
+
+
+"TAGS Settings ---------------------------------------------------------
+if executable('ctags')
+    map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
+    map <Leader>/ :exe '!ctags -R . ./tags'
+
+    " Easy tags plugin
+    let g:easytags_cmd = '/usr/local/bin/ctags'
+    set tags=./tags;
+    let g:easytags_dynamic_files = 1
+    let g:easytags_async = 1
+
+    let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+    "Tagbar Plugin Settings
+    nmap <silent><Leader>k :TagbarToggle<CR>
+endif
 "
+
+"Visualization ---------------------------------------------------------
+"Powerline
+" Plug 'Lokaltog/vim-powerline'
+" let g:Powerline_symbols = "fancy"
+let g:airline_powerline_fonts = 1
+
+
+"IndentationGuide <Leader>ig
+let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#998f84 ctermbg=245
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#d9cec3 ctermbg=252
+
+
+" TimeStamp plugin--------------------------------------------------
+"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
+"
+
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list=2
+let g:syntastic_python_checkers = ['flake8']
+
+"use YoucompleteMe
+" let g:syntastic_cpp_config_file='.clang_complete'
+let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall'
+"erlang
+let g:syntastic_erlang_checkers=['syntaxerl']
+let g:syntastic_javascript_checkers = ['jshint']
+
+
+"Plug "Valloric/YouCompleteMe"
+"let g:ycm_key_detailed_diagnostics=''
+"leave Ultisnips allone
+" let g:ycm_key_list_select_completion=['']
+" let g:ycm_key_list_previous_completion=['']
+
+"Comments---------------------------------------------------------------
+xmap <Leader>c  <Plug>Commentary
+nmap <Leader>c  <Plug>Commentary
+nmap <Leader>cl <Plug>CommentaryLine
+au FileType htmldjango setlocal commentstring={#\ %s\ #}
+au FileType jinja setlocal commentstring={#\ %s\ #}
+au FileType clojurescript setlocal commentstring=;\ %s
+au FileType scons setlocal commentstring=#\ %s
+
+
+" Tmux -----------------------------------------------------------------
+let g:slime_python_ipython = 1
+if executable("tmux")
+    let g:slime_target = "tmux"
+    let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": "1"}
+endif
+
+
+
+"Gitst plugin ------------------------------------------------------
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+
+
+"C/C++ ------------------------------------------------------------
+" Plug 'Rip-Rip/clang_complete'
+" autocmd FileType c let g:clang_user_options = "-std=c99 2>/dev/null || exit 0"
+" autocmd FileType cpp let g:clang_user_options = "-std=c++11 2>/dev/null || exit 0"
+" let g:clang_use_library=1
+" let g:clang_library='/usr/lib'
+" let g:clang_snippets=1
+" let g:clang_snippets_engine='ultisnips'
+" Plug 'osyo-manga/neocomplcache-clang_complete'
+if has("autcmd")
+    autocmd BufNewFile,BufRead *.cpp set syntax=cpp11
+    autocmd BufNewFile,BufRead *.hpp set syntax=cpp11
+endif
+"
+"
+"Python--------------------------------------------------------------
+if has("autcmd")
+    autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
+    autocmd FileType python setlocal autoindent
+    au FileType python setlocal commentstring=#\ %s
+
+    autocmd FileType python compiler nose
+    "autocmd FileType python set omnifunc=pythoncomplete#Complete
+    "autocmd FileType python set formatprg=PythonTidy
+    "autocmd BufNewFile,BufRead *.pyx setlocal foldmethod=indent
+    "Coc-python
+    autocmd FileType python nmap <silent> gd <Plug>(coc-definition)
+    autocmd FileType python nmap <leader>rn <Plug>(coc-rename)
+    autocmd FileType python noremap <silent> K :call <SID>show_documentation()<CR>
+    function! s:show_documentation()
+      if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+      else
+        call CocAction('doHover')
+      endif
+    endfunction
+endif
+"make green plugin
+map <Leader>nose :call MakeGreen()<CR>
+
+if has('python')
+    let g:PyUnitCmd = '/usr/local/share/python/nosetests -q --with-machineout'
+    if !empty($VIRTUAL_ENV)
+        let g:PyUnitCmd = $VIRTUAL_ENV . '/bin/nosetests -q --with-machineout'
+    endif
+    let g:PyUnitTestsStructure="nose"
+    autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
+    autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>
+    autocmd Filetype python noremap <Leader>ut :call PyUnitSwitchToCounterpart()<CR>
+    autocmd Filetype python noremap! <Leader>ut <ESC>:call PyUnitSwitchToCounterpart()<CR>
+endif
+
+let g:vim_isort_map = '<C-i>'
+"Pydoc, Pyref plugin
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#goto_definitions_command = "<leader>D"
+let g:jedi#rename_command = "<leader>r"
+" let g:ycm_key_invoke_completion=''
+nmap <silent><Leader> cm :YcmForceCompileAndDiagnostics<CR>
+let g:ycm_filetype_specific_completion_to_disable = {'erl':1, 'hrl':1}
+
+"autocmd FileType python map<silent>K :py get_doc_buffer()<CR>
+autocmd FileType python map<silent><C-i> :python run_this_line()<CR>
+autocmd FileType python vmap <silent> <C-i> :python run_these_lines()<CR>
+function! IPythonShell()
+  :py if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')
+endfunction
+
+
+
+"using
+
+set makeprg=scons
+
+"Other -----------------------------------------------------
+"Task Management
+command! CsvCleanup :%s/\%x0d/\r/
+
+"Rainbow Parenthesis
+"let g:rbpt_max = 16
+" autocmd FileType clojure RainbowParenthesesToggle
+" au VimEnter * RainbowParenthesesToggle
+
+"Erlang ----------------------------------------------------------------
+if has("autocmd")
+    autocmd FileType erlang setlocal ts=8 sts=4 sw=4 expandtab
+endif
+let erlang_force_use_vimerl_indent = 0
+let erlang_skel_header = { "author": "Locojay", "owner" : "Locojay" }
+let erlang_folding=1
+
+"use syntastic
+let erlang_show_errors = 0
 
 "Filetype Settings -------------------------------------------------
 if has("autocmd")
@@ -419,20 +661,7 @@ if has("autocmd")
     "Yml
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-    "Erlang
-    autocmd FileType erlang setlocal ts=8 sts=4 sw=4 expandtab
-
-    "Python
-    autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
-    autocmd FileType python setlocal autoindent
-    "nose for unittest
-    autocmd FileType python compiler nose
-    autocmd FileType python set omnifunc=pythoncomplete#Complete
-    autocmd FileType python set formatprg=PythonTidy
-    autocmd BufNewFile,BufRead *.pyx setlocal foldmethod=indent
-    if exists('+colorcolumn')
-          " autocmd FileType python set colorcolumn=80
-    endif
+    "
     "Clojure"
     " autocmd FileType clojure set ts=2 sts=2 sw=2 expandtab
     autocmd FileType clojure compiler clojure
@@ -485,430 +714,4 @@ if has("autocmd")
     "Scons
     autocmd BufNewFile,BufRead SConstruct set filetype=scons
 
-    "C++11
-    autocmd BufNewFile,BufRead *.cpp set syntax=cpp11
-    autocmd BufNewFile,BufRead *.hpp set syntax=cpp11
-
 endif
-
-
-
-"Coc-python
-autocmd FileType python nmap <silent> gd <Plug>(coc-definition)
-autocmd FileType python nmap <leader>rn <Plug>(coc-rename)
-autocmd FileType python noremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-"
-
-"Python Settings/Plugins ---------------------------------------------
-function! PythonTidySaver()
-    let oldpos=getpos('.')
-    %!PythonTidy
-    call setpos('.',oldpos)
-endfunction
-
-"autocmd! bufwritepost *.py call PythonTidySaver()
-"Virtualenv
-if has('python')
-    if !empty($VIRTUAL_ENV)
-        let g:virtualenv_auto_activate=1
-    endif
-
-    "make sure to change /etc/paths"
-    function! MakePyProjet(projectname)
-        " execute '!source /usr/local/share/python/virtualenvwrapper.sh'
-        execute '!mkproject& -t locodev ' . a:projectname
-    endfunction
-else
-    "ack to make vi work
-    function! VirtualEnvStatusline()
-    endfunction
-
-endif
-
-"tmux does no like C-s
-let g:ipy_perform_mappings = 0
-"autocmd FileType python map<silent>K :py get_doc_buffer()<CR>
-autocmd FileType python map<silent><C-i> :python run_this_line()<CR>
-autocmd FileType python vmap <silent> <C-i> :python run_these_lines()<CR>
-function! IPythonShell()
-  :py if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')
-endfunction
-
-command! IPythonShell call IPythonShell()
-
-
-"make green plugin
-Plug 'reinh/vim-makegreen'
-map <Leader>nose :call MakeGreen()<CR>
-
-if has('python')
-    Plug 'nvie/vim-pyunit'
-    let g:PyUnitCmd = '/usr/local/share/python/nosetests -q --with-machineout'
-    if !empty($VIRTUAL_ENV)
-        let g:PyUnitCmd = $VIRTUAL_ENV . '/bin/nosetests -q --with-machineout'
-    endif
-    let g:PyUnitTestsStructure="nose"
-    autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
-    autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>
-    autocmd Filetype python noremap <Leader>ut :call PyUnitSwitchToCounterpart()<CR>
-    autocmd Filetype python noremap! <Leader>ut <ESC>:call PyUnitSwitchToCounterpart()<CR>
-endif
-
-"Ropevim
-let ropevim_vim_completion=1
-
-"Pep8 plugin # using flake8
-if has('python')
-    "Plug 'orestis/pysmell.git'
-    if executable("pep8")
-        "Plug 'nvie/vim-pep8.git'
-        "autocmd FileType python map <buffer> <Leader>p :call Pep8()<CR>
-    endif
-endif
-
-"Pydoc, Pyref plugin
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#goto_definitions_command = "<leader>D"
-let g:jedi#rename_command = "<leader>r"
-"using neocompletecache
-let g:jedi#popup_on_dot = 0
-
-
-
-"Plug 'fs111/pydoc.vim'
-let g:pydoc_cmd='/usr/local/bin/pydoc'
-
-"
-
-"NerdTree Plugin----------------------------------------------------
-
-nmap <silent><Leader>ft :NERDTreeToggle<CR>
-nmap <silent><leader>nf :NERDTreeFind<CR>
-
-let g:NERDTreeWinPos = "left"
-"down't display the following files
-let NERDTreeIgnore=['\.DS_Store$','\.pyc$', '\.xls$','\.zip$','\.pdf$','\.nav$','\.snm$','.\toc$','\.vrb$','\.aux$' , '\.git$', '\.db$', '\.ropeproject', '\.so$', '\.un\~$', '\.lein-plugins$', '\.beam$']
-let NERDTreeHighlightCursorline=1
-" Show the bookmarks table on startup
-let NERDTreeShowBookmarks=1
-"quit after opening a file
-let NERDTreeQuitOnOpen=1
-let NERDTreeShowHidden=1
-"some styling
-let NERDTreeDirArrows = 1
-"hi Title guifg=red guibg=#202020
-if has("autocmd")
-    autocmd Filetype nerdtree setlocal nolist
-endif
-
-"
-
-"Ultinips Settings-------------------------------------------------------
-if has('python')
-
-    let g:UltiSnipsEditSplit='vertical'
-    let g:UltiSnipsUsePythonVersion = 2
-    autocmd BufNewFile,BufRead *.snippets set filetype=snippets
-
-    "does not seem to work so call it"
-    nnoremap <Leader>us :call UltiSnips_ListSnippets()<CR>
-    inoremap <Leader>us <ESC>:call UltiSnips_ListSnippets()<CR>
-
-    let g:UltiSnipsExpandTrigger="<c-j>"
-    let g:UltiSnipsJumpForwardTrigger="<c-j>"
-    let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-    autocmd Filetype python :UltiSnipsAddFiletypes python
-    autocmd Filetype html :UltiSnipsAddFiletypes html
-    autocmd Filetype c :UltiSnipsAddFiletypes c
-    autocmd Filetype cpp :UltiSnipsAddFiletypes cpp
-
-endif
-
-"
-
-"Ack plugin -----------------------------------------------------------------
-nnoremap <Leader>ag :Ack --follow <C-r><C-w>
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
-"
-
-"ZoomWin plugin ------------------------------------------------------------
-
-nnoremap <Leader>z :ZoomWin<CR>
-inoremap <Leader>z <ESC>:ZoomWin<CR>
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
-set noequalalways
-
-"
-
-"OpenTerminal plugin --------------------------------------------------------
-
-nnoremap <silent><Leader>of :OpenFilemanager<CR><CR>
-
-"
-
-"Easymotion plugin ----------------------------------------------------------
-
-let g:EasyMotion_leader_key = 'e'
-
-"
-
-"Yankring plugin -------------------------------------------------------------
-
-nnoremap <silent><Leader>y :YRShow<cr>
-inoremap <silent><Leader>y <ESC>:YRShow<cr>
-let g:yankring_history_dir = "$HOME/.vim/"
-let g:yankring_history_file = 'yankring_history'
-
-nnoremap <leader>Y :call system('nc localhost 8377', @0)<CR>
-
-
-"
-
-"Neocomplete plugin ----------------------------------------------------------
-
-" Disable AutoComplPop.
-"let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" AutoComplPop like behavior.
-let g:neocomplcache_enable_auto_select = 1
-
-"
-
-"Git plugins ------------------------------------------------------------------
-"fugitive
-
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gco :Gcheckout<CR>
-nnoremap <Leader>gci :Gcommit<CR>
-nnoremap <Leader>gl :Glog<CR>
-nnoremap <Leader>gp :Git push<CR>
-nnoremap <Leader>gcaa :Git commit -a --amend -C HEAD
-
-"gitv
-
-"Gundo plugin
-if has('python')
-    nnoremap <Leader>gu :GundoToggle<CR>
-    "let g:gundo_debug = 1
-    let g:gundo_preview_bottom = 1
-endif
-
-"
-
-"SQL plugin's --------------------------------------------------
-"dbext <Leaeder>se
-let dbext_default_DB2_bin='db2batch'
-"let g:dbext_default_DB2_cmd_options="-q on -s off -l ';'"
-"let g:dbext_default_DB2_cmd_options="-q del -s off"
-"let dbext_default_DB2_cmd_terminator=""
-"let dbext_default_DB2_cmd_terminator="':';"
-"output command
-"let dbext_default_display_cmd_line=1
-
-
-
-"Swap parameters plugin-------------------------------------------------
-if has('python')
-    noremap gb :call SwapParams("forwards")<cr>
-    noremap gB :call SwapParams("backwards")<cr>
-endif
-
-
-
-"Ctrl-p plugin-----------------------------------------------------------------
-
-let g:ctrlp_map = '<leader>ff'
-let g:ctrlp_jump_to_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_split_window = 0
-let g:ctrlp_max_height = 20
-let g:ctrlp_open_new_file = 'v'
-let g:ctrlp_extensions = ['tag']
-let g:ctrlp_prompt_mappings = {
-\ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
-\ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<tab>'],
-\ 'PrtHistory(-1)':       ['<c-n>'],
-\ 'PrtHistory(1)':        ['<c-p>'],
-\ 'ToggleFocus()':        ['<c-tab>'],
-\ }
-let g:ctrlp_extensions = ['tag']
-" let g:ctrlp_custom_ignore = {
-" \ 'dir' : '\.git/',
-" \
-" \ }
-"let g:ctrlp_dont_split = 'NERD_tree_2'
-
-nnoremap <leader>bb :CtrlPBuffer<cr>
-
-nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <leader>mr :CtrlPMRUFiles<cr>
-
-
-"TAGS Settings ---------------------------------------------------------
-if executable('ctags')
-    map \pyt :exe '!ctags -R --languages=python -f ./pytags ' . system('python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"')<CR>
-    map <Leader>/ :exe '!ctags -R . ./tags'
-
-    " Easy tags plugin
-    let g:easytags_cmd = '/usr/local/bin/ctags'
-    set tags=./tags;
-    let g:easytags_dynamic_files = 1
-    let g:easytags_async = 1
-
-    let g:tagbar_ctags_bin='/usr/local/bin/ctags'
-    "Tagbar Plugin Settings
-    nmap <silent><Leader>k :TagbarToggle<CR>
-endif
-"
-
-"Visualization ---------------------------------------------------------
-"Powerline
-" Plug 'Lokaltog/vim-powerline'
-" let g:Powerline_symbols = "fancy"
-let g:airline_powerline_fonts = 1
-
-if has("autocmd")
-  "autocmd bufwritepost .vimrc source $MYVIMRC
-  "autocmd bufwritepost .vimrc call Pl#Load()
-endif
-
-"IndentationGuide <Leader>ig
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#998f84 ctermbg=245
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#d9cec3 ctermbg=252
-
-
-" TimeStamp plugin--------------------------------------------------
-"autocmd BufWritePre *.py :1,6s/T_IMESTAMP/TIMESTAMP/e
-"
-
-" Syntastic plugin ----------------------------------------------------------
-"checks syntax for multiple file type install
-"   - cpp , c g++, gcc
-"   - flake8 or pyflakes or pylint for python
-"   - jsonlint for json
-"   - java ?? / use eclim
-"   - jslint for javascript
-
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list=2
-let g:syntastic_python_checkers = ['flake8']
-
-
-
-"use YoucompleteMe
-" let g:syntastic_cpp_config_file='.clang_complete'
-let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall'
-"erlang
-let g:syntastic_erlang_checkers=['syntaxerl']
-let g:syntastic_javascript_checkers = ['jshint']
-
-
-"
-
-"Gitst plugin ------------------------------------------------------
-let g:gist_clip_command = 'pbcopy'
-let g:gist_detect_filetype = 1
-
-
-
-"Comments---------------------------------------------------------------
-xmap <Leader>c  <Plug>Commentary
-nmap <Leader>c  <Plug>Commentary
-nmap <Leader>cl <Plug>CommentaryLine
-au FileType htmldjango setlocal commentstring={#\ %s\ #}
-au FileType jinja setlocal commentstring={#\ %s\ #}
-au FileType clojurescript setlocal commentstring=;\ %s
-au FileType scons setlocal commentstring=#\ %s
-au FileType python setlocal commentstring=#\ %s
-
-"
-
-" Tmux -----------------------------------------------------------------
-if executable("tmux")
-
-    "change pane number at runtime by setting
-    function! TmuxPaneNumber()
-          let b:tmux_panenumber = input("pane number: ", "", "custom,Tmux_Pane_Numbers")
-    endfunction
-    command! TmuxPaneNumber call TmuxPaneNumber()
-
-    " Plug 'sjl/vitality.vim'
-    " Save when losing focus
-    " " Save when losing focus
-    " au FocusLost * :silent! wall
-
-    "vim tmux-runner
-    let g:VtrStripLeadingWhitespace = 0
-    let g:VtrClearEmptyLines = 0
-    let g:VtrAppendNewline = 1
-    nmap <leader>sr :VtrSendLinesToRunner<CR>
-    vmap <leader>sr :VtrSendLinesToRunner<CR>
-
-endif
-
-"
-
-"C/C++ ------------------------------------------------------------
-
-
-" Plug 'Rip-Rip/clang_complete'
-" autocmd FileType c let g:clang_user_options = "-std=c99 2>/dev/null || exit 0"
-" autocmd FileType cpp let g:clang_user_options = "-std=c++11 2>/dev/null || exit 0"
-" let g:clang_use_library=1
-" let g:clang_library='/usr/lib'
-" let g:clang_snippets=1
-" let g:clang_snippets_engine='ultisnips'
-" Plug 'osyo-manga/neocomplcache-clang_complete'
-"
-"Plug "Valloric/YouCompleteMe"
-let g:ycm_key_detailed_diagnostics=''
-"leave Ultisnips allone
-" let g:ycm_key_list_select_completion=['']
-" let g:ycm_key_list_previous_completion=['']
-
-" let g:ycm_key_invoke_completion=''
-nmap <silent><Leader> cm :YcmForceCompileAndDiagnostics<CR>
-let g:ycm_filetype_specific_completion_to_disable = {'erl':1, 'hrl':1}
-
-set makeprg=scons
-
-
-"Other -----------------------------------------------------
-"Task Management
-"Plug 'chrisbra/csv.vim'
-command! CsvCleanup :%s/\%x0d/\r/
-
-"Rainbow Parenthesis
-let g:rbpt_max = 16
-" autocmd FileType clojure RainbowParenthesesToggle
-" au VimEnter * RainbowParenthesesToggle
-
-"Erlang ----------------------------------------------------------------
-let erlang_force_use_vimerl_indent = 0
-let erlang_skel_header = { "author": "Locojay", "owner" : "Locojay" }
-let erlang_folding=1
-
-"use syntastic
-let erlang_show_errors = 0
-"

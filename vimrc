@@ -46,15 +46,12 @@ Plug 'tpope/vim-speeddating'
 Plug 'airblade/vim-gitgutter'        " shows git changes in gutter
 
 
-Plug 'reinh/vim-makegreen'
-
 "Python ----------------------------------------------------------------
 "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'}
-"Plug 'nvie/vim-pyunit', {'for': 'python'}
 Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'fisadev/vim-isort', {'for': 'python'} " Python sort imports [dep]: pip3 install isort
-Plug 'tmhedberg/SimpylFold', {'for': 'python'} " Code folding (zo: open, zc: close)
+Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 "Plug 'ivanov/vim-ipython', {'for': 'python'}
 "Plug 'xolox/vim-pyref', {'for': 'python'}
 "Plug 'davidhalter/jedi-vim', {'for': 'python'} /# moved to  coc.vim and  coc-python
@@ -223,8 +220,6 @@ endif
 if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
-
-
 
 " Clipboad and Pasting
 "add to clipbord
@@ -509,12 +504,6 @@ let g:syntastic_erlang_checkers=['syntaxerl']
 let g:syntastic_javascript_checkers = ['jshint']
 
 
-"Plug "Valloric/YouCompleteMe"
-"let g:ycm_key_detailed_diagnostics=''
-"leave Ultisnips allone
-" let g:ycm_key_list_select_completion=['']
-" let g:ycm_key_list_previous_completion=['']
-
 "Comments---------------------------------------------------------------
 xmap <Leader>c  <Plug>Commentary
 nmap <Leader>c  <Plug>Commentary
@@ -555,61 +544,26 @@ endif
 "
 "
 "Python--------------------------------------------------------------
-if has("autcmd")
-    autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
-    autocmd FileType python setlocal autoindent
-    au FileType python setlocal commentstring=#\ %s
+autocmd FileType python setlocal ts=8 sts=4 sw=4 expandtab
+autocmd FileType python setlocal autoindent
+au FileType python setlocal commentstring=#\ %s
 
-    autocmd FileType python compiler nose
-    "autocmd FileType python set omnifunc=pythoncomplete#Complete
-    "autocmd FileType python set formatprg=PythonTidy
-    "autocmd BufNewFile,BufRead *.pyx setlocal foldmethod=indent
-    "Coc-python
-    autocmd FileType python nmap <silent> gd <Plug>(coc-definition)
-    autocmd FileType python nmap <leader>rn <Plug>(coc-rename)
-    autocmd FileType python noremap <silent> K :call <SID>show_documentation()<CR>
-    function! s:show_documentation()
-      if (index(['vim','help'], &filetype) >= 0)
+autocmd FileType python compiler nose
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd BufNewFile,BufRead *.pyx setlocal foldmethod=indent
+"Coc-python
+autocmd FileType python nmap <silent> gd <Plug>(coc-definition)
+autocmd FileType python nmap <leader>rn <Plug>(coc-rename)
+autocmd FileType python noremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
-      else
+    else
         call CocAction('doHover')
-      endif
-    endfunction
-endif
-"make green plugin
-map <Leader>nose :call MakeGreen()<CR>
-
-if has('python')
-    let g:PyUnitCmd = '/usr/local/share/python/nosetests -q --with-machineout'
-    if !empty($VIRTUAL_ENV)
-        let g:PyUnitCmd = $VIRTUAL_ENV . '/bin/nosetests -q --with-machineout'
     endif
-    let g:PyUnitTestsStructure="nose"
-    autocmd Filetype python noremap <Leader>nose :call PyUnitRunTests()<CR>
-    autocmd Filetype python noremap! <Leader>nose <Esc>:call PyUnitRunTests()<CR>
-    autocmd Filetype python noremap <Leader>ut :call PyUnitSwitchToCounterpart()<CR>
-    autocmd Filetype python noremap! <Leader>ut <ESC>:call PyUnitSwitchToCounterpart()<CR>
-endif
-
-let g:vim_isort_map = '<C-i>'
-"Pydoc, Pyref plugin
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#goto_definitions_command = "<leader>D"
-let g:jedi#rename_command = "<leader>r"
-" let g:ycm_key_invoke_completion=''
-nmap <silent><Leader> cm :YcmForceCompileAndDiagnostics<CR>
-let g:ycm_filetype_specific_completion_to_disable = {'erl':1, 'hrl':1}
-
-"autocmd FileType python map<silent>K :py get_doc_buffer()<CR>
-autocmd FileType python map<silent><C-i> :python run_this_line()<CR>
-autocmd FileType python vmap <silent> <C-i> :python run_these_lines()<CR>
-function! IPythonShell()
-  :py if update_subchannel_msgs(force=True): echo("vim-ipython shell updated",'Operator')
 endfunction
 
-
-
-"using
+let g:vim_isort_map = '<C-i>'
 
 set makeprg=scons
 
@@ -709,4 +663,3 @@ autocmd BufNewFile,BufRead *.scala set filetype=scala
 
 "Scons
 autocmd BufNewFile,BufRead SConstruct set filetype=scons
-

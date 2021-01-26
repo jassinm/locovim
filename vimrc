@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 "let g:python3_host_prog  = '/Users/locojay/.pyenv/versions/neovim3/bin/python'
 let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog  = '/usr/local/bin/python3'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
 Plug 'mhinz/vim-startify'
@@ -110,7 +111,7 @@ if has('gui_running')
     set background=dark
     "set guifont=Monaco:h12
     if has("gui_gtk2")
-        set guifont=PragmataPro Mono\ 15
+        set guifont=PragmataPro\ Mono:h15
     else
         set guifont=PragmataPro\ Mono:h15
     endif
@@ -131,8 +132,13 @@ elseif exists('+termguicolors')
     "set lazyredraw
 endif
 
+set termguicolors
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
+
+"GruvboxAqua
+"set background=dark
+"colorscheme gruvbox8_hard
 "
 
 "Vim Settings----------------------------------------------------------------
@@ -361,9 +367,9 @@ map <silent><Leader><space> :noh<CR>
 "
 "Linter
 " Check Python files with flake8
-let b:ale_linters = ['flake8']
+let b:ale_linters = {'python': ['flake8']}
 " Fix Python files with autopep8 and yapf.
-let b:ale_fixers = ['black'] "['autopep8', 'yapf']
+let b:ale_fixers = {'python': ['black', 'autopep8']} "['autopep8', 'yapf']
 " Disable warnings about trailing whitespace for Python files.
 let b:ale_warn_about_trailing_whitespace = 0
 "let g:ale_fix_on_save = 1
@@ -663,3 +669,7 @@ autocmd BufNewFile,BufRead *.scala set filetype=scala
 
 "Scons
 autocmd BufNewFile,BufRead SConstruct set filetype=scons
+
+"highlight! link Function GruvboxBlue
+highlight! link Function GruvboxAqua
+highlight! link pythonImport GruvboxRed

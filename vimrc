@@ -533,6 +533,14 @@ endif
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 
+" Use <c-space> to trigger completion.
+"inoremap <silent><expr> <c-space> coc#refresh()
+
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
+
 
 "C/C++ ------------------------------------------------------------
 " Plug 'Rip-Rip/clang_complete'

@@ -135,6 +135,7 @@ endif
 set termguicolors
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
+highlight Comment cterm=italic gui=italic
 
 "GruvboxAqua
 "set background=dark

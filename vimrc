@@ -6,6 +6,7 @@ let g:python_host_prog = '/usr/local/bin/python'
 let g:python3_host_prog  = '/usr/local/bin/python3'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'bling/vim-airline'
 Plug 'mhinz/vim-startify'
 Plug 'pineapplegiant/spaceduck'
@@ -17,6 +18,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kien/ctrlp.vim'
 "Plug 'mileszs/ack.vim'
+Plug 'airblade/vim-rooter'
 "
 "Time Machine
 Plug 'sjl/gundo.vim'
@@ -53,6 +55,7 @@ Plug 'Vimjas/vim-python-pep8-indent', {'for': 'python'}
 Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'fisadev/vim-isort', {'for': 'python'} " Python sort imports [dep]: pip3 install isort
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
+Plug 'alfredodeza/pytest.vim'
 "Plug 'ivanov/vim-ipython', {'for': 'python'}
 "Plug 'xolox/vim-pyref', {'for': 'python'}
 "Plug 'davidhalter/jedi-vim', {'for': 'python'} /# moved to  coc.vim and  coc-python
@@ -96,6 +99,7 @@ Plug 'goldfeld/vim-seek'
 Plug 'vim-scripts/LargeFile'
 "vim scripting
 "Plug 'vim-scripts/reload.vim'
+Plug 'rizzatti/dash.vim'
 
 
 call plug#end()
@@ -430,38 +434,53 @@ if has('python')
     noremap gB :call SwapParams("backwards")<cr>
 endif
 
+
+
+set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
+let g:rg_derive_root = 1
+"Fzf
+"
+let $FZF_DEFAULT_COMMAND = 'rg --files --follow --hidden --glob "!.git/*"'
+nnoremap <leader>ff :Files<cr>
+nnoremap <leader>bb :Buffers<cr>
+nnoremap <leader>sp :Rg<cr>
+
+
+"
+"
+"Vim rooter
+let g:rooter_patterns = ['.git', 'Makefile', 'src']
 "Ctrl-p plugin-----------------------------------------------------------------
-let g:ctrlp_map = '<leader>ff'
-let g:ctrlp_jump_to_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_split_window = 0
-let g:ctrlp_max_height = 20
-let g:ctrlp_open_new_file = 'v'
-let g:ctrlp_extensions = ['tag']
-let g:ctrlp_prompt_mappings = {
-\ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
-\ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<tab>'],
-\ 'PrtHistory(-1)':       ['<c-n>'],
-\ 'PrtHistory(1)':        ['<c-p>'],
-\ 'ToggleFocus()':        ['<c-tab>'],
-\ }
-let g:ctrlp_extensions = ['tag']
-" let g:ctrlp_custom_ignore = {
-" \ 'dir' : '\.git/',
-" \
-" \ }
-"let g:ctrlp_dont_split = 'NERD_tree_2'
-
-nnoremap <leader>bb :CtrlPBuffer<cr>
-
-nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <leader>mr :CtrlPMRUFiles<cr>
+"let g:ctrlp_map = '<leader>ff'
+"let g:ctrlp_jump_to_buffer = 0
+"let g:ctrlp_working_path_mode = 0
+"let g:ctrlp_match_window_reversed = 1
+"let g:ctrlp_split_window = 0
+"let g:ctrlp_max_height = 20
+"let g:ctrlp_open_new_file = 'v'
+"let g:ctrlp_extensions = ['tag']
+"let g:ctrlp_prompt_mappings = {
+"\ 'PrtSelectMove("j")':   ['<c-j>', '<down>', '<s-tab>'],
+"\ 'PrtSelectMove("k")':   ['<c-k>', '<up>', '<tab>'],
+"\ 'PrtHistory(-1)':       ['<c-n>'],
+"\ 'PrtHistory(1)':        ['<c-p>'],
+"\ 'ToggleFocus()':        ['<c-tab>'],
+"\ }
+"let g:ctrlp_extensions = ['tag']
+"" let g:ctrlp_custom_ignore = {
+"" \ 'dir' : '\.git/',
+"" \
+"" \ }
+""let g:ctrlp_dont_split = 'NERD_tree_2'
+"
+"nnoremap <leader>bb :CtrlPBuffer<cr>
+"
+"nnoremap <leader>. :CtrlPTag<cr>
+"nnoremap <leader>mr :CtrlPMRUFiles<cr>
 
 " NerdTree
 map <Leader>ft :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$']  " ignore pyc files
-
+let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
 
 "TAGS Settings ---------------------------------------------------------
 if executable('ctags')
@@ -542,6 +561,10 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 "C/C++ ------------------------------------------------------------
 " Plug 'Rip-Rip/clang_complete'
@@ -581,6 +604,11 @@ endfunction
 let g:vim_isort_map = '<C-i>'
 
 set makeprg=scons
+
+" Pytest
+nmap <silent><Leader>tf <Esc>:Pytest file<CR>
+nmap <silent><Leader>tc <Esc>:Pytest class<CR>
+nmap <silent><Leader>tm <Esc>:Pytest method<CR>
 
 "Other -----------------------------------------------------
 "Task Management
@@ -642,7 +670,7 @@ autocmd BufNewFile,BufRead *.cljs set filetype=clojure
 autocmd Filetype css set omnifunc=csscomplete#CompleteCSS
 
 "Javascript
-autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtabjj
 autocmd BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 "Tex
@@ -679,6 +707,11 @@ autocmd BufNewFile,BufRead *.scala set filetype=scala
 "Scons
 autocmd BufNewFile,BufRead SConstruct set filetype=scons
 
-"highlight! link Function GruvboxBlue
 highlight! link Function GruvboxAqua
+highlight! link PythonFunction GruvboxBlue
+
+"highlight! link Function GruvboxAqua
 highlight! link pythonImport GruvboxRed
+hi! link pythonDottedName GruvboxBlue
+hi! link Structure GruvboxYellow
+hi! link pythonDecorator GruvboxGray

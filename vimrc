@@ -438,11 +438,16 @@ endif
 
 set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --follow
 let g:rg_derive_root = 1
+
+
+nnoremap <Leader>fw :Rg <C-R><C-W><space>
 "Fzf
 "
 let $FZF_DEFAULT_COMMAND = 'rg --files --follow --hidden --glob "!.git/*"'
 nnoremap <leader>ff :Files<cr>
 nnoremap <leader>bb :Buffers<cr>
+nnoremap <leader>ss :Lines<cr>
+nnoremap <leader>sb :Lines<cr>
 nnoremap <leader>sp :Rg<cr>
 
 

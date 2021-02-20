@@ -298,6 +298,7 @@ set updatetime=300
 
 noremap <silent><Leader>bn :bn<CR>
 noremap <silent><Leader>bp :bp<CR>
+noremap <silent><Leader>bd :bd<CR>
 noremap <silent><Leader>ba :1,300 bd!<CR> "close all buffer
 
 "Tab commands
@@ -372,13 +373,13 @@ map <silent><Leader><space> :noh<CR>
 "
 "Linter
 " Check Python files with flake8
-let b:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {'python': ['flake8']}
 " Fix Python files with autopep8 and yapf.
-let b:ale_fixers = {'python': ['black', 'autopep8']} "['autopep8', 'yapf']
+let g:ale_fixers = {'python': ['black', 'autopep8', 'isort']} "['autopep8', 'yapf']
 " Disable warnings about trailing whitespace for Python files.
-let b:ale_warn_about_trailing_whitespace = 0
+let g:ale_warn_about_trailing_whitespace = 0
 "let g:ale_fix_on_save = 1
-
+nnoremap <Leader>fx :ALEFix<CR>
 "Folding ------------------------------------------------
 " Javadoc comments (/** and */ pairs) and code sections (marked by {} pairs) mark the start and end of folds. All other
 " lines simply take the fold level that is going so far.

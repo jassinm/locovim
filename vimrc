@@ -11,9 +11,11 @@ Plug 'bling/vim-airline'
 Plug 'mhinz/vim-startify'
 Plug 'pineapplegiant/spaceduck'
 "Plug 'sjl/badwolf'
+Plug 'ryanoasis/vim-devicons'
 
 " File Management ----------------------------------------------------------------
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kien/ctrlp.vim'
@@ -115,9 +117,11 @@ if has('gui_running')
     set background=dark
     "set guifont=Monaco:h12
     if has("gui_gtk2")
-        set guifont=PragmataPro\ Mono:h15
+        set guifont=PragmataPro:h15
+        "set guifont=PragmataPro\ Nerd\ Font:h15
     else
-        set guifont=PragmataPro\ Mono:h15
+        set guifont=PragmataPro:h15
+        "set guifont=PragmataPro\ Nerd\ Font:h15
     endif
     set guioptions=egmrt
     set guioptions-=T
@@ -132,7 +136,8 @@ elseif exists('+termguicolors')
     " Non-GUI (terminal) colors
 
     "let g:gruvbox_termcolors=256
-    set guifont=PragmataPro\ Mono:h15
+    set guifont=PragmataPro:h15
+    "set guifont=PragmataPro\ Nerd\ Font:h15
     "set lazyredraw
 endif
 
@@ -483,8 +488,12 @@ let g:rooter_patterns = ['.git', 'Makefile', 'src']
 "
 "nnoremap <leader>. :CtrlPTag<cr>
 "nnoremap <leader>mr :CtrlPMRUFiles<cr>
+"
+"let g:webdevicons_conceal_nerdtree_brackets = 0
 
 " NerdTree
+let g:WebDevIconsOS = 'Darwin'
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 map <Leader>ft :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__']
 

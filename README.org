@@ -1,6 +1,6 @@
-*Loco's VIM configuration
+* Loco's VIM configuration
 
-*Intallation
+* Intallation
 
 
 #+begin_src

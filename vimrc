@@ -11,6 +11,7 @@ let g:python3_host_prog  = '/usr/local/bin/python3'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+Plug 'joshdick/onedark.vim'
 Plug 'bling/vim-airline'
 Plug 'mhinz/vim-startify'
 Plug 'pineapplegiant/spaceduck'
@@ -18,31 +19,31 @@ Plug 'pineapplegiant/spaceduck'
 
 " Nerd Tree------------------------------------------------------------------------------
 Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " File Management------------------------------------------------------------------------
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 "Plug 'mileszs/ack.vim'
 Plug 'airblade/vim-rooter'
 "
 "Time Machine
 Plug 'sjl/gundo.vim'
+
 Plug 'vim-scripts/YankRing.vim'
-"
 Plug 'Lokaltog/vim-easymotion'
 Plug 'SirVer/ultisnips'
 "Plug 'vim-scripts/ZoomWin'
 "Plug 'vim-scripts/open-terminal-filemanager'
 "Plug 'vim-scripts/swap-parameters'
 "Plug 'xolox/vim-easytags'
-"Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 "Plug 'scrooloose/syntastic'
 "Plug 'mattn/gist-vim'
 "Plug 'gmarik/sudo-gui.vim'
 Plug 'gcmt/wildfire.vim'
 "
-
+"language packs
 Plug 'sheerun/vim-polyglot'
 "Tpopeplugins---------------------------------------------------------------------------
 Plug 'tpope/vim-commentary'
@@ -128,7 +129,6 @@ if has("gui_mac")
     set macmeta
 endif
 
-"
 "Set up the window colors and size
 if has('gui_running')
     " GUI colors
@@ -148,8 +148,8 @@ if has('gui_running')
     set go-=L
     set go-=r
 elseif exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
     " Non-GUI (terminal) colors
 
@@ -161,9 +161,9 @@ endif
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
+"colorscheme onedark
 
 highlight Comment cterm=italic gui=italic
-
 "GruvboxAqua
 "set background=dark
 "colorscheme gruvbox8_hard
@@ -381,6 +381,7 @@ inoremap <C-B> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 noremap <silent><leader>u :! urlview %<CR>
 
 
+
 "---------------------------------------------------------------------------------------
 " Default Tabs, spaces, wrapping
 "---------------------------------------------------------------------------------------
@@ -398,14 +399,15 @@ set formatoptions=qrn1
 "Search Settings
 "---------------------------------------------------------------------------------------
 
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 set smartcase
 set incsearch "search as you type
+set hlsearch
+"khighlight Search ctermbg=LightYellow ctermfg=Red cterm=bold,italic guibg=LightYellow guifg=Red gui=bold,italic
 set gdefault "always /g
 set ignorecase
 set showmatch "show matching braces
-set hlsearch
 "replace word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 map <silent><Leader><space> :noh<CR>
@@ -549,7 +551,6 @@ nmap <silent><Leader>tf <Esc>:Pytest file<CR>
 nmap <silent><Leader>tc <Esc>:Pytest class<CR>
 nmap <silent><Leader>tm <Esc>:Pytest method<CR>
 
-
 "---------------------------------------------------------------------------------------
 "Erlang
 "---------------------------------------------------------------------------------------
@@ -685,8 +686,6 @@ nnoremap <leader>sb :Lines<cr>
 nnoremap <leader>sp :Rg<cr>
 
 
-"
-"
 "---------------------------------------------------------------------------------------
 "Vim rooter
 "---------------------------------------------------------------------------------------
@@ -731,10 +730,11 @@ let g:rooter_patterns = ['.git', 'Makefile', 'src']
 
 "let NERDTreeMinimalUI=1 " remove the first line help info
 "let g:WebDevIconsOS = 'Darwin'
+let NERDTreeHighlightCursorline = 0
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 map <Leader>ft :NERDTreeToggle<CR>
 "map <Leader>ft :NERDTreeFind<CR>
-let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__', '.git$']
+let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__', '.git$', '.DS_Store', '.pytest_cache']
 let NERDTreeShowHidden=1
 
 "---------------------------------------------------------------------------------------
@@ -789,7 +789,6 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++ -Wall'
 "erlang
 let g:syntastic_erlang_checkers=['syntaxerl']
 let g:syntastic_javascript_checkers = ['jshint']
-
 
 
 "---------------------------------------------------------------------------------------

@@ -1,7 +1,8 @@
 " The plugins for the coc.nvim
 let g:coc_global_extensions = [
-\ 'coc-tabnine',
-\ 'coc-pyright'
+"\ 'coc-tabnime',
+\ 'coc-pyright',
+\ 'coc-fzf-preview'
 \ ]
 
 call plug#begin(has('nvim') ? '~/.config/nvim/plugged' : '~/.vim/plugged')
@@ -21,7 +22,8 @@ Plug 'pineapplegiant/spaceduck'
 Plug 'scrooloose/nerdtree'
 "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " File Management------------------------------------------------------------------------
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
+"Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'junegunn/fzf.vim'
 "Plug 'kien/ctrlp.vim'
 "Plug 'mileszs/ack.vim'
@@ -69,6 +71,7 @@ Plug 'jmcantrell/vim-virtualenv', {'for': 'python'}
 Plug 'fisadev/vim-isort', {'for': 'python'} " Python sort imports [dep]: pip3 install isort
 Plug 'tmhedberg/SimpylFold', {'for': 'python'}
 Plug 'alfredodeza/pytest.vim'
+Plug 'heavenshell/vim-pydocstring'
 "Plug 'ivanov/vim-ipython', {'for': 'python'}
 "Plug 'xolox/vim-pyref', {'for': 'python'}
 "Plug 'davidhalter/jedi-vim', {'for': 'python'} /# moved to  coc.vim and  coc-python
@@ -118,6 +121,13 @@ Plug 'psliwka/vim-smoothie'
 
 "Icon / must be last one
 Plug 'ryanoasis/vim-devicons'
+
+" Debug
+Plug 'puremourning/vimspector'
+" diff
+Plug 'will133/vim-dirdiff'
+Plug 'AndrewRadev/linediff.vim'
+
 call plug#end()
 
 "---------------------------------------------------------------------------------------
@@ -125,28 +135,21 @@ call plug#end()
 "---------------------------------------------------------------------------------------
 
 "Alt key
-if has("gui_mac")
-    set macmeta
-endif
+" if has("gui_mac")
+"     set macmeta
+" endif
 
 "Set up the window colors and size
 if has('gui_running')
     " GUI colors
     set background=dark
     "set guifont=Monaco:h12
-    if has("gui_gtk2")
-        set guifont=PragmataPro:h15
-        "set guifont=PragmataPro\ Nerd\ Font:h15
-    else
-        set guifont=PragmataPro:h15
-        "set guifont=PragmataPro\ Nerd\ Font:h15
-    endif
-    set guioptions=egmrt
-    set guioptions-=T
-    winpos 0 0
-    winsize 270 70
-    set go-=L
-    set go-=r
+    set guifont=PragmataPro:h15
+    "set guifont=PragmataPro
+    " winpos 0 0
+    " winsize 270 70
+    " set go-=L
+    " set go-=r
 elseif exists('+termguicolors')
     "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -275,6 +278,8 @@ set history=1000
 set notimeout
 set ttimeout
 set ttimeoutlen=10
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
 "---------------------------------------------------------------------------------------
 "Completion/Wildmenu
@@ -426,6 +431,8 @@ au FileType vim setlocal foldmethod=marker
 "Large files
 autocmd BufReadPost * if getfsize(bufname("%")) > 512*1024 | set syntax=| set filetype=| endif
 
+autocmd FileType make setlocal noexpandtab
+
 "Help
 "help in vertical split
 autocmd FileType help wincmd L
@@ -531,16 +538,7 @@ autocmd FileType python compiler nose
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 "autocmd BufNewFile,BufRead *.pyx setlocal foldmethod=indent
 "Coc-python
-autocmd FileType python nmap <silent> gd <Plug>(coc-definition)
-autocmd FileType python nmap <leader>rn <Plug>(coc-rename)
-autocmd FileType python noremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
+
 
 let g:vim_isort_map = '<C-i>'
 
@@ -550,6 +548,10 @@ set makeprg=scons
 nmap <silent><Leader>tf <Esc>:Pytest file<CR>
 nmap <silent><Leader>tc <Esc>:Pytest class<CR>
 nmap <silent><Leader>tm <Esc>:Pytest method<CR>
+
+" DocString
+let g:pydocstring_doq_path='/Users/locojay/.pyenv/shims/doq'
+let g:pydocstring_formatter = 'numpy'
 
 "---------------------------------------------------------------------------------------
 "Erlang
@@ -582,7 +584,22 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
+nmap <leader>rn <Plug>(coc-rename)
+
+
+noremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 "---------------------------------------------------------------------------------------
 "Linter Settings
 "---------------------------------------------------------------------------------------
@@ -678,14 +695,26 @@ let g:rg_derive_root = 1
 nnoremap <Leader>fw :Rg <C-R><C-W><space>
 "Fzf
 "
-let $FZF_DEFAULT_COMMAND = 'rg --files --follow --hidden --glob "!.git/*"'
-nnoremap <leader>ff :Files<cr>
-nnoremap <leader>bb :Buffers<cr>
-nnoremap <leader>ss :Lines<cr>
-nnoremap <leader>sb :Lines<cr>
-nnoremap <leader>sp :Rg<cr>
+"let $FZF_DEFAULT_COMMAND = 'rg --files --follow --hidden --glob "!.git/*"'
+" nnoremap <leader>ff :Files<cr>
+" nnoremap <leader>bb :Buffers<cr>
+" nnoremap <leader>ss :Lines<cr>
+" nnoremap <leader>sb :Lines<cr>
+" nnoremap <leader>sp :Rg<cr>
 
 
+nnoremap <leader>ff :CocCommand fzf-preview.ProjectFiles<cr>
+nnoremap <leader>bb :CocCommand fzf-preview.AllBuffers<cr>
+nnoremap <leader>sp :CocCommand fzf-preview.ProjectGrep<space>
+
+nmap <Leader>f [fzf-p]
+xmap <Leader>f [fzf-p]
+nnoremap <silent> [fzf-p]/     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+
+"nnoremap <leader>ff :FzfPreviewProjectFiles<cr>
+"nnoremap <leader>bb :FzfPreviewBuffers<cr>
+"nnoremap <leader>sp :FzfPreviewProjectGrep<cr>
 "---------------------------------------------------------------------------------------
 "Vim rooter
 "---------------------------------------------------------------------------------------
@@ -733,7 +762,7 @@ let g:rooter_patterns = ['.git', 'Makefile', 'src']
 let NERDTreeHighlightCursorline = 0
 let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 map <Leader>ft :NERDTreeToggle<CR>
-"map <Leader>ft :NERDTreeFind<CR>
+map <Leader>nt :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.egg-info$', '__pycache__', '__pycache__', '.git$', '.DS_Store', '.pytest_cache']
 let NERDTreeShowHidden=1
 

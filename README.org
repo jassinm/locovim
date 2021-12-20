@@ -4,6 +4,6 @@
 
 
 #+begin_src
-git clone https://locojay@github.com/locojay/locovim.git ~/.vim
+git clone https://jassinm@github.com/jassinm/locovim.git ~/.vim
     sh bootstrap.sh
 #+end_src
